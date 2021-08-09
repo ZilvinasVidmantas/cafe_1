@@ -2,6 +2,16 @@
 
 <head>
     <title>1 pamoka: HTML struktūra</title>
+    <style>
+        .table tbody tr:nth-of-type(2n) td:not([rowspan]) {
+            background: red;
+        }
+        .table tbody tr:nth-of-type(2n) td[rowspan] {
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+            background: red;
+            vertical-align: top;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,7 +55,20 @@
     <hr>
     <hr>
     <h2>Pamokų tvarkaraštis</h2>
-    <table width="100%" border="1">
+    <!-- 
+        Google:
+            css classes,
+            css pseudo classes/selectors
+            css background
+            css color
+            css hover
+        -- Stilius rašyti <style> tag'ę --
+        Motyvuotiems: papildomai stilizuokite (naudodami klases) lentelę:
+            * antraštės elementai juodi - tekstas baltas
+            * kas antra eilutė pilkšvą
+            * užvedus ant lentelės (duomenų) elemento, visa eilutė pakeičia spalvą
+    -->
+    <table border="1" width="100%" class="table">
         <thead>
             <tr>
                 <th colspan="6">Pamokų tvarkaraštis</th>
@@ -61,14 +84,59 @@
         </thead>
         <tbody>
             <tr>
-                <td>8:00 - 8:45</td>
-                <td>Anglų k.</td>
+                <td>8:00-8:45</td>
+                <td>Anglu</td>
                 <td>Matematika</td>
                 <td>Lietuvių k.</td>
                 <td>Matematika</td>
                 <td>Geografija</td>
             </tr>
-
+            <tr>
+                <td>8:55-9:40</td>
+                <td>Lietuvių</td>
+                <td rowspan="2">Lietuvių</td>
+                <td>Anglų k.</td>
+                <td>Lietuvių k.</td>
+                <td>Matematika</td>
+            </tr>
+            <tr>
+                <td>10:00-10:45</td>
+                <td>Matematika</td>
+                <td>Matematika</td>
+                <td>Matematika</td>
+                <td>Kūno kultūra</td>
+            </tr>
+            <tr>
+                <td>11:05-11:50</td>
+                <td>Anglų k.</td>
+                <td>Muzika</td>
+                <td>Fizika</td>
+                <td rowspan="2">Anglų k.</td>
+                <td>Istorija</td>
+            </tr>
+            <tr>
+                <td>12:00-12:45</td>
+                <td>Geografija</td>
+                <td>Fizika</td>
+                <td>Chemija</td>
+                <td>Biologija</td>
+            </tr>
+            <tr>
+                <td>12:55-13:40</td>
+                <td>Chemija</td>
+                <td>Istorija</td>
+                <td>Biologija</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>13:50-14:35</td>
+                <td></td>
+                <td>Dailė</td>
+                <td>Kūno kultūra</td>
+                <td></td>
+                <td></td>
+            </tr>
         </tbody>
     </table>
 

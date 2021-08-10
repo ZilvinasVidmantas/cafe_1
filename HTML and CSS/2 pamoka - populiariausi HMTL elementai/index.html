@@ -24,7 +24,7 @@
         <strong>inline-block</strong> - tai elementai kurie gali turėti 2D dimensijų nustatymus ir yra apibrėžti
       </li>
       <li>
-        <strong>inlie</strong> - tai tekstas
+        <strong>inline</strong> - tai tekstas
       </li>
     </ul>
     <article>
@@ -68,12 +68,137 @@
         naudojant iškeliamuosius raktažodžius.
       </p>
       <img src="https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg" width="350px" height="350px">
-      <img src="https://www.roadaffair.com/wp-content/uploads/2020/12/thi-lo-su-waterfall-thailand-shutterstock_1556344196-1024x683.jpg" height="350px">
+      <img
+        src="https://www.roadaffair.com/wp-content/uploads/2020/12/thi-lo-su-waterfall-thailand-shutterstock_1556344196-1024x683.jpg"
+        height="350px">
       <img src="https://i.giphy.com/media/9G3wg7lH5DpxC/giphy-downsized-large.gif" height="350px" alt="">
       <img src="img/giphy.webp" height="350px">
     </article>
+
+    <article>
+      <h2>Sąrašai</h2>
+      <p>
+        Sąrašai naudojami tam, kad įvardinti vienodo tipo elementus. Labai panašiai, kaip šnekamosios kalbos įvardiname
+        vienarūšes sakinio dalis.
+      </p>
+      <article>
+        <h3>Rikiuotas sąrašas</h3>
+        <ol>
+          <li>Atsikelti</li>
+          <li>Nusiprausti</li>
+          <li>Pasportuoti</li>
+          <li>Paskaityti knygą</li>
+          <li>Pradėti dieną</li>
+        </ol>
+      </article>
+      <article>
+        <h3>NErikiuotas sąrašas</h3>
+        <ul>
+          <li>Pienas</li>
+          <li>Duona</li>
+          <li>Vaisiai</li>
+          <li>Daržovės</li>
+        </ul>
+      </article>
+    </article>
+
+    <article>
+      <h2>Įvesties elementai</h2>
+      <p>
+        Įvesties elementai naudojami tam, kad vartotojas galėtų įvesti duomenis. <br>
+        Beveik visada įvesties elementai yra apgaubiami <strong>&lt;form&gt;</strong> elementu. <br>
+        Forma, tai įvesties laukų grupė, kuri turi galimybę surinkti visus duomenis esančius viduje
+        ir išsiųsti juos reikiamu adresu. <br>
+        Norint, jog būtų siunčiami įvesties lauko duomenys, submit'inant formą, turi suteikti įvesties laukui
+        <strong>name</strong> atributą. <br>
+        Norint įvesties lauką padaryti privaloma turime uždėti <strong>required</strong> atributą.
+      </p>
+      <article>
+        <h3>formos esminiai elementai</h3>
+        <ul>
+          <li>
+            <strong>action</strong> - šiame atribute nurodome, kur siųsti duomenis. Jeigu šis atributas nėra
+            aprašytas, duomenys siunčiami tuo adresu, kokiame yra aprašyta forma.
+          </li>
+          <li>
+            <strong>method</strong> - šiame atribute nurodoma, kokiu būdu siunčiami duomenys į serverį. <br>
+            galimi 2 būdai.
+            <ul>
+              <li><strong>GET</strong> - duomenims gauti(automobilių filtracija)</li>
+              <li><strong>POST</strong> - duomenims siųsti(prisijungimas | registracija)</li>
+            </ul>
+          </li>
+        </ul>
+        <form action="https://google.lt" method="GET">
+          <div>
+            <label for="form-name">Vardas</label>
+            <input type="text" id="form-name" name="vardas">
+          </div>
+          <div>
+            <label for="form-email">El. paštas</label>
+            <input type="email" id="form-email" name="paštas">
+          </div>
+          <div>
+            <label for="form-password">Slaptažodis</label>
+            <input type="password" id="form-password" name="slaptažodis">
+          </div>
+          <div>
+            <label for="form-age">Amžius</label>
+            <input type="number" id="form-age" name="amžius">
+          </div>
+          <div>
+            <label for="form-favorite-color">Mėgstamiausia spalva</label>
+            <input type="color" id="form-favorite-color" name="mėgstamiausia-spalva">
+          </div>
+          <div>
+            <label for="form-birth-date">Gimimo data</label>
+            <input type="date" id="form-birth-date" name="gimimo-data">
+          </div>
+          <div>
+            <label for="form-height">Ūgis</label>
+            <input type="range" id="form-height" min="20" max="270" value="180" name="ūgis">
+          </div>
+          <div>
+            <div><strong>Lytis gimimo</strong></div>
+            <div>
+              <label for="form-sex-male">Vyras</label>
+              <input type="radio" id="form-sex-male" name="gimimo-lytis">
+            </div>
+            <div>
+              <label for="form-sex-female">Moteris</label>
+              <input type="radio" id="form-sex-female" name="gimimo-lytis">
+            </div>
+          </div>
+          <div>
+            <div><strong>Pomėgiai</strong></div>
+            <div>
+              <label for="form-hobby-basketball">Krepšinis</label>
+              <input type="checkbox" id="form-hobby-basketball" name="pomėgis-krepšinis">
+            </div>
+            <div>
+              <label for="form-hobby-voleyball">Tinklinis</label>
+              <input type="checkbox" id="form-hobby-voleyball" name="pomėgis-tinklinis">
+            </div>
+            <div>
+              <label for="form-hobby-football">Futbolas</label>
+              <input type="checkbox" id="form-hobby-football" name="pomėgis-futbolas">
+            </div>
+          </div>
+          <div>
+            <label for="form-location">Vieta</label>
+            <select name="vieta" id="form-location">
+              <option selected disabled>Pasirinkite vietą...</option>
+              <option value="vilnius">Vilnius</option>
+              <option value="kaunas">Kaunas</option>
+              <option value="klaipėda">Klaipėda</option>
+            </select>
+          </div>
+          <input type="submit" value="Siųsti">
+        </form>
+      </article>
+    </article>
   </main>
-  
+
 
   <section>
     <h2>Block elements</h2>

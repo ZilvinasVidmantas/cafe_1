@@ -12,15 +12,68 @@
   <main>
     <h1>Pagrindiniai HTML elementai</h1>
     <p>
-      J8s patys galite kurti HTML elementus, bet tam kad būtų geriau dirbti komandoje yra naudojami standartiniai.
-      Kai kuriems elementams naršyklė suteikia stilius pagal tag'o pavadinimą, tuo tarpu ir šdėstymo tipą
+      Jūs patys galite kurti <em>HTML elementus</em>, bet tam, kad būtų geriau dirbti komandoje yra naudojami
+      standartiniai.
+      Kai kuriems elementams naršyklė suteikia stilius pagal tag'o pavadinimą, tuo tarpu ir išdėstymo tipą.
     </p>
     <ul>
-      <strong>block</strong> - tai elementai kurie užsirezervuoja visą tėvinio elemento plotį
-      <strong>inline-block</strong> - tai elementai kurie gali turėti 2D dimensijų nustatymus ir yra apibrėžti
-      <strong>inlie</strong> - tai tekstas
+      <li>
+        <strong>block</strong> - tai elementai kurie užsirezervuoja visą tėvinio elemento plotį
+      </li>
+      <li>
+        <strong>inline-block</strong> - tai elementai kurie gali turėti 2D dimensijų nustatymus ir yra apibrėžti
+      </li>
+      <li>
+        <strong>inlie</strong> - tai tekstas
+      </li>
     </ul>
+    <article>
+      <h2>Nuorodos</h2>
+      <p>
+        Nuorodos kuriamos naudojant <strong>&lt;a&gt;</strong> tag'ą. Anliškai - <em>anchor tag</em>. <br>
+        Norint nurodyti nuorodos vietą, turime sukurti atributą <strong>href="..."</strong> <br>
+        Jeigu norite kad puslapis atsidarytu naujame skirtuke, turite papildomai parašyti atributą
+        <strong>target="blank"</strong> <br>
+        Taip pat nuorodos, gali nukreipti ne tik į kitą puslapį, bet ir į šio puslapiop sekciją. Norint tai padaryti
+        turime sukurti sekciją su atributu <strong>id="..."</strong> ir tuomet nuorodos <strong>href</strong> atribute
+        parašyti simbolį '#' ir pridėti elemento į kurį norime nukreipti <strong>id</strong>
+      </p>
+      <div>
+        <a href="https://google.lt">Google - be target atributo. Atidaro šiame skirtuke.</a>
+      </div>
+      <div>
+        <a href="https://google.lt" target="blank">Google - su target atributu. Atidaro naujame skirtuke.</a>
+      </div>
+      <div>
+        <a href="#inline-elements">Nuoroda į <strong>Inline elements</strong> sekciją</a>
+      </div>
+      <div>
+        <a href="https://facebook.com" target="blank">
+          <img src="https://icon-library.com/images/facebook-icon-png-32x32/facebook-icon-png-32x32-20.jpg" height="32"
+            alt="reference to facebook">
+        </a>
+      </div>
+    </article>
+
+    <article>
+      <h2>Nuotraukos</h2>
+      <p>
+        Nuotraukoms yra naudojamas <strong>&lt;img&gt;</strong> elementas. Tam kad nurody kelią iki nuorodoas naudojamas
+        <strong>src="..."</strong>atributas <br>
+        Taip pat labai svarbu yra nurodyti <strong>alt</strong> atributą. Šis atributas parašo tekstą, jeigu nuotrauka
+        nėra randama. Jį reikėtų nurodyti, netgi jeigu esate įsitikinę, jog nuotrauka bus tikrai rasta. Kai kurie žmonės
+        būna išjungė nuotraukų rodymą savo naršyklėje, ir tuomet tekstas padeda jiems suprasti kas toje vietoje turėjo
+        būti atvaizduojama. Dar viena svarbi priežasti yrs - SEO. Pagal <strong>alt</strong> atribute aprašytą tekstą,
+        yra iškeliamas jūsų puslapio paieškomumas. Todėl reikėtų alt atribute kuo tiksliau įvardinti nuotraukos turinį,
+        naudojant iškeliamuosius raktažodžius.
+      </p>
+      <img src="https://css-tricks.com/wp-content/uploads/2018/10/align-content.svg" width="350px" height="350px">
+      <img src="https://www.roadaffair.com/wp-content/uploads/2020/12/thi-lo-su-waterfall-thailand-shutterstock_1556344196-1024x683.jpg" height="350px">
+      <img src="https://i.giphy.com/media/9G3wg7lH5DpxC/giphy-downsized-large.gif" height="350px" alt="">
+      <img src="img/giphy.webp" height="350px">
+    </article>
   </main>
+  
 
   <section>
     <h2>Block elements</h2>
@@ -53,18 +106,21 @@
       <li>textarea</li>
     </ul>
     <input type="text">
+    <input type="email">
+    <input type="password">
+    <input type="number">
     <input type="date">
     <input type="color">
     <input type="range" min="0" max="20" value="20">
-    <select name="" id="">
-      <option value="">Vilnius</option>
-      <option value="">Kaunas</option>
-      <option value="">Klaipėda</option>
-      <option value="">Šiauliai</option>
+    <select>
+      <option>Vilnius</option>
+      <option>Kaunas</option>
+      <option>Klaipėda</option>
+      <option>Šiauliai</option>
     </select>
   </section>
 
-  <section>
+  <section id="inline-elements">
     <h2>Inline elements</h2>
     <p>
       Display inline elementai yra traktuojami kaip tekstas. Jie visuomet užima tik tiek turinio,
@@ -80,6 +136,7 @@
       <li>img - nuotrauka</li>
     </ul>
   </section>
+
 </body>
 
 </html>

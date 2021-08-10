@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2 pamoka - populiariausi HMTL elementai</title>
+</head>
+
+<body>
+  <main>
+    <h1>Pagrindiniai HTML elementai</h1>
+    <p>
+      J8s patys galite kurti HTML elementus, bet tam kad būtų geriau dirbti komandoje yra naudojami standartiniai.
+      Kai kuriems elementams naršyklė suteikia stilius pagal tag'o pavadinimą, tuo tarpu ir šdėstymo tipą
+    </p>
+    <ul>
+      <strong>block</strong> - tai elementai kurie užsirezervuoja visą tėvinio elemento plotį
+      <strong>inline-block</strong> - tai elementai kurie gali turėti 2D dimensijų nustatymus ir yra apibrėžti
+      <strong>inlie</strong> - tai tekstas
+    </ul>
+  </main>
+
+  <section>
+    <h2>Block elements</h2>
+    <p>
+      Blokiniai elementai, tai tokie elementai kurie atvaizduojami vienas po kitu, lyg namo aukštai.
+      Nepriklausomai nuo jų užimamo turinio, jie užsirezervuoja visą tėvinio elemento plotį.
+    </p>
+    <h4>Dažniausiai naudojami blokiniai elementai:</h4>
+    <ul>
+      <li>div - standartinis blokinis elementas</li>
+      <li>section - blokinis elementas skirtas puslapio sekcijai</li>
+      <li>footer - blokinis elementas skirtas apatinei sekcijai</li>
+      <li>header - blokinis elementas skirtas antraštei kurti</li>
+      <li>article - blokinis elementas skirtas puslapio straipsniui (sekcijos daliai)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Inline-block elements</h2>
+    <p>
+      Tai atvaizdavimo būdas, kuomet elementai gali turėti margin ir padding, bei aukštį ir plotį.
+      Šie elementai atvaizduojami teksto rašymo kryptimi, iš kairės į dešinę ir iš viršaus į apačią.
+      Jeigu elementas netelpa į tėvinį konteinerį, tuomet jis persikelia į sekančią eilutę. <br>
+      P.S.: Yra kaip <strong>display: block</strong>, tik neužsirezervuoja viso tėvinio elemento pločio.
+    </p>
+    <h3>Dažniausiai naudojami inline: block elementai</h3>
+    <ul>
+      <li>input</li>
+      <li>select</li>
+      <li>textarea</li>
+    </ul>
+    <input type="text">
+    <input type="date">
+    <input type="color">
+    <input type="range" min="0" max="20" value="20">
+    <select name="" id="">
+      <option value="">Vilnius</option>
+      <option value="">Kaunas</option>
+      <option value="">Klaipėda</option>
+      <option value="">Šiauliai</option>
+    </select>
+  </section>
+
+  <section>
+    <h2>Inline elements</h2>
+    <p>
+      Display inline elementai yra traktuojami kaip tekstas. Jie visuomet užima tik tiek turinio,
+      kiek juose užimatis turinys. Nustačius plotį ar aukštį, jų dydis nepasikeičia. Taip pat neveikia
+      margin ir padding nustatymai vertikalia kryptimi.<br>
+      <strong>inline</strong> yra standartinė <strong>display</strong> CSS savybės reikšmė
+    </p>
+
+    <h4>Dažniausiai naudojami inline elementai:</h4>
+    <ul>
+      <li>span - standartinis inline elementas</li>
+      <li>a - nuoroda</li>
+      <li>img - nuotrauka</li>
+    </ul>
+  </section>
+</body>
+
+</html>

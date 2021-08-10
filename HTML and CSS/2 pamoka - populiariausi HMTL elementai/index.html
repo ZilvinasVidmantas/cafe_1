@@ -129,7 +129,8 @@
             </ul>
           </li>
         </ul>
-        <form action="https://google.lt" method="GET">
+        
+        <form method="POST">
           <div>
             <label for="form-name">Vardas</label>
             <input type="text" id="form-name" name="vardas">
@@ -162,11 +163,11 @@
             <div><strong>Lytis gimimo</strong></div>
             <div>
               <label for="form-sex-male">Vyras</label>
-              <input type="radio" id="form-sex-male" name="gimimo-lytis">
+              <input type="radio" id="form-sex-male" name="gimimo-lytis" value="male">
             </div>
             <div>
               <label for="form-sex-female">Moteris</label>
-              <input type="radio" id="form-sex-female" name="gimimo-lytis">
+              <input type="radio" id="form-sex-female" name="gimimo-lytis" value="female">
             </div>
           </div>
           <div>
@@ -195,6 +196,7 @@
           </div>
           <input type="submit" value="Siųsti">
         </form>
+
       </article>
     </article>
   </main>

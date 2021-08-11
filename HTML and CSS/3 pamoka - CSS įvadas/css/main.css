@@ -1,8 +1,28 @@
+body{
+  margin: 0 !important;
+}
+
 .container {
   width: 800px;
   margin: auto;
 }
 
-.bg-blue{
-  background: blue;
-} 
+.bg-blue {
+  background: rgb(191, 191, 247);
+}
+
+.bg-red {
+  background: rgb(247, 191, 191);
+}
+
+.bg-yellow {
+  background: rgb(247, 232, 191);
+}
+
+.py-60px {
+  padding: 60px 0;
+}
+
+.py-80px{
+  padding: 80px 0;
+}

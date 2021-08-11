@@ -9,26 +9,90 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
-<!-- 19:05 -->
-  <main> 
-    <h1 class="bg-blue">CSS įvadas</h1>
-    <p>
-      <strong>CSS</strong> - cascadian style sheets - pakopiniai stiliaus šablonai<br>
-    </p>
-    <div><strong>Uždėti HTML elementui stilius galima keliais 2 būdais</strong></div>
-    <ul>
-      <li>Naudojant CSS (pakopiniai stiliaus šablonai)</li>
-      <li>Naudojant style attributą</li>
-    </ul>
-    <div><strong> Stiliai rašomi naudojant CSS todėl: </strong></div>
-    <ul class="bg-blue">
-      <li>Kad nesudibliuotų kodas(stiliaus aprašai)</li>
-      <li>Jog būtų atskirtas turinys nuo stilių</li>
-      <li>Jog stiliaus šablonai galėtų būt grupuojami ir struturizuojami</li>
-      <li>Kad būtų galima įgalinti stiliaus šablonų prioritetus</li>
-    </ul>
+<body class="x" id="x">
+  <main>
+    <div class="bg-blue py-60px">
+      <div class="container">
+        <h1>CSS įvadas</h1>
+        <p>
+          <strong>CSS</strong> - cascadian style sheets - pakopiniai stiliaus šablonai<br>
+        </p>
+        <div><strong>Uždėti HTML elementui stilius galima keliais 2 būdais</strong></div>
+        <ul>
+          <li>Naudojant CSS (pakopiniai stiliaus šablonai)</li>
+          <li>Naudojant style attributą</li>
+        </ul>
+        <div><strong> Stiliai rašomi naudojant CSS todėl: </strong></div>
+        <ul>
+          <li>Kad nesudibliuotų kodas(stiliaus aprašai)</li>
+          <li>Jog būtų atskirtas turinys nuo stilių</li>
+          <li>Jog stiliaus šablonai galėtų būt grupuojami ir struktūrizuojami</li>
+          <li>Kad būtų galima įgalinti stiliaus šablonų prioritetus</li>
+        </ul>
+      </div>
+    </div>
   </main>
+
+  <section class="bg-red py-60px">
+    <div class="container">
+      <h2>CSS prioritetai</h2>
+      <div><strong>CSS prioritetai, tai stiliaus savybių perrašymas pagal prioritetų taisykles</strong></div>
+      <article>
+        <h3>Prioritetų taisyklės</h3>
+        <ol>
+          <li>
+            <strong>Selektoriaus tipas</strong>
+            <div>
+              <img src="img/selector type.png" width="750px"> <br>
+              Jeigu selektorių tipai yra vienodo prioriteto, tuomet yra vertinamas apibrėžtumas.
+            </div>
+          </li>
+          <li>
+            <strong>Apibrėžtumas</strong> - tai papildomas elementų apibūdinimas. <br>
+            Jeigu apibėžtumas yra lygaus prioriteto, tuomet vertinama eiliškumas
+          </li>
+          <li>
+            <strong>Eiliškumas</strong> - kuo vėliau aprašyta, tuo didesnis prioritetas.
+          </li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section class="bg-yellow py-60px">
+    <div class="container">
+      <h2>Box-model</h2>
+      <p>
+        Kiekvienas HTML elementas yra stačiakampė dežutė, net jeigu atrodo kitaip.
+      </p>
+      <div><strong>Kiekvienas HTML elementas turi tokias sekcijas (vardinama iš vidaus į išorę)</strong></div>
+      <ul>
+        <li><strong>content</strong> - turinys</li>
+        <li><strong>padding</strong> - kamšalas</li>
+        <li><strong>border</strong> - sienelės</li>
+        <li><strong>margin</strong> - paraštės</li>
+      </ul>
+      <p>
+        Padding, border ir margin sekcijos gali būt nustatomos keturiomis kryptymis: ↑ ↓ → ←<br>
+      </p>
+      <p>
+        Kuomet aprašome elemento padding arba margin CSS savybes, galimi tokie trumpiniai pagal argumentus:
+      </p>
+      <ul>
+        <li><strong>a</strong> -  dydis a į visas puses</li>
+        <li><strong>a b</strong> -  dydis a vertikaliai, o b horizontaliai</li>
+        <li><strong>a b c</strong> -  dydis a į viršų, dydis b - į šonus, o c - į apačią</li>
+        <li><strong>a b c d</strong> -  dydis a į viršų, dydis b į dešinę,  c - į apačią, d - į kairę</li>
+      </ul>
+      <div><strong>Pavyzdžiai</strong></div>
+      <ul>
+        <li>margin: 20px 5px;  - ↑ 20px || ↓ 20px  || ← 5px || → 5px</li>
+        <li>margin: 10px;  - ↑ 10px || ↓ 10px  || ← 10px || → 10px</li>
+        <li>padding: 10px 0 5px;  - ↑ 10px || ↓ 5px  || ← 0 || → 0</li>
+        <li>padding: 10px 2px 5px 7px;  - ↑ 10px || ↓ 5px  || ← 7px || → 2px</li>
+      </ul>
+    </div>
+  </section>
 
 </body>
 

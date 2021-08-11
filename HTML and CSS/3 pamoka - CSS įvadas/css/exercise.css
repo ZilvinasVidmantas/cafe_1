@@ -1,0 +1,19 @@
+.task-container{
+  font-size: 0%;
+  border: 2px solid black;
+  height: 450px;
+  width: 450px;
+  margin: 50px auto 100px;
+  padding: 10px;
+}
+
+.square-sm{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+}
+
+.mr-10{
+  margin-right: 10px;
+}

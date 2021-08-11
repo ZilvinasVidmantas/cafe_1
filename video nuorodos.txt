@@ -1,9 +1,0 @@
-Normaliems piliečiams:
-  HTML - https://www.youtube.com/watch?v=UB1O30fR-EE&t=1076s&ab_channel=TraversyMedia
-  CSS - https://www.youtube.com/watch?v=yfoY53QXEnI&t=1s&ab_channel=TraversyMedia
-  
-Gykams:
-  
-
-Manijakams:
-  TypeScript tutorial - https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&ab_channel=TheNetNinja

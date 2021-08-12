@@ -21,8 +21,13 @@ Normaliems piliečiams:
         [nuo 156 eilutės]
       css rašyti faile:
         HTML and CSS\3 pamoka - CSS įvadas\css\exercise.css
+
 Gykams:
-  
+  typography - https://www.youtube.com/watch?v=6ardZEhjvV0&ab_channel=KevinPowell
+  display-flex - 
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    https://www.youtube.com/watch?v=hwbqquXww-U&list=PL4-IK0AVhVjMSb9c06AjRlTpvxL3otpUd&ab_channel=KevinPowell
+  ir puslapio kūrimo praktika - https://www.youtube.com/watch?v=oYRda7UtuhA&t=7s&ab_channel=EasyTutorials
 
 Manijakams:
   TypeScript tutorial - https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&ab_channel=TheNetNinja

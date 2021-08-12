@@ -1,0 +1,66 @@
+.rect {
+  /* 
+    nėra būtina,
+    visi elementai natūraliai yra static,
+    kol nepasakoma kitaip
+    ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  */
+  position: static;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
+.bg-red {
+  background: rgb(255, 189, 189);
+}
+
+.bg-blue {
+  background: rgb(189, 190, 255);
+}
+
+.example-container{
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.example-container--sticky{
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.position-relative{
+  position: relative;
+}
+
+.position-sticky{
+  position: sticky;
+}
+
+.position-absolute{
+  position: absolute;
+}
+
+.position-fixed{
+  position: fixed;
+}
+
+.top-20px{
+  top: 20px;
+}
+
+.left-20px{
+  left: 20px;
+}
+
+.right-50px{
+  right: 50px;
+}
+
+.bottom-50px{
+  bottom: 50px;
+}
+
+.bottom-0{
+  bottom: 0;
+}

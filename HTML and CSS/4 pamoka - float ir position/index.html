@@ -8,6 +8,7 @@
   <title>4 pamoka - float it position</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/section-float.css">
+  <link rel="stylesheet" href="css/section-position.css">
 </head>
 
 <body>
@@ -181,6 +182,170 @@
   <section class="page-section">
     <div class="container">
       <h2>Position</h2>
+
+      <div><strong>Position tipai</strong></div>
+      <ul>
+        <li>
+          <strong>static (default)</strong> - Elementai pozicionuojami iš kairės į dešinę, jei netelpa į tėvinį
+          elementą - persikelia į sekančią eilutę
+        </li>
+        <li>
+          <strong>relative</strong> - elementas pozicionuojamas pagal jo menamąją static poziciją. Naudojant savybės
+          <strong>top, right, bottom, left</strong> gali paslinkti elementą, nuo jo menamosios vietos
+        </li>
+        <li>
+          <strong>absolute</strong> - elementas ieško pirmo tėvinės hierarchijos elemento, kurio position savybė NĖRA
+          static. Radęs jį, atsispiria nuo jo kontūrų pagal savybes <strong>top, right, bottom, left</strong><br>
+          Jeigu tėvinės hierarchijos šakoje nėra elementų, kurie būtų NE static, tuomet position absolute elementas
+          atsispiria nuo viewport'o. <br>
+          Kiti elementai nemato elemento su position absolute ir lygiuojasi tarsi jo nebūtų.
+        </li>
+        <li>
+          <strong>sticky</strong> - išlaiko poziciją pagal pirmo tėvinėje hierachijoje randamo scroll'inamo elementom
+          naudojant savybes
+          <strong>top, right, bottom, left</strong>, kuomet tėvinis elementas yra scroll'inamas. <br>
+        </li>
+        <li>
+          <strong>fixed</strong> - elementas atsispiria nuo vieport'o pagal savybes <strong>top, right, bottom,
+            left</strong>. <br>
+          Kiti elementai nemato elemento su position fixed ir lygiuojasi tarsi jo nebūtų.
+        </li>
+      </ul>
+
+      <article>
+        <h3>Static example</h3>
+        <div class="example-container">
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Relative example</h3>
+        <div class="example-container">
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-blue position-relative top-20px left-20px"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-blue position-relative bottom-50px left-20px"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+        </div>
+      </article>
+      <article>
+        <h3>Absolute example</h3>
+        <div class="example-container position-relative">
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-blue position-absolute top-20px left-20px"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Sticky example</h3>
+        <div class="example-container example-container--sticky">
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-blue position-sticky top-20px"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-blue position-sticky bottom-0"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+          <div class="rect bg-red"></div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Fixed example</h3>
+        <p>Fixed pavyzdys bus matomas apačioje-dešinėje</p>
+        <div class="rect bg-blue position-fixed bottom-50px right-50px"></div>
+      </article>
     </div>
   </section>
 

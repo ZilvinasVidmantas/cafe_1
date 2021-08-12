@@ -44,3 +44,22 @@
 .mb-15 {
   margin-bottom: 15px;
 }
+
+/* float task 2 additional styles */
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.clearfix {
+  clear: both;
+  width: 100%;
+}
+
+.mt-0 {
+  margin-top: 0;
+}

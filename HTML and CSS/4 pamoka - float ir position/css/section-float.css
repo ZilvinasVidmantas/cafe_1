@@ -17,3 +17,28 @@
 }
 
 /* float task 1 styles */
+.image-250x250{
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+.mr-15{
+  margin-right: 15px;
+}
+
+.ml-15{
+  margin-left: 15px;
+}
+
+.mb-15{
+  margin-bottom: 15px;
+}

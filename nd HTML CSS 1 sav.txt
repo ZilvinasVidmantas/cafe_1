@@ -8,6 +8,9 @@ Normaliems piliečiams:
     Užduotis aprašyta šio failo [267-278] eil.
     
   Atlikti stačiakampių užduotį:
+    ! Kvadarto kontūrams vietoj border, reikia naudoti box-shadow savybę, !
+    ! nes border savybė mažina turinį (content)                           ! 
+
     paveiksliukas: 
       HTML and CSS\3 pamoka - CSS įvadas\task.png
     atlikti užduotį failuose:

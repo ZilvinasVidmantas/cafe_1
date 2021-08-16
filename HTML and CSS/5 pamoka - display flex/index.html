@@ -6,43 +6,72 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5 pamoka - display flex</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
   <main>
-    <h1>Display - flex</h1>
-    <p>
-      Display flex tipas nurodo tėviniam elementuis kaip išdėstyti savo pirmo lygio vaikus.
-      Standartiškai jis išdėsto elementus iš kairės į dešinę ir bando sutalpinti į vieną eilutę. 
-      Jeigu pirmo lygio vaikai į vieną eilutę netelpa, tuomet bandoma juos suspausti.
-      <br>
-      <br>
-      Tėviniam elementui nustačius papildomasis savybes, gali nustatyti kaip bus išdėstyti vaikai.
-      <br>
-    </p>
-    <div><strong>Naudingos nuorodos</strong></div>
-    <ul>
-      <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><strong>teorija</strong></a></li>
-      <li><a href="https://angrytools.com/css-flex/"><strong>bandymams</strong></a></li>
-      <li><a href="https://flexboxfroggy.com/"><strong>žaidimas</strong></a></li>
-    </ul>
+    <div class="container">
+      <h1>Display - flex</h1>
+      <p>
+        Display flex tipas nurodo tėviniam elementuis kaip išdėstyti savo pirmo lygio vaikus.
+        Standartiškai jis išdėsto elementus iš kairės į dešinę ir bando sutalpinti į vieną eilutę.
+        Jeigu pirmo lygio vaikai į vieną eilutę netelpa, tuomet bandoma juos suspausti.
+        <br>
+        <br>
+        Tėviniam elementui nustačius papildomasis savybes, gali nustatyti kaip bus išdėstyti vaikai.
+        <br>
+      </p>
+      <div><strong>Naudingos nuorodos</strong></div>
+      <ul>
+        <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><strong>teorija</strong></a></li>
+        <li><a href="https://angrytools.com/css-flex/"><strong>bandymams</strong></a></li>
+        <li><a href="https://flexboxfroggy.com/"><strong>žaidimas</strong></a></li>
+      </ul>
+    </div>
   </main>
 
   <section>
-    <h2>Flex pratybos</h2>
-    <article>
-      <h3>Trys nuotraukos vienodais atstumais horizontaliai</h3>
-    </article>
-    
-    <article>
-      <h3>Nuotrauko per pusę ekrano aukščio, ir pločio kaip '.container'. Tekstas viduryj</h3>
-    </article>
+    <div class="container">
+      <h2>Flex pratybos</h2>
+      <article>
+        <h3>Trys nuotraukos vienodais atstumais horizontaliai</h3>
+        <div class="d-flex justify-space-between">
+          <img src="https://unsplash.it/250/250">
+          <img src="https://unsplash.it/250/250">
+          <img src="https://unsplash.it/250/250">
+        </div>
+      </article>
 
-    
-    <article>
-      <h3>3x3 9 nuotraukos vienodais horizontaliai ir vertikaliai tarpais</h3>
-    </article>
+      <article>
+        <h3>Nuotrauko per pusę ekrano aukščio, ir pločio kaip '.container'. Tekstas vidury</h3>
+        <div class="bg-image d-flex justify-center align-center">
+          <div class="text-cancer">Labai protinga meninė mintis</div>
+        </div>
+      </article>
 
+      <!-- 
+        Savarankiškas darbas + atsakymo peržiūra iki 19:05 
+        Pertrauka
+        Susitinkam 19:15
+      -->
+
+
+      <article>
+        <h3>3x3 9 nuotraukos vienodais horizontaliais ir vertikaliais tarpais</h3>
+        <div class="d-flex justify-space-between flex-wrap">
+          <img src="https://unsplash.it/250/250" class="mb-75">
+          <img src="https://unsplash.it/250/250" class="mb-75">
+          <img src="https://unsplash.it/250/250" class="mb-75">
+          <img src="https://unsplash.it/250/250" class="mb-75">
+          <img src="https://unsplash.it/250/250" class="mb-75">
+          <img src="https://unsplash.it/250/250" class="mb-75">
+          <img src="https://unsplash.it/250/250">
+          <img src="https://unsplash.it/250/250">
+          <img src="https://unsplash.it/250/250">
+        </div>
+      </article>
+    </div>
   </section>
 
 </body>

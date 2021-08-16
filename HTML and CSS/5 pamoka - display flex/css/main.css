@@ -48,3 +48,32 @@ body {
 .mb-75 {
   margin-bottom: 75px;
 }
+
+.flex-task {
+  display: flex;
+  border: 1px solid #bbb;
+}
+
+.flex-task--1 {
+  height: 400px;
+  justify-content: space-between;
+}
+
+.flex-task--2 {
+  height: 800px;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 0 40px;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}

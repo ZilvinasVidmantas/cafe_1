@@ -1,0 +1,9 @@
+.card{
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 5px 5px 5px #0003; 
+}
+
+.card--apartment{
+  width: 700px;
+}

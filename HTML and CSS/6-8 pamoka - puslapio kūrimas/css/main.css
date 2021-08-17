@@ -3,7 +3,11 @@
 
 @import "./components/covers.css";
 @import "./components/navbar.css";
+@import "./components/card.css";
 
 @import "./layout/containers.css";
-@import "./layout/flex.css"
+@import "./layout/flex.css";  
 
+@import "./spacing/dimensions.css";
+
+@import "./pages/index.css";

@@ -11,3 +11,11 @@
 .cover--projects{
   background-image: url(../../assets/images/projects-cover.webp);
 }
+
+.cover--contacts{
+  background-image: url(../../assets/images/contacts-cover.webp);
+}
+
+.cover--services{
+  background-image: url(../../assets/images/services-cover.webp);
+}

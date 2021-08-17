@@ -1,0 +1,40 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fffc;
+  height: var(--navbar-height);
+  padding: 10px 0;
+}
+
+.navbar__logo-container {
+  display: block;
+  height: calc(var(--navbar-height) - 20px);
+}
+
+.navbar__logo{
+  height: 100%;
+}
+
+.navbar__item {
+  display: inline-block;
+  height: calc(var(--navbar-height) - 20px);
+  line-height: calc(var(--navbar-height) - 20px);
+  padding: 0 1em;
+}
+
+.navbar__item.active>a {
+  color: #da9e3f;
+}
+
+.navbar__item>a {
+  font-size: 1.25rem;
+  color: #000;
+  display: inline-block;
+  height: 100%;
+}
+
+.navbar__item>a:hover {
+  text-decoration: underline;
+}

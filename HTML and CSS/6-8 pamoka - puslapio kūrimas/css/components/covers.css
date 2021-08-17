@@ -1,0 +1,9 @@
+.cover{
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.cover--home{
+  background-image: url(../../assets/images/home-cover.webp);
+}

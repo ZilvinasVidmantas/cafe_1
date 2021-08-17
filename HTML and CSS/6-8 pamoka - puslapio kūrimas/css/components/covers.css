@@ -7,3 +7,7 @@
 .cover--home{
   background-image: url(../../assets/images/home-cover.webp);
 }
+
+.cover--projects{
+  background-image: url(../../assets/images/projects-cover.webp);
+}

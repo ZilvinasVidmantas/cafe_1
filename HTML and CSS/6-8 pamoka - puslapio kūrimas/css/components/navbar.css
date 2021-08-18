@@ -25,7 +25,7 @@
 }
 
 .navbar__item.active>a {
-  color: #da9e3f;
+  color: var(--color-primary);
 }
 
 .navbar__item>a {

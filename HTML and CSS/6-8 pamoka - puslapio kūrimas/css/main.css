@@ -4,6 +4,7 @@
 @import "./components/covers.css";
 @import "./components/navbar.css";
 @import "./components/card.css";
+@import "./components/buttons.css";
 
 @import "./layout/containers.css";
 @import "./layout/flex.css";  

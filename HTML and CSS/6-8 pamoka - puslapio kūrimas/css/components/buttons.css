@@ -1,0 +1,59 @@
+.btn {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  text-decoration: none;
+  background-color: #eee;
+  color: #333;
+  font-size: 1.2rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 2px #0003;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #eee;
+}
+
+.btn:hover {
+  color: #000;
+}
+
+.btn--primary{
+  background: linear-gradient(to top, var(--color-primary), var(--color-primary-darken));
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover{
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-darken));
+}
+
+.btn--secondary{
+  background: linear-gradient(to top, var(--color-secondary), var(--color-secondary-darken));
+  border-color: var(--color-secondary);
+}
+
+.btn--secondary:hover{
+  background: linear-gradient(to bottom, var(--color-secondary), var(--color-secondary-darken));
+}
+
+.btn.btn--outline{
+  background-image: none;
+  background-color: #0000;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.btn--outline.btn--primary{
+  color: var(--color-primary);
+}
+
+.btn--outline.btn--primary:hover{
+  color: #000;
+  background-color: var(--color-primary);
+}
+
+.btn--outline.btn--secondary{
+  color: var(--color-secondary);
+}
+
+.btn--outline.btn--secondary:hover{
+  color: #000;
+  background-color: var(--color-secondary);
+}

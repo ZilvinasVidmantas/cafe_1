@@ -3,10 +3,14 @@
   --navbar-height: 70px;
 
   /* colors */
+  --color-white: #fff;
+  --color-black: #252525;
   --color-primary: #da9e3f;
   --color-primary-darken: #e0a341;
   --color-secondary: #788368;
   --color-secondary-darken: #798369;
+  --color-success: #007a14;
+  --color-success-darken: #006912;
 
   /* card-apartment variables */
   --card-apartment-height: 370px;

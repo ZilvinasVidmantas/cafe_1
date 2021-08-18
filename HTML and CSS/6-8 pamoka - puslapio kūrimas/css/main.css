@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "./reset.css";
+@import "./typography.css";
 
 @import "./components/covers.css";
 @import "./components/navbar.css";
@@ -9,8 +10,10 @@
 @import "./layout/containers.css";
 @import "./layout/flex.css";  
 
-@import "./spacing/dimensions.css";
-@import "./spacing/paddings.css";
-@import "./spacing/margins.css";
+@import "./utilities/dimensions.css";
+@import "./utilities/paddings.css";
+@import "./utilities/margins.css";
+@import "./utilities/backgrounds.css";
+@import "./utilities/borders.css";
 
 @import "./pages/index.css";

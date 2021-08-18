@@ -1,29 +1,81 @@
-.card{
+.card {
   background: #fff;
   padding: 1rem;
-  box-shadow: 0 5px 5px 5px #0003; 
+  box-shadow: 0 5px 10px 5px #0003;
 }
 
-.card--apartment{
+.card--apartment {
   width: 700px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* violetinė */
-.card--apartment__images{
 
+.card--apartment__images {
+  display: flex;
+  flex-direction: column;
+  /* 4*100 + 3*1rem */
+  flex-basis: calc(400px + 3rem);
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 /* žydra */
-.card--apartment__main-image{
-
+.card--apartment__main-image {
+  height: 252px;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* oranžinė */
-.card--apartment__secondary-images{
-
+.card--apartment__secondary-images {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* geltona */
-.card--apartment__secondary-image{
+.card--apartment__secondary-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
+}
 
+.card--apartment__info {
+  position: relative;
+  flex-grow: 1;
+  font-size: 1.05rem;
+}
+
+.card--apartment__heading{
+  font-size: 1.3em;
+}
+
+.card--apartment__sub-heading{
+  color: #555;
+}
+
+.card--apartment__btn-container{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.card--apartment__btn-link{
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  text-decoration: none;
+  background: linear-gradient(to top, #da9e3f, #ecac45 );
+  color: #333;
+  font-size: 1.2rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 2px #0003;
+}
+
+.card--apartment__btn-link:hover{
+  background: linear-gradient(to bottom, #da9e3f, #ecac45 );
+  color: #000;
 }

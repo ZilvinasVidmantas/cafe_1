@@ -1,0 +1,15 @@
+Knygos:
+  Mokymosi našumui ugdyti:
+    Tony Buzan - Lavinkite mąstymą 
+    ir/arba 
+    Tony Buzan - Lavinkite atmintį
+
+  Programavimo inžinerijos mąstymui lavinti:
+    Eric Freeman & Elisabeth Robson - Head first design patterns
+    David Thomas - Progmatic programmer
+    Robert C. Martin - Clean Code
+
+Straipsniai:
+  CSS:
+    BEM standartas: http://getbem.com/naming/
+    CSS stilistiniai nurodymai: https://cssguidelin.es/

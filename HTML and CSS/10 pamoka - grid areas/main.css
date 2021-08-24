@@ -1,0 +1,54 @@
+.grid-areas-example{
+  display: grid;
+  grid-template: 
+  "header" 60px
+  "menu" 60px
+  "hero" minmax(300px, auto)
+  "main" minmax(300px, auto)
+  "banner" 120px
+  "extra" 120px
+  "image" 120px
+  / auto;
+}
+
+.grid-areas-example >*{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+.grid-areas-example__header{
+  grid-area: header;
+  background: #fff;
+  color: #fff;
+}
+.grid-areas-example__menu{
+  grid-area: menu;
+  background: rgb(255, 73, 73);
+  color: #fff;
+}
+.grid-areas-example__hero{
+  grid-area: hero;
+  background: rgb(86, 131, 255);
+  color: #fff;
+}
+.grid-areas-example__main{
+  grid-area: main;
+  background: rgb(0, 0, 58);
+  color: #fff;
+}
+.grid-areas-example__banner{
+  grid-area: banner;
+  background: rgb(221, 192, 99);
+  color: #000;
+}
+.grid-areas-example__extra{
+  grid-area: extra;
+  background: rgb(26, 200, 157);
+  color: #000;
+}
+.grid-areas-example__image{
+  grid-area: image;
+  background: rgb(210, 255, 244);
+  color: #000;
+}

@@ -1,0 +1,15 @@
+.contacts {
+  padding: 3rem 0;
+  background-color: var(--light-grey);
+}
+
+.contacts__form {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.contacts__form__header {
+  font-size: 2.2rem;
+  font-weight: 400;
+}

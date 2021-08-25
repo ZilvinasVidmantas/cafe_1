@@ -1,0 +1,5 @@
+:root{
+  --breakpoint-tablet-v: 768px;
+  --breakpoint-tablet-h: 1024px;
+  --breakpoint-desktop: 1320px;
+}

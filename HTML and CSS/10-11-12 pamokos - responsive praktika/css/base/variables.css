@@ -2,4 +2,11 @@
   --breakpoint-tablet-v: 768px;
   --breakpoint-tablet-h: 1024px;
   --breakpoint-desktop: 1320px;
+
+  --navbar-height: 60px;
+
+  --color-primary: #3aaddf;
+  --color-black: #373c3e;
+  --color-grey: #92a1a6;
+  --color-shadow: #c2c2c291;
 }

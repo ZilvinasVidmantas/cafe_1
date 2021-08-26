@@ -1,11 +1,68 @@
-.h1{font-size: 2rem;}
-.h2{font-size: 1.75rem;}
-.h3{font-size: 1.5rem;}
-.h4{font-size: 1.3rem;}
-.h5{font-size: 1.15rem;}
-.h6{font-size: 1rem;}
+body{
+  font-family: var(--font-main);
+}
 
-.text-primary{ color: var(--color-primary);}
-.text-secondary{ color: var(--color-secondary);}
-.text-white{ color: var(--color-white);}
-.text-black{ color: var(--color-black);}
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--font-header);
+}
+
+.h1 {
+  font-size: 2rem;
+}
+
+.h2 {
+  font-size: 1.75rem;
+}
+
+.h3 {
+  font-size: 1.5rem;
+}
+
+.h4 {
+  font-size: 1.3rem;
+}
+
+.h5 {
+  font-size: 1.15rem;
+}
+
+.h6 {
+  font-size: 1rem;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-black {
+  color: var(--color-black);
+}
+
+.text-decorated {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.4em;
+}
+
+.text-decorated:after {
+  content: '___ __ _ ___';
+  display: block;
+  position: absolute;
+  font-size: 0.75em;
+  top: 0.6em;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.font-weight-normal{
+  font-weight: normal;
+}

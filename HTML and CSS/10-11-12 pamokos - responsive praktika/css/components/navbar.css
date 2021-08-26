@@ -8,7 +8,8 @@
   padding-top: 10px;
   padding-bottom: 10px;
   box-shadow: 0 1px 1px var(--color-shadow);
-  background: #fffa;
+  background: #fffd;
+  z-index: 10;
 }
 
 .navbar__content {
@@ -45,6 +46,7 @@
   }
   .navbar__links {
     display: flex;
+    font-size: 1.2em;
   }
   .navbar__link-decoration {
     margin-left: 5px;

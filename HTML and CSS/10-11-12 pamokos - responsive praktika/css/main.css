@@ -9,6 +9,7 @@
 @import "./layout/containers.css";
 
 @import "./sections/main-section.css";
+@import "./sections/courses-section.css";
 
 @import "./utilities/backgrounds.css";
 @import "./utilities/borders.css";

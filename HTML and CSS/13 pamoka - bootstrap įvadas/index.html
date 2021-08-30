@@ -15,10 +15,11 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" data-bs-toggle="collapse"
@@ -28,7 +29,8 @@
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle active" href="#"
+              data-bs-toggle="dropdown">
               Men Clothing
             </a>
             <ul class="dropdown-menu">
@@ -38,7 +40,8 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" href="#"
+              data-bs-toggle="dropdown">
               Women Clothing
             </a>
             <ul class="dropdown-menu">
@@ -48,7 +51,8 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" href="#"
+              data-bs-toggle="dropdown">
               Child Clothing
             </a>
             <ul class="dropdown-menu">
@@ -63,24 +67,44 @@
     </div>
   </nav>
 
-  <!-- 
-    Pašalinti paieškos formą
-    Pašalinti/pakeisti nuorodas:
-      3 dropdown'ai
-        Men Clothing (active):
-          jeans
-          boots
-          t-shirts
-        Women Clothing
-          skirts
-          heels
-          accecories
-        Child Clothing
-          t-shirts
-          boots
-          skirts
-          jeans
-   -->
+  <main id="carouselMain" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators carousel-indicators--shited-up">
+      <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="3"></button>
+    </div>
+    <div class="carousel-inner">
+      <article class="carousel-item active">
+        <img src="https://unsplash.it/1920/800" class="carousel__image">
+        <div class="carousel-caption carousel-caption--shifted-up">
+          <h1 class="text-primary">Drabužiai visiems</h1>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </article>
+      <article class="carousel-item">
+        <img src="https://unsplash.it/1918/800" class="carousel__image">
+        <div class="carousel-caption carousel-caption--shifted-up">
+          <h2>Moteriški rūbai</h2>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </article>
+      <article class="carousel-item">
+        <img src="https://unsplash.it/1919/800" class="carousel__image">
+        <div class="carousel-caption carousel-caption--shifted-up">
+          <h2>Vyriški Rūbai</h2>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </article>
+      <article class="carousel-item">
+        <img src="https://unsplash.it/1917/800" class="carousel__image">
+        <div class="carousel-caption carousel-caption--shifted-up">
+          <h2>Vaikiški Rūbai</h2>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </article>
+    </div>
+  </main>
 
 </body>
 

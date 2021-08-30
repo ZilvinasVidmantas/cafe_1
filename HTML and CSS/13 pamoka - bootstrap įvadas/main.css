@@ -1,7 +1,8 @@
-:root{
+:root {
     --carousel-shift-up-amount: 60px;
 }
-.carousel__image{
+
+.carousel__image {
     display: block;
     height: 100vh;
     object-fit: cover;
@@ -9,10 +10,14 @@
     width: 100%;
 }
 
-.carousel-caption--shifted-up{
+.carousel-caption--shifted-up {
     margin-bottom: var(--carousel-shift-up-amount);
 }
 
-.carousel-indicators--shited-up{
+.carousel-indicators--shited-up {
     padding-bottom: var(--carousel-shift-up-amount);
+}
+
+.bg-white-transparent {
+    background: #fffa;
 }

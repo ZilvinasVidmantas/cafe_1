@@ -1,0 +1,11 @@
+Naudodami bootstrap komponenetus:
+    card
+    form
+    form-control
+    buttons
+    search
+    input-group
+    grid-system
+
+Sukurkite dizainą (savomis proporcijomis) pagal paveikslėlį:
+    HTML and CSS\13-16 pamoka - bootstrap puslapis\prekių paieškos sekcija.txt

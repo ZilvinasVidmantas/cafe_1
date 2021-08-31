@@ -27,14 +27,14 @@
 @media screen and (min-width: 768px) {
     .carousel-caption__grid{
         width: 750px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
-/* }
+ }
 
-.carousel-caption--shifted-up {
+/* .carousel-caption--shifted-up {
     margin-bottom: var(--carousel-shift-up-amount);
 }
 
 .carousel-indicators--shited-up {
     padding-bottom: var(--carousel-shift-up-amount);
-} */
+}  */

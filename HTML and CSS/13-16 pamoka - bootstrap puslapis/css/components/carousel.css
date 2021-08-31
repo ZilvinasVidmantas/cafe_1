@@ -6,30 +6,62 @@
     width: 100%;
 }
 
-.carousel-caption--wide{
+.carousel-caption--wide {
     left: 0;
     right: 0;
 }
 
-.carousel-caption__grid{
+.carousel-caption__grid {
     width: 310px;
-    margin-bottom: 50px;
+}
+
+.carousel-caption__desc{
+    height: 125px;
+}
+
+.carousel-caption__grid-wraper{
+    display: flex;
+    align-items: center;
+    /* 
+        39px - indicatoriai
+        125px - koretlrtelės dydis
+        56px - navbar
+    */
+    height: calc(100vh - 220px);
 }
 
 /* Nuo sm dydžio */
 @media screen and (min-width: 576px) {
-    .carousel-caption__grid{
+    .carousel-caption__grid {
         width: 400px;
-        margin-bottom: 40px;
     }
 }
+
 /* Nuo md dydžio */
 @media screen and (min-width: 768px) {
-    .carousel-caption__grid{
+    .carousel-caption__grid {
         width: 750px;
-        margin-bottom: 30px;
     }
- }
+}
+
+/* Nuo lg dydžio */
+@media screen and (min-width: 992px) {
+    .carousel-caption__grid {
+        width: 850px;
+    }
+}
+
+/* Nuo xl dydžio */
+@media screen and (min-width: 1200px) {
+    .carousel-caption__grid {
+        width: 1175px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .carousel-caption__grid {
+        width: 1300px;
+    }
+}
 
 /* .carousel-caption--shifted-up {
     margin-bottom: var(--carousel-shift-up-amount);

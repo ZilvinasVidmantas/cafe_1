@@ -1,0 +1,40 @@
+.carousel__image {
+    display: block;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.carousel-caption--wide{
+    left: 0;
+    right: 0;
+}
+
+.carousel-caption__grid{
+    width: 310px;
+    margin-bottom: 50px;
+}
+
+/* Nuo sm dydžio */
+@media screen and (min-width: 576px) {
+    .carousel-caption__grid{
+        width: 400px;
+        margin-bottom: 40px;
+    }
+}
+/* Nuo md dydžio */
+@media screen and (min-width: 768px) {
+    .carousel-caption__grid{
+        width: 750px;
+        margin-bottom: 40px;
+    }
+/* }
+
+.carousel-caption--shifted-up {
+    margin-bottom: var(--carousel-shift-up-amount);
+}
+
+.carousel-indicators--shited-up {
+    padding-bottom: var(--carousel-shift-up-amount);
+} */

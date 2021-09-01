@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" data-bs-toggle="collapse"
@@ -31,12 +31,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="#carouselMain">Pagrindinis</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#catalog">Prekių katalogas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#partner-form">Partnerystė</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#"
@@ -1133,11 +1136,10 @@
     </div>
   </main>
 
-  <!-- 19:10 -->
   <section id="catalog" class="navbar-fix">
-    <div class="py-5">
+    <div class="py-4">
       <div class="container">
-        <div class="row gx-5">
+        <div class="row">
           <div class="col-3 d-none d-xl-block">
             <form class="shadow p-3">
               <h2>Filtrai</h2>
@@ -1224,38 +1226,13 @@
             </form>
           </div>
           <div class="col-12 col-xl-9">
-            <div class="row align-items-end">
+            <div class="row align-items-center">
               <div class="col-12 col-md-6">
                 <h2 class="mb-md-0">Prekių paieška - <small
                     class="badge bg-primary">33</small></h2>
               </div>
-              <div class="col-12 col-md-6">
-                <form>
-                  <div class="row align-items-end g-2">
-                    <div class="col-8">
-                      <div class="input-group align-self-end">
-                        <input type="text" class="form-control">
-                        <button type="submit" class="btn btn-primary">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="sort-order">Rikiuoti:</label>
-                        <select class="form-select" id="sort-order">
-                          <option>Naujausi</option>
-                          <option>A-Z</option>
-                          <option>Z-A</option>
-                          <option>Kaina ↑</option>
-                          <option>Kaina ↓</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
             </div>
+
             <div class="row my-3 gy-3 g-md-4">
               <div class="col-12 col-md-6 col-lg-4">
                 <div class="card shadow-sm">
@@ -1382,6 +1359,106 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="partner-form" class="navbar-fix">
+    <div class="py-4">
+      <div class="container">
+        <h2 class="text-center mb-4">Tapkite mūsų partneriais</h2>
+        <form>
+          <div class="row gy-2">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="name" class="mb-1"><strong>Jūsų vardas</strong></label>
+                <input type="text" class="form-control" id="name"
+                  placeholder="Serbentautas">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="email" class="mb-1"><strong>Jūsų el. paštas</strong></label>
+                <input type="email" class="form-control" id="email"
+                  placeholder="dzonis.degutis@tavo.com">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="mobile" class="mb-1"><strong>Jūsų tel. numeris</strong></label>
+                <div class="input-group">
+                  <span class="input-group-text" id="mobile">+370</span>
+                  <input type="text" class="form-control"
+                    placeholder="666 55877">
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-1"><strong>Planuojamas prekių tiekimo
+                  kiekis</strong></div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quantity"
+                  id="quantity-low" value="quantity-low" checked>
+                <label class="form-check-label" for="quantity-low">
+                  0-50
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quantity"
+                  id="quantity-mid" value="quantity-mid">
+                <label class="form-check-label" for="quantity-mid">
+                  50-300
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="quantity"
+                  id="quantity-high" value="quantity-high">
+                <label class="form-check-label" for="quantity-high">
+                  300
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-1"><strong>Prekių tiekimo tipas</strong></div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                  name="category-clothes" id="category-clothes">
+                <label class="form-check-label" for="category-clothes">
+                  Rūbai
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                  name="category-food" id="category-food">
+                <label class="form-check-label" for="category-food">
+                  Maistas
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                  name="category-electronics" id="category-electronics">
+                <label class="form-check-label" for="category-electronics">
+                  Elektronika
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="message" class="mb-1"><strong>Jūsų žinutė</strong></label>
+                <textarea class="form-control"
+                  placeholder="Prašome suteikti daugiau informacijos"
+                  id="message"
+                  rows="8"></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="d-flex justify-content-center my-2">
+                <button class="btn btn-primary" type="submit">Siųsti užklausą</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </section>
 
 </body>

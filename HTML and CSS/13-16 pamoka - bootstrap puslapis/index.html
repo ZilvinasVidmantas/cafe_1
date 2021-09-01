@@ -1367,23 +1367,26 @@
         <h2 class="text-center mb-4">Tapkite mūsų partneriais</h2>
         <form>
           <div class="row gy-2">
-            <div class="col-12">
+            <div class="col-12 col-lg-4">
               <div class="form-group">
-                <label for="name" class="mb-1"><strong>Jūsų vardas</strong></label>
+                <label for="name" class="mb-1"><strong>Jūsų
+                    vardas</strong></label>
                 <input type="text" class="form-control" id="name"
                   placeholder="Serbentautas">
               </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-lg-4">
               <div class="form-group">
-                <label for="email" class="mb-1"><strong>Jūsų el. paštas</strong></label>
+                <label for="email" class="mb-1"><strong>Jūsų el.
+                    paštas</strong></label>
                 <input type="email" class="form-control" id="email"
                   placeholder="dzonis.degutis@tavo.com">
               </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-lg-4">
               <div class="form-group">
-                <label for="mobile" class="mb-1"><strong>Jūsų tel. numeris</strong></label>
+                <label for="mobile" class="mb-1"><strong>Jūsų tel.
+                    numeris</strong></label>
                 <div class="input-group">
                   <span class="input-group-text" id="mobile">+370</span>
                   <input type="text" class="form-control"
@@ -1391,67 +1394,82 @@
                 </div>
               </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-md-6">
               <div class="mb-1"><strong>Planuojamas prekių tiekimo
                   kiekis</strong></div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="quantity"
-                  id="quantity-low" value="quantity-low" checked>
-                <label class="form-check-label" for="quantity-low">
-                  0-50
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="quantity"
-                  id="quantity-mid" value="quantity-mid">
-                <label class="form-check-label" for="quantity-mid">
-                  50-300
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="quantity"
-                  id="quantity-high" value="quantity-high">
-                <label class="form-check-label" for="quantity-high">
-                  300
-                </label>
+              <div class="row">
+                <div class="col-12 col-lg">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="quantity"
+                      id="quantity-low" value="quantity-low" checked>
+                    <label class="form-check-label" for="quantity-low">
+                      0-50
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 col-lg">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="quantity"
+                      id="quantity-mid" value="quantity-mid">
+                    <label class="form-check-label" for="quantity-mid">
+                      50-300
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 col-lg">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="quantity"
+                      id="quantity-high" value="quantity-high">
+                    <label class="form-check-label" for="quantity-high">
+                      300
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-md-6">
               <div class="mb-1"><strong>Prekių tiekimo tipas</strong></div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"
-                  name="category-clothes" id="category-clothes">
-                <label class="form-check-label" for="category-clothes">
-                  Rūbai
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"
-                  name="category-food" id="category-food">
-                <label class="form-check-label" for="category-food">
-                  Maistas
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"
-                  name="category-electronics" id="category-electronics">
-                <label class="form-check-label" for="category-electronics">
-                  Elektronika
-                </label>
+              <div class="d-flex flex-column flex-lg-row">
+                <div class="form-check me-lg-3">
+                  <input class="form-check-input" type="checkbox"
+                    name="category-clothes" id="category-clothes">
+                  <label class="form-check-label" for="category-clothes">
+                    Rūbai
+                  </label>
+                </div>
+                <div class="form-check me-lg-3">
+                  <input class="form-check-input" type="checkbox"
+                    name="category-food" id="category-food">
+                  <label class="form-check-label" for="category-food">
+                    Maistas
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox"
+                    name="category-electronics" id="category-electronics">
+                  <label class="form-check-label" for="category-electronics">
+                    Elektronika
+                  </label>
+                </div>
               </div>
             </div>
             <div class="col-12">
-              <div class="form-group">
-                <label for="message" class="mb-1"><strong>Jūsų žinutė</strong></label>
-                <textarea class="form-control"
-                  placeholder="Prašome suteikti daugiau informacijos"
-                  id="message"
-                  rows="8"></textarea>
+              <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2 mt-lg-4 col-xl-6 offset-lg-3">
+                  <div class="form-group text-lg-center">
+                    <label for="message" class="mb-1"><strong>Jūsų
+                        žinutė</strong></label>
+                    <textarea class="form-control"
+                      placeholder="Prašome suteikti daugiau informacijos"
+                      id="message" rows="8"></textarea>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12">
               <div class="d-flex justify-content-center my-2">
-                <button class="btn btn-primary" type="submit">Siųsti užklausą</button>
+                <button class="btn btn-primary" type="submit">Siųsti
+                  užklausą</button>
               </div>
             </div>
           </div>

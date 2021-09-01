@@ -32,6 +32,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#carouselMain">Pagrindinis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#catalog">Prekių katalogas</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" href="#"
               data-bs-toggle="dropdown">
@@ -1128,224 +1134,246 @@
   </main>
 
   <!-- 19:10 -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row gx-5">
-        <div class="col-3 d-none d-xl-block">
-          <form class="shadow p-3">
-            <h2>Filtrai</h2>
-            <hr class="divider">
-            <article>
-              <h3 class="h5">Kaina</h3>
-              <div class="form-group row g-2">
-                <label for="priceFrom" class="col-sm-2 col-form-label col-from-label-sm">Nuo</label>
-                <div class="col-4">
-                  <input type="text" class="form-control form-control-sm" id="priceFrom" value="0">
-                </div>
-                <label for="priceTo" class="col-sm-2 col-form-label col-from-label-sm">Iki</label>
-                <div class="col-4">
-                  <input type="text" class="form-control form-control-sm" id="priceTo" value="50">
-                </div>
-              </div>
-            </article>
-            <hr class="divider">
-            <article>
-              <h3 class="h5">Markės</h3>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="brand1">
-                <label class="form-check-label" for="brand1">Brand1</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="brand2">
-                <label class="form-check-label" for="brand2">Brand2</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="brand3">
-                <label class="form-check-label" for="brand3">Brand3</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="brand4">
-                <label class="form-check-label" for="brand4">Brand4</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="brand5">
-                <label class="form-check-label" for="brand5">Brand5</label>
-              </div>
-            </article>
-            <hr class="divider">
-            <article>
-              <h3 class="h5">Dydis</h3>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="size1">
-                <label class="form-check-label" for="size1">Size1</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="size2">
-                <label class="form-check-label" for="size2">Size2</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="size3">
-                <label class="form-check-label" for="size3">Size3</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="size4">
-                <label class="form-check-label" for="size4">Size4</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked id="size5">
-                <label class="form-check-label" for="size5">Size5</label>
-              </div>
-            </article>
-            <hr class="divider">
-            <div class="text-center">
-              <button class="btn btn-primary" type="submit">Filtruoti</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-12 col-xl-9">
-          <div class="row align-items-end">
-            <div class="col-12 col-md-6">
-              <h2 class="mb-md-0">Prekių paieška - <small
-                  class="badge bg-primary">33</small></h2>
-            </div>
-            <div class="col-12 col-md-6">
-              <form>
-                <div class="row align-items-end g-2">
-                  <div class="col-8">
-                    <div class="input-group align-self-end">
-                      <input type="text" class="form-control">
-                      <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
+  <section id="catalog" class="navbar-fix">
+    <div class="py-5">
+      <div class="container">
+        <div class="row gx-5">
+          <div class="col-3 d-none d-xl-block">
+            <form class="shadow p-3">
+              <h2>Filtrai</h2>
+              <hr class="divider">
+              <article>
+                <h3 class="h5">Kaina</h3>
+                <div class="form-group row g-2">
+                  <label for="priceFrom"
+                    class="col-sm-2 col-form-label col-from-label-sm">Nuo</label>
+                  <div class="col-4">
+                    <input type="text" class="form-control form-control-sm"
+                      id="priceFrom" value="0">
                   </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="sort-order">Rikiuoti:</label>
-                      <select class="form-select" id="sort-order">
-                        <option>Naujausi</option>
-                        <option>A-Z</option>
-                        <option>Z-A</option>
-                        <option>Kaina ↑</option>
-                        <option>Kaina ↓</option>
-                      </select>
-                    </div>
+                  <label for="priceTo"
+                    class="col-sm-2 col-form-label col-from-label-sm">Iki</label>
+                  <div class="col-4">
+                    <input type="text" class="form-control form-control-sm"
+                      id="priceTo" value="50">
                   </div>
                 </div>
-              </form>
-            </div>
+              </article>
+              <hr class="divider">
+              <article>
+                <h3 class="h5">Markės</h3>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="brand1">
+                  <label class="form-check-label" for="brand1">Brand1</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="brand2">
+                  <label class="form-check-label" for="brand2">Brand2</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="brand3">
+                  <label class="form-check-label" for="brand3">Brand3</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="brand4">
+                  <label class="form-check-label" for="brand4">Brand4</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="brand5">
+                  <label class="form-check-label" for="brand5">Brand5</label>
+                </div>
+              </article>
+              <hr class="divider">
+              <article>
+                <h3 class="h5">Dydis</h3>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="size1">
+                  <label class="form-check-label" for="size1">Size1</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="size2">
+                  <label class="form-check-label" for="size2">Size2</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="size3">
+                  <label class="form-check-label" for="size3">Size3</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="size4">
+                  <label class="form-check-label" for="size4">Size4</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" checked
+                    id="size5">
+                  <label class="form-check-label" for="size5">Size5</label>
+                </div>
+              </article>
+              <hr class="divider">
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Filtruoti</button>
+              </div>
+            </form>
           </div>
-          <div class="row my-3 gy-3 g-md-4">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card shadow-sm">
-                <img src="https://unsplash.it/576/300" class="card-img-top">
-                <div class="card-body">
-                  <div class="card-title h5">Prekė 3000</div>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Tenetur commodi distinctio sapiente facere
-                    enim vero.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="row g-1">
-                    <div class="col"><button
-                        class="btn btn-warning w-100">Daugiau</button></div>
-                    <div class="col"><button
-                        class="btn btn-success w-100">Pirkti</button></div>
+          <div class="col-12 col-xl-9">
+            <div class="row align-items-end">
+              <div class="col-12 col-md-6">
+                <h2 class="mb-md-0">Prekių paieška - <small
+                    class="badge bg-primary">33</small></h2>
+              </div>
+              <div class="col-12 col-md-6">
+                <form>
+                  <div class="row align-items-end g-2">
+                    <div class="col-8">
+                      <div class="input-group align-self-end">
+                        <input type="text" class="form-control">
+                        <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="sort-order">Rikiuoti:</label>
+                        <select class="form-select" id="sort-order">
+                          <option>Naujausi</option>
+                          <option>A-Z</option>
+                          <option>Z-A</option>
+                          <option>Kaina ↑</option>
+                          <option>Kaina ↓</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row my-3 gy-3 g-md-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                  <img src="https://unsplash.it/576/300" class="card-img-top">
+                  <div class="card-body">
+                    <div class="card-title h5">Prekė 3000</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tenetur commodi distinctio sapiente
+                      facere
+                      enim vero.</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row g-1">
+                      <div class="col"><button
+                          class="btn btn-warning w-100">Daugiau</button></div>
+                      <div class="col"><button
+                          class="btn btn-success w-100">Pirkti</button></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card shadow-sm">
-                <img src="https://unsplash.it/576/300" class="card-img-top">
-                <div class="card-body">
-                  <div class="card-title h5">Prekė 3000</div>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Tenetur commodi distinctio sapiente facere
-                    enim vero.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="row g-1">
-                    <div class="col"><button
-                        class="btn btn-warning w-100">Daugiau</button></div>
-                    <div class="col"><button
-                        class="btn btn-success w-100">Pirkti</button></div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                  <img src="https://unsplash.it/576/300" class="card-img-top">
+                  <div class="card-body">
+                    <div class="card-title h5">Prekė 3000</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tenetur commodi distinctio sapiente
+                      facere
+                      enim vero.</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row g-1">
+                      <div class="col"><button
+                          class="btn btn-warning w-100">Daugiau</button></div>
+                      <div class="col"><button
+                          class="btn btn-success w-100">Pirkti</button></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card shadow-sm">
-                <img src="https://unsplash.it/576/300" class="card-img-top">
-                <div class="card-body">
-                  <div class="card-title h5">Prekė 3000</div>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Tenetur commodi distinctio sapiente facere
-                    enim vero.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="row g-1">
-                    <div class="col"><button
-                        class="btn btn-warning w-100">Daugiau</button></div>
-                    <div class="col"><button
-                        class="btn btn-success w-100">Pirkti</button></div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                  <img src="https://unsplash.it/576/300" class="card-img-top">
+                  <div class="card-body">
+                    <div class="card-title h5">Prekė 3000</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tenetur commodi distinctio sapiente
+                      facere
+                      enim vero.</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row g-1">
+                      <div class="col"><button
+                          class="btn btn-warning w-100">Daugiau</button></div>
+                      <div class="col"><button
+                          class="btn btn-success w-100">Pirkti</button></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card shadow-sm">
-                <img src="https://unsplash.it/576/300" class="card-img-top">
-                <div class="card-body">
-                  <div class="card-title h5">Prekė 3000</div>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Tenetur commodi distinctio sapiente facere
-                    enim vero.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="row g-1">
-                    <div class="col"><button
-                        class="btn btn-warning w-100">Daugiau</button></div>
-                    <div class="col"><button
-                        class="btn btn-success w-100">Pirkti</button></div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                  <img src="https://unsplash.it/576/300" class="card-img-top">
+                  <div class="card-body">
+                    <div class="card-title h5">Prekė 3000</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tenetur commodi distinctio sapiente
+                      facere
+                      enim vero.</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row g-1">
+                      <div class="col"><button
+                          class="btn btn-warning w-100">Daugiau</button></div>
+                      <div class="col"><button
+                          class="btn btn-success w-100">Pirkti</button></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card shadow-sm">
-                <img src="https://unsplash.it/576/300" class="card-img-top">
-                <div class="card-body">
-                  <div class="card-title h5">Prekė 3000</div>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Tenetur commodi distinctio sapiente facere
-                    enim vero.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="row g-1">
-                    <div class="col"><button
-                        class="btn btn-warning w-100">Daugiau</button></div>
-                    <div class="col"><button
-                        class="btn btn-success w-100">Pirkti</button></div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                  <img src="https://unsplash.it/576/300" class="card-img-top">
+                  <div class="card-body">
+                    <div class="card-title h5">Prekė 3000</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tenetur commodi distinctio sapiente
+                      facere
+                      enim vero.</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row g-1">
+                      <div class="col"><button
+                          class="btn btn-warning w-100">Daugiau</button></div>
+                      <div class="col"><button
+                          class="btn btn-success w-100">Pirkti</button></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card shadow-sm">
-                <img src="https://unsplash.it/576/300" class="card-img-top">
-                <div class="card-body">
-                  <div class="card-title h5">Prekė 3000</div>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Tenetur commodi distinctio sapiente facere
-                    enim vero.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="row g-1">
-                    <div class="col"><button
-                        class="btn btn-warning w-100">Daugiau</button></div>
-                    <div class="col"><button
-                        class="btn btn-success w-100">Pirkti</button></div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                  <img src="https://unsplash.it/576/300" class="card-img-top">
+                  <div class="card-body">
+                    <div class="card-title h5">Prekė 3000</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tenetur commodi distinctio sapiente
+                      facere
+                      enim vero.</p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row g-1">
+                      <div class="col"><button
+                          class="btn btn-warning w-100">Daugiau</button></div>
+                      <div class="col"><button
+                          class="btn btn-success w-100">Pirkti</button></div>
+                    </div>
                   </div>
                 </div>
               </div>

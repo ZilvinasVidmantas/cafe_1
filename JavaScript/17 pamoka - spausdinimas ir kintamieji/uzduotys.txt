@@ -1,0 +1,8 @@
+1. Sukurkite faila task1.js
+2. paleiskite jį naudoddami node kompiliatorių
+Šiame faile rašykite kodą kuris:
+    1. Atspausdintų jūsų vardą ir pavardę                   | NENAUDOTI KINTAMŪJŲ
+    2. Atspausdintų jūsų amžių                              | NAUDOTI KINTAMUOSIUS
+    3. Atspausdintų jūsų šeimos kiekvieno žmogaus amžius    | NAUDOTI KINTAMUOSIUS
+    4. atspausdintų jūsų šeimos amžiaus vidurkį             | NAUDOTI KINTAMUOSIUS
+    

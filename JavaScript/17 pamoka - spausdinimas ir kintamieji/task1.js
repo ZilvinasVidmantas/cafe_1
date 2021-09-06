@@ -22,3 +22,6 @@ console.log({
 const avg = (age, fatherAge + motherAge + sister1Age + sister2Age + sister3Age) / 6;
 console.log({ avg });
 
+// iki 20:45 pabaigiate ir peržiūrite mano kodą
+// ilsitės, ir tęsiam 20:55
+

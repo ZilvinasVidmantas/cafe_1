@@ -1,5 +1,5 @@
 // 1.
-console.log('Žilvinas VIdmantas');
+console.log('Žilvinas Vidmantas');
 // 2.
 const age = 28;
 console.log(age);

@@ -38,4 +38,5 @@ let sentence3 = nouns[3] + helpers[7] + helpers[4] + helpers[7] + helpers[0] + h
 // 4. apple is with my sister
 let sentence4 = nouns[0] + helpers[7] + helpers[4] + helpers[7] + helpers[1] + helpers[7] + helpers[3] + helpers[7] + nouns[1];
 console.log({ sentence1, sentence2, sentence3, sentence4 });
+// 20:00
 

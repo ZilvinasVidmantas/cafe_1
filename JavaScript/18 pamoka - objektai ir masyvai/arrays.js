@@ -20,7 +20,7 @@ numbers[3] += 6; // Prie esamos reikšmės indeksu 3 pridedama dar 6. 78 + 6 = 8
 // arr.length - masyve esančių elementų skaičius 
 //  Jeigu masyve yra 6 elementai, o elementai yra numeruojami nuo 0, 
 // tuomet paskutinio elemento indeksas visada bus vienu mažesnis nei masyvo elementų skaičius. Iš to seka, kad:
-nerumbs[numbers.length - 2]; // Prieš paskutinis masyvo elementas:
+numbers[numbers.length - 2]; // Prieš paskutinis masyvo elementas:
 numbers[Math.floor((numbers.length) / 2)] // Vidurinis masyvo elementas elementas
 let i = 3,
   j = 4;
@@ -31,12 +31,11 @@ numbers[i % 2 + j++]; // Sudėtinė indekso skaičiavimo logika.
 // 1. my sister is in the lake
 let sentence1 = helpers[3] + helpers[7] + nouns[1] + helpers[7] + helpers[4] + helpers[7] + helpers[0] + helpers[7] + helpers[6] + helpers[7] + nouns[6];
 //                'my'         ' '        'sister'      ' '          'is'          ' '         'in'          ' '         'the'         ' '      'lake'
-console.log(sentence1);
 // 2. hammer is on the table
-
+let sentence2 = nouns[7] + helpers[7] + helpers[4] + helpers[7] + helpers[2] + helpers[7] + helpers[6] + helpers[7] + nouns[4];
 // 3. sun is in the sky
-
+let sentence3 = nouns[3] + helpers[7] + helpers[4] + helpers[7] + helpers[0] + helpers[7] + helpers[6] + helpers[7] + nouns[5];
 // 4. apple is with my sister
-
-// 5. Papildyti masyvą žodžiais, ir sukurti dar 3 +-logiškus sakinius.
+let sentence4 = nouns[0] + helpers[7] + helpers[4] + helpers[7] + helpers[1] + helpers[7] + helpers[3] + helpers[7] + nouns[1];
+console.log({ sentence1, sentence2, sentence3, sentence4 });
 

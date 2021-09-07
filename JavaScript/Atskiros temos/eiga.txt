@@ -3,7 +3,7 @@ data-types.js
 operators.js
 objects.js
 arrays.js
-conditions.js
 cycles.js
+conditions.js
 functions.js
 classes.js

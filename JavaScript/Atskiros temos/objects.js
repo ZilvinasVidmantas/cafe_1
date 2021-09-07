@@ -4,7 +4,6 @@ const automobilis = {
   // marke - raktas, 'Opel' - reikšmė
   marke: 'Opel',
   modelis: 'Astra',
-  marke: 'BMW',
   metai: 2005,
   spalva: 'Juoda',
   variklioTuris: 2.0,
@@ -17,8 +16,10 @@ console.log(automobilis.marke + ' ' + automobilis.modelis);
 console.log(automobilis['marke'] + ' ' + automobilis['modelis']);
 
 // Savybių kūrimas/perrašymas
-automobilis.modelis = 'Vectra'; console.log(automobilis);
-automobilis['spalva'] = 'Raudona'; console.log(automobilis);
+automobilis.modelis = 'Vectra';
+console.log(automobilis);
+automobilis['spalva'] = 'Raudona';
+console.log(automobilis);
 
 // Primitive type vs Reference type
 console.log('Kopijuojant primityvaus tipo kintamuosius, yra išskiriama nauja atminties vieta. Kintamieji rodo į atskiras atminties vietas.')
@@ -40,30 +41,31 @@ console.log('c.num:', c.num, 'd.num:', d.num);
 let e = JSON.parse(JSON.stringify(d));
 d.num = 99;
 e.num = -2;
-console.log('c.num:', c.num, 'd.num:', d.num, 'e.num:', e.num);
+console.log('d.num:', d.num, 'e.num:', e.num);
 
 // Objekto savybių kūrimas trumpuoju būdu
-// Sintaksės taisyklė: Jeigu kuriant objektą, nurodome saybę, neaprašę reikšmės,
+// Sintaksės taisyklė: Jeigu kuriant objektą, nurodome savybę, neaprašę reikšmės,
 // tuomet JS kompiliatorius ieško, toje aplinkoje esančio kintamojo, ir savybei,
 // tuo pavadinimu įrašo reikšmę esančią kintamajame:
 
 const
-  name = 'wardrobe',
+  title = 'wardrobe',
   weight = 50,
   height = 200,
   width = 280,
   depth = 80;
 
 const wardrobe = {
-  name,
+  title,
   weight,
   height,
   width,
   depth
-}
+};
 
 console.log(wardrobe);
-// P.S.: Šis kompiliatoriaus elgsena labai patogi spausdinant kintamųjų reikšmes
+
+// P.S.: Ši kompiliatoriaus elgsena labai patogi spausdinant kintamųjų reikšmes
 // konsolėje. Vietoje to, kad spausdintume 'string'us kurie nurodo, kas toje
 // eilutėje yra spausdinama, galima įvilkti norimas savybes į objekto skliaustus,
 // ir tuomet kintamieji bus atspausdinti lyg objekto savybes, kur galėsime matyti

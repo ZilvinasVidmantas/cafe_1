@@ -1,5 +1,5 @@
-const numbers = [0, 1, 2, 5, 6, 8, 9, 7, 5, 6];
-
+const numbers = [0, 1, 2, 5, 6, 8, 9, 7, 5, 6]; // numbers.length -> 10
+//               0  1  2  3  4  5  6  7  8  9
 console.group('1. Parašykite ciklą, kuris atspausdintų, kiekvieną masyvo <numbers> elementą');
 for (let i = 0; i < numbers.length; i++) {
   console.log(numbers[i]);

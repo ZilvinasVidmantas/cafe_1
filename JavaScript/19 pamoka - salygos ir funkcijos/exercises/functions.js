@@ -1,22 +1,27 @@
 // ----------------------Užduotys--------------------------
 const numbers = [1, 2, -2, 6, -5, 9, 1.02, 45, -69, 77, -12, 2, 8, -2, -4, 59, 7, -3];
-// 1. Padauginti masyvo narius iš 2
+
 console.group('1. Padauginti masyvo narius iš 2');
 console.log('---');
 {
   function mulArrBy2(arr) {
-    // Jūsų kodas
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+      const currentElement = arr[i];
+      const newElement = currentElement * 2;
+      result.push(newElement);      
+    }
+    return result;
   }
-  // console.log({
-  //   numbers,
-  //   result: mulArrBy2(numbers)
-  // });
+  console.log({
+    numbers,
+    result: mulArrBy2(numbers)
+  });
 }
 console.log('---');
 console.groupEnd();
 console.log();
 
-// 2. Pakelti masyvo narius kvadratu
 console.group('2. Pakelti masyvo narius kvadratu');
 console.log('---');
 {

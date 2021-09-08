@@ -42,4 +42,4 @@ console.log('trikampioPlotas(8, 7, 65) →', trikampioPlotas(8, 7, 65));
 console.log('2 * staciakampioPlotas(5, 8) - kvadratoPlotas(2) →', 2 * staciakampioPlotas(5, 8) - kvadratoPlotas(2));
 console.log('6 * trikampioPlotas(3, 3, 60) →', 6 * trikampioPlotas(3, 3, 60));
 console.log('staciakampioPlotas(6, 12) →', staciakampioPlotas(6, 12));
-// 
+// 19:38

@@ -37,7 +37,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 3. Padauginti masyvo narius iš jų index'0 (vietos masyve)
 console.group('3. Padauginti masyvo narius iš jų index\'o (vietos masyve)');
 console.log('---');
 {
@@ -53,7 +52,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 4. Atrinkti tiktai teigimų elementų masyvą
 console.group('4. Atrinkti tiktai teigimų elementų masyvą');
 console.log('---');
 {
@@ -69,7 +67,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 5. Atrinkti tiktai neigiamų elementų masyvą
 console.group('5. Atrinkti tiktai neigiamų elementų masyvą');
 console.log('---');
 {
@@ -85,7 +82,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 6. Atrinkti tiktai lyginių skaičių masyvą
 console.group('6. Atrinkti tiktai lyginių skaičių masyvą');
 console.log('---');
 {
@@ -101,7 +97,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 7. Atrinkti tiktai nelyginių skaičių masyvą
 console.group('7. Atrinkti tiktai nelyginių skaičių masyvą');
 console.log('---');
 {
@@ -117,48 +112,19 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 8. Visas neigiamas vertes masyve padaryti teigiamomis
 console.group("8. Visas neigiamas vertes masyve padaryti teigiamomis");
 {
   function arrAbsoluteValues(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] < 0) {
-        arr[i] = arr[i] * -1;
-      }
-    }
-    return arr;
+    // Jūsų kodas
   }
 
-  function arrAbsoluteValues(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      arr[i] = Math.abs(arr[i]);
-    }
-    return arr;
-  }
-
-  // Array.prototype.map iteracinis metodas, grąžina naują masyvą pakeistadas iteruojamo masyvo reikšmes,
-  // pagal parametru pateiktą funkciją
-  function arrAbsoluteValues(arr) {
-    return arr.map(x => x < 0 ? x * -1 : x);
-  }
-
-  function arrAbsoluteValues(arr) {
-    return arr.map(x => Math.abs(x));
-  }
-
-  function arrAbsoluteValues(arr) {
-    return arr.map(Math.abs);
-  }
-
-  console.log('---');
-  console.log(arrAbsoluteValues(numbers));
-
-  console.log('---');
+  // console.log('---');
+  // console.log(arrAbsoluteValues(numbers));
+  // console.log('---');
 }
 console.groupEnd();
 console.log();
 
-// 9. Pakelti visas masyvo reikšmes laipsniu 'index'
 console.group('9. Pakelti visas masyvo reikšmes laipsniu \'index\'');
 console.log('---');
 {
@@ -174,7 +140,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 10. Atrinkti tik natūralių skaičių masyvą
 console.group('10. Atrinkti tik natūralių skaičių masyvą');
 console.log('---');
 {
@@ -190,7 +155,6 @@ console.log('---');
 console.groupEnd();
 console.log();
 
-// 11. Suapvalinti visas masyvo reikšmes iki sveikų skaičių
 console.group('11. Suapvalinti visas masyvo reikšmes iki sveikų skaičių');
 console.log('---');
 {
@@ -205,7 +169,6 @@ console.log('---');
 console.log('---');
 console.groupEnd()
 
-// 12. Atrinkti kas antrą elementą
 console.group('12. Atrinkti kas antrą elementą');
 console.log('---');
 {
@@ -220,7 +183,6 @@ console.log('---');
 console.log('---');
 console.groupEnd();
 
-// 13. Atrinkti kas penktą elementą
 console.group('13. Atrinkti kas penktą elementą');
 console.log('---');
 {
@@ -235,7 +197,7 @@ console.log('---');
 console.log('---');
 console.groupEnd();
 
-// 14. Sukurti funkciją, kuri ima masyvą ir atspausdina kiekvieną jo reikšmę atskirai: [0] => 64.  (nieko negrąžina)
+
 console.group('14. Sukurti funkciją, kuri ima masyvą ir atspausdina kiekvieną jo reikšmę atskirai: [0] => 64.  (nieko negrąžina)');
 console.log('---');
 {
@@ -247,7 +209,6 @@ console.log('---');
 console.log('---');
 console.groupEnd();
 
-// 15. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų sumą
 console.group('15. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų sumą');
 console.log('---');
 {
@@ -263,7 +224,6 @@ console.log('---');
 console.log('---');
 console.groupEnd()
 
-// 16. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų vidurkį
 console.group('16. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų vidurkį');
 console.log('---');
 {
@@ -279,7 +239,6 @@ console.log('---');
 console.log('---');
 console.groupEnd()
 
-// 17. Sukurti funkciją, kuri ima masyvą ir grąžina didžiausią skaičių masyve.
 console.group('17. Sukurti funkciją, kuri ima masyvą ir grąžina didžiausią skaičių masyve.');
 console.log('---');
 {
@@ -295,7 +254,6 @@ console.log('---');
 console.log('---');
 console.groupEnd()
 
-// 18. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.
 console.group('18. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.');
 console.log('---');
 {

@@ -1,6 +1,6 @@
 // ----------------------Užduotys--------------------------
 // const numbers = [1, 2, -2, 6, -5, 9, 1.02, 45, -69, 77, -12, 2, 8, -2, -4, 59, 7, -3];
-const numbers = [1, 2, 3];
+const numbers = [1, -2, 3, -4, 5, -6];
 
 console.group('1. Padauginti masyvo narius iš 2');
 console.log('---');
@@ -45,12 +45,16 @@ console.group('3. Padauginti masyvo narius iš jų index\'o (vietos masyve)');
 console.log('---');
 {
   function mulArrElementsByIndex(arr) {
-    // Jūsų kodas
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+      result.push(arr[i] * i);
+    }
+    return result;
   }
-  // console.log({
-  //   numbers,
-  //   result: mulArrElementsByIndex(numbers)
-  // });
+  console.log({
+    numbers,
+    result: mulArrElementsByIndex(numbers)
+  });
 }
 console.log('---');
 console.groupEnd();
@@ -119,12 +123,21 @@ console.log();
 console.group("8. Visas neigiamas vertes masyve padaryti teigiamomis");
 {
   function arrAbsoluteValues(arr) {
-    // Jūsų kodas
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+      //                   salyga     ? jeigu true  : jeigu false
+      // let positiveValue = arr[i] <= 0 ? arr[i] * -1 : arr[i];
+      result.push(Math.abs(arr[i]));
+    }
+    return result;
   }
 
-  // console.log('---');
-  // console.log(arrAbsoluteValues(numbers));
-  // console.log('---');
+  console.log('---');
+  console.log({
+    numbers,
+    result: arrAbsoluteValues(numbers)
+  });
+  console.log('---');
 }
 console.groupEnd();
 console.log();
@@ -202,11 +215,13 @@ console.log('---');
 console.groupEnd();
 
 
-console.group('14. Sukurti funkciją, kuri ima masyvą ir atspausdina kiekvieną jo reikšmę atskirai: [0] => 64.  (nieko negrąžina)');
+console.group('14. Sukurti funkciją, kuri ima masyvą ir atspausdina kiekvieną jo reikšmę atskirai: [0] => 64. (nieko negrąžina)');
 console.log('---');
 {
   function printArr(arr) {
-    //  Jūsų kodas
+    for (let i = 0; i < arr.length; i++) {
+      console.log(`[${i}] => ${arr[i]}`);
+    }
   }
   printArr(numbers);
 }
@@ -271,4 +286,4 @@ console.log('---');
   // });
 }
 console.log('---');
-console.groupEnd()
+console.groupEnd();

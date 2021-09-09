@@ -212,16 +212,47 @@ console.log();
 
 console.group("14. Sukurkite funkciją, kuri grąžina <true>, jeigu NĖRA skaičių");
 {
+  const invalidSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   function isOnlyLetters(str) {
-    // code ...
+    for (let i = 0; i < str.length; i++) {
+      for (let j = 0; j < invalidSymbols.length; j++) {
+        if (str[i] === invalidSymbols[j]) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
-  // console.log('---');
-  // console.log({
-  //   'labas': isOnlyLetters('labas'),
-  //   'kempės': isOnlyLetters('kempės'),
-  //   '123123': isOnlyLetters('123123'),
-  // })
-  // console.log('---');
+
+  function isOnlyLetters(str) {
+    for (let i = 0; i < str.length; i++) {
+      if (!isNaN(parseInt(str[i]))) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function isOnlyLetters(word) {
+    for (let i = 0; i < invalidSymbols.length; i++) {
+      if(word.includes(invalidSymbols[i])){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function isOnlyLetters(word) {
+    return !/\d/.test(word);
+  }
+
+  console.log('---');
+  console.log({
+    'labas': isOnlyLetters('labas'),
+    'kempės': isOnlyLetters('kempės'),
+    '123123': isOnlyLetters('123123'),
+  })
+  console.log('---');
 }
 console.groupEnd();
 console.log();

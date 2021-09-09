@@ -242,7 +242,7 @@ console.group("15. Sukurkite funkciją, kuri grąžina 'a' raidžių kiekį žod
 console.groupEnd();
 console.log();
 
-console.group("16. Sukurkite funkciją, kuri grąžina 'a' raidžių kiekį žodyje");
+console.group("16. Sukurkite funkciją, kuri grąžina bet kokios raidės kiekį žodyje");
 {
   function letterCount(str, searchLetter) {
     // code ...

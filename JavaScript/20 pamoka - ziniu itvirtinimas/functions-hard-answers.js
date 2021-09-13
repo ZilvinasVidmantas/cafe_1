@@ -333,8 +333,8 @@ console.group("16. Sukurkite funkciją, kuri grąžina 'a' raidžių kiekį žod
 console.groupEnd();
 console.log();
 
-// 17. Sukurkite funkciją, kuri grąžina pirmos (nuo kairės pusės) 'a' raidės vietą žodyje
-console.group("17. Sukurkite funkciją, kuri grąžina pirmos (nuo kairės pusės) 'a' raidės vietą žodyje");
+// 17. Sukurkite funkciją, kuri grąžina pirmos (nuo dešinės pusės) 'a' raidės vietą žodyje
+console.group("17. Sukurkite funkciją, kuri grąžina pirmos (nuo dešinės pusės) 'a' raidės vietą žodyje");
 {
   function lastIndexOfLetterA(str) {
     str = str.toLowerCase();
@@ -357,8 +357,8 @@ console.group("17. Sukurkite funkciją, kuri grąžina pirmos (nuo kairės pusė
 console.groupEnd();
 console.log();
 
-// 18. Sukurkite funkciją, kuri grąžina pirmos (nuo kairės pusės) vartotojo perduotos raidės vietą žodyje
-console.group("18. Sukurkite funkciją, kuri grąžina pirmos (nuo kairės pusės) vartotojo perduotos raidės vietą žodyje");
+// 18. Sukurkite funkciją, kuri grąžina pirmos (nuo dešinės pusės) vartotojo perduotos raidės vietą žodyje
+console.group("18. Sukurkite funkciją, kuri grąžina pirmos (nuo dešinės pusės) vartotojo perduotos raidės vietą žodyje");
 {
   function lastIndexOfLetter(str, searchLetter) {
     str = str.toLowerCase();
@@ -369,7 +369,7 @@ console.group("18. Sukurkite funkciją, kuri grąžina pirmos (nuo kairės pusė
         return i;
       }
     }
-    return -1
+    return -1;
   }
   console.log('---');
   console.log({
@@ -484,7 +484,7 @@ console.log();
 // 23. Sukurkite funkciją, kuri ištrintų visus 'a' raidės pasikartojimus žodyje
 console.group("23. Sukurkite funkciją, kuri ištrintų visus 'a' raidės pasikartojimus žodyje");
 {
-  function removeAllOccurencesOfLetterA(str) {
+  function removeAllOccurencesOfLetterA(str) { 
     let temp = str;
     do {
       str = temp;
@@ -698,13 +698,13 @@ console.log();
 // 30. Sukurkite funkciją, kuri taiso pastraipos klaidas:
 //  Pirma sakinio raidė didžioji
 //  Po skiriamojo ženklo tarpas, o prieš skiriamajį ženklą nėra tarpo (skiriamieji ženklai: .,!?)
-//  Bet kokį kiekį tapų pakeičia vienu tarpu
+//  Bet kokį kiekį tarpų pakeičia vienu tarpu
 //    mėgstu pieną , bet medų nelabai.labanakt. -> Mėgstu pieną, bet medų nelabai. Labanakt.
 console.group("30. Sukurkite funkciją, kuri taiso pastraipos klaidas");
 {
 
   function capitalizeFirstWord(str) {
-    return str[0].toUpperCase() + str.slice(1);
+    return str[0].toUpperCase() + str.substring(1);
   }
 
   function splitIntoSentences(paragraph) {
@@ -728,8 +728,9 @@ console.group("30. Sukurkite funkciją, kuri taiso pastraipos klaidas");
   function reduceEmptySpaces(str) {
     for (let i = str.length - 1; i >= 0; i--) {
       const letter = str[i];
-      if ([' ', ','].includes(letter) && str[i - 1] === ' ') {
-        str = str.slice(0, i -1) + str.slice(i);
+      const prevLetter = str[i - 1];
+      if ([' ', ','].includes(letter) && prevLetter === ' ') {
+        str = str.slice(0, i - 1) + str.slice(i);
       }
     }
     return str;

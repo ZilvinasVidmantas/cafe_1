@@ -212,11 +212,11 @@ console.log();
 
 console.group("14. Sukurkite funkciją, kuri grąžina <true>, jeigu NĖRA skaičių");
 {
-  const invalidSymbols = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   function isOnlyLetters(str) {
-    for (let i = 0; i < str.length; i++) {
-      for (let j = 0; j < invalidSymbols.length; j++) {
-        if (str[i] === invalidSymbols[j]) {
+    for (let num = 0; num <= 9; num++) {
+      const smb = String(num);
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] === smb) {
           return false;
         }
       }
@@ -224,27 +224,34 @@ console.group("14. Sukurkite funkciją, kuri grąžina <true>, jeigu NĖRA skai�
     return true;
   }
 
-  function isOnlyLetters(str) {
-    for (let i = 0; i < str.length; i++) {
-      if (!isNaN(parseInt(str[i]))) {
-        return false;
-      }
-    }
-    return true;
-  }
+  // function isOnlyLetters(str) {
+  //   for (let i = 0; i < str.length; i++) {
+  //     if (!isNaN(parseInt(str[i]))) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
 
-  function isOnlyLetters(word) {
-    for (let i = 0; i < invalidSymbols.length; i++) {
-      if(word.includes(invalidSymbols[i])){
-        return false;
-      }
-    }
-    return true;
-  }
+  // function isOnlyLetters(word) {
+  //   for (let i = 0; i <= 9; i++) {
+  //     if (word.includes(i)) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
 
-  function isOnlyLetters(word) {
-    return !/\d/.test(word);
+  // function isOnlyLetters(word) {
+  //   return !/\d/.test(word);
+  // }
+
+  const iterationCount = 10 ** 7;
+  const startTime = new Date();
+  for (let i = 0; i < iterationCount; i++) {
+    isOnlyLetters('Labas');
   }
+  console.log('code took:', new Date() - startTime);
 
   console.log('---');
   console.log({

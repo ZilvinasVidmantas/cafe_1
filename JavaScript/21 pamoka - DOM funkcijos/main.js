@@ -5,3 +5,14 @@ for (let i = 0; i < parent.children.length; i++) {
   child.className += ' child--blue';
   console.log(child.className);
 }
+
+/*
+  Parašyti kodą jog, elementas su klase 'child':
+    pirmas - geltonas
+    antras - žalias
+    trečias - raudonas
+
+  20:45-20:55 -> užduotis
+  pertrauka
+  tęsiam: 21:05
+*/

@@ -7,6 +7,14 @@
   height: 300px;
 }
 
+.flag--vertical {
+  flex-direction: row;
+}
+
+.flag.flag--vertical>* {
+  box-shadow: 1px 0 0 0 #000;
+}
+
 .flag>* {
   flex-grow: 1;
   box-shadow: 0 1px 0 0 #000;

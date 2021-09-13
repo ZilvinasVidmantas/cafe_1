@@ -5,14 +5,16 @@ const flagBottom = document.querySelector('.flag__bottom');
 
 // Toggle direction button
 function toggleFlagDirection() {
+  // flag.classList.toggle('flag--vertical');
   if (flag.classList.contains('flag--vertical')) {
-    btnFlagDirectionToggle.innerHTML = 'Vertical';
+    btnFlagDirectionToggle.innerHTML = 'set vertical';
     flag.classList.remove('flag--vertical');
   } else {
-    btnFlagDirectionToggle.innerHTML = 'Horizontal';
+    btnFlagDirectionToggle.innerHTML = 'set horizontal';
     flag.classList.add('flag--vertical');
   }
 }
+
 const btnFlagDirectionToggle = document.querySelector('#btn-flag-direction-toggle');
 btnFlagDirectionToggle.addEventListener('click', toggleFlagDirection);
 

@@ -1,18 +1,14 @@
-const parent = document.querySelector('.parent');
+const flag = document.querySelector('.flag');
+const flagTop = document.querySelector('.flag__top');
+const flagMiddle = document.querySelector('.flag__middle');
+const flagBottom = document.querySelector('.flag__bottom');
 
-for (let i = 0; i < parent.children.length; i++) {
-  const child = parent.children[i];
-  child.className += ' child--blue';
-  console.log(child.className);
+// LT flag
+function displayFlagLT(){
+  flagTop.style.background = '#feeb00';
+  flagMiddle.style.background = '#058104';
+  flagBottom.style.background = '#fc0204';
 }
 
-/*
-  Parašyti kodą jog, elementas su klase 'child':
-    pirmas - geltonas
-    antras - žalias
-    trečias - raudonas
-
-  20:45-20:55 -> užduotis
-  pertrauka
-  tęsiam: 21:05
-*/
+const btnLT = document.querySelector('#flag-lt');
+btnLT.addEventListener('click', displayFlagLT);

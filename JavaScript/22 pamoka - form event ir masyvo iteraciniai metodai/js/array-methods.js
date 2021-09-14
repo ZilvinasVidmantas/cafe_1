@@ -68,7 +68,7 @@ const people = [
 ];
 const numbers = [1, 15, 9, -9, -8, -7, 2, 8, 51, 6, 5];
 
-console.group('Array.prototype.forEach');
+console.groupCollapsed('Array.prototype.forEach');
 {
   /*
     forEach yra paprasčiausias 'Array' iteracinis metodas. Jo tikslas, tiesiog įvykdytį argumentu paduotą funkciją,
@@ -102,27 +102,28 @@ console.group('Array.prototype.forEach');
   }
 
   people.forEach(printPersonFullName);
-  console.log({femaleCount, maleCount});
+  console.log({ femaleCount, maleCount });
   people.forEach(increasePeopleCount);
-  console.log({femaleCount, maleCount});
+  console.log({ femaleCount, maleCount });
   people.forEach(printIncomeAndSex);
   people.forEach(printAgeAndSex);
 }
 console.groupEnd();
 console.log('---------------------------\n');
 
-// Array.prototype.map
+console.groupCollapsed('Array.prototype.map');
 {
   /*
     Array.prototype.map iteracinis metodas yra skirtas kurti naują masyvą, iš iteruojamo masyvo elementų. Iteruodamas per kiekvieną masyvo elementą,
-    jis vykdo parametru perduotą funkciją, perduodant jai einamajį elementą, jo indeksą ir iteruojamajį masyvą. Tos funkcijos grąžintas rezultatas 
-    dedamas į naują masyvą. Praiteravus per visus pradinio masyvo elementus iteracinis metodas 'map' grąžina suformuotą masyvą į iškvietimo vietą.
+    jis vykdo argumentu perduotą funkciją, su kiekvienu masyvo elmentu, jo indeksu ir iteruojamu masyvu. Tos funkcijos grąžintas rezultatas 
+    dedamas į naują masyvą. Praiteravus per visus iteruojamo masyvo elementus iteracinis metodas 'map' grąžina suformuotą masyvą į iškvietimo vietą.
     
-    Suformavus naują masyvą, jis visada turės tiek pat elementų kaip ir pradinis masyvas. Jis dažniausiai naudojamas pradinio masyvo reikšmėms:
+    Suformavus naują masyvą, jis visada turės tiek pat elementų kaip ir pradinis masyvas.
+    Šis metodas dažniausiai naudojamas pradinio masyvo reikšmėms:
       * redaguoti
       * papildyti
       * sumažinti
-      * suformuoti su jomis kitas struktūras
+      * keisti struktūrą, formą
     
     Kaip ir Array.prototype.forEach atveju, perduodamoji funkcija gali priimti 3 parametrus:
       1. einamasis elementas
@@ -130,6 +131,30 @@ console.log('---------------------------\n');
       3. iteruojamas masyvas
     Perduodamoji funkcija PRI-VA-LO grąžinti reikšmę, kuri bus dedama į naujai formuojamą masyvą.
   */
+  {
+    const dishes = [
+      { name: 'plate', state: 'unwashed' },
+      { name: 'cup', state: 'unwashed' },
+      { name: 'fork', state: 'unwashed' },
+      { name: 'bowl', state: 'unwashed' },
+    ];
+
+    function washDish(dish) {
+      // Kadangi parametru gauta reikšmė bus objektas (nuorodos tipo), turime daryti kopiją, tam kad nepakeisti pradinių duomenų.
+      // Šiuo atveju, mums užteks seklios kopijos, tik todėl, jog kiekvieno objekto savybė yra primityvaus tipo
+      // Jeigu nors viena iš savybių, būtų nuoros tipo, tuomet reikėtų atlikti gilų kopijavimą, pvz.: JSON.parse(JSON.stringify(dish));
+      const result = { ...dish };
+      result.state = 'clean';
+      return result;
+    }
+
+    const cleanDishes = dishes.map(washDish);
+    console.log({
+      dishes,
+      cleanDishes
+    });
+  }
+
   function getIncome(person) {
     return person.income;
   }
@@ -157,13 +182,16 @@ console.log('---------------------------\n');
   const anonymousPeople = people.map(formAnonymousPerson);
   const wealthierPeople = people.map(raiseIncome);
 
-  // console.table(people);
-  // console.log(incomes);
-  // console.log(fullnames);
-  // console.table(anonymousPeople);
-  // console.table(wealthierPeople);
+  console.table(people);
+  console.log(incomes);
+  console.log(fullnames);
+  console.table(anonymousPeople);
+  console.table(wealthierPeople);
 }
+console.groupEnd();
+console.log('---------------------------\n');
 
+// 21:20 
 // Array.prototype.filter
 {
   /*
@@ -181,6 +209,7 @@ console.log('---------------------------\n');
       * true - elementas bus pridedamas į naujai formuojamą masyvą.
       * false - elementas NEBUS pridedamas į naujai formuojamą masyvą.
   */
+
   function largerThan10(num) {
     return num > 10;
   }
@@ -271,9 +300,3 @@ console.log('---------------------------\n');
     femaleAgeAvg,
   })
 }
-
-
-// 1. Perskaityt foreach aprašymą
-// 2. sukurti funkciją, kuri atspausdintų masyvo elementą, padaugintą iš 2 ir panaudoti ją su <numbers> masyvu ir jo iteraciniu metodu 'forEach'
-
-// tęsiame 20:20

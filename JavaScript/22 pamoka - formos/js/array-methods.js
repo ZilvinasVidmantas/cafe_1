@@ -6,7 +6,7 @@
     shift - išima elementą iš masyvo priekio
     unshift - įdeda elementą į masyvo priekį
   Masyvas turi ir kitokio pabūdžio metodus - iteracinius metodus. Šie metodai reikalauja funkcijos,
-  kuri bus iškviečiama su kiekvienu elementu. Priklausomai nuo masyvo iteracinio metodo, toji funkcija turi atitikti 
+  kuri bus iškviečiama su kiekvienu masyvo elementu. Priklausomai nuo masyvo iteracinio metodo, toji funkcija turi įgyvendinti
   reikalavimus, kurių dėka bus įgalinta iteracinio metodo esmė.
 */
 
@@ -68,42 +68,48 @@ const people = [
 ];
 const numbers = [1, 15, 9, -9, -8, -7, 2, 8, 51, 6, 5];
 
-// Array.prototype.forEach
+console.group('Array.prototype.forEach');
 {
   /*
-    forEach yra paprasčiausias 'Array' iteracinis metodas. Jo tikslas, tiesiog įvykdytį parametru paduotą funkciją,
-    su kiekvienu masyvo elementu. Šiuo atveju, funkcija neturi nieko grąžinti, ji tiesiog įsivykdo. Kviečiant parama-
-    metru perduotą funkciją su kiekvienu masyvo elementu, tai funkcijai yra siunčiami 3 parametrai, tokia tvarka:
+    forEach yra paprasčiausias 'Array' iteracinis metodas. Jo tikslas, tiesiog įvykdytį argumentu paduotą funkciją,
+    su kiekvienu masyvo elementu. Funkcija neturi nieko grąžinti, ji tiesiog įsivykdo. Kviečiant argumentu
+    perduotą funkciją su kiekvienu masyvo elementu, tai funkcijai yra siunčiami 3 argumentai, tokia tvarka:
       1. einamasis masyvo elementas,
-      2. einamojo masyvo elemento indeksas iteruojame masyve
+      2. einamojo masyvo elemento indeksas
       3. masyvas per kurį yra iteruojama
-    Priklausomai nuo vykdomos logikos, perduodamoji funkcija gali pasiimti atitinkamą siunčiamų parametrų kiekį, naudojant
-    argumentų aprašymą, ir gaunant reikšmes į juos. Argumentų pavadinimus galite rinktis laisvai, geriausia vadinti
-    juos taip, jog jie sufleruotų perduodamų parametrų prasmę. 
-    Svarbu pastebėti, jog siunčiamų parametrų eiliškumas niekada nesikeičia, ir jeigu, siunčiamos funkcijos logikoje reikia
+    Priklausomai nuo vykdomos logikos, perduodamoji funkcija gali pasiimti atitinkamą siunčiamų parametrų kiekį. (1-3)
+    Parametrų pavadinimus galite rinktis laisvai, geriausia vadinti
+    juos taip, jog jie sufleruotų perduodamų argumentų prasmę. 
+    Svarbu pastebėti, jog siunčiamų argumentų eiliškumas niekada nesikeičia, ir jeigu, perduodamos funkcijos logikoje reikia
     tik indekso (2.) reikšmės, vistiek turime priimti argumentu ir patį iteruojamą elementą (1.), nes indeksas visada bus
-    prasiunčiamas antruoju parametru.
+    perduodamas antruoju argumentu.
   */
 
-  // let femaleCount = 0;
-  // function printPersonFullName(person){
-  //   console.log(person.name, person.surname);
-  // }
-  // function increaseAllPeopleCount(person){
-  //   if(person.sex === 'female') femaleCount++;
-  // }
-  // function printSexIncome(el){
-  //   console.log(el.sex, el.income)
-  // }
-  // function printAgeSex(vadinuKaipNoriu){
-  //   console.log(vadinuKaipNoriu.sex, vadinuKaipNoriu.income);
-  // }
+  let femaleCount = 0;
+  let maleCount = 0;
+  function printPersonFullName(person) {
+    console.log(person.name, person.surname);
+  }
+  function increasePeopleCount(person) {
+    if (person.sex === 'female') femaleCount++;
+    else if (person.sex === 'male') maleCount++;
+  }
+  function printIncomeAndSex(el) {
+    console.log(el.sex, el.income);
+  }
+  function printAgeAndSex(vadinuKaipNoriu) {
+    console.log(vadinuKaipNoriu.sex, vadinuKaipNoriu.income);
+  }
 
-  // people.forEach(printPersonFullName);
-  // people.forEach(increaseAllPeopleCount);
-  // people.forEach(printSexIncome);
-  // people.forEach(printAgeSex);
+  people.forEach(printPersonFullName);
+  console.log({femaleCount, maleCount});
+  people.forEach(increasePeopleCount);
+  console.log({femaleCount, maleCount});
+  people.forEach(printIncomeAndSex);
+  people.forEach(printAgeAndSex);
 }
+console.groupEnd();
+console.log('---------------------------\n');
 
 // Array.prototype.map
 {
@@ -241,7 +247,7 @@ const numbers = [1, 15, 9, -9, -8, -7, 2, 8, 51, 6, 5];
     let avg = 0;
     for (let i = 0; i < numbers.length; i++) {
       const el = numbers[i];
-      avg =  avg + el / numbers.length
+      avg = avg + el / numbers.length
     }
     const numbersAvg = avg;
   }
@@ -252,7 +258,7 @@ const numbers = [1, 15, 9, -9, -8, -7, 2, 8, 51, 6, 5];
   const maleAgeAvg = people
     .filter(p => p.sex === 'male')
     .reduce((avg, p, i, arr) => avg + p.age / arr.length, 0);
-    
+
   const femaleAgeAvg = people.filter(p => p.sex === 'female').reduce((avg, p, i, arr) => avg + p.age / arr.length, 0);
 
   console.log({
@@ -264,6 +270,10 @@ const numbers = [1, 15, 9, -9, -8, -7, 2, 8, 51, 6, 5];
     maleAgeAvg,
     femaleAgeAvg,
   })
-
-
 }
+
+
+// 1. Perskaityt foreach aprašymą
+// 2. sukurti funkciją, kuri atspausdintų masyvo elementą, padaugintą iš 2 ir panaudoti ją su <numbers> masyvu ir jo iteraciniu metodu 'forEach'
+
+// tęsiame 20:20

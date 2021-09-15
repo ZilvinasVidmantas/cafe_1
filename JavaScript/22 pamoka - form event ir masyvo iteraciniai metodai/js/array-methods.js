@@ -7,7 +7,7 @@
     unshift - įdeda elementą į masyvo priekį
   Masyvas turi ir kitokio pabūdžio metodus - iteracinius metodus. Šie metodai reikalauja funkcijos,
   kuri bus iškviečiama su kiekvienu masyvo elementu. Priklausomai nuo masyvo iteracinio metodo, toji funkcija turi įgyvendinti
-  reikalavimus, kurių dėka bus įgalinta iteracinio metodo esmė.
+  reikalavimus, kurių dėka bus pasiekta iteracinio metodo esmė.
 */
 
 const people = [
@@ -191,8 +191,7 @@ console.groupCollapsed('Array.prototype.map');
 console.groupEnd();
 console.log('---------------------------\n');
 
-// 21:20 
-// Array.prototype.filter
+console.groupCollapsed('Array.prototype.filter');
 {
   /*
     Array.prototype.filter iteracinis metodas yra skirtas kurti naują masyvą, ATRENKANT REIKŠMES PAGAL SALYGĄ iš iteruojamų masyvo elementų.
@@ -213,36 +212,35 @@ console.log('---------------------------\n');
   function largerThan10(num) {
     return num > 10;
   }
-  const smallerThen8 = function (num) {
-    return num < 8
+  function smallerThen8(num) {
+    return num < 8;
   }
-  const isEven = (num) => {
+  function isEven(num) {
     return num % 2 === 0;
   }
-  const isOdd = num => num % 2 !== 0;
+  function isOdd(num) {
+    return num % 2 === 1;
+  }
+  function isWoman(person) {
+    return person.sex === 'female';
+  }
 
   const numbersLargerThan10 = numbers.filter(largerThan10);
   const numbersSmallerThen8 = numbers.filter(smallerThen8);
   const numbersEven = numbers.filter(isEven);
   const numbersOdd = numbers.filter(isOdd);
-  const numbersPositive = numbers.filter(function (num) {
-    return num > 0;
-  })
-  const numbersNegative = numbers.filter(n => n < 0);
+  const women = people.filter(isWoman);
 
-  console.log(
-    {
-      numbersLargerThan10,
-      numbersSmallerThen8,
-      numbersEven,
-      numbersOdd,
-      numbersPositive,
-      numbersNegative
-    }
-  )
-
+  console.log({
+    numbersLargerThan10,
+    numbersSmallerThen8,
+    numbersEven,
+    numbersOdd,
+    women
+  });
 }
-
+console.groupEnd();
+console.log('---------------------------\n');
 
 // Array.prototype.reduce
 {
@@ -298,5 +296,5 @@ console.log('---------------------------\n');
     peopleAgeAvg,
     maleAgeAvg,
     femaleAgeAvg,
-  })
+  });
 }

@@ -136,6 +136,7 @@ console.groupCollapsed('16. Sukurti funkciją, kuri ima masyvą ir grąžina vis
 console.groupEnd();
 
 // P.S. Math.max();
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 console.groupCollapsed('17. Sukurti funkciją, kuri ima masyvą ir grąžina didžiausią skaičių masyve.');
 {
@@ -144,6 +145,7 @@ console.groupCollapsed('17. Sukurti funkciją, kuri ima masyvą ir grąžina did
 console.groupEnd();
 
 // P.S. Math.min();
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
 console.groupCollapsed('18. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.');
 {

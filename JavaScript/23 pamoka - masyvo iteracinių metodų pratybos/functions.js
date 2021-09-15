@@ -125,13 +125,19 @@ console.groupEnd();
 
 console.groupCollapsed('15. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų sumą');
 {
-
+  console.log({
+    numbers,
+    sum: numbers.reduce((acc, el) => acc + el)
+  });
 }
 console.groupEnd();
 
 console.groupCollapsed('16. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų vidurkį');
 {
-
+  console.log({
+    numbers,
+    avg: numbers.reduce((acc, el, _, arr) => acc + el / arr.length, 0)
+  });
 }
 console.groupEnd();
 
@@ -140,7 +146,11 @@ console.groupEnd();
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 console.groupCollapsed('17. Sukurti funkciją, kuri ima masyvą ir grąžina didžiausią skaičių masyve.');
 {
-  
+  const numbers = [1, 2, 3, 4, 5];
+  console.log({
+    numbers,
+    max: Math.max(...numbers)
+  });
 }
 console.groupEnd();
 
@@ -150,5 +160,9 @@ console.groupEnd();
 console.groupCollapsed('18. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.');
 {
 
+  console.log({
+    numbers,
+    min: Math.min(...numbers)
+  });
 }
 console.groupEnd();

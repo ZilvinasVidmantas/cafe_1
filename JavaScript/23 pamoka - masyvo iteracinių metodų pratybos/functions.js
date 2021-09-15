@@ -159,10 +159,11 @@ console.groupEnd();
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
 console.groupCollapsed('18. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.');
 {
-
   console.log({
     numbers,
     min: Math.min(...numbers)
   });
 }
 console.groupEnd();
+
+// 21:13

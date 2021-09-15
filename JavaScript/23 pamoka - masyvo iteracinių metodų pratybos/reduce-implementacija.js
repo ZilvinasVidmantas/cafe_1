@@ -25,7 +25,6 @@ class Masyvas {
   }
 }
 
-debugger
 const tikrasMasyvas = new Array(1, 2, 3, 4);
 const manoMasyvas = new Masyvas(1, 2, 3, 4);
 

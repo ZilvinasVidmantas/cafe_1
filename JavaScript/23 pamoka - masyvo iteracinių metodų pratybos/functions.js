@@ -97,7 +97,7 @@ console.groupCollapsed('11. Suapvalinti visas masyvo reikšmes iki sveikų skai�
     result: numbers.map(Math.round)
   });
 }
-console.groupEnd()
+console.groupEnd();
 
 console.groupCollapsed('12. Atrinkti kas antrą elementą');
 {
@@ -127,20 +127,24 @@ console.groupCollapsed('15. Sukurti funkciją, kuri ima masyvą ir grąžina vis
 {
 
 }
-console.groupEnd()
+console.groupEnd();
 
 console.groupCollapsed('16. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų vidurkį');
 {
 
 }
-console.groupEnd()
+console.groupEnd();
 
+// P.S. Math.max();
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 console.groupCollapsed('17. Sukurti funkciją, kuri ima masyvą ir grąžina didžiausią skaičių masyve.');
 {
-
+  
 }
-console.groupEnd()
+console.groupEnd();
 
+// P.S. Math.min();
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
 console.groupCollapsed('18. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.');
 {
 

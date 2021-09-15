@@ -56,31 +56,43 @@ const people = [
 ];
 console.groupCollapsed('1. Atspausdinkite visus žmones eilutėmis');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach(p => console.log(`${p.name} ${p.surname} - ${p.sex}, ${p.age},${p.income}, ${p.married}, ${p.hasCar}`));
 }
 console.groupEnd();
 
 console.groupCollapsed('2. Atpausdinkite visus žmonių vardus ir pavardes, atskirtus brūkšneliu');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach(p => console.log(`${p.name}-${p.surname}`));
 }
 console.groupEnd();
 
 console.groupCollapsed('3. Atspausdinkite visų žmonių vardus ir pavardes bei santuokos statusus');
 {
-  // ...sprendimas ir spausdinimas
+  people.forEach(p => console.log(p.name, p.surname, p.married));
 }
 console.groupEnd();
 
 console.groupCollapsed('4. Sukurkite masyvą su lytimis ir uždirbamu pinigų kiekiu, pagal pradinį žmonių masyvą');
 {
-  // ...sprendimas ir spausdinimas
+  const result = people.map(p => {
+    return {
+      sex: p.sex,
+      income: p.income
+    };
+  });
+  const result = people.map(p => ({ sex: p.sex, income: p.income }));
+  console.table(result);
 }
 console.groupEnd();
 
 console.groupCollapsed('5. Sukurtite masyvą su vardais, pavardėmis ir lytimi, pagal pradinį žmonių masyvą');
 {
-  // ...sprendimas ir spausdinimas
+  const result = people.map(p => ({
+    name: p.name,
+    surname: p.surname,
+    sex: p.sex,
+  }));
+  console.table(result);
 }
 console.groupEnd();
 

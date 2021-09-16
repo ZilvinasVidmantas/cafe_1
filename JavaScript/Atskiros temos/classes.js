@@ -71,5 +71,3 @@ class AXY {
     savybes naudojantys metodai (dažniausiai spausdinimas)
 }
 */
-
-// 21:32

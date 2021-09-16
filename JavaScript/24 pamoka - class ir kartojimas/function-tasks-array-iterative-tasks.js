@@ -98,25 +98,43 @@ console.groupEnd();
 
 console.groupCollapsed('6. Atspausdinkite visų vyrų vardus');
 {
-  // ...sprendimas ir spausdinimas
+  // Eilutėmis
+  {
+    people
+      .filter(({ sex }) => sex === 'male')
+      .forEach(({ name }) => console.log(name));
+  }
+  // Vienoje eilutėje
+  {
+    const result = people
+      .filter(({ sex }) => sex === 'male')
+      .map(({ name }) => name);
+    console.log(...result)
+  }
 }
 console.groupEnd();
 
 console.groupCollapsed('7. Atspausdinkite visų moterų atlyginimus');
 {
-  // ...sprendimas ir spausdinimas
+  people
+    .filter(({ sex }) => sex === 'female')
+    .forEach(({ income }) => console.log(income));
 }
 console.groupEnd();
 
 console.groupCollapsed('8. Atspausdinkite žmonių vardus ir pavardes, kurie turi mašinas');
 {
-  // ...sprendimas ir spausdinimas
+  people
+    .filter(({ hasCar }) => hasCar)
+    .forEach(({ name, surname }) => console.log(name, surname));
 }
 console.groupEnd();
 
 console.groupCollapsed('9. Atspausdinkite žmones kurie yra susituokę');
 {
-  // ...sprendimas ir spausdinimas
+  people
+    .filter(({ married }) => married)
+    .forEach((p) => console.log(p));
 }
 console.groupEnd();
 
@@ -158,18 +176,68 @@ console.groupEnd();
 
 console.groupCollapsed('11. Performuokite žmonių masyvą, jog kiekvieno žmogaus savybė "income", taptų "salary"');
 {
-  // ...sprendimas ir spausdinimas
+  // Aiškiai
+  {
+    const result = people.map(p => {
+      const person = { ...p };
+      person.salary = person.income;
+      delete person.income;
+      return person;
+    });
+    console.table(result);
+  }
+  // Šustrai
+  {
+    const result = people.map(({ income, ...rest }) => ({
+      ...rest,
+      salary: income,
+    }));
+    console.table(result);
+  }
 }
 console.groupEnd();
 
 console.groupCollapsed('12. Suformuokite žmonių masyvą, kuriame nebūtų lyties, vardo ir pavardės');
 {
-  // ...sprendimas ir spausdinimas
+  // Aiškiai
+  {
+    const result = people.map(p => {
+      const person = { ...p };
+      delete person.sex;
+      delete person.name;
+      delete person.surname;
+      return person;
+    });
+    console.table(result);
+  }
+  // Šustrai
+  {
+    const result = people.map(({ sex, name, surname, ...rest }) => ({ ...rest }));
+    console.table(result);
+  }
 }
 console.groupEnd();
 
 console.groupCollapsed('13. Suformuokite žmonių masyvą, kuriame "name" ir "surname" savybės, būtų pakeistos "fullname" savybe');
 {
-  // ...sprendimas ir spausdinimas
+  // Aiškiai
+  {
+    const result = people.map(p => {
+      const person = { ...p };
+      person.fullname = person.name + ' ' + person.surname;
+      delete person.name;
+      delete person.surname;
+      return person;
+    });
+    console.table(result);
+  }
+  // Šustrai
+  {
+    const result = people.map(({ name, surname, ...rest }) => ({ 
+      ...rest,
+      fullname: `${name} ${surname}` 
+    }));
+    console.table(result);
+  }
 }
 console.groupEnd();

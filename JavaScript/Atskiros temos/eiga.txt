@@ -8,4 +8,3 @@ conditions.js
 array-methods.js
 functions.js
 array-iterative-methods.js
-classes.js

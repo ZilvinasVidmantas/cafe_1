@@ -18,32 +18,32 @@
   }
 
   // Destruktūrizavimas ištraukiat reikšmes iš objekto į esamą aplinką (current scope)
-  const { name, city } = userSettings;
+  const { name, city } = allSettings;
   // reiškia tą patį kaip:
   {
-    const name = userSettings.name;
-    const city = userSettings.city;
+    const name = allSettings.name;
+    const city = allSettings.city;
   }
 
   // Galima destrukturizuojant keisti pavadinimus:
-  const { name: vardas, city: miestas } = userSettings;
+  const { name: vardas, city: miestas } = allSettings;
   // reiškia tą patį kaip:
   {
-    const vardas = userSettings.name;
-    const miestas = userSettings.city;
+    const vardas = allSettings.name;
+    const miestas = allSettings.city;
   }
 
   // Funkcija nedestrūkturizuojant
   {
     function printSettingsInfo(name, surname, country, city) {
-      console.log(name, surname, country, city)
+      console.log(name, surname, country, city);
     }
     printSettingsInfo(allSettings.name, allSettings.surname, allSettings.country, allSettings.city);
   }
   // Funkcija destruktūrizuojant funkcijos vykdymo bloke
   {
     function printSettingsInfo(info) {
-      const { name, surname, country, city } = info;
+      let { name, surname, country, city } = info;
       console.log(name, surname, country, city);
     }
     printSettingsInfo(allSettings);
@@ -60,8 +60,8 @@
 // Masyvų destruktūrizavimas
 const svoriai1 = [7, 10, 9];
 const svoriai2 = [11, 5];
-// ...svoriai1    =>    7, 10, 9
-// ...svoriai2    =>    11, 5
+// ...[7, 10, 9]    =>    7, 10, 9
+// ...svoriai2      =>    11, 5
 const visiSvoriai = [...svoriai1, ...svoriai2];
 visiSvoriai.sort((a, b) => a - b);
 

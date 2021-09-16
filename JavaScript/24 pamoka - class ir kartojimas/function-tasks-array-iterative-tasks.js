@@ -190,7 +190,7 @@ console.groupCollapsed('11. Performuokite žmonių masyvą, jog kiekvieno žmoga
   {
     const result = people.map(({ income, ...rest }) => ({
       ...rest,
-      salary: income,
+      salary: income
     }));
     console.table(result);
   }
@@ -233,9 +233,9 @@ console.groupCollapsed('13. Suformuokite žmonių masyvą, kuriame "name" ir "su
   }
   // Šustrai
   {
-    const result = people.map(({ name, surname, ...rest }) => ({ 
+    const result = people.map(({ name, surname, ...rest }) => ({
       ...rest,
-      fullname: `${name} ${surname}` 
+      fullname: `${name} ${surname}`
     }));
     console.table(result);
   }

@@ -1,0 +1,28 @@
+iki 2021-09-20
+  function-tasks-1.js -> pilnai
+  function-tasks-2.js -> pilnai
+  function-tasks-array-iterative-1.js -> pilnai
+  classes-tasks-1.js -> pilnai
+
+iki 2021-09-27
+  function-tasks-3.js  -> [1.- 22.]
+  function-tasks-array-iterative-2.js -> [1. - 7.]
+  classes-tasks-2.js -> [1. - 8.]
+
+iki 2021-10-04
+  function-tasks-3.js -> pilnai
+  function-tasks-array-iterative-2.js -> pilnai
+  classes-tasks-2.js -> pilnai
+
+iki 2021-10-11
+  classes-tasks-3 -> pilnai
+  js-exam-revision.txt -> pilnai
+  js-iteration-and-classes-task.txt -> pilnai.txt
+
+2021-10-11 - atsiskaitymas iš JS inžinerinės dalies.
+  Trukmė: 1.5val
+
+  Vertinimas:
+    5 balai už atliktas pratybų užduotis
+    5 balai už kontrolinio darbą
+

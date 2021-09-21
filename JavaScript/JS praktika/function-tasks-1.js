@@ -7,6 +7,7 @@ console.groupEnd();
 console.groupCollapsed('2. Parašykite funkciją, kuri pašalina pirmą masyvo elementą ir jį grąžina.');
 {
   // ...sprendimas ir spausdinimas
+  // google: mdn array shift
 }
 console.groupEnd();
 
@@ -19,6 +20,7 @@ console.groupEnd();
 console.groupCollapsed('4. Parašykite funkciją, kuri pašalina paskutinį masyvo elementą ir jį grąžina.');
 {
   // ...sprendimas ir spausdinimas
+  // google: mdn array pop
 }
 console.groupEnd();
 
@@ -34,7 +36,7 @@ console.groupCollapsed('6. Parašykite funkciją, kuri atspausdina paskutinio ma
 }
 console.groupEnd();
 
-console.groupCollapsed('7. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indeksus eilutėmis');
+console.groupCollapsed('7. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elementų indeksus eilutėmis');
 {
   // ...sprendimas ir spausdinimas
 }
@@ -64,12 +66,15 @@ console.groupEnd();
 console.groupCollapsed('11. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indeksus vienoje eilutėje: 0 1 2 3 ...');
 {
   // ...sprendimas ir spausdinimas
+  // google: mdn array map
+  // google: mdn array join arba google mdn spread operator array
 }
 console.groupEnd();
 
 console.groupCollapsed('12. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento reikšmes vienoje eilutėje: -111 2 -9 48');
 {
   // ...sprendimas ir spausdinimas
+  // google: mdn array join arba google mdn spread operator array
 }
 console.groupEnd();
 
@@ -77,5 +82,7 @@ console.groupCollapsed('13. Parašykite funkciją, kuri atspausdina kiekvieno ma
 //  [0]=>17 [1]=>8 [2]=>88 ..
 {
   // ...sprendimas ir spausdinimas
+  // google: mdn array map
+  // google: mdn string literal
 }
 console.groupEnd();

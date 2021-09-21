@@ -20,6 +20,7 @@ console.group('2. Pakelti masyvo narius kvadratu');
 console.log('---');
 {
   function powerArrBy2(arr) {
+    // google: mdn power operator
     // ... code
   }
   console.log({
@@ -81,6 +82,7 @@ console.log('---');
 {
   function filterEquals(arr) {
     // Jūsų kodas
+    // google: mdn remainder operator
   }
   // console.log({
   //   numbers,
@@ -110,6 +112,7 @@ console.group("8. Visas neigiamas vertes masyve padaryti teigiamomis");
 {
   function arrAbsoluteValues(arr) {
     // ... code
+    // google: mdn Math.abs
   }
 
   console.log('---');
@@ -142,6 +145,7 @@ console.log('---');
 {
   function filterNaturals(arr) {
     // Jūsų kodas
+    // google: mdn is integer
   }
   // console.log({
   //   numbers,
@@ -157,6 +161,7 @@ console.log('---');
 {
   function absArrElements(arr) {
     // Jūsų kodas
+    // google: mdn round number
   }
   // console.log({
   //   numbers,
@@ -171,6 +176,7 @@ console.log('---');
 {
   function filterEverySecond(arr) {
     //  Jūsų kodas
+    // google: mdn remainer operator
   }
   // console.log({
   //   numbers,
@@ -185,6 +191,7 @@ console.log('---');
 {
   function filterEveryFifth(arr) {
     //  Jūsų kodas
+    // google: mdn remainer operator
   }
   // console.log({
   //   numbers,
@@ -200,6 +207,7 @@ console.log('---');
 {
   function printArr(arr) {
     // ... code
+    // google: mdn string literal
   }
   printArr(numbers);
 }
@@ -211,6 +219,7 @@ console.log('---');
 {
   function sumArr(arr) {
     // Jūsų kodas
+    // google: algorythm to sum array elements js
   }
 
   // console.log({
@@ -226,6 +235,8 @@ console.log('---');
 {
   function avgArr(arr) {
     // Jūsų kodas
+    // google: algorythm to sum array elements js
+    // hint: after findinf sum, divide ir by element count
   }
 
   // console.log({
@@ -241,6 +252,8 @@ console.log('---');
 {
   function arrMax(arr) {
     //  Jūsų kodas
+    // google: mdn Math max
+    // google: mdn array spread operator
   }
 
   // console.log({
@@ -256,6 +269,8 @@ console.log('---');
 {
   function arrMin(arr) {
     //  Jūsų kodas
+    // google: mdn Math min
+    // google: mdn array spread operator
   }
 
   // console.log({

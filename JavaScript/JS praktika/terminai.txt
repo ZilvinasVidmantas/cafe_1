@@ -5,6 +5,7 @@ iki 2021-09-20
   classes-tasks-1.js -> pilnai
 
 iki 2021-09-27
+  object-tasks.js -> pilnai
   function-tasks-3.js  -> [1.- 22.]
   function-tasks-array-iterative-2.js -> [1. - 7.]
   classes-tasks-2.js -> [1. - 8.]

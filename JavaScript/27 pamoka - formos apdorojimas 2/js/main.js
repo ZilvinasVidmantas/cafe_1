@@ -26,7 +26,7 @@ const schema = {
 function clearRegisterFormErrors(formData) {
   for (const fieldName in formData) {
     const { input } = formData[fieldName];
-    if(input.classList.contains('is-invalid')){
+    if (input.classList.contains('is-invalid')) {
       input.classList.remove('is-invalid');
       const errorFeedbackContainer = input.parentElement.querySelector('.invalid-feedback');
       errorFeedbackContainer.innerHTML = '';
@@ -130,4 +130,43 @@ function handleRegisterForm(event) {
 
 formRegister.addEventListener('submit', handleRegisterForm);
 
-// 21:25
+class Form {
+  constructor(selector, validationSchema) {
+    const form = document.querySelector(selector);
+    if (!form)
+      throw new Error(`Nėra rastas elementas su tokiu selektoriumi: ${selector}`);
+    if (!(form instanceof HTMLFormElement))
+      throw new TypeError(`Kuriant Form klasės objektą, turite perduoti selektorių kuris pasirinkitų HTMLFormElement elementą`);
+    this.fields = Array
+      .from(form)
+      .filter(x => x.name)
+      .reduce((result, field) => ({
+        ...result,
+        [field.name]: {
+          element: field,
+          errorContainer: field.parentElement.querySelector('.invalid-feedback')
+        }
+      }), {});
+    if(!Object.keys(validationSchema).every(fieldName => Object.keys(this.fields).includes(fieldName)))
+      throw new TypeError(`Validacijos schema nėra pritaikyta šiai formai`);
+    this.validationSchema = validationSchema;
+    form.addEventListener('submit', this.handleSubmit);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    // funkcija, kuri atliks visus veiksmus
+    this.validate()
+  }
+
+  validate() {
+    this.validationSchema;
+  }
+}
+
+const validationSchema = {
+  'email': (val) => true,
+  'password': 78798
+}
+
+const registrationForm = new Form('#formRegister', validationSchema);

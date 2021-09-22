@@ -2,7 +2,7 @@
 // Schema
 const schema = {
   email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value) ? true : 'Neteisingas paštas',
-  password: value => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value) ? true : 'Min 8 simboliai, nors viena didžioji ir nors vienas skaičius',
+  password: value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,32}$/.test(value) ? true : 'Min 8 simboliai, nors viena didžioji ir nors vienas skaičius',
   repeatPassword: {
     validate: (val, val2) => val === val2 ? true : 'Slaptažodžiai nesutampa',
     fieldNames: ['password', 'repeatPassword']
@@ -23,29 +23,14 @@ const schema = {
 /**
  * Ši funkciją kviečiame, kuomet reikia išvalyti klaidos pranešimus, kurie buvo atsiradę po praeito submit'o
  */
-function clearRegisterFormErrors() {
-
-}
-
-// [1.]
-/**
- *  Ši funkcija skirta apdoroti registracijos formą
- * 
- * @param {Event} event - informacija apie įvykį
- */
-function handleRegisterForm(event) {
-  event.preventDefault();
-  // [2.]
-  const formData = structureRegisterFormData(formRegister);
-  // [3.] 
-  const validationResult = validateRegisterFormData(schema, formData);
-  // [4.]
-  if (Object.values(validationResult).every(x => x === true)) {
-    // [4.1] duomenys geri -> siunčiame duomenis į serverį
-    sendRequest(formData);
-  } else {
-    // 4.2 duomenys blogi -> išrašome klaidos pranešimus po atitinkamu įvesties lauku 
-    displayErrors(formData, validationResult);
+function clearRegisterFormErrors(formData) {
+  for (const fieldName in formData) {
+    const { input } = formData[fieldName];
+    if(input.classList.contains('is-invalid')){
+      input.classList.remove('is-invalid');
+      const errorFeedbackContainer = input.parentElement.querySelector('.invalid-feedback');
+      errorFeedbackContainer.innerHTML = '';
+    }
   }
 }
 
@@ -63,17 +48,16 @@ function handleRegisterForm(event) {
  *  } - FormData
  */
 function structureRegisterFormData(form) {
-  const formData = Array.from(form).filter(el => el.name);
-  const result = {};
-
-  formData.forEach(input => {
-    result[input.name] = {
-      input,
-      value: input.value
-    }
-  });
-
-  return result;
+  return Array
+    .from(form)
+    .filter(el => el.name)
+    .reduce((res, input) => ({
+      ...res,
+      [input.name]: {
+        input,
+        value: input.value
+      }
+    }), {});
 }
 
 // [3.]
@@ -83,14 +67,16 @@ function structureRegisterFormData(form) {
  * @param {*} formData - įvesties laukai su reikšmėmis ir pavadinimais
  * 
  * @return {
-  *  fieldName1: string | true,
- *   fieldName2: string | true,
- *   ...,
- *   fieldNameN: string | true
+ *    {
+ *      fieldName1: string,
+ *      fieldName2: string,
+ *      ...,
+ *      fieldNameN: string
+ *    } | true
  * }
  */
 function validateRegisterFormData(schema, formData) {
-  const result = {};
+  const errors = {};
   for (const fieldName in schema) {
     const validator = schema[fieldName];
     const value = formData[fieldName].value;
@@ -98,23 +84,50 @@ function validateRegisterFormData(schema, formData) {
     if (typeof validator === 'function') {
       fieldValidationResult = validator(value);
     } else {
-      const args = validator.fieldNames.map(name => formData[name].value);
+      const args = validator.fieldNames.map(fieldName => formData[fieldName].value);
       fieldValidationResult = validator.validate(...args)
     }
-    result[fieldName] = fieldValidationResult;
+    if (fieldValidationResult !== true) {
+      errors[fieldName] = fieldValidationResult;
+    }
   }
-  return result;
+  return Object.keys(errors).length === 0 ? true : errors;
 }
 
-function sendRequest(data){
+function sendRequest(data) {
   alert('Duomenis geri, siunčiame užklausą į serverį');
 }
 
-function displayErrors(formData, errors){
-  alert('Spausdiname klaidas');
+function displayErrors(formData, errors) {
+  for (const fieldName in errors) {
+    // const input = formData[fieldName].input;
+    const { input } = formData[fieldName];
+    input.classList.add('is-invalid');
+    const errorFeedbackContainer = input.parentElement.querySelector('.invalid-feedback');
+    errorFeedbackContainer.innerHTML = errors[fieldName];
+  }
 }
 
 const formRegister = document.querySelector('#formRegister');
+
+// [1.]
+/**
+ *  Ši funkcija skirta apdoroti registracijos formą
+ * 
+ * @param {Event} event - informacija apie įvykį
+ */
+function handleRegisterForm(event) {
+  event.preventDefault();
+  const formData = structureRegisterFormData(formRegister);
+  clearRegisterFormErrors(formData);
+  const validationResult = validateRegisterFormData(schema, formData);
+  if (validationResult === true) {
+    sendRequest(formData);
+  } else {
+    displayErrors(formData, validationResult);
+  }
+}
+
 formRegister.addEventListener('submit', handleRegisterForm);
 
-// 19:20
+// 21:25

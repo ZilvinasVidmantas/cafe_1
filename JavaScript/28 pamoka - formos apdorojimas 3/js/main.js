@@ -155,26 +155,18 @@ class Form {
     form.addEventListener('submit', this.handleSubmit);
   }
 
-  // 20:15
-  
-  // 2
-  get values(){
-    //  kodas, kuris grąžina objektą, su visų įvesties laukų reikšmėmis, pagal <this.fields>
-    // šios konrečio formos atveju:
-    /*
-      {
-        email: 'banys@gmail.com',
-        password: 123...,
-        repeatPassword: ...
-      }
-    */
-  //  KODAS ČIA
-      return ???
+  get values() {
+    const result = {};
+    for (const fieldName in this.fields) {
+      result[fieldName] = this.fields[fieldName].field.value
+    }
+    return result;
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    const validationResult = this.validate();
+    console.log(validationResult);
     /*
       0. Išvalyti praeito submit'o klaidas ir pranešimus
       1. Reaguoti į formos submit'inimą
@@ -184,6 +176,29 @@ class Form {
         4.1 -> duomenys geri -> siunčiame duomenis į serverį
         4.2 -> duomenys blogi -> išrašome klaidos pranešimus po atitinkamu įvesties lauku 
     */
+  }
+
+  // 21:00 - pertrauka
+  // 21:10 - tęsiam
+  validate = () => {
+    console.log(this.values);
+    console.log(this.validationSchema);
+    /*
+      {
+    *      fieldName1: string,
+    *      fieldName2: string,
+    *      ...,
+    *      fieldNameN: string
+    *    }
+    * 
+    *    {
+    *      email?: <email Validatoriaus rezultatas> 
+    *      password?: <password Validatoriaus rezultatas>
+    *      repeatPassword?: <repeat password Validatoriaus rezultatas>
+    *    } | true
+    
+    */
+    return 'in progress...';
   }
 
 

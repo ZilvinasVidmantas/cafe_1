@@ -1,3 +1,4 @@
+'use strict';
 // [-1.]
 // Schema
 const schema = {
@@ -147,21 +148,45 @@ class Form {
           errorContainer: field.parentElement.querySelector('.invalid-feedback')
         }
       }), {});
-    if(!Object.keys(validationSchema).every(fieldName => Object.keys(this.fields).includes(fieldName)))
+    if (!Object.keys(validationSchema).every(fieldName => Object.keys(this.fields).includes(fieldName)))
       throw new TypeError(`Validacijos schema nėra pritaikyta šiai formai`);
     this.validationSchema = validationSchema;
+
     form.addEventListener('submit', this.handleSubmit);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    // funkcija, kuri atliks visus veiksmus
-    this.validate()
+  // 20:15
+  
+  // 2
+  get values(){
+    //  kodas, kuris grąžina objektą, su visų įvesties laukų reikšmėmis, pagal <this.fields>
+    // šios konrečio formos atveju:
+    /*
+      {
+        email: 'banys@gmail.com',
+        password: 123...,
+        repeatPassword: ...
+      }
+    */
+  //  KODAS ČIA
+      return ???
   }
 
-  validate() {
-    this.validationSchema;
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+    /*
+      0. Išvalyti praeito submit'o klaidas ir pranešimus
+      1. Reaguoti į formos submit'inimą
+      2. Suformuoti formos duomenis su atitinkančiais įvesties laukais
+      3. Validavimas ir validavimo rezultato formavimas
+      4. Validavimo rezultato panaudojimas
+        4.1 -> duomenys geri -> siunčiame duomenis į serverį
+        4.2 -> duomenys blogi -> išrašome klaidos pranešimus po atitinkamu įvesties lauku 
+    */
   }
+
+
 }
 
 const validationSchema = {

@@ -1,143 +1,12 @@
-'use strict';
-// [-1.]
-// Schema
-const schema = {
-  email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value) ? true : 'Neteisingas paštas',
-  password: value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,32}$/.test(value) ? true : 'Min 8 simboliai, nors viena didžioji ir nors vienas skaičius',
-  repeatPassword: {
-    validate: (val, val2) => val === val2 ? true : 'Slaptažodžiai nesutampa',
-    fieldNames: ['password', 'repeatPassword']
-  },
-};
-
-/* Validacijos procesas:
-  0. Išvalyti praeito submit'o klaidas ir pranešimus
-  1. Reaguoti į formos submit'inimą
-  2. Suformuoti formos duomenis su atitinkančiais įvesties laukais
-  3. Validavimas ir validavimo rezultato formavimas
-  4. Validavimo rezultato panaudojimas
-    4.1 -> duomenys geri -> siunčiame duomenis į serverį
-    4.2 -> duomenys blogi -> išrašome klaidos pranešimus po atitinkamu įvesties lauku 
-*/
-
-// [0.]
-/**
- * Ši funkciją kviečiame, kuomet reikia išvalyti klaidos pranešimus, kurie buvo atsiradę po praeito submit'o
- */
-function clearRegisterFormErrors(formData) {
-  for (const fieldName in formData) {
-    const { input } = formData[fieldName];
-    if (input.classList.contains('is-invalid')) {
-      input.classList.remove('is-invalid');
-      const errorFeedbackContainer = input.parentElement.querySelector('.invalid-feedback');
-      errorFeedbackContainer.innerHTML = '';
-    }
-  }
-}
-
-// [2.]
-/**
- * Suformuojami formos duomenys su atitinkančiu įvesties lauku pagal pavadinimą
- * 
- * @param {HTMLFormElement} form - forma, kuri buvo pa'submit'inta
- * 
- * @return { 
-  *  fieldName1: { input: HTMLElement, value: string },
-  *  fieldName2: { input: HTMLElement, value: string },
-  *  ...,
-  *  fieldNameN: { input: HTMLElement, value: string }
- *  } - FormData
- */
-function structureRegisterFormData(form) {
-  return Array
-    .from(form)
-    .filter(el => el.name)
-    .reduce((res, input) => ({
-      ...res,
-      [input.name]: {
-        input,
-        value: input.value
-      }
-    }), {});
-}
-
-// [3.]
-/**
- * 
- * @param {*} schema - validacijos schema
- * @param {*} formData - įvesties laukai su reikšmėmis ir pavadinimais
- * 
- * @return {
- *    {
- *      fieldName1: string,
- *      fieldName2: string,
- *      ...,
- *      fieldNameN: string
- *    } | true
- * }
- */
-function validateRegisterFormData(schema, formData) {
-  const errors = {};
-  for (const fieldName in schema) {
-    const validator = schema[fieldName];
-    const value = formData[fieldName].value;
-    let fieldValidationResult;
-    if (typeof validator === 'function') {
-      fieldValidationResult = validator(value);
-    } else {
-      const args = validator.fieldNames.map(fieldName => formData[fieldName].value);
-      fieldValidationResult = validator.validate(...args)
-    }
-    if (fieldValidationResult !== true) {
-      errors[fieldName] = fieldValidationResult;
-    }
-  }
-  return Object.keys(errors).length === 0 ? true : errors;
-}
-
-function sendRequest(data) {
-  alert('Duomenis geri, siunčiame užklausą į serverį');
-}
-
-function displayErrors(formData, errors) {
-  for (const fieldName in errors) {
-    // const input = formData[fieldName].input;
-    const { input } = formData[fieldName];
-    input.classList.add('is-invalid');
-    const errorFeedbackContainer = input.parentElement.querySelector('.invalid-feedback');
-    errorFeedbackContainer.innerHTML = errors[fieldName];
-  }
-}
-
-const formRegister = document.querySelector('#formRegister');
-
-// [1.]
-/**
- *  Ši funkcija skirta apdoroti registracijos formą
- * 
- * @param {Event} event - informacija apie įvykį
- */
-function handleRegisterForm(event) {
-  event.preventDefault();
-  const formData = structureRegisterFormData(formRegister);
-  clearRegisterFormErrors(formData);
-  const validationResult = validateRegisterFormData(schema, formData);
-  if (validationResult === true) {
-    sendRequest(formData);
-  } else {
-    displayErrors(formData, validationResult);
-  }
-}
-
-formRegister.addEventListener('submit', handleRegisterForm);
-
 class Form {
-  constructor(selector, validationSchema) {
+  constructor(selector, validationSchema, onSubmit) {
     const form = document.querySelector(selector);
     if (!form)
       throw new Error(`Nėra rastas elementas su tokiu selektoriumi: ${selector}`);
     if (!(form instanceof HTMLFormElement))
       throw new TypeError(`Kuriant Form klasės objektą, turite perduoti selektorių kuris pasirinkitų HTMLFormElement elementą`);
+    if (typeof onSubmit !== 'function')
+      throw new TypeError(`Kuriant <Form> objektą, 3 argumentas turi būti funkcija. Šiuo atveju perduota:\nreikšmė: ${onSubmit}\ntipas: ${typeof onSubmit}`);
     this.fields = Array
       .from(form)
       .filter(x => x.name)
@@ -151,7 +20,7 @@ class Form {
     if (!Object.keys(validationSchema).every(fieldName => Object.keys(this.fields).includes(fieldName)))
       throw new TypeError(`Validacijos schema nėra pritaikyta šiai formai`);
     this.validationSchema = validationSchema;
-
+    this.onSubmit = onSubmit;
     form.addEventListener('submit', this.handleSubmit);
   }
 
@@ -165,43 +34,55 @@ class Form {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const validationResult = this.validate();
-    console.log(validationResult);
-    /*
-      0. Išvalyti praeito submit'o klaidas ir pranešimus
-      1. Reaguoti į formos submit'inimą
-      2. Suformuoti formos duomenis su atitinkančiais įvesties laukais
-      3. Validavimas ir validavimo rezultato formavimas
-      4. Validavimo rezultato panaudojimas
-        4.1 -> duomenys geri -> siunčiame duomenis į serverį
-        4.2 -> duomenys blogi -> išrašome klaidos pranešimus po atitinkamu įvesties lauku 
-    */
+    this.clearErrors();
+    const isValid = this.validate();
+    if (isValid) {
+      this.onSubmit(this.values);
+    } else {
+      this.displayErrors();
+    }
   }
 
-  // 21:00 - pertrauka
-  // 21:10 - tęsiam
   validate = () => {
-    console.log(this.values);
-    console.log(this.validationSchema);
-    /*
-      {
-    *      fieldName1: string,
-    *      fieldName2: string,
-    *      ...,
-    *      fieldNameN: string
-    *    }
-    * 
-    *    {
-    *      email?: <email Validatoriaus rezultatas> 
-    *      password?: <password Validatoriaus rezultatas>
-    *      repeatPassword?: <repeat password Validatoriaus rezultatas>
-    *    } | true
-    
-    */
-    return 'in progress...';
+    const errors = {};
+    for (const fieldName in this.validationSchema) {
+      const validator = this.validationSchema[fieldName];
+      const value = this.values[fieldName];
+      let fieldValidationResult;
+      if (typeof validator === 'function') {
+        fieldValidationResult = validator(value);
+      } else {
+        const args = validator.fieldNames.map(fieldName => this.values[fieldName]);
+        fieldValidationResult = validator.validate(...args);
+      }
+      if (fieldValidationResult !== true) {
+        errors[fieldName] = fieldValidationResult;
+      }
+    }
+    if (Object.keys(errors).length !== 0) {
+      this.errors = errors;
+      return false;
+    }
+    return true;
   }
 
+  displayErrors = () => {
+    for (const fieldName in this.errors) {
+      const error = this.errors[fieldName];
+      const { field, errorContainer } = this.fields[fieldName];
+      field.classList.add('is-invalid');
+      errorContainer.innerHTML = error;
+    }
+  }
 
+  clearErrors = () => {
+    for (const fieldName in this.errors) {
+      const { field, errorContainer } = this.fields[fieldName];
+      field.classList.remove('is-invalid');
+      errorContainer.innerHTML = '';
+    }
+    this.errors = null;
+  }
 }
 
 const validationSchema = {
@@ -210,7 +91,11 @@ const validationSchema = {
   repeatPassword: {
     validate: (val, val2) => val === val2 ? true : 'Slaptažodžiai nesutampa',
     fieldNames: ['password', 'repeatPassword']
-  },
+  }
 }
 
-const registrationForm = new Form('#formRegister', validationSchema);
+const saveDataToLocalStorage = ({email, password}) => {
+  localStorage[email] = JSON.stringify(password);
+}
+
+const registrationForm = new Form('#formRegister', validationSchema, saveDataToLocalStorage);

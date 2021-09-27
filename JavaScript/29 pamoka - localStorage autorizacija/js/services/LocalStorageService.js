@@ -26,11 +26,29 @@ class LocalStorageService {
   }
 
   addItem(item, collection) {
-
+    /*
+    Jeigu bandoma įdėti ką nors į kolekciją, kuri jau yra - taip ir padaroma
+    Jeigu bandoma įdėti ką nors į kolekciją, kurios dar nėra - sukurti kolekciją pavadinimu <collection>, ir į ją įdėti <item>
+    */
   }
 
-  removeItem(id) {
+  removeItem(id, collection) {
+    /*
+      Aplikacijose dažnai būna, jog įrašai (pvz.: objektai masyvuose) turi tas pačias reikšmes, pvz:
+        { brand: 'BMW', model: 'X'} ir { brand: 'BMW', model: 'X'}
+        { name: 'Jonas', surname: 'Petraitis'} ir { name: 'Jonas', surname: 'Petraitis' }
+      Yra buvę atvejų (ir ne sykį), jog įvedant duomenis sutampa ir asmens kodai, ir Regitros numeriai. Ypač senose sistemose.
+      Todėl daiktų identifikavimui yra kuriami UNIKALŪS identifikavimo raktai - id
+      Id raktai mums reikalingi kad galėtume šalinti, keisti reikšmes. Todėl kuriant elementus, būtina jiems suteikti identifikavimo raktus
 
+      Tam, kad įgalinti trinimą:
+        Papildykite metodo addItem logiką:
+          Pridedant elementą, suteikite jam papildomą savybę: <id>
+             Sugalvokite logiką, jog niekada nesikartotų id savybės tarp tos pačios kolekcijos elementų
+        Sukurkite šio metodo (removeItem) logiką:
+          jeigu bandoma pašalinti elementą, pagal <id> ir <collections> ir jis randamas - taip ir padaryt
+          jeigu bandoma pašalinti elementą, pagal <id> ir <collections> ir jis NĖRA randamas - nieko nedaryt
+    */
   }
 }
 

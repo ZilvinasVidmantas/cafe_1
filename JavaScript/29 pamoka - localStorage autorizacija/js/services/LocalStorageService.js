@@ -18,11 +18,10 @@ class LocalStorageService {
   }
 
   removeCollection(name) {
-    // Įgalinti šį metodą:
-    //  Reikalavimai:
-    //    pabaigoje kiekvieno metodo <this.data> turi supatpti su <localStorage[data]>
-    //    jeigu bandoma ištrinti kolekcija kuri yra - ji panaikinama
-    //    jeigu bandoma ištrinti kolekcija kurios nėra nieks nevykdoma
+    if(this.data[name]){
+      delete this.data[name];
+      localStorage[this.root] = JSON.stringify(this.data);
+    }
   }
 
   addItem(item, collection) {
@@ -54,6 +53,6 @@ class LocalStorageService {
 
 
 const authStorage = new LocalStorageService('auth');
-authStorage.addCollection('users');
-authStorage.removeCollection('tokiosNera');
-authStorage.removeCollection('users');
+authStorage.addItem({email: 'admin@gmail.com', password: 'admin1'}, 'users');
+authStorage.addItem({email: 'admin@gmail.com', password: 'admin1'}, 'admins');
+authStorage.addItem({email: 'admin@gmail.com', password: 'admin1'}, 'abc');

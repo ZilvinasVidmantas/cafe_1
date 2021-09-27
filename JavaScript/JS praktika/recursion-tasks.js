@@ -101,5 +101,3 @@ console.groupCollapsed('4. Parašyti funkciją, kuri surastų objektuose arba ma
   }
   // console.log(sumNumbers(data1)) // 121
 }
-
-''

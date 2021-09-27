@@ -40,18 +40,38 @@
         <h2 class="text-center">Registracijos forma</h2>
         <div class="row gy-3">
           <div class="col-12">
-            <label for="email" class="form-label">El. paštas</label>
-            <input type="email" class="form-control" id="email" name="email" value="sakotis@skanu.lt">
+            <label for="registerForm-email" class="form-label">El. paštas</label>
+            <input type="email" class="form-control" id="registerForm-email" name="email">
             <div class="invalid-feedback"></div>
           </div>
           <div class="col-12">
-            <label for="password" class="form-label">Slaptažodis</label>
-            <input type="password" class="form-control" id="password" name="password" value="Labas123">
+            <label for="registerForm-password" class="form-label">Slaptažodis</label>
+            <input type="password" class="form-control" id="registerForm-password" name="password">
             <div class="invalid-feedback"></div>
           </div>
           <div class="col-12">
-            <label for="repeatPassword" class="form-label">Pakartokite slpatažodį</label>
-            <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" value="Labas12">
+            <label for="registerForm-repeatPassword" class="form-label">Pakartokite slpatažodį</label>
+            <input type="password" class="form-control" id="registerForm-repeatPassword" name="repeatPassword">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col-12">
+            <div class="text-center">
+              <button class="btn btn-primary" type="submit">Registruotis</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form id="formLogin" method="post" class="form-sm mx-auto my-5 card px-3 py-4 shadow">
+        <h2 class="text-center">Prisjungimo forma</h2>
+        <div class="row gy-3">
+          <div class="col-12">
+            <label for="loginForm-email" class="form-label">El. paštas</label>
+            <input type="email" class="form-control" id="loginForm-email" name="email">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col-12">
+            <label for="loginFomr-password" class="form-label">Slaptažodis</label>
+            <input type="password" class="form-control" id="loginFomr-password" name="password">
             <div class="invalid-feedback"></div>
           </div>
           <div class="col-12">

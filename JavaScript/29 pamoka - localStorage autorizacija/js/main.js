@@ -18,7 +18,7 @@ const registrationForm = new Form('#formRegister', registerFormValidationSchema,
 
 /*
   Sukurti prisijungimo formą:
-    1. Sukurti HTML
+    1. Sukurti HTML - done
     2. Sukurti prisijungimo formos validacijos schema
     3. Sukurti prisijungimo formos <Form> klasės objektą
       3.1 pritaikyti HTML from id, su atitinkamu <Form> konstruktoriaus parametru

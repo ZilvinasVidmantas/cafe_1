@@ -16,13 +16,15 @@ const registrationForm = new Form('#formRegister', registerFormValidationSchema,
 });
 
 
-/*
-  Sukurti prisijungimo formą:
-    1. Sukurti HTML - done
-    2. Sukurti prisijungimo formos validacijos schema
-    3. Sukurti prisijungimo formos <Form> klasės objektą
-      3.1 pritaikyti HTML from id, su atitinkamu <Form> konstruktoriaus parametru
-      3.2 perduoti validacijos schemą
-      3.3 perduoti pavyzdinę funkciją, su sėkmingo prisijungimo imitacija
+const loginFormValidationSchema = {
+  email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value) ? true : 'Neteisingas paštas',
+}
 
-*/
+const loginForm = new Form('#formLogin', loginFormValidationSchema, (data) => {
+  console.group('Prisijungimas Sėkmingas');
+  {
+    console.log(data);
+  }
+  console.groupEnd();
+});
+// 20:50

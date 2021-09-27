@@ -18,17 +18,18 @@ class LocalStorageService {
   }
 
   removeCollection(name) {
-    if(this.data[name]){
+    if (this.data[name]) {
       delete this.data[name];
       localStorage[this.root] = JSON.stringify(this.data);
     }
   }
 
   addItem(item, collection) {
-    /*
-    Jeigu bandoma įdėti ką nors į kolekciją, kuri jau yra - taip ir padaroma
-    Jeigu bandoma įdėti ką nors į kolekciją, kurios dar nėra - sukurti kolekciją pavadinimu <collection>, ir į ją įdėti <item>
-    */
+    if (!this.data[collection]) {
+      this.addCollection(collection);
+    }
+    this.data[collection].push(item);
+    localStorage[this.root] = JSON.stringify(this.data);
   }
 
   removeItem(id, collection) {
@@ -53,6 +54,6 @@ class LocalStorageService {
 
 
 const authStorage = new LocalStorageService('auth');
-authStorage.addItem({email: 'admin@gmail.com', password: 'admin1'}, 'users');
-authStorage.addItem({email: 'admin@gmail.com', password: 'admin1'}, 'admins');
-authStorage.addItem({email: 'admin@gmail.com', password: 'admin1'}, 'abc');
+// authStorage.addItem({ email: 'admin@gmail.com', password: 'admin1' }, 'abc');
+// authStorage.addItem({ email: 'admin@gmail.com', password: 'admin1' }, 'users');
+// authStorage.addItem({ email: 'admin@gmail.com', password: 'admin1' }, 'admins');

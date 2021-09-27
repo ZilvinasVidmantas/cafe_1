@@ -27,4 +27,3 @@ const loginForm = new Form('#formLogin', loginFormValidationSchema, (data) => {
   }
   console.groupEnd();
 });
-// 20:50

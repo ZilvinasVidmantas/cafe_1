@@ -7,23 +7,19 @@ const registerFormValidationSchema = {
   }
 }
 
-const registrationForm = new Form('#formRegister', registerFormValidationSchema, (data) => {
-  console.group('Registracija sekminga');
-  {
-    console.log(data);
-  }
-  console.groupEnd();
-});
+const registrationForm = new Form(
+  '#formRegister',
+  registerFormValidationSchema,
+  AuthenticationService.register
+);
 
 
 const loginFormValidationSchema = {
   email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value) ? true : 'Neteisingas paštas',
 }
 
-const loginForm = new Form('#formLogin', loginFormValidationSchema, (data) => {
-  console.group('Prisijungimas Sėkmingas');
-  {
-    console.log(data);
-  }
-  console.groupEnd();
-});
+const loginForm = new Form(
+  '#formLogin',
+  loginFormValidationSchema,
+  AuthenticationService.loginByEmailAndPassword
+);

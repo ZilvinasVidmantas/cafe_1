@@ -12,9 +12,7 @@ class LocalStorageService {
 
   generateId = (collectionName) => {
     const idArray = Object.keys(this.data[collectionName]);
-    if (idArray.length === 0) {
-      return '0';
-    }
+    if (idArray.length === 0) return '0';
     const max = Math.max(...idArray.map(id => Number(id)));
     return String(max + 1);
   }
@@ -23,53 +21,54 @@ class LocalStorageService {
     localStorage[this.root] = JSON.stringify(this.data);
   }
 
-  addCollection = (name) => {
-    if (!this.data[name]) {
-      this.data[name] = {};
+  addCollection = (collectionName) => {
+    if (!this.data[collectionName]) {
+      this.data[collectionName] = {};
       this.synchronize();
     }
   }
 
-  removeCollection = (name) => {
-    if (this.data[name]) {
-      delete this.data[name];
+  removeCollection = (collectionName) => {
+    if (this.data[collectionName]) {
+      delete this.data[collectionName];
       this.synchronize();
     }
   }
 
-  addItem = (item, collection) => {
-    if (!this.data[collection]) {
-      this.addCollection(collection);
+  addItem = (item, collectionName) => {
+    if (!this.data[collectionName]) {
+      this.addCollection(collectionName);
     }
-    const newid = this.generateId(collection);
-    this.data[collection][newid] = item;
+    const newId = this.generateId(collectionName);
+    this.data[collectionName][newId] = item;
     this.synchronize();
+    return newId;
   }
 
-  removeItem = (id, collection) => {
-    /*
-      Aplikacijose dažnai būna, jog įrašai (pvz.: objektai masyvuose) turi tas pačias reikšmes, pvz:
-        { brand: 'BMW', model: 'X'} ir { brand: 'BMW', model: 'X'}
-        { name: 'Jonas', surname: 'Petraitis'} ir { name: 'Jonas', surname: 'Petraitis' }
-      Yra buvę atvejų (ir ne sykį), jog įvedant duomenis sutampa ir asmens kodai, ir Regitros numeriai. Ypač senose sistemose.
-      Todėl daiktų identifikavimui yra kuriami UNIKALŪS identifikavimo raktai - id
-      Id raktai mums reikalingi kad galėtume šalinti, keisti reikšmes. Todėl kuriant elementus, būtina jiems suteikti identifikavimo raktus
+  removeItem = (id, collectionName) => {
+    if(this.data[collectionName]){
+      delete this.data[collectionName][id];
+      this.synchronize();
+    }
+  }
 
-      Tam, kad įgalinti trinimą:
-        Papildykite metodo addItem logiką:
-          Pridedant elementą, suteikite jam papildomą savybę: <id>
-             Sugalvokite logiką, jog niekada nesikartotų id savybės tarp tos pačios kolekcijos elementų
+  getCollection = (collectionName) => {
+    // gauti visus duomenis iš nurodytos kolekcijos, jei tokios kolekcijos nėra - grąžinti null
+    /* Grąžinimo formatas
+     [
+       {id: ..., data: ...},
+       {id: ..., data: ...},
+       {id: ..., data: ...},
+       {id: ..., data: ...},
+       {id: ..., data: ...},
+     ]
+    */
+  }
 
-        Sukurkite šio metodo (removeItem) logiką:
-          jeigu bandoma pašalinti elementą, pagal <id> ir <collection> ir jis randamas - taip ir padaryt
-          jeigu bandoma pašalinti elementą, pagal <id> ir <collection> ir jis NĖRA randamas - nieko nedaryt
+  getItem = (id, collectionName) => {
+    //  Gauti duomenis, id raktu iš nurodytos kolekcijos, jei nerats grąžionti null
+    /* Grąžinimo formatas
+        {id: ..., data: ...}
     */
   }
 }
-
-const authStorageService = new LocalStorageService('auth');
-authStorageService.addItem(7, 'testineKolekcija');
-authStorageService.addItem(7, 'testineKolekcija');
-authStorageService.addItem(7, 'testineKolekcija');
-authStorageService.addItem(7, 'testineKolekcija');
-authStorageService.addItem(7, 'testineKolekcija');

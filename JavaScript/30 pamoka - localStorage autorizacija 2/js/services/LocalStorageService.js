@@ -10,13 +10,22 @@ class LocalStorageService {
     }
   }
 
+  generateId = (collectionName) => {
+    const idArray = Object.keys(this.data[collectionName]);
+    if (idArray.length === 0) {
+      return '0';
+    }
+    const max = Math.max(...idArray.map(id => Number(id)));
+    return String(max + 1);
+  }
+
   synchronize = () => {
     localStorage[this.root] = JSON.stringify(this.data);
   }
 
   addCollection = (name) => {
     if (!this.data[name]) {
-      this.data[name] = [];
+      this.data[name] = {};
       this.synchronize();
     }
   }
@@ -32,7 +41,8 @@ class LocalStorageService {
     if (!this.data[collection]) {
       this.addCollection(collection);
     }
-    this.data[collection].push(item);
+    const newid = this.generateId(collection);
+    this.data[collection][newid] = item;
     this.synchronize();
   }
 
@@ -49,9 +59,17 @@ class LocalStorageService {
         Papildykite metodo addItem logiką:
           Pridedant elementą, suteikite jam papildomą savybę: <id>
              Sugalvokite logiką, jog niekada nesikartotų id savybės tarp tos pačios kolekcijos elementų
+
         Sukurkite šio metodo (removeItem) logiką:
           jeigu bandoma pašalinti elementą, pagal <id> ir <collection> ir jis randamas - taip ir padaryt
           jeigu bandoma pašalinti elementą, pagal <id> ir <collection> ir jis NĖRA randamas - nieko nedaryt
     */
   }
 }
+
+const authStorageService = new LocalStorageService('auth');
+authStorageService.addItem(7, 'testineKolekcija');
+authStorageService.addItem(7, 'testineKolekcija');
+authStorageService.addItem(7, 'testineKolekcija');
+authStorageService.addItem(7, 'testineKolekcija');
+authStorageService.addItem(7, 'testineKolekcija');

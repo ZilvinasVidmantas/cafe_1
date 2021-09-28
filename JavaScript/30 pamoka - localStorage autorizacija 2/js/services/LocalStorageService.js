@@ -6,33 +6,37 @@ class LocalStorageService {
       this.data = JSON.parse(data);
     } else {
       this.data = {};
-      localStorage[root] = JSON.stringify(this.data);
+      this.synchronize();
     }
   }
 
-  addCollection(name) {
+  synchronize = () => {
+    localStorage[this.root] = JSON.stringify(this.data);
+  }
+
+  addCollection = (name) => {
     if (!this.data[name]) {
       this.data[name] = [];
-      localStorage[this.root] = JSON.stringify(this.data);
+      this.synchronize();
     }
   }
 
-  removeCollection(name) {
+  removeCollection = (name) => {
     if (this.data[name]) {
       delete this.data[name];
-      localStorage[this.root] = JSON.stringify(this.data);
+      this.synchronize();
     }
   }
 
-  addItem(item, collection) {
+  addItem = (item, collection) => {
     if (!this.data[collection]) {
       this.addCollection(collection);
     }
     this.data[collection].push(item);
-    localStorage[this.root] = JSON.stringify(this.data);
+    this.synchronize();
   }
 
-  removeItem(id, collection) {
+  removeItem = (id, collection) => {
     /*
       Aplikacijose dažnai būna, jog įrašai (pvz.: objektai masyvuose) turi tas pačias reikšmes, pvz:
         { brand: 'BMW', model: 'X'} ir { brand: 'BMW', model: 'X'}
@@ -51,9 +55,3 @@ class LocalStorageService {
     */
   }
 }
-
-
-const authStorage = new LocalStorageService('auth');
-// authStorage.addItem({ email: 'admin@gmail.com', password: 'admin1' }, 'abc');
-// authStorage.addItem({ email: 'admin@gmail.com', password: 'admin1' }, 'users');
-// authStorage.addItem({ email: 'admin@gmail.com', password: 'admin1' }, 'admins');

@@ -1,5 +1,9 @@
 const registerFormValidationSchema = {
-  email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value) ? true : 'Neteisingas paštas',
+  email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value)
+    ? AuthenticationService.checkEmailAvailability(value)
+      ? true
+      : 'Šis el. paštas jau užimtas'
+    : 'Neteisingas paštas',
   password: value => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,32}$/.test(value) ? true : 'Min 8 simboliai, nors viena didžioji ir nors vienas skaičius',
   repeatPassword: {
     validate: (val, val2) => val === val2 ? true : 'Slaptažodžiai nesutampa',
@@ -10,7 +14,10 @@ const registerFormValidationSchema = {
 const registrationForm = new Form(
   '#formRegister',
   registerFormValidationSchema,
-  AuthenticationService.register
+  (...args) => {
+    AuthenticationService.register(...args);
+    console.dir(AuthenticationService);
+  }
 );
 
 
@@ -23,3 +30,4 @@ const loginForm = new Form(
   loginFormValidationSchema,
   AuthenticationService.loginByEmailAndPassword
 );
+

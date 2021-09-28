@@ -46,29 +46,26 @@ class LocalStorageService {
   }
 
   removeItem = (id, collectionName) => {
-    if(this.data[collectionName]){
+    if (this.data[collectionName]) {
       delete this.data[collectionName][id];
       this.synchronize();
     }
   }
 
   getCollection = (collectionName) => {
-    // gauti visus duomenis iš nurodytos kolekcijos, jei tokios kolekcijos nėra - grąžinti null
-    /* Grąžinimo formatas
-     [
-       {id: ..., data: ...},
-       {id: ..., data: ...},
-       {id: ..., data: ...},
-       {id: ..., data: ...},
-       {id: ..., data: ...},
-     ]
-    */
+    if (this.data[collectionName]) {
+      return Object.entries(this.data[collectionName]).map(([id, data]) => ({ id, data }));
+    }
+    return null;
   }
 
   getItem = (id, collectionName) => {
-    //  Gauti duomenis, id raktu iš nurodytos kolekcijos, jei nerats grąžionti null
-    /* Grąžinimo formatas
-        {id: ..., data: ...}
-    */
+    if (this.data[collectionName] && this.data[collectionName][id]) {
+      return {
+        id: String(id),
+        data: this.data[collectionName][id]
+      }
+    }
+    return null;
   }
 }

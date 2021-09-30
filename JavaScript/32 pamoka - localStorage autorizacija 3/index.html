@@ -18,11 +18,47 @@
   <script src="js/services/LocalStorageService.js" defer></script>
   <script src="js/services/AuthenticationService.js" defer></script>
   <script src="js/services/AuthorizationService.js" defer></script>
+  <!-- Komponentai, kurie yra įtakojami JavaScript logikos -->
+  <script src="js/components/Navbar.js" defer></script>
   <!-- main - failas kuriame yra apjungiamos visos atskiros programos dalys -->
   <script src="js/main.js" defer></script>
 </head>
 
 <body>
+  <header class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Atsijungus ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Registruotis</a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center h-100 text-muted">|</div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Prisijungti</a>
+          </li>
+          <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Atsijungus ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
+          <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Prisijungus ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+          <!-- <li class="nav-item">
+            <div class="d-flex align-items-center h-100 text-muted m-0 h5">
+              <span class="badge bg-secondary">Keglis@gmail.com</span>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Atsijungti</a>
+          </li> -->
+          <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Prisijungus ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
+        </ul>
+      </div>
+    </div>
+  </header>
+
   <main>
     <div class="container">
       <h1>Formų apdorojimas</h1>

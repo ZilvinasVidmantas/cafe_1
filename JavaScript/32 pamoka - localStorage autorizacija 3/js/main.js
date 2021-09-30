@@ -10,7 +10,6 @@ const registerFormValidationSchema = {
     fieldNames: ['password', 'repeatPassword']
   }
 }
-
 const registrationForm = new Form(
   '#formRegister',
   registerFormValidationSchema,
@@ -20,9 +19,15 @@ const registrationForm = new Form(
 const loginFormValidationSchema = {
   email: value => /^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$/.test(value) ? true : 'Neteisingas paštas',
 }
-
 const loginForm = new Form(
   '#formLogin',
   loginFormValidationSchema,
   AuthenticationService.loginByEmailAndPassword
 );
+
+// ---------------------- Komponenetai apdorojami su JavaScript ------------------
+const pageNavbar = new Navbar('#pageNavbar');
+
+
+// ------------- Komponentai kurie turi reaguoti į Autorizacijos pasikeitimą --------------
+AuthorizationService.addObserver(pageNavbar);

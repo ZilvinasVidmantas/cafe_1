@@ -21,8 +21,13 @@ class AuthenticationService {
    * 
    * @return {void | string} - authentication success or error message
    */
-  static loginByEmailAndPassword(email, password) {
-
+  static loginByEmailAndPassword({ email, password }) {
+    const users = AuthenticationService.storage.getCollection('users');
+    if (!users) return false;
+    const foundMatch = users.find(({ data }) => data.email === email && data.password === password);
+    if (!foundMatch) return false;
+    const { password: x, ...user } = foundMatch.data;
+    AuthorizationService.login(user);
   }
 
   static checkEmailAvailability(email) {

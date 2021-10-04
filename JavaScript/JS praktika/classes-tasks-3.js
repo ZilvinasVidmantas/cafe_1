@@ -1,4 +1,4 @@
-console.group('https://edabit.com/challenge/2FF7RKw9RLwc3EBY9');
+console.groupCollapsed('https://edabit.com/challenge/2FF7RKw9RLwc3EBY9');
 {
   class Challenge {
     static levels = {
@@ -59,9 +59,104 @@ console.group('https://edabit.com/challenge/2FF7RKw9RLwc3EBY9');
 }
 console.groupEnd();
 
-console.groupCollapsed('https://edabit.com/challenge/ifDM26p25bqS8EsFu');
+console.group('https://edabit.com/challenge/ifDM26p25bqS8EsFu');
 {
-  // ... code
+  class Player {
+    // Private properties
+    #hp;
+    #maxHp;
+    #en;
+    #maxEn;
+    // Public properties
+    armor;
+    name;
+
+    constructor(name, health, energy, armor) {
+      this.name = name;
+      this.hp = health;
+      this.#maxHp = health;
+      this.en = energy;
+      this.#maxEn = energy;
+      this.armor = armor;
+    }
+
+    get hpPerc() {
+      return Math.round(100 * 100 * this.#hp / this.#maxHp) / 100;
+    }
+
+    set hp(value) {
+      if (value > this.#maxHp) this.#hp = this.#maxHp;
+      else if (value < 0) this.#hp = 0;
+      else this.#hp = value;
+    }
+    get hp() {
+      return this.#hp;
+    }
+
+    set en(value) {
+      if (value > this.#maxEn) this.#en = this.#maxEn;
+      else if (value < 0) this.#en = 0;
+      else this.#en = value;
+    }
+    get en() {
+      return this.#en;
+    }
+
+    learnSkill = (skillName, stats) => {
+      this[skillName] = function (target) {
+        const effectiveArmor = target.armor - stats.penetration;
+        if (this.en < stats.cost) {
+          return `${this.name} attempted to use ${skillName}, but didn't have enough energy!`;
+        } else {
+          this.en -= stats.cost;
+        }
+        const calculatedDamage = stats.damage * (100 - effectiveArmor) / 100;
+        const calculatedDamageRounded = Math.round(calculatedDamage * 100) / 100;
+        let returnString = `${this.name} used ${skillName}, ${stats.desc}, against ${target.name}, doing ${calculatedDamageRounded} damage!`;
+        const hpBeforeHeal = this.hp;
+        this.hp += stats.heal;
+        const healedAmount = this.hp - hpBeforeHeal;
+        if (healedAmount > 0) {
+          returnString += ` ${this.name} healed for ${stats.heal} health!`;
+        }
+        target.hp -= calculatedDamage;
+        returnString += target.hp <= 0
+          ? ` ${target.name} died. `
+          : ` ${target.name} is at ${target.hpPerc}% health.`;
+        return returnString;
+      }
+    }
+  }
+
+  const alice = new Player("Alice", 110, 50, 10);
+  const bob = new Player("Bob", 100, 60, 20);
+
+  alice.learnSkill("fireball", {
+    damage: 23,
+    penetration: 1.2,
+    heal: 5,
+    cost: 15,
+    desc: "a firey magical attack"
+  });
+
+  console.log(alice.fireball(bob));
+
+  bob.learnSkill("superbeam", {
+    damage: 200,
+    penetration: 50,
+    heal: 50,
+    cost: 75,
+    desc: "an overpowered attack, pls nerf"
+  });
+  console.log(bob.superbeam(alice));
+
+  bob.learnSkill('Meteor Strike', {
+    damage: 118,
+    penetration: 4,
+    heal: 5,
+    cost: 20,
+    desc: "an attack that basically ends the game (gg)"
+  })
+  console.log(bob['Meteor Strike'](alice));
 }
 console.groupEnd();
-

@@ -14,8 +14,10 @@ class Navbar {
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Atsijungti</a>
+        <a class="nav-link js-logout-btn">Atsijungti</a>
       </li>`;
+      const logoutBtn = this.navigation.querySelector('.js-logout-btn');
+      logoutBtn.addEventListener('click', AuthenticationService.logout);
     } else {
       this.navigation.innerHTML = `
       <li class="nav-item">

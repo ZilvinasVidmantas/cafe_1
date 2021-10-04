@@ -27,7 +27,22 @@ const loginForm = new Form(
 
 // ---------------------- Komponenetai apdorojami su JavaScript ------------------
 const pageNavbar = new Navbar('#pageNavbar');
-
+// ------------------------------- RouterService ---------------------------------
+const router = new RouterService('#pageRouter', [
+  {
+    name: 'home',
+    pageComponent: new HomePage('#homePage'),
+    main: true,
+  },
+  {
+    name: 'auth',
+    pageComponent: new AuthPage('#authPage'),
+  },
+  {
+    name: 'admin',
+    pageComponent: new AdminPage('#adminPage'),
+  }
+]);
 
 // ------------- Komponentai kurie turi reaguoti į Autorizacijos pasikeitimą --------------
 AuthorizationService.addObserver(pageNavbar);

@@ -30,6 +30,10 @@ class AuthenticationService {
     AuthorizationService.login(user);
   }
 
+  static logout() {
+    AuthorizationService.logout();
+  }
+
   static checkEmailAvailability(email) {
     const users = AuthenticationService.storage.getCollection('users');
     if (!users) return true;

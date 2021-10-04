@@ -1,4 +1,8 @@
 class Form {
+  validationSchema;
+  fields;
+  errors;
+
   constructor(selector, validationSchema, onSubmit) {
     const form = document.querySelector(selector);
     if (!form)
@@ -38,6 +42,7 @@ class Form {
     const isValid = this.validate();
     if (isValid) {
       this.onSubmit(this.values);
+      this.clearForm();
     } else {
       this.displayErrors();
     }
@@ -82,5 +87,12 @@ class Form {
       errorContainer.innerHTML = '';
     }
     this.errors = null;
+  }
+
+  clearForm = () => {
+    for (const fieldName in this.fields) {
+      const { field } = this.fields[fieldName];
+      field.value = '';
+    }
   }
 }

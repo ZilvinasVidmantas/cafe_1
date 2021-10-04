@@ -18,8 +18,13 @@
   <script src="js/services/LocalStorageService.js" defer></script>
   <script src="js/services/AuthenticationService.js" defer></script>
   <script src="js/services/AuthorizationService.js" defer></script>
+  <script src="js/services/RouterService.js" defer></script>
   <!-- Komponentai, kurie yra įtakojami JavaScript logikos -->
   <script src="js/components/Navbar.js" defer></script>
+  <!-- Puslapiai -->
+  <script src="js/pages/HomePage.js" defer></script>
+  <script src="js/pages/AuthPage.js" defer></script>
+  <script src="js/pages/AdminPage.js" defer></script>
   <!-- main - failas kuriame yra apjungiamos visos atskiros programos dalys -->
   <script src="js/main.js" defer></script>
 </head>
@@ -47,72 +52,79 @@
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <h1>Formų apdorojimas</h1>
-      <p>
-        Forma, tai įvesties laukus gaubiantis elementas, kuris gali siųsti duomenis.
-        <br>
-        Siuntimas vyksta, kuomet spaudžiama 'enter' bet kuriame iš įvesties laukų, arba paspaudus mygtuką, kuriam yra
-        nurodytas tipas 'submit'.
-        <br>
-        Tam, kad forma atpažintų formos viduje esančius įveties laukus, turime jiem suteikti atributą 'name'
-        <br><br>
-        Pa'submit'inus formą, automatiškai siunčiama užklausa į serverį. Šioje pamokoje išmoksime kaip apdoroti
-        formos duomenis naudojant JavaScript.
-      </p>
-    </div>
-  </main>
+  <div id="pageRouter" style="opacity: 0;">
+    <main id="homePage">
+      <div class="container">
+        <h1>Formų apdorojimas</h1>
+        <p>
+          Forma, tai įvesties laukus gaubiantis elementas, kuris gali siųsti duomenis.
+          <br>
+          Siuntimas vyksta, kuomet spaudžiama 'enter' bet kuriame iš įvesties laukų, arba paspaudus mygtuką, kuriam yra
+          nurodytas tipas 'submit'.
+          <br>
+          Tam, kad forma atpažintų formos viduje esančius įveties laukus, turime jiem suteikti atributą 'name'
+          <br><br>
+          Pa'submit'inus formą, automatiškai siunčiama užklausa į serverį. Šioje pamokoje išmoksime kaip apdoroti
+          formos duomenis naudojant JavaScript.
+        </p>
+      </div>
+    </main>
 
-  <section>
-    <div class="container">
-      <form id="formRegister" method="post" class="form-sm mx-auto my-5 card px-3 py-4 shadow">
-        <h2 class="text-center">Registracijos forma</h2>
-        <div class="row gy-3">
-          <div class="col-12">
-            <label for="registerForm-email" class="form-label">El. paštas</label>
-            <input type="email" class="form-control" id="registerForm-email" name="email">
-            <div class="invalid-feedback"></div>
-          </div>
-          <div class="col-12">
-            <label for="registerForm-password" class="form-label">Slaptažodis</label>
-            <input type="password" class="form-control" id="registerForm-password" name="password">
-            <div class="invalid-feedback"></div>
-          </div>
-          <div class="col-12">
-            <label for="registerForm-repeatPassword" class="form-label">Pakartokite slpatažodį</label>
-            <input type="password" class="form-control" id="registerForm-repeatPassword" name="repeatPassword">
-            <div class="invalid-feedback"></div>
-          </div>
-          <div class="col-12">
-            <div class="text-center">
-              <button class="btn btn-primary" type="submit">Registruotis</button>
+    <section id="authPage">
+      <div class="container">
+        <form id="formRegister" method="post" class="form-sm mx-auto my-5 card px-3 py-4 shadow">
+          <h2 class="text-center">Registracijos forma</h2>
+          <div class="row gy-3">
+            <div class="col-12">
+              <label for="registerForm-email" class="form-label">El. paštas</label>
+              <input type="email" class="form-control" id="registerForm-email" name="email">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12">
+              <label for="registerForm-password" class="form-label">Slaptažodis</label>
+              <input type="password" class="form-control" id="registerForm-password" name="password">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12">
+              <label for="registerForm-repeatPassword" class="form-label">Pakartokite slpatažodį</label>
+              <input type="password" class="form-control" id="registerForm-repeatPassword" name="repeatPassword">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12">
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Registruotis</button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-      <form id="formLogin" method="post" class="form-sm mx-auto my-5 card px-3 py-4 shadow">
-        <h2 class="text-center">Prisjungimo forma</h2>
-        <div class="row gy-3">
-          <div class="col-12">
-            <label for="loginForm-email" class="form-label">El. paštas</label>
-            <input type="email" class="form-control" id="loginForm-email" name="email">
-            <div class="invalid-feedback"></div>
-          </div>
-          <div class="col-12">
-            <label for="loginFomr-password" class="form-label">Slaptažodis</label>
-            <input type="password" class="form-control" id="loginFomr-password" name="password">
-            <div class="invalid-feedback"></div>
-          </div>
-          <div class="col-12">
-            <div class="text-center">
-              <button class="btn btn-primary" type="submit">Registruotis</button>
+        </form>
+        <form id="formLogin" method="post" class="form-sm mx-auto my-5 card px-3 py-4 shadow">
+          <h2 class="text-center">Prisjungimo forma</h2>
+          <div class="row gy-3">
+            <div class="col-12">
+              <label for="loginForm-email" class="form-label">El. paštas</label>
+              <input type="email" class="form-control" id="loginForm-email" name="email">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12">
+              <label for="loginFomr-password" class="form-label">Slaptažodis</label>
+              <input type="password" class="form-control" id="loginFomr-password" name="password">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12">
+              <div class="text-center">
+                <button class="btn btn-primary" type="submit">Registruotis</button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </section>
+        </form>
+      </div>
+    </section>
+
+    <section id="adminPage">
+      <p>Admin Page content</p>
+    </section>
+  </div>
+
 </body>
 
 </html>

@@ -8,8 +8,7 @@
 
 2. Sukurkite masyvą sudarytą iš 8 Car klasės mašinų
 
-3. Klasėje Car sukurkite metodą getFuelType, kuris grąžintų mašinos kurų tipus (fuelTypes)
-   kaip 'string'ą atskirtą '/'.
+3. Klasėje Car sukurkite metodą getFuelType, kuris grąžintų mašinos kurų tipus (fuelTypes) kaip 'string'ą atskirtą '/'.
 
 4. Atspausdinkite kiekvieno automobilio pavadinimą ir 3 punktu sukurto metodo rezultatą, pvz:
   Tayota Corola - dysel/electric

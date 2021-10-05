@@ -24,7 +24,7 @@
   - svorių vidurkį
   - ūgio vidurkį
 ------------------------------------ 2 Dalis ------------------------------------ 
-0. Pasinaudojant 1 dalies elementų masyvu, sukurti Person prototipų(Class) masyvą:
+0. Pasinaudojant 1 dalies asmens apibūdinimu, sukurti Person klasę, kuri apipavidalina tokio tipo objektą:
     Person klasėje:    
     - sukurti vidinį metodą: getBMI();     // suskaičiuoja kūno masės indeksą
     - sukurti vidinį metodą: toString();   // atspausdina žmogų su esamom savybėm

@@ -8,7 +8,7 @@ const people = [
     sex: "female",
   },
   {
-    name: "Severija",
+    name: "Janė",
     surname: "Piktutytė",
     age: 23,
     height: 168,
@@ -32,7 +32,7 @@ const people = [
     sex: "male",
   },
   {
-    name: "Samanta",
+    name: "Lapė",
     surname: "Uostauskienė",
     age: 34,
     height: 157,
@@ -93,4 +93,24 @@ console.group('2. Panaudojant Array.prototype.forEach:');
   console.groupEnd();
 }
 console.groupEnd();
+
+console.group('3. Panaudojant Array.filter atrinkti į naują masyvą ir po to atspausdinti žmones:');
+{
+  console.group('kurių vardas ilgesnis nei 6 simboliai');
+  {
+    const peopleWithShortNames = people.filter(p => p.name.length > 6);
+    console.table(peopleWithShortNames);
+  }
+  console.groupEnd();
+  console.group('kurių svoris didesnis nei 80kg');
+  {
+
+  }
+  console.groupEnd();
+  console.group('kurie aukštesni nei 185cm');
+  {
+
+  }
+  console.groupEnd();
+}
 

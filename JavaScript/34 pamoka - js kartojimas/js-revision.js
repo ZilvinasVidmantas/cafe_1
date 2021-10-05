@@ -2,7 +2,7 @@ const people = [
   {
     name: "Jovita",
     surname: "Lazdauskienė",
-    age: 50,
+    age: 19,
     height: 160,
     weight: 97,
     sex: "female",
@@ -20,7 +20,7 @@ const people = [
     surname: "Vilktorinas",
     age: 54,
     height: 190,
-    weight: 78,
+    weight: 65,
     sex: "male",
   },
   {
@@ -34,9 +34,9 @@ const people = [
   {
     name: "Lapė",
     surname: "Uostauskienė",
-    age: 34,
+    age: 66,
     height: 157,
-    weight: 56,
+    weight: 80,
     sex: "female",
   },
   {
@@ -50,9 +50,9 @@ const people = [
   {
     name: "Jolanta",
     surname: "Baksnaitė",
-    age: 26,
+    age: 15,
     height: 149,
-    weight: 57,
+    weight: 80,
     sex: "female",
   },
   {
@@ -171,7 +171,7 @@ console.groupCollapsed('------------------------------------ 1 Dalis -----------
 }
 console.groupEnd();
 
-console.group('------------------------------------ 2 Dalis ------------------------------------');
+console.groupCollapsed('------------------------------------ 2 Dalis ------------------------------------');
 {
   class Person {
     name;
@@ -189,46 +189,81 @@ console.group('------------------------------------ 2 Dalis --------------------
       this.sex = sex;
       this.age = age;
     }
+
+    get bmi() {
+      return Math.round(10 * this.weight / (this.height / 100) ** 2) / 10;
+    }
+
+    get string() {
+      const { name, surname, ...rest } = this;
+      const propString = Object.entries(rest)
+        .filter(([_, propVal]) => typeof propVal !== 'function')
+        .reduce((propString, [name, val]) => propString + `\n\t${name}: ${val}`, '');
+      return `${name} ${surname}:` + propString;
+    }
+
+    getBMI = () => {
+      return Math.round(10 * this.weight / (this.height / 100) ** 2) / 10;
+    }
+
+    toString = () => {
+      const { name, surname, ...rest } = this;
+      const propString = Object.entries(rest)
+        .filter(([_, propVal]) => typeof propVal !== 'function')
+        .reduce((propString, [name, val]) => propString + `\n\t${name}: ${val}`, '');
+      return `${name} ${surname}:` + propString;
+    }
   }
 
   const peopleArr = people.map(p => new Person(p));
-  
+
   console.group('0. Pasinaudojant 1 dalies asmens apibūdinimu, sukurti Person klasę, kuri apipavidalina tokio tipo objektą');
   {
     console.table(peopleArr);
+    peopleArr.forEach(p => console.log(p.getBMI()));
+    // peopleArr.forEach(p => console.log(p.bmi));
+    peopleArr.forEach(p => console.log(p.toString()));
+    // peopleArr.forEach(p => console.log(p.string));
   }
   console.groupEnd();
 
   console.group('1. Atrinkti moteris, kuriuos jaunesnės nei 20 metų ir svoris didesnis nei 70kg ');
   {
-
+    const result = peopleArr.filter(p => p.sex === 'female' && p.age < 20 && p.weight > 70);
+    console.table(result);
   }
   console.groupEnd();
 
   console.group('2. Atrinkti vyrus, kurie vyresni nei 25 metai ir KMI mažesnis nei 18,5');
   {
-
+    const result = peopleArr.filter(p => p.sex === 'male' && p.age > 25 && p.getBMI() < 18.5);
+    console.table(result);
   }
   console.groupEnd();
 
   console.group('3. Atrinkti vaikus, su antsvoriu (KMI > 30)');
   {
-
+    const result = peopleArr.filter(p => p.age < 18 && p.getBMI() > 30);
+    console.table(result);
   }
   console.groupEnd();
 
   console.group('4. Atrinkti pensininkus, su antsvoriu (KMI > 30)');
   {
-
+    const result = peopleArr.filter(p => p.age >= 65 && p.getBMI() > 30);
+    console.table(result);
   }
   console.groupEnd();
 
   console.group('5. Atrinkti visus, kieno KMI nepatenka į rėžius [18.5; 25]');
   {
-
+    const result = peopleArr.filter(p => {
+      const bmi = p.getBMI();
+      return bmi < 18.5 || bmi > 25;
+    });
+    console.table(result);
   }
   console.groupEnd();
-
 }
 console.groupEnd();
 

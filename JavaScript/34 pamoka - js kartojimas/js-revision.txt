@@ -10,11 +10,11 @@
   - Atspausdinti kiekvieną elementą
   - Atspausdinti kiekvieno elemento pilną vardą
   - Atspausdinti kiekvieno elemento kūno masės indeksą
-3. Panaudojant Array.filter atrinkti į naują masyvą ir po to atspausdinti žmones:
+3. Panaudojant Array.prototype.filter atrinkti į naują masyvą ir po to atspausdinti žmones:
   - kurių vardas ilgesnis nei 6 simboliai
   - kurių svoris didesnis nei 80kg
   - kurie aukštesni nei 185cm
-4. Panaudojant Array.map atrinkti į naują masyvą ir po to atspausdinti
+4. Panaudojant Array.prototype.map atrinkti į naują masyvą ir po to atspausdinti
   - ūgius
   - svorius
   - ūgius, svorius ir amžius : [{height, weight, age}, ...]
@@ -22,7 +22,7 @@
   - KMI indeksus ir amžius
 5. Panaudojant Array.reduce suskaičiuoti ir po to atspausdinti
   - svorių vidurkį
-  - ūgio vidurkį
+  - ūgių vidurkį
 ------------------------------------ 2 Dalis ------------------------------------ 
 0. Pasinaudojant 1 dalies asmens apibūdinimu, sukurti Person klasę, kuri apipavidalina tokio tipo objektą:
     Person klasėje:    

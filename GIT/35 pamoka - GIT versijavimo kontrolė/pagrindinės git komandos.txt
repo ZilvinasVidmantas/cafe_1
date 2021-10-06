@@ -6,10 +6,16 @@ Peržiūrėti nustatymus galite parašę:
   git config --list
 
 Pagrindinės git komandos:
-  git add . -> pasirinkti visus pakitimus
-  git commit -m "JŪSŲ_ŽINUTĖ" -> pasirinkti visus pakitimus
-  git push -> paviešinti savo pakitimus | kopijuoti savo pa'commit'intus pakitimus į globalią repozitoriją
-  git checkout ŠAKOS_PAVADINIMAS  -> pakeisti darbinę šaką
-  git checkout -b ŠAKOS_PAVADINIMAS -> sukurti naują šaką ir persijungti į ją
-  git merge ŠAKOS_PAVADINIMAS -> pakopijuoti ŠAKOS_PAVADINIMAS skirtumus į šaką kurioje šiuo metu esame
-  git pull -> parsiųsti naujausias šakų versijas(kurių atitikmenis turime lokaliai) iš globalios repozitorijas
+  git clone REPOZITORIJOS_NUORODA                    parsiųsti globalią repozitoriją sukuriant lokalią kopiją
+  git checkout ŠAKOS_PAVADINIMAS                     pakeisti darbinę šaką
+  git checkout -b ŠAKOS_PAVADINIMAS                  sukurti naują šaką ir persijungti į ją
+  git pull                                           parsiųsti naujausias šakų versijas(kurių atitikmenis turime lokaliai) iš globalios repozitorijas
+  git add .                                          pasirinkti visus pakitimus
+  git commit -m "JŪSŲ_ŽINUTĖ"                        užfiksuoti visus pakitimus
+  git push                                           paviešinti savo pakitimus | kopijuoti savo pa'commit'intus pakitimus į globalią repozitoriją
+  git push --set-upstream origin ŠAKOS_PAVADINIMAS   esamos šakos paviešinimas globalioje rpozitorijoje
+  git merge ŠAKOS_PAVADINIMAS                        pakopijuoti ŠAKOS_PAVADINIMAS skirtumus į šaką kurioje šiuo metu esame
+  git stash                                          pakitimų perkėlimas į git atmintį
+  git stash pop                                      pakitimų (kuriuos prieš tai įdėjote) grąžinimasį dabartinę šaką
+  git branch -a                                      jūsų lokalios repozitorijos šakų išvardinimas
+  git branch -d ŠAKOS_PAVADINIMAS                    lokalios šakos ištrinimas

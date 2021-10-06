@@ -1,4 +1,4 @@
-Gintaras Kapočius
+Gintaras Kapočius +
 Gintaras Tamosiunas
 Donatas Šimkevičius +
 Laima Petrauskienė +
@@ -12,7 +12,8 @@ Adelė Tartilaitė
 Linas Mockus
 Titas Lukošius +
 Greta Aksamitauskaitė
-Vilius Eidukonis
+Vilius Eidukonis +
+Ignas Kunickas +
 Gytautas Mieliauskas +
 Ignas Kunickas
 Kristijonas Simsonas +

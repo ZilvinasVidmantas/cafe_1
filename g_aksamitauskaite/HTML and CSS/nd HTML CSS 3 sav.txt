@@ -1,0 +1,11 @@
+Normaliems piliečiams:
+  Pabaigti courses sekciją visiems akrano dydžiams
+
+Gykams:
+  Pabaigti visą puslapio kopijavimą, visiems ekrano dydžiams
+
+Manijakams:
+  TypeScript tutorial - https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&ab_channel=TheNetNinja
+  OOP pagrindai - Manijakams\PHP 7 - klasė, objektas, oop principai.pdf
+  Papildomai atlikti dizainą 6-8 pamokos puslapiui:
+    HTML and CSS\6-8 pamoka - puslapio kūrimas\Projektų puslapis.png

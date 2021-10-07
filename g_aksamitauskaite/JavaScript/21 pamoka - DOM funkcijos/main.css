@@ -1,0 +1,26 @@
+.flag {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 450px;
+  height: 300px;
+}
+
+.flag--vertical {
+  flex-direction: row;
+}
+
+.flag.flag--vertical>* {
+  box-shadow: 1px 0 0 0 #000;
+}
+
+.flag>* {
+  flex-grow: 1;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.btn-container {
+  padding: 30px 0;
+  text-align: center;
+}

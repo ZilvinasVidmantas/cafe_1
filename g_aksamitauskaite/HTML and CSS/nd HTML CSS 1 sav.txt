@@ -1,0 +1,33 @@
+Normaliems piliečiams:
+  HTML - https://www.youtube.com/watch?v=UB1O30fR-EE&t=1076s&ab_channel=TraversyMedia
+
+  CSS 
+    intro - https://www.youtube.com/watch?v=yfoY53QXEnI&t=1s&ab_channel=TraversyMedia
+    position - https://www.youtube.com/watch?v=jx5jmI0UlXU&ab_channel=WebDevSimplified
+
+  Atlikti registracijos formą, faile:
+    HTML and CSS\2 pamoka - populiariausi HMTL elementai\index.html
+    Užduotis aprašyta šio failo [267-278] eil.
+    
+  Atlikti stačiakampių užduotį:
+    ! Kvadarto kontūrams vietoj border, reikia naudoti box-shadow savybę, !
+    ! nes border savybė mažina turinį (content)                           ! 
+
+    paveiksliukas: 
+      HTML and CSS\3 pamoka - CSS įvadas\task.png
+    atlikti užduotį failuose:
+      html:
+        HTML and CSS\3 pamoka - CSS įvadas\index.html 
+        [nuo 156 eilutės]
+      css rašyti faile:
+        HTML and CSS\3 pamoka - CSS įvadas\css\exercise.css
+
+Gykams:
+  typography - https://www.youtube.com/watch?v=6ardZEhjvV0&ab_channel=KevinPowell
+  display-flex - 
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    https://www.youtube.com/watch?v=hwbqquXww-U&list=PL4-IK0AVhVjMSb9c06AjRlTpvxL3otpUd&ab_channel=KevinPowell
+  ir puslapio kūrimo praktika - https://www.youtube.com/watch?v=oYRda7UtuhA&t=7s&ab_channel=EasyTutorials
+
+Manijakams:
+  TypeScript tutorial - https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&ab_channel=TheNetNinja

@@ -1,0 +1,121 @@
+.home {
+  position: relative;
+  height: 100%;
+  padding: var(--navbar-height) 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.home__action-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 170px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.home__action-container__header {
+  margin: 0 0 1.35rem;
+}
+
+.home__image-container {
+  display: flex;
+  justify-content: center;
+  height: calc(150px - 1rem);
+  width: 100%;
+}
+
+.home__image-container__image {
+  height: 100%;
+}
+
+.home__image-container__image--md {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .home {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .home__image-container {
+    justify-content: center;
+    height: calc(50px + 13vw);
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    display: flex;
+    justify-content: start;
+  }
+  .home__action-container {
+    width: 50%;
+  }
+  .home__image-container__image--xs {
+    display: none
+  }
+  .home__image-container {
+    display: block;
+    position: absolute;
+    height: initial;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 70vw;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 56% 100%);
+    background-image: linear-gradient(to right, var(--white), var(--primary));
+    z-index: -1;
+  }
+  .home__image-container__image--md {
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    object-fit: cover;
+    object-position: 100% 25%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home {
+    padding: calc(2 * var(--navbar-height)) 0 0;
+    width: 70vw;
+    margin-left: auto;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .home__action-container {
+    position: relative;
+    top: calc(-1 * (var(--navbar-height) + 110px) + 20%);
+    left: calc(280px - 14%);
+    height: initial;
+    width: initial;
+    font-size: 2rem;
+    padding: 0;
+  }
+  .home__action-container__header {
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 1px var(--black), -1px -1px 2px var(--shadow);
+  }
+
+  
+  .home__image-container {
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%);
+    background-image: linear-gradient(to bottom, var(--white), var(--primary));
+  }
+
+  .home__image-container__image--md {
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    object-fit: cover;
+    object-position: 40%;
+  }
+}

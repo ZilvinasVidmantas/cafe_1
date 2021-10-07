@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+}
+
+.page-section {
+  padding: 60px 0;
+}

@@ -1,0 +1,20 @@
+Normaliems piliečiams:
+  typography - https://www.youtube.com/watch?v=6ardZEhjvV0&ab_channel=KevinPowell
+  display-flex - 
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    https://www.youtube.com/watch?v=hwbqquXww-U&list=PL4-IK0AVhVjMSb9c06AjRlTpvxL3otpUd&ab_channel=KevinPowell
+  ir puslapio kūrimo praktika - https://www.youtube.com/watch?v=oYRda7UtuhA&t=7s&ab_channel=EasyTutorials
+  Atlikti dizainą 6-8 pamokos puslapiui:
+    HTML and CSS\6-8 pamoka - puslapio kūrimas\Kontaktų puslapis.png
+
+Gykams:
+  display-grid -
+    https://www.youtube.com/watch?v=x7tLPhnA06w&list=PL4cUxeGkcC9itC4TxYMzFCfveyutyPOCY&ab_channel=TheNetNinja
+  Papildomai atlikti dizainą 6-8 pamokos puslapiui:
+    HTML and CSS\6-8 pamoka - puslapio kūrimas\Paslaugų puslapis.png
+
+Manijakams:
+  TypeScript tutorial - https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&ab_channel=TheNetNinja
+  OOP pagrindai - Manijakams\PHP 7 - klasė, objektas, oop principai.pdf
+  Papildomai atlikti dizainą 6-8 pamokos puslapiui:
+    HTML and CSS\6-8 pamoka - puslapio kūrimas\Projektų puslapis.png

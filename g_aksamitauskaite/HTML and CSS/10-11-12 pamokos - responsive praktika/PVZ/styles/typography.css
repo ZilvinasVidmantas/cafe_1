@@ -1,0 +1,61 @@
+html {
+  font-family: var(--main-font);
+  color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.text-decorative {
+  position: relative;
+}
+
+.text-decorative:after {
+  content: '___ __ _ ___ ';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.40rem;
+  font-weight: 900;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.header-section {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-grey {
+  color: var(--grey);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-sm {
+  font-size: 0.85em;
+}
+
+.text-lg {
+  font-size: 1.2em;
+}
+
+@media screen and (min-width: 768px) {
+  .header-section {
+    font-size: 1.7rem;
+  }
+}

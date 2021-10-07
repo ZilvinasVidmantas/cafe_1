@@ -1,0 +1,65 @@
+.square {
+  width: 90px;
+  height: 90px;
+  background: blue;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.bg-grey {
+  background-color: rgb(228, 228, 228);
+}
+
+/* float task 1 styles */
+
+.image-250x250 {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+/* float task 2 additional styles */
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.clearfix {
+  clear: both;
+  width: 100%;
+}
+
+.mt-0 {
+  margin-top: 0;
+}

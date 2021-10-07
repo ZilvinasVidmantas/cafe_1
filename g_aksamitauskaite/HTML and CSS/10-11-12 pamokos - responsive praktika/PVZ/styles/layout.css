@@ -1,0 +1,64 @@
+/* display */
+
+.d-grid {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  .d-md-block {
+    display: block;
+  }
+  .d-md-inline-block {
+    display: inline-block;
+  }
+  .d-md-inline {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .d-lg-grid {
+    display: grid;
+  }
+}
+
+
+
+/*  floats */
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clearfix {
+  display: table;
+  width: 100%;
+  clear: both;
+}
+
+/* Grid */
+.grid-cols-2{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-gap-3 {
+  gap: 1rem;
+}
+
+.grid-gap-4 {
+  gap: 1.5rem;
+}
+
+
+@media screen and (min-width: 768px) {
+  .align-self-md-end {
+    align-self: end;
+  }
+  .justify-self-md-end {
+    justify-self: end;
+  }
+}

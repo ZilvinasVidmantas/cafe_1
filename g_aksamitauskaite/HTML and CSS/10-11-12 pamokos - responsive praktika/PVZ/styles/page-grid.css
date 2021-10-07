@@ -1,0 +1,57 @@
+/* Grid areas */
+.home-area {
+  grid-area: home-start / home-start / home-end / home-end;
+}
+
+.upcoming-courses-area {
+  grid-area: upcoming-courses-start / upcoming-courses-start / upcoming-courses-end / upcoming-courses-end;
+  order: 1;
+}
+
+.courses-area {
+  grid-area: courses-start / courses-start / courses-end / courses-end;
+}
+
+.contacts-area {
+  grid-area: contacts-start / contacts-start / contacts-end / contacts-end;
+}
+
+/* Page Grid */
+
+.page-grid {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: [home-start upcoming-courses-start courses-start contacts-start] 100% [home-end upcoming-courses-end courses-end contacts-end];
+  grid-template-rows: [home-start] minmax(380px, auto) [home-end upcoming-courses-start] auto [upcoming-courses-end courses-start] auto [courses-end contacts-start] auto [contacts-end];
+}
+
+@media screen and (min-width: 576px) {
+  .page-grid {
+    grid-template-rows: 
+    [header-start home-start menu-start] 
+    var(--navbar-height) 
+    [header-end menu-end] 
+    minmax(280px, auto) 
+    [home-end upcoming-courses-start] 
+    auto 
+    [upcoming-courses-end courses-start] 
+    auto 
+    [courses-end contacts-start] 
+    auto 
+    [contacts-end];
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page-grid {
+    grid-template-rows:[home-start] 
+    minmax(380px, auto) 
+    [ upcoming-courses-start] 
+    calc(100vh - 380px)
+    [home-end upcoming-courses-end courses-start] 
+    auto 
+    [courses-end contacts-start] 
+    auto 
+    [contacts-end];
+  }
+}

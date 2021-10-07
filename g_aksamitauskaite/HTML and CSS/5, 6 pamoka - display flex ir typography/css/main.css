@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 900px;
+  margin: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.text-cancer {
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.801);
+  color: black;
+  font-size: 2rem;
+}
+
+.bg-image {
+  height: 50vh;
+  background-image: url('https://unsplash.it/1200/900');
+  background-size: cover;
+  background-position: center;
+}
+
+.mb-75 {
+  margin-bottom: 75px;
+}
+
+.flex-task {
+  display: flex;
+  border: 1px solid #bbb;
+}
+
+.flex-task--1 {
+  height: 400px;
+  justify-content: space-between;
+}
+
+.flex-task--2 {
+  height: 800px;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 0 40px;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #777;
+  background: #ccc;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px 2px #0001;
+}
+
+.btn--sm {
+  font-size: 0.6rem;
+}
+
+.btn--lg {
+  font-size: 1.5rem;
+}
+
+.btn--xl {
+  font-size: 2.5rem;
+}

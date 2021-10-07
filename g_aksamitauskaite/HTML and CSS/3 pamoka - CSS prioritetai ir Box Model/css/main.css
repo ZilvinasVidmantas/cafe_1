@@ -1,0 +1,47 @@
+body {
+  margin: 0 !important;
+}
+
+/* 
+* - bet koks elementas
+::before - bet kokio elemento, pseudo elementas before
+::after - bet kokio elemento, pseudo elementas after
+*/
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 800px;
+  margin: auto;
+}
+
+.bg-blue {
+  background: rgb(243, 243, 255);
+}
+
+.bg-red {
+  background: rgb(255, 236, 236);
+}
+
+.bg-yellow {
+  background: rgb(252, 247, 234);
+}
+
+.py-60px {
+  padding: 60px 0;
+}
+
+.py-80px {
+  padding: 80px 0;
+}
+
+.card {
+  display: inline-block;
+  background: white;
+  width: 230px;
+  padding: 30px 20px 20px;
+  margin: 20px 10px;
+  border-right: 2px solid black;
+  border-bottom: 1px solid black;
+}

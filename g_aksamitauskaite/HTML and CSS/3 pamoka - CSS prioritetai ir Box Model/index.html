@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 pamoka - CSS įvadas</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/exercise.css">
+</head>
+
+<body>
+  <main>
+    <div class="bg-blue py-60px">
+      <div class="container">
+        <h1>CSS įvadas</h1>
+        <p>
+          <strong>CSS</strong> - cascadian style sheets - pakopiniai stiliaus šablonai<br>
+        </p>
+        <div><strong>Uždėti HTML elementui stilius galima keliais 2 būdais</strong></div>
+        <ul>
+          <li>Naudojant CSS (pakopiniai stiliaus šablonai)</li>
+          <li>Naudojant style attributą</li>
+        </ul>
+        <div><strong> Stiliai rašomi naudojant CSS todėl: </strong></div>
+        <ul>
+          <li>Kad nesudibliuotų kodas(stiliaus aprašai)</li>
+          <li>Jog būtų atskirtas turinys nuo stilių</li>
+          <li>Jog stiliaus šablonai galėtų būt grupuojami ir struktūrizuojami</li>
+          <li>Kad būtų galima įgalinti stiliaus šablonų prioritetus</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <section class="bg-red py-60px">
+    <div class="container">
+      <h2>CSS prioritetai</h2>
+      <div><strong>CSS prioritetai, tai stiliaus savybių perrašymas pagal prioritetų taisykles</strong></div>
+      <article>
+        <h3>Prioritetų taisyklės</h3>
+        <ol>
+          <li>
+            <strong>Selektoriaus tipas</strong>
+            <div>
+              <img src="img/selector type.png" width="750px"> <br>
+              Jeigu selektorių tipai yra vienodo prioriteto, tuomet yra vertinamas apibrėžtumas.
+            </div>
+          </li>
+          <li>
+            <strong>Apibrėžtumas</strong> - tai papildomas elementų apibūdinimas. <br>
+            Jeigu apibėžtumas yra lygaus prioriteto, tuomet vertinama eiliškumas
+          </li>
+          <li>
+            <strong>Eiliškumas</strong> - kuo vėliau aprašyta, tuo didesnis prioritetas.
+          </li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section class="bg-yellow py-60px">
+    <div class="container">
+      <h2>Box-model</h2>
+      <p>
+        Kiekvienas HTML elementas yra stačiakampė dežutė, net jeigu atrodo kitaip.
+      </p>
+      <div><strong>Kiekvienas HTML elementas turi tokias sekcijas (vardinama iš vidaus į išorę)</strong></div>
+      <ul>
+        <li><strong>content</strong> - turinys</li>
+        <li><strong>padding</strong> - kamšalas</li>
+        <li><strong>border</strong> - sienelės</li>
+        <li><strong>margin</strong> - paraštės</li>
+      </ul>
+      <p>
+        Padding, border ir margin sekcijos gali būt nustatomos keturiomis kryptymis: ↑ ↓ → ←<br>
+      </p>
+      <p>
+        Kuomet aprašome elemento padding arba margin CSS savybes, galimi tokie trumpiniai pagal argumentus:
+      </p>
+      <ul>
+        <li><strong>a</strong> - dydis a į visas puses</li>
+        <li><strong>a b</strong> - dydis a vertikaliai, o b horizontaliai</li>
+        <li><strong>a b c</strong> - dydis a į viršų, dydis b - į šonus, o c - į apačią</li>
+        <li><strong>a b c d</strong> - dydis a į viršų, dydis b į dešinę, c - į apačią, d - į kairę</li>
+      </ul>
+      <div><strong>Pavyzdžiai</strong></div>
+      <table width="100%" border="1">
+        <thead>
+          <tr>
+            <th>Pavyzdys</th>
+            <th>Viršus ↑</th>
+            <th>Dešinė →</th>
+            <th>Apačia ↓</th>
+            <th>Kairė ←</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>margin: 20px 5px;</td>
+            <td>20px</td>
+            <td>5px</td>
+            <td>20px</td>
+            <td>5px</td>
+          </tr>
+          <tr>
+            <td>margin: 10px;</td>
+            <td>10px</td>
+            <td>10px</td>
+            <td>10px</td>
+            <td>10px</td>
+          </tr>
+          <tr>
+            <td>padding: 10px 0 5px;</td>
+            <td>10px</td>
+            <td>0</td>
+            <td>5px</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>padding: 10px 2px 5px 7px;</td>
+            <td>10px</td>
+            <td>2px</td>
+            <td>5px</td>
+            <td>7px</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <article class="card">
+        <h3>Card Title 1</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci vel numquam veritatis aut assumenda,
+          sapiente magni quisquam nostrum sunt nihil. Consectetur eius necessitatibus est sunt recusandae veritatis ea.
+          Exercitationem, corrupti!</p>
+        <button>More info</button>
+      </article>
+      <article class="card">
+        <h3>Card Title 1</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci vel numquam veritatis aut assumenda,
+          sapiente magni quisquam nostrum sunt nihil. Consectetur eius necessitatibus est sunt recusandae veritatis ea.
+          Exercitationem, corrupti!</p>
+        <button>More info</button>
+      </article>
+      <article class="card">
+        <h3>Card Title 1</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci vel numquam veritatis aut assumenda,
+          sapiente magni quisquam nostrum sunt nihil. Consectetur eius necessitatibus est sunt recusandae veritatis ea.
+          Exercitationem, corrupti!</p>
+        <button>More info</button>
+      </article>
+      <img src="img/box-sizing.png" width="100%">
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Exercise</h2>
+      <div class="task-container">
+        <div class="square-sm mr-10"></div>
+        <div class="square-sm mr-10"></div>
+        <div class="rect-h"></div>
+        <div class="rect-h-xl my-10"></div>
+        <div class="square-xl mr-10">
+          <div class="rect-h-sm mb-10"></div>
+          <div class="rect-h-sm"></div>
+        </div>
+        <div class="square-xl">
+          <div class="rect-v-sm mr-10"></div>
+          <div class="rect-v-sm"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

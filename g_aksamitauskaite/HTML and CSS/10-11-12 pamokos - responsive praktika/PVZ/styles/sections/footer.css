@@ -1,0 +1,24 @@
+.footer{
+  padding: 4rem 0;
+  border-top: 1px solid var(--shadow);
+  background-color: var(--light-grey);
+  font-size: 0;
+}
+
+.footer span,
+.footer a,
+.footer img {
+  font-size: 0.9rem;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.footer img {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.footer__link{
+  color: var(--primary);
+  text-decoration: none;
+}

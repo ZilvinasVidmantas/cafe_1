@@ -1,7 +1,7 @@
 Gintaras Kapočius
 Gintaras Tamosiunas
-Donatas Šimkevičius
 Tadas Delininkaitis +
+Donatas Šimkevičius +
 Laima Petrauskienė +
 Ignas Stankevičius
 Gerardas Čiegis +

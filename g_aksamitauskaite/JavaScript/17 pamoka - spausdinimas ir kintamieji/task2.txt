@@ -1,4 +1,0 @@
-1. Sukurkite failą task2.js
-2. Sukurkite 10 primityvių kintamųjų ir juos atspausdinkite 
-    (skaičiai, simbolių dariniai, true/false)
-3. Sukurkite 5 primityvius kintamuosius apie save, kurie norėtumėt, kad niekada nesikeistų

@@ -1,5 +1,0 @@
-1. Suskurti html failą, ir įsitraukti stilius
-2. Persikopijuoti stiliaus failų struktūrą iš ankstesnio projekto "6-8 pamoka"
-3. Prasivalyti(pasikopijavus ištrinti) specifinius to puslapio stilius ir kintamuosius
-4. Pataisyti visas containers.css klases, jog jos būtų priderinto prie lūžio taškų 
-5. Daryti puslapio komponentus, po vieną ir pradedant nuo mažiausio ekrano dydžio

@@ -15,4 +15,5 @@ Greta Aksamitauskaitė
 Vilius Eidukonis +
 Ignas Kunickas +
 Gytautas Mieliauskas +
-Kristijonas Simsonas
+Ignas Kunickas
+Kristijonas Simsonas +

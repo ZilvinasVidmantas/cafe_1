@@ -4,15 +4,15 @@ Donatas Šimkevičius
 Laima Petrauskienė
 Tadas Delininkaitis
 Ignas Stankevičius
-Gerardas Čiegis
+Gerardas Čiegis +
 Tomas Antanaitis
 Justas Naruševičius
 Milda Kavaliauskaitė
 Adelė Tartilaitė
 Linas Mockus
-Titas Lukošius
 Greta Aksamitauskaitė +
-Vilius Eidukonis
+Titas Lukošius +
+Vilius Eidukonis +
 Ignas Kunickas
-Gytautas Mieliauskas
+Gytautas Mieliauskas +
 Kristijonas Simsonas

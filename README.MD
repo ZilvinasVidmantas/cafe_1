@@ -43,3 +43,5 @@
 ## React
 
 ## API kūrimas naudojant Node.js
+
+All righs reserved CodeAcademy

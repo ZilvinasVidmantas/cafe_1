@@ -1,0 +1,12 @@
+HTMLElement.querySelector(selektorius)
+  Suranda pirmą HTML elementą, pradedant 'HTMLElement' pagal 'selektorius'
+
+HTMLElement.querySelectorAll(selektorius)
+  Suranda visus HTML elementus, pradedant 'HTMLElement' pagal 'selektorius'
+
+https://developer.mozilla.org/en-US/docs/Web/Events
+HTMLElement.addEventListener(kokioĮvykioLaukiame, kąDarytiKuometSulaukiame);
+
+HTMLElement.getBoundingRect()
+  grąžina bet kokio 'HTMLElement' išmatavimus ir atstumus nuo <html> elemento kontūrų
+    Atstumai nuo/iki <html> elemento kontūrų yra matuojami pagal 'HTMLElement' kairį-viršutinį kampą

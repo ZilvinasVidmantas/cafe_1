@@ -8,7 +8,7 @@ const data = [
   { street: 'Savanorių pr. 21a', city: 'Kaunas', type: 'flat', price: 60000, rooms: [24, 30] },
   { street: 'Partizanų g. 55', city: 'Kaunas', type: 'flat', price: 75000, rooms: [20, 30, 16] },
   { street: 'Krantų pr. 18', city: 'Klaipėda', type: 'house', price: 77000, rooms: [17, 12, 10, 5] },
-]
+];
 
 class Apartment {
   constructor({ street, city, type, price, rooms }) {
@@ -93,11 +93,11 @@ console.groupEnd();
 
 console.group("10. Suformuokite naują masyvą, kur kiekvienas orginalus objektas būtų papildytas Apartmet klasės get'erių reikšmėmis:");
 {
-  const result = apartments.map(({roomCount, squares, address, ...x}) => ({
+  const result = apartments.map(x => ({
     ...x,
-    roomCount,
-    squares,
-    address
+    roomCount: x.roomCount,
+    squares: x.squares,
+    address: x.address
   }));
   console.table(result);
 }

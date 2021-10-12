@@ -1,19 +1,28 @@
 const registerForm = document.querySelector('#register-form');
 const registerFormResultContainer = document.querySelector('#register-form-result-container');
+const registerFormInputName = registerForm.querySelector('#register-name');
+const registerFormInputLastname = registerForm.querySelector('#register-lastname');
+const registerFormInputEmail = registerForm.querySelector('#register-email');
+const registerFormInputCity = registerForm.querySelector('#register-city');
+const registerFormSelectState = registerForm.querySelector('#register-state');
+const registerFormInputZip = registerForm.querySelector('#register-zip');
 
 // 1. Vykdyti funkciją, kuomet paspaudžiamas "submit mygtukas". Submit'inama forma <registerForm>
 const handleRegisterForm = (event) => {
   event.preventDefault();
-  // 2. Nuskaityti formos įvesčių duomenis
-  /*
-    2.1 - Atspausdinti visus formoje esančius įvesties laukus
-    2.2 - Atspausdinti visų formoje esančių įvestie laukų reikšmes
- 
-  */
+  // 3. Suformuoti formos duomenis reikiamu formatu
+  const data = {
+    firstname: registerFormInputName.value,
+    lastname: registerFormInputLastname.value,
+    email: registerFormInputEmail.value,
+    city: registerFormInputCity.value,
+    state: registerFormSelectState.value,
+    zip: registerFormInputZip.value,
+  };
+  console.log(data);
 }
 
 registerForm.addEventListener('submit', handleRegisterForm);
 
 
-// 3. Suformuoti formos duomenis reikiamu formatu
 // 4. Pateikti duomenis į rezultato elementą <registerFormResultContainer>

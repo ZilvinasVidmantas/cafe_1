@@ -37,26 +37,26 @@
           <form id="register-form" class="row g-3">
             <div class="col-md-4 position-relative">
               <label for="register-name" class="form-label">First name</label>
-              <input type="text" class="form-control" id="register-name" value="Mark">
+              <input type="text" class="form-control" id="register-name" value="Mark" name="name">
             </div>
             <div class="col-md-4 position-relative">
               <label for="register-lastname" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="register-lastname" value="Otto">
+              <input type="text" class="form-control" id="register-lastname" value="Otto" name="lastname">
             </div>
             <div class="col-md-4 position-relative">
               <label for="register-email" class="form-label">Email</label>
               <div class="input-group has-validation">
                 <label class="input-group-text" for="register-email">@</label>
-                <input type="text" class="form-control" id="register-email">
+                <input type="text" class="form-control" id="register-email" name="email">
               </div>
             </div>
             <div class="col-md-6 position-relative">
               <label for="register-city" class="form-label">City</label>
-              <input type="text" class="form-control" id="register-city">
+              <input type="text" class="form-control" id="register-city" name="city">
             </div>
             <div class="col-md-3 position-relative">
               <label for="register-state" class="form-label">State</label>
-              <select class="form-select" id="register-state">
+              <select class="form-select" id="register-state" name="state">
                 <option selected disabled value="">Choose...</option>
                 <option value="Florida">Florida</option>
                 <option value="Arizona">Arizona</option>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-3 position-relative">
               <label for="register-zip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="register-zip">
+              <input type="text" class="form-control" id="register-zip" name="zip">
             </div>
             <div class="col-12">
               <button class="btn btn-primary" type="submit">Submit form</button>
@@ -74,16 +74,7 @@
         </div>
         <div class="col-4">
           <h2 class="h4">Results</h2>
-          <pre id="register-form-result-container">
-{
-  firstname: '...',
-  lastname: '...',
-  email: '...',
-  city: '...',
-  state: '...',
-  zip: '...',
-}
-          </pre>
+          <p id="register-form-result-container">Empty</p>
         </div>
       </div>
 

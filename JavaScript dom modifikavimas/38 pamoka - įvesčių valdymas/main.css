@@ -2,5 +2,20 @@
   display: inline-block;
   height: 100px;
   width: 100px;
-  border: 5px solid black;
+  border: 5px solid #000;
+}
+
+.ball-container{
+  position: relative;
+  height: 600px;
+  outline: 5px solid #000;
+}
+
+.ball{
+  position: absolute;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: radial-gradient(#fff, #888);
 }

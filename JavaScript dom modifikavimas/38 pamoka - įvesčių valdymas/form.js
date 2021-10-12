@@ -23,3 +23,5 @@ const renderResult = fieldValues => {
 }
 
 registerForm.addEventListener('submit', handleRegisterForm);
+
+// 21:05

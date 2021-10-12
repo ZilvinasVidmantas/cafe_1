@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="main.css">
   <script src="dom-functions.js" defer></script>
   <script src="form.js" defer></script>
+  <script src="Ball.js" defer></script>
+  <script src="main.js" defer></script>
 </head>
 
 <body>
@@ -27,8 +29,8 @@
       <input id="border-color-picker" type="color" class="form-control-color">
     </div>
     <div class="square"></div>
-    <hr>
   </div>
+  <hr>
   <section>
     <div class="container">
       <div class="row">
@@ -77,9 +79,28 @@
           <p id="register-form-result-container">Empty</p>
         </div>
       </div>
-
     </div>
   </section>
+  <hr>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <h2 class="h4">Kamuoliukų valdymas</h2>
+          <button id="btn-ball-start" class="btn btn-success">Start</button>
+          <button id="btn-ball-stop" class="btn btn-danger">Stop</button>
+        </div>
+        <div class="col-9">
+          <div class="ball-container">
+            <div class="ball"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
 </body>
 
 </html>

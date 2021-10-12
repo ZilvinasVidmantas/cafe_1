@@ -15,17 +15,78 @@
   <!-- <script src="kontrolinio-sprendimas.js"></script> -->
   <link rel="stylesheet" href="main.css">
   <script src="dom-functions.js" defer></script>
+  <script src="form.js" defer></script>
 </head>
 
 <body>
   <div class="container my-4 text-center">
-    <div class=" d-flex justify-content-center gap-2 mb-3">
+    <div class="d-flex justify-content-center gap-2 mb-3">
       <button class="btn btn-primary">Didinti</button>
       <button class="btn btn-warning">Mažinti</button>
-      <input type="color" class="form-control-color">
+      <input id="background-color-picker" type="color" class="form-control-color">
+      <input id="border-color-picker" type="color" class="form-control-color">
     </div>
     <div class="square"></div>
+    <hr>
   </div>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <h2 class="h4">Register</h2>
+          <form id="register-form" class="row g-3">
+            <div class="col-md-4 position-relative">
+              <label for="register-name" class="form-label">First name</label>
+              <input type="text" class="form-control" id="register-name" value="Mark">
+            </div>
+            <div class="col-md-4 position-relative">
+              <label for="register-lastname" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="register-lastname" value="Otto">
+            </div>
+            <div class="col-md-4 position-relative">
+              <label for="register-email" class="form-label">Email</label>
+              <div class="input-group has-validation">
+                <label class="input-group-text" for="register-email">@</label>
+                <input type="text" class="form-control" id="register-email">
+              </div>
+            </div>
+            <div class="col-md-6 position-relative">
+              <label for="register-city" class="form-label">City</label>
+              <input type="text" class="form-control" id="register-city">
+            </div>
+            <div class="col-md-3 position-relative">
+              <label for="register-state" class="form-label">State</label>
+              <select class="form-select" id="register-state">
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="col-md-3 position-relative">
+              <label for="register-zip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="register-zip">
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-4">
+          <h2 class="h4">Results</h2>
+          <pre id="register-form-result-container">
+{
+  firstname: '...',
+  lastname: '...',
+  email: '...',
+  city: '...',
+  state: '...',
+  zip: '...',
+}
+          </pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </body>
 
 </html>

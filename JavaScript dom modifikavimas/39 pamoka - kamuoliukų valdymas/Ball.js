@@ -9,6 +9,14 @@ class Ball {
     this.element.style.left = `${startX}px`;
   }
 
+  toggleMovement = () => {
+    if (!this.#isMoving) {
+      this.startMovement();
+    } else {
+      this.stopMovement();
+    }
+  }
+
   startMovement = () => {
     if (!this.#isMoving) {
       this.#intervalId = setInterval(() => {

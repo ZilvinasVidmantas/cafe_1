@@ -23,12 +23,24 @@
       <div class="row">
         <div class="col-3">
           <h2 class="h4">Kamuoliukų valdymas</h2>
-          <button id="btn-ball-start" class="btn btn-success">Start</button>
-          <button id="btn-ball-stop" class="btn btn-danger">Stop</button>
+          <hr>
+          <div>
+            <h3 class="h5">Blue ball control</h3>
+            <button id="btn-ball-blue-start" class="btn btn-success">Start</button>
+            <button id="btn-ball-blue-stop" class="btn btn-danger">Stop</button>
+          </div>
+          <hr>
+          <div>
+            <h3 class="h5">Red ball control</h3>
+            <button id="btn-ball-red-start" class="btn btn-success">Start</button>
+            <button id="btn-ball-red-stop" class="btn btn-danger">Stop</button>
+          </div>
+          <hr>
         </div>
         <div class="col-9">
           <div class="ball-container">
-            <div class="ball"></div>
+            <div id="ball-blue" class="ball"></div>
+            <div id="ball-red" class="ball"></div>
           </div>
         </div>
       </div>

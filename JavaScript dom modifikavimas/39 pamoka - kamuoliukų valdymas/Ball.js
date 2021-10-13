@@ -2,10 +2,11 @@ class Ball {
   #intervalId = null;
   #isMoving = false;
 
-  constructor(selector) {
+  constructor(selector, color, startX = 0, startY = 0) {
     this.element = document.querySelector(selector);
-    this.element.style.top = '0px';
-    this.element.style.left = '0px';
+    this.element.style.background = `radial-gradient(#fff, ${color} 60%)`;
+    this.element.style.top = `${startY}px`;
+    this.element.style.left = `${startX}px`;
   }
 
   startMovement = () => {
@@ -22,7 +23,7 @@ class Ball {
   }
 
   stopMovement = () => {
-    if(this.#isMoving){
+    if (this.#isMoving) {
       clearInterval(this.#intervalId);
       this.#intervalId = null;
       this.#isMoving = false;

@@ -1,12 +1,16 @@
-const ball = new Ball('.ball');
-const btnStart = document.querySelector('#btn-ball-start');
-const btnStop = document.querySelector('#btn-ball-stop');
+const ballBlue = new Ball('#ball-blue', '#0000aa');
+const ballRed = new Ball('#ball-red', '#aa0000', 100, 100);
+const btnStartBlue = document.querySelector('#btn-ball-blue-start');
+const btnStopBlue = document.querySelector('#btn-ball-blue-stop');
+const btnStartRed = document.querySelector('#btn-ball-red-start');
+const btnStopRed = document.querySelector('#btn-ball-red-stop');
 
-btnStart.addEventListener('click', ball.startMovement);
-btnStop.addEventListener('click', ball.stopMovement);
+btnStartBlue.addEventListener('click', ballBlue.startMovement);
+btnStopBlue.addEventListener('click', ballBlue.stopMovement);
+
+btnStartRed.addEventListener('click', ballRed.startMovement);
+btnStopRed.addEventListener('click', ballRed.stopMovement);
 
 /*
-  1. Papildyti kamuoliuko konstruktorių, jog būtų galima nurodyti jo spalvą, ir tai įgalinti
-  2. Papildyti kamuoliuko konstruktorių, jog būtų galima pradines koordinates
-  3. Sukurti dar vieną kamuoliuką, su atitinkamais paleidomo ir sustabdymo mygtukais
+  1. Sukurti žalią kamuoliuką, su atitinkamais paleidimo ir sustabdymo mygtukais
 */

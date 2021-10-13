@@ -1,10 +1,10 @@
-.ball-container{
+.ball-container {
   position: relative;
   height: 600px;
   outline: 5px solid #000;
 }
 
-.ball{
+.ball {
   position: absolute;
   display: inline-block;
   height: 50px;

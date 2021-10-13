@@ -14,6 +14,7 @@
   <!-- Mūsų kurti stiliai ir script'ai -->
   <link rel="stylesheet" href="main.css">
   <script src="Ball.js" defer></script>
+  <script src="BallManager.js" defer></script>
   <script src="main.js" defer></script>
 </head>
 
@@ -23,30 +24,62 @@
       <div class="row">
         <div class="col-3">
           <h2 class="h4">Kamuoliukų valdymas</h2>
-          <hr>
-          <div>
-            <h3 class="h5">Blue ball control</h3>
-            <button id="btn-ball-blue" class="btn btn-success">Start</button>
+          <form id="new-ball-form">
+            <!-- Šį turinį sukurti su JS ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+            <hr>
+            <h3 class="h5">Sukurti naują kamuoliuką</h3>
+            <div class="row">
+              <div class="col">
+                <label for="name">Name</label>
+                <input type="text" class="form-control form-control-sm" id="name">
+              </div>
+              <div class="col">
+                <label for="speed">Speed</label>
+                <input type="text" class="form-control form-control-sm" id="speed">
+              </div>
+              <div class="col">
+                <label for="color">Color</label>
+                <input type="text" class="form-control form-control-sm" id="color">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="x">Initial X</label>
+                <input type="text" class="form-control form-control-sm" id="x">
+              </div>
+              <div class="col">
+                <label for="y">Initial Y</label>
+                <input type="text" class="form-control form-control-sm" id="y">
+              </div>
+              <div class="col d-flex align-items-end">
+                <button class="btn btn-sm btn-primary w-100">Create</button>
+              </div>
+            </div>
+            <!-- Šį turinį sukurti su JS ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
+          </form>
+          <div id="control-container">
+            <!-- <hr>
+            <div>
+              <h3 class="h5">Blue ball control</h3>
+              <button id="btn-ball-blue" class="btn btn-success">Start</button>
+            </div>
+            <hr>
+            <div>
+              <h3 class="h5">Red ball control</h3>
+              <button id="btn-ball-red" class="btn btn-success">Start</button>
+            </div>
+            <hr>
+            <div>
+              <h3 class="h5">Green ball control</h3>
+              <button id="btn-ball-green" class="btn btn-success">Start</button>
+            </div>-->
           </div>
-          <hr>
-          <div>
-            <h3 class="h5">Red ball control</h3>
-            <button id="btn-ball-red-start" class="btn btn-success">Start</button>
-            <button id="btn-ball-red-stop" class="btn btn-danger">Stop</button>
-          </div>
-          <hr>
-          <div>
-            <h3 class="h5">Green ball control</h3>
-            <button id="btn-ball-green-start" class="btn btn-success">Start</button>
-            <button id="btn-ball-green-stop" class="btn btn-danger">Stop</button>
-          </div>
-          <hr>
         </div>
         <div class="col-9">
-          <div class="ball-container">
-            <div id="ball-blue" class="ball"></div>
+          <div id="ball-container" class="ball-container">
+            <!-- <div id="ball-blue" class="ball"></div>
             <div id="ball-red" class="ball"></div>
-            <div id="ball-green" class="ball"></div>
+            <div id="ball-green" class="ball"></div> -->
           </div>
         </div>
       </div>

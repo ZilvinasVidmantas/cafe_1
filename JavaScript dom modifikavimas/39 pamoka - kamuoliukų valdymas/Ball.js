@@ -2,8 +2,9 @@ class Ball {
   #intervalId = null;
   #isMoving = false;
 
-  constructor(selector, color, startX = 0, startY = 0) {
-    this.element = document.querySelector(selector);
+  constructor( color, startX = 0, startY = 0) {
+    this.element = document.createElement('div');
+    this.element.className = 'ball';
     this.element.style.background = `radial-gradient(#fff, ${color} 60%)`;
     this.element.style.top = `${startY}px`;
     this.element.style.left = `${startX}px`;

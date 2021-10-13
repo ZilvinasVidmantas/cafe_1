@@ -28,3 +28,24 @@ HTMLElement.innerHTML
   --------------------------------------------------------------------
   <input type="text" />       | ''
   --------------------------------------------------------------------
+
+
+document.createElement(TAG_NAME)
+  sukuria naują HTMLElement prototipo objektą, pagal 'TAG_NAME'.
+    Svarbu pastebėti, jog sukūrus šį elementą jis nėra pridedamas į matomą HTML medį (document)
+
+HTMLElement.appendChild(ChildHTMLElement)
+  prideda į 'HTMLElement' galą kitą 'ChildHTMLElement'.
+
+HTMLElement.className
+  tai yra 'HTMLElement' class="" atributo atitikmuo, galite jį tiek naudoti tiek nustatymui, tiek panaudojimui
+    nustatymas: 
+      someElement.className = 'klase1 klase2 klase3' → <someElementTag class="klase1 klase2 klase3">...</someElementTag>
+    panaudojimas:
+      esant elementui: <someElementTag class="klaseX klaseY">...</someElementTag>
+      console.log(someElement.className); → 'klaseX klaseY';
+
+HTMLElement.classList
+  šioje savybėje yra išsaugotos 'HTMLElement' klasės atskirai DOMTokenList struktūroje panašioje į Array.
+  DOMTokenList struktūra turi patogius, darbui su klasėmis, skirtus metodus:
+    DOMTokenList.contains('clasėsPavadinimas') → grąžina Boolean reikšmę pagal tai ar egzistuoja klasė

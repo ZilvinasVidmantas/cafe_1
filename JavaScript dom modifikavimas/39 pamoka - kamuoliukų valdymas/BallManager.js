@@ -23,7 +23,7 @@ class BallManager {
   }
 
   addBall = (name, color, startX, startY) => {
-    const ball = new Ball( color, startX, startY);
+    const ball = new Ball(color, startX, startY);
     this.ballContainer.appendChild(ball.element);
     const ballControlsContainer = document.createElement('div');
 

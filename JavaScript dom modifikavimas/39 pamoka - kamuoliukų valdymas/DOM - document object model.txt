@@ -1,3 +1,7 @@
+document.createElement(TAG_NAME)
+  sukuria naują HTMLElement prototipo objektą, pagal 'TAG_NAME'.
+    Svarbu pastebėti, jog sukūrus šį elementą jis nėra pridedamas į matomą HTML medį (document)
+
 HTMLElement.querySelector(selektorius)
   Suranda pirmą HTML elementą, pradedant 'HTMLElement' pagal 'selektorius'
 
@@ -29,14 +33,6 @@ HTMLElement.innerHTML
   <input type="text" />       | ''
   --------------------------------------------------------------------
 
-
-document.createElement(TAG_NAME)
-  sukuria naują HTMLElement prototipo objektą, pagal 'TAG_NAME'.
-    Svarbu pastebėti, jog sukūrus šį elementą jis nėra pridedamas į matomą HTML medį (document)
-
-HTMLElement.appendChild(ChildHTMLElement)
-  prideda į 'HTMLElement' galą kitą 'ChildHTMLElement'.
-
 HTMLElement.className
   tai yra 'HTMLElement' class="" atributo atitikmuo, galite jį tiek naudoti tiek nustatymui, tiek panaudojimui
     nustatymas: 
@@ -48,4 +44,10 @@ HTMLElement.className
 HTMLElement.classList
   šioje savybėje yra išsaugotos 'HTMLElement' klasės atskirai DOMTokenList struktūroje panašioje į Array.
   DOMTokenList struktūra turi patogius, darbui su klasėmis, skirtus metodus:
-    DOMTokenList.contains('clasėsPavadinimas') → grąžina Boolean reikšmę pagal tai ar egzistuoja klasė
+    contains('klasėsPavadinimas') → grąžina Boolean reikšmę pagal tai ar egzistuoja klasė 'klasėsPavadinimas'
+    add('klasėsPavadinimas') → prideda naują klasę į 'class' atributą → class="... klasėsPavadinimas"
+    remove('klasėsPavadinimas') → pašalina klasę 'klasėsPavadinimas'
+    toggle('klasėsPavadinimas') → pašalina klasę jei yra, arba pridėda jei jos nėra
+
+HTMLElement.appendChild(ChildHTMLElement)
+  prideda į 'HTMLElement' galą kitą 'ChildHTMLElement'.

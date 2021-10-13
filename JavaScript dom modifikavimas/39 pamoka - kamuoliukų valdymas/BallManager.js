@@ -12,14 +12,26 @@ class BallManager {
     }
   };
 
-  constructor(controlContainerSelector, ballContainerSelector) {
+  constructor(controlContainerSelector, ballContainerSelector, formNewBallSelector) {
     this.controlContainer = document.querySelector(controlContainerSelector);
     this.ballContainer = document.querySelector(ballContainerSelector);
+    this.formNewBall = document.querySelector(formNewBallSelector);
     this.createNewBallForm();
   }
 
   createNewBallForm = () => {
-    // Va Čia
+    const separator = document.createElement('hr');
+    separator.className = 'my-2';
+    this.formNewBall.appendChild(separator);
+
+    const formHeader = document.createElement('h3');
+    formHeader.className = 'h5 mt-1';
+    formHeader.innerHTML = 'Create new ball';
+    this.formNewBall.appendChild(formHeader);
+    // 1. Užžymėkite formoje kad nesate atlikę užduoties
+    // 2. Pasidarykite 10 min pertrauka
+    // 3. Tęskite toliau ir pabaikite
+    // 4. Pažymėkite formoje, kad atlikote formavimą
   }
 
   addBall = (name, color, startX, startY) => {
@@ -28,6 +40,7 @@ class BallManager {
     const ballControlsContainer = document.createElement('div');
 
     const separator = document.createElement('hr');
+    separator.className = 'my-2';
 
     const ballControlsHeader = document.createElement('h3');
     ballControlsHeader.innerHTML = `${name} ball control`;

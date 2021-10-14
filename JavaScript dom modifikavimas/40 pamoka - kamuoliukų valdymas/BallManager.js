@@ -77,24 +77,33 @@ class BallManager {
   addBall = (name, color, startX, startY) => {
     const ball = new Ball(color, startX, startY);
     this.ballContainer.appendChild(ball.element);
-    const ballControlsContainer = document.createElement('div');
+
+    // ↓↓↓ kamuoliuko valdymo forma
+    const container = document.createElement('div');
 
     const separator = document.createElement('hr');
     separator.className = 'my-2';
+    container.appendChild(separator);
 
-    const ballControlsHeader = document.createElement('h3');
-    ballControlsHeader.innerHTML = `${name} ball control`;
-    ballControlsHeader.className = 'h6';
+    const header = document.createElement('h3');
+    header.className = 'h6';
+    header.innerHTML = `${name} ball control`;
+    container.appendChild(header);
 
-    const ballControlsBtn = document.createElement('button');
-    ballControlsBtn.innerHTML = 'Start';
-    ballControlsBtn.className = 'btn btn-sm btn-success';
-    ballControlsBtn.addEventListener('click', BallManager.btnHandlerFactoryFunction(ball, ballControlsBtn))
+    const layoutContainer = document.createElement('div');
+    layoutContainer.className = 'd-flex justify-content-between';
+    container.appendChild(layoutContainer);
 
-    ballControlsContainer.appendChild(separator);
-    ballControlsContainer.appendChild(ballControlsHeader);
-    ballControlsContainer.appendChild(ballControlsBtn);
+    const controlsContainer = document.createElement('div');
+    controlsContainer.className = 'd-flex w-75 gap-1';
+    layoutContainer.appendChild(controlsContainer);
 
-    this.controlContainer.appendChild(ballControlsContainer);
+    const btnStart = document.createElement('button');
+    btnStart.innerHTML = 'Start';
+    btnStart.className = 'btn btn-sm btn-success';
+    btnStart.addEventListener('click', BallManager.btnHandlerFactoryFunction(ball, btnStart));
+    controlsContainer.appendChild(btnStart);
+
+    this.controlContainer.appendChild(container);
   }
 }

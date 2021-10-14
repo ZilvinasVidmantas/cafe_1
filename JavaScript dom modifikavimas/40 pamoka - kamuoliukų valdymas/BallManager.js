@@ -68,10 +68,6 @@ class BallManager {
     });
     fields.forEach(field => row.appendChild(field));
     this.formNewBall.appendChild(row);
-    // 1. Užžymėkite formoje kad nesate atlikę užduoties
-    // 2. Pasidarykite 10 min pertrauka
-    // 3. Tęskite toliau ir pabaikite
-    // 4. Pažymėkite formoje, kad atlikote formavimą
   }
 
   addBall = (name, color, startX, startY) => {

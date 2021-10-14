@@ -2,6 +2,7 @@ document.createElement(TAG_NAME)
   sukuria naują HTMLElement prototipo objektą, pagal 'TAG_NAME'.
     Svarbu pastebėti, jog sukūrus šį elementą jis nėra pridedamas į matomą HTML medį (document)
 
+------------------------------------ HTML Element prototipo metodai ir savybės ------------------------------------
 HTMLElement.querySelector(selektorius)
   Suranda pirmą HTML elementą, pradedant 'HTMLElement' pagal 'selektorius'
 
@@ -51,3 +52,19 @@ HTMLElement.classList
 
 HTMLElement.appendChild(ChildHTMLElement)
   prideda į 'HTMLElement' galą kitą 'ChildHTMLElement'.
+
+HTMLElement.setAttribute(ATTRIBUTE_NAME, ATTRIBUTE_VALUE)
+  prideda 'HTMLElement' atributą
+  P.S.: kai kuriuos atributus (type, id) galima nustatyti tiesiogiai, bet dauguma nustatomi šiuo metodu
+
+HTMLElement.removeAttribute(ATTRIBUTE_NAME)
+  pašalina 'HTMLElement' atributą
+
+HTMLElement.style 
+  šia savybe yra pasiekiamas objektas, kuriame yra visos CSS savybės (dauguma jų tuščios)
+  bet kokią CSS savybę galite nustatyti redaguojant šio 'HTMLElement.style' objekto savybę (camelCase) formatu
+  pvz.:
+    HTMLElement.style.backgroundColor = '#ff00ff';
+    HTMLElement.style.zIndex = '19';
+    HTMLElement.style.fontSize = '15px';
+  Pekeitus šį objektą, atsinaujina HTMLElement style="" atributo turinys ir elementas įgauna stilius (jei nėra aukštesnio prioriteto nurodymų)

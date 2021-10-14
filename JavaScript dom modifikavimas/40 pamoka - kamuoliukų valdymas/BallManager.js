@@ -16,28 +16,41 @@ class BallManager {
     this.controlContainer = document.querySelector(controlContainerSelector);
     this.ballContainer = document.querySelector(ballContainerSelector);
     this.formNewBall = document.querySelector(formNewBallSelector);
+    this.formNewBall.addEventListener('submit', this.handleNewBallSubmit);
     this.createNewBallForm();
   }
 
-  createNewBallForm = () => {
-    const separator = document.createElement('hr');
-    separator.className = 'my-2';
-    this.formNewBall.appendChild(separator);
+  handleNewBallSubmit = (e) => {
+    e.preventDefault();
+    const data = Array
+      .from(this.formNewBall)
+      .filter(field => field.name)
+      .reduce((result, input) => {
+        result[input.name] = input.value;
+        return result;
+      }, {});
+    this.addBall(data);
+  }
 
-    const formHeader = document.createElement('h3');
-    formHeader.className = 'h5 mt-1';
-    formHeader.innerHTML = 'Create new ball';
-    this.formNewBall.appendChild(formHeader);
+  createNewBallForm = () => {
+    const hr = document.createElement('hr');
+    hr.className = 'my-2';
+    this.formNewBall.appendChild(hr);
+
+    const header = document.createElement('h3');
+    header.className = 'h5 mt-1';
+    header.innerHTML = 'Create new ball';
+    this.formNewBall.appendChild(header);
 
     const row = document.createElement('div');
     row.className = 'row g-1';
 
     const fields = [
       { name: 'name', tag: 'input', type: 'text' },
-      { name: 'speed', tag: 'input', type: 'text' },
+      { name: 'speed', tag: 'input', type: 'number' },
       { name: 'color', tag: 'input', type: 'color' },
-      { name: 'initial x', tag: 'input', type: 'number' },
-      { name: 'initial y', tag: 'input', type: 'number' },
+      { name: 'initialX', tag: 'input', type: 'number' },
+      { name: 'initialY', tag: 'input', type: 'number' },
       { tag: 'button' },
     ].map(({ name, tag, type }) => {
       const col = document.createElement('div');
@@ -51,7 +64,7 @@ class BallManager {
           element.name = name;
 
           const label = document.createElement('label');
-          label.innerHTML = `<small>${name[0].toUpperCase() + name.slice(1)}</small>`;
+          label.innerHTML = `<small>${TextCase.camelToSentence(name)}</small>`;
           label.setAttribute('for', name);
           col.appendChild(label);
           col.appendChild(element);
@@ -66,12 +79,13 @@ class BallManager {
       }
       return col;
     });
+
     fields.forEach(field => row.appendChild(field));
     this.formNewBall.appendChild(row);
   }
 
-  addBall = (name, color, startX, startY) => {
-    const ball = new Ball(color, startX, startY);
+  addBall = ({ name, ...ballProps }) => {
+    const ball = new Ball(ballProps);
     this.ballContainer.appendChild(ball.element);
 
     // ↓↓↓ kamuoliuko valdymo forma
@@ -93,11 +107,11 @@ class BallManager {
     const controlsContainer = document.createElement('div');
     controlsContainer.className = 'd-flex w-75 gap-1';
     layoutContainer.appendChild(controlsContainer);
-    
+
     const btnDelete = document.createElement('button');
     btnDelete.innerHTML = '✕';
     btnDelete.className = 'btn btn-sm btn-danger align-self-end';
-    btnDelete.addEventListener('click', ()=> console.log('Trinimas'));
+    btnDelete.addEventListener('click', () => console.log('Trinimas'));
     layoutContainer.appendChild(btnDelete);
 
     const speedField = document.createElement('div');
@@ -110,7 +124,7 @@ class BallManager {
     labelSpeed.innerHTML = '<small>Speed</small>';
     labelSpeed.setAttribute('for', inputSpeedId);
     speedField.appendChild(labelSpeed);
-    
+
     const inputSpeed = document.createElement('input');
     inputSpeed.type = 'number';
     inputSpeed.id = inputSpeedId;
@@ -127,7 +141,7 @@ class BallManager {
     labelColor.innerHTML = '<small>Color</small>';
     labelColor.setAttribute('for', inputColorId);
     colorField.appendChild(labelColor);
-    
+
     const inputColor = document.createElement('input');
     inputColor.type = 'color';
     inputColor.id = inputColorId;

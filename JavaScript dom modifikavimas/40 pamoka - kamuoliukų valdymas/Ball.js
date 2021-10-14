@@ -2,12 +2,12 @@ class Ball {
   #intervalId = null;
   #isMoving = false;
 
-  constructor( color, startX = 0, startY = 0) {
+  constructor({ color, initialX = 0, initialY = 0 }) {
     this.element = document.createElement('div');
     this.element.className = 'ball';
     this.element.style.background = `radial-gradient(#fff, ${color} 60%)`;
-    this.element.style.top = `${startY}px`;
-    this.element.style.left = `${startX}px`;
+    this.element.style.top = `${initialY}px`;
+    this.element.style.left = `${initialX}px`;
   }
 
   toggleMovement = () => {

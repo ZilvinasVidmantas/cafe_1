@@ -4,6 +4,6 @@ const ballManager = new BallManager(
   '#form-new-ball'
 );
 
-ballManager.addBall('Blue', '#0000aa');
-// ballManager.addBall('Red', '#aa0000', 200, 50);
-// ballManager.addBall('Green', '#00aa00', 50, 200);
+ballManager.addBall({ name: 'Blue', color: '#0000aa' });
+ballManager.addBall({ name: 'Red', color: '#aa0000', initialX: 200, initialY: 50 });
+ballManager.addBall({ name: 'Green', color: '#00aa00', initialX: 50, initialY: 200 });

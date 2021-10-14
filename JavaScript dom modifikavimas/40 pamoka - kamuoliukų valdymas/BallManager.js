@@ -93,10 +93,50 @@ class BallManager {
     const controlsContainer = document.createElement('div');
     controlsContainer.className = 'd-flex w-75 gap-1';
     layoutContainer.appendChild(controlsContainer);
+    
+    const btnDelete = document.createElement('button');
+    btnDelete.innerHTML = '✕';
+    btnDelete.className = 'btn btn-sm btn-danger align-self-end';
+    btnDelete.addEventListener('click', ()=> console.log('Trinimas'));
+    layoutContainer.appendChild(btnDelete);
+
+    const speedField = document.createElement('div');
+    speedField.className = 'w-50';
+    controlsContainer.appendChild(speedField);
+
+    const inputSpeedId = `ball-${name}-speed`;
+
+    const labelSpeed = document.createElement('label');
+    labelSpeed.innerHTML = '<small>Speed</small>';
+    labelSpeed.setAttribute('for', inputSpeedId);
+    speedField.appendChild(labelSpeed);
+    
+    const inputSpeed = document.createElement('input');
+    inputSpeed.type = 'number';
+    inputSpeed.id = inputSpeedId;
+    inputSpeed.className = 'form-control form-control-sm';
+    speedField.appendChild(inputSpeed);
+
+    const colorField = document.createElement('div');
+    colorField.className = 'w-50';
+    controlsContainer.appendChild(colorField);
+
+    const inputColorId = `ball-${name}-color`;
+
+    const labelColor = document.createElement('label');
+    labelColor.innerHTML = '<small>Color</small>';
+    labelColor.setAttribute('for', inputColorId);
+    colorField.appendChild(labelColor);
+    
+    const inputColor = document.createElement('input');
+    inputColor.type = 'color';
+    inputColor.id = inputColorId;
+    inputColor.className = 'form-control form-control-sm';
+    colorField.appendChild(inputColor);
 
     const btnStart = document.createElement('button');
     btnStart.innerHTML = 'Start';
-    btnStart.className = 'btn btn-sm btn-success';
+    btnStart.className = 'btn btn-sm btn-success align-self-end';
     btnStart.addEventListener('click', BallManager.btnHandlerFactoryFunction(ball, btnStart));
     controlsContainer.appendChild(btnStart);
 

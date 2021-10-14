@@ -1,0 +1,14 @@
+Dar kartą Perskaityti visus failus, iš aplanko: 
+  https://github.com/ZilvinasVidmantas/cafe_1/tree/master/JavaScript%20kalbos%20pagrindai/Atskiros%20temos
+  'cafe_1/JavaScript kalbos pagrindai/Atskiros temos/'
+
+Perskaityti failą:
+  'cafe_1/40 pamoka - kamuoliukų valdymas/DOM - document object model.txt'
+
+Peržiūrėti video ir persirašyti patiems:
+  https://www.youtube.com/watch?v=0ik6X4DJKCc&ab_channel=TraversyMedia
+  https://www.youtube.com/watch?v=mPd2aJXCZ2g&ab_channel=TraversyMedia
+  https://www.youtube.com/watch?v=wK2cBMcDTss&ab_channel=TraversyMedia
+  https://www.youtube.com/watch?v=i37KVt_IcXw&ab_channel=TraversyMedia
+
+Peržiūrėti šios savaitės pamokų kodą, ir jei yra neaiškumų, pasiruošti klausimus, kurie bus atsakyti pirmadienį.

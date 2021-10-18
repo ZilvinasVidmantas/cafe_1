@@ -30,21 +30,38 @@ class Table {
 
   renderHeader = () => {
     // 1. iteruoti per savybę this.columns
-    this.????(columnName => {
+    this.columns.forEach(columnName => {
       // 2. su kiekvienu stulpelio pavadinimu, sukurti div
-      const col = document.?????('div');
+      const col = document.createElement('div');
       // 3. įdėti stulpelio pavadinimą į sukurtą div [2.]
-      col.????? = columnName;
+      col.innerHTML = columnName;
       // 4. uždėti juodą foną
-      col.style.backgro??? = '#000';
+      col.style.background = '#000';
       // 5. uždėti baltas raides
-      col.style.???? = '#000';
+      col.style.color = '#fff';
       // 6. uždėti paddingo 1rem
-      col.style.???? = '1rem';
+      col.style.padding = '0.5rem';
       // 7. prijungti prie this.element
-      this.element.?????(col);
+      this.element.appendChild(col);
     });
     console.log(this.element.outerHTML)
+  }
+
+  renderData = () => {
+    // 1. Iteruoti per eilutes
+    this.???.forEach(row => {
+      // 2. Iteruoti per eilutes elementus
+      this.???.forEach(colData => {
+        // 3. Sukurti div
+        const col = ????('div');  
+        // 4. Uždėti padding 0.5rem
+        col.????.padding = ???;
+        // 5. Įdėti duomenis į sukurtą div
+        col.???? = ????;
+        // 6. Prijungti sukurtą div, prie this.element
+        this.element.??????(col);
+      });
+    });
   }
 
   render = () => {

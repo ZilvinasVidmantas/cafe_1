@@ -18,8 +18,32 @@ const animalCardContainer = new CardContainer(animalCards);
 
 
 
-const table1 = new Table({ columns: ['Vardas', 'Pavarde'] });
-const table2 = new Table({ columns: ['Vardas', 'Pavarde', 'Svoris', 'Ūgis'] });
+const table1 = new Table({ 
+  columns: ['Vardas', 'Pavarde'],
+  rows: [
+    ['Kibiras', 'Kentaurius'],
+    ['Kibiras', 'Kentaurius'],
+    ['Kibiras', 'Kentaurius'],
+    ['Kibiras', 'Kentaurius'],
+    ['Kibiras', 'Kentaurius'],
+    ['Kibiras', 'Kentaurius'],
+    ['Kibiras', 'Kentaurius']
+  ]
+});
+const table2 = new Table({ 
+  columns: ['Vardas', 'Pavarde', 'Svoris (kg)', 'Ūgis (m)'],
+  rows: [
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+    ['Kevinas', 'Barbenis', '80', '1.80'],
+  ]
+ });
 
 // rootContainer.appendChild(carCardContainer.element);
 // rootContainer.appendChild(animalCardContainer.element);

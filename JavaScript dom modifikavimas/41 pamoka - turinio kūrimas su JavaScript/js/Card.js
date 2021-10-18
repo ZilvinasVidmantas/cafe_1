@@ -7,7 +7,7 @@ class Card {
     this.href = href;
     // 1.2 suformuoti HTML struktūrą su esamais duomenimis
     this.element = document.createElement('div');
-    this.element.className = 'card';
+    this.element.className = 'card h-100';
     this.render();
   }
 

@@ -16,7 +16,7 @@ const columns = carCards.map(card => {
   col.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
   col.appendChild(card.element);
   return col;
-})
+});
 
 // 3. stulpelius įdėti į <cardContainer>
 columns.forEach(col => cardContainer.appendChild(col));
@@ -30,10 +30,23 @@ columns.forEach(col => cardContainer.appendChild(col));
       about: String,
       imgSrc: String,
       link: String
-  
-  2. Sukurti Korteles pagal gyvūnų duomenis
-
-  3. įdėti koreteles į stulpelius
-
-  4. Stulpelius įdėti į cardContainer
 */
+
+// 2. Sukurti Korteles pagal gyvūnų duomenis
+const animalCards = animalData.map(({name, kind, about, imgSrc, link}) => new Card({
+  imgSrc,
+  desc: about,
+  title: name + ' ' + kind,
+  href: link,
+}));
+
+// 3. įdėti koreteles į stulpelius
+const cols = animalCards.map(card => {
+  const col = document.createElement('div');
+  col.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
+  col.appendChild(card.element);
+  return col;
+});
+
+// 4. Stulpelius įdėti į cardContainer
+cols.forEach(col => cardContainer.appendChild(col));

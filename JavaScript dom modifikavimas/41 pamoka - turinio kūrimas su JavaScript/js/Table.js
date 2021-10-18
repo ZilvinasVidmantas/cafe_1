@@ -26,6 +26,7 @@ class Table {
     this.element.style.display = 'grid';
     this.element.style.margin = '1rem 0';
     this.element.style.boxShadow = '0 0 4px 1px #0003';
+    this.element.style.width = '100%';
     this.element.style.gridTemplateColumns = Table.formColumnStyle(columns.length);
     this.render();
   }

@@ -24,6 +24,8 @@ class Table {
     this.rows = rows;
     this.element = document.createElement('div');
     this.element.style.display = 'grid';
+    this.element.style.margin = '1rem 0';
+    this.element.style.boxShadow = '0 0 4px 1px #0003';
     this.element.style.gridTemplateColumns = Table.formColumnStyle(columns.length);
     this.render();
   }
@@ -49,17 +51,20 @@ class Table {
 
   renderData = () => {
     // 1. Iteruoti per eilutes
-    this.???.forEach(row => {
+    this.rows.forEach((row, i) => {
+      // 1.1 kas antrai eilutei nustatyti fono spalvą
+      const background = i % 2 === 0 ? '#0000': '#0001';
       // 2. Iteruoti per eilutes elementus
-      this.???.forEach(colData => {
+      row.forEach(colData => {
         // 3. Sukurti div
-        const col = ????('div');  
+        const col = document.createElement('div');
         // 4. Uždėti padding 0.5rem
-        col.????.padding = ???;
+        col.style.padding = '0.5rem';
+        col.style.background = background;
         // 5. Įdėti duomenis į sukurtą div
-        col.???? = ????;
+        col.innerHTML = colData;
         // 6. Prijungti sukurtą div, prie this.element
-        this.element.??????(col);
+        this.element.appendChild(col);
       });
     });
   }

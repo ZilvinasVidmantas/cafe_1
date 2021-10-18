@@ -16,10 +16,8 @@ const animalCards = animalData.map(({ name, kind, about, imgSrc, link }) => new 
 }));
 const animalCardContainer = new CardContainer(animalCards);
 
-
-
 const table1 = new Table({ 
-  columns: ['Vardas', 'Pavarde'],
+  columns: ['Vardas', 'Pavardė'],
   rows: [
     ['Kibiras', 'Kentaurius'],
     ['Kibiras', 'Kentaurius'],
@@ -31,7 +29,7 @@ const table1 = new Table({
   ]
 });
 const table2 = new Table({ 
-  columns: ['Vardas', 'Pavarde', 'Svoris (kg)', 'Ūgis (m)'],
+  columns: ['Vardas', 'Pavardė', 'Svoris (kg)', 'Ūgis (m)'],
   rows: [
     ['Kevinas', 'Barbenis', '80', '1.80'],
     ['Kevinas', 'Barbenis', '80', '1.80'],

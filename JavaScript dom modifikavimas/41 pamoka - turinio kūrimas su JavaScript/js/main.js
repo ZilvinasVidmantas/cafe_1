@@ -1,52 +1,27 @@
-const cardContainer = document.querySelector('#card-container');
+const rootContainer = document.querySelector('#root');
 
-// 1. pagal duomenis sukurti koreteles
-const carCards = carData.map(({ brand, model, desc, imgSrc, linkAddress }) => {
-  return new Card({
-    desc,
-    imgSrc,
-    title: brand + ' ' + model,
-    href: linkAddress,
-  })
-});
+const carCards = carData.map(({ brand, model, desc, imgSrc, linkAddress }) => new Card({
+  desc,
+  imgSrc,
+  title: brand + ' ' + model,
+  href: linkAddress,
+}));
+const carCardContainer = new CardContainer(carCards);
 
-// 2. įdėti korteles į stulpelius
-const columns = carCards.map(card => {
-  const col = document.createElement('div');
-  col.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
-  col.appendChild(card.element);
-  return col;
-});
-
-// 3. stulpelius įdėti į <cardContainer>
-columns.forEach(col => cardContainer.appendChild(col));
-
-// ---------------------------------------------------------------
-/*
-  1. Sukurti Gyvūnų duomenis  faile animalData.js
-    8 įrašai su savybėmis:
-      name: String,
-      kind: String,
-      about: String,
-      imgSrc: String,
-      link: String
-*/
-
-// 2. Sukurti Korteles pagal gyvūnų duomenis
-const animalCards = animalData.map(({name, kind, about, imgSrc, link}) => new Card({
+const animalCards = animalData.map(({ name, kind, about, imgSrc, link }) => new Card({
   imgSrc,
   desc: about,
   title: name + ' ' + kind,
   href: link,
 }));
+const animalCardContainer = new CardContainer(animalCards);
 
-// 3. įdėti koreteles į stulpelius
-const cols = animalCards.map(card => {
-  const col = document.createElement('div');
-  col.className = 'col-12 col-md-6 col-lg-4 col-xl-3';
-  col.appendChild(card.element);
-  return col;
-});
 
-// 4. Stulpelius įdėti į cardContainer
-cols.forEach(col => cardContainer.appendChild(col));
+
+const table1 = new Table({ columns: ['Vardas', 'Pavarde'] });
+const table2 = new Table({ columns: ['Vardas', 'Pavarde', 'Svoris', 'Ūgis'] });
+
+// rootContainer.appendChild(carCardContainer.element);
+// rootContainer.appendChild(animalCardContainer.element);
+rootContainer.appendChild(table1.element);
+rootContainer.appendChild(table2.element);

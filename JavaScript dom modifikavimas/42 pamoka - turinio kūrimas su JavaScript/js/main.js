@@ -68,8 +68,18 @@ const apartment1 = new Apartment({
   imgSrc: 'https://unsplash.it/300/300'
 });
 // 4. Sukurti Masyvą <Apartment> objektų, pagal <apartmentData>
+const apartmentComponents = apartmentData.map(({ city, street, price, rooms, decoration }) => new Apartment({
+  city,
+  street,
+  price,
+  squarePrice: (price / rooms.reduce((sum, x) => sum + x)).toFixed(),
+  squares: rooms.reduce((sum, x) => sum + x),
+  decoration: decorationDictionaryEnLT[decoration] + ' apdaila',
+  imgSrc: 'https://unsplash.it/300/300'
+}));
 
 // 5. naudojant rootContainer.append(...apartmentData) atvaizduoti juos visus
+// rootContainer.append(...apartmentComponents.map(x => x.element));
 
 /*
    6. Sukurti komponentą <ApartmentList> kuris atvaizduotų visus apartmentData ir papildomai viršuje turėtų antraštę, kurioje:
@@ -77,9 +87,19 @@ const apartment1 = new Apartment({
     Būtų parodytas visas kiekis elementų (9)
     Būtų dropDown, su rikiavimo pasirinkimu
 */
+const apartmentlist = new ApartmentList({
+  apartmentData: apartmentData.map(({ city, street, price, rooms, decoration }) => ({
+    city,
+    street,
+    price,
+    squarePrice: (price / rooms.reduce((sum, x) => sum + x)).toFixed(),
+    squares: rooms.reduce((sum, x) => sum + x),
+    decoration: decorationDictionaryEnLT[decoration] + ' apdaila',
+    imgSrc: 'https://unsplash.it/300/300'
+  }))
+});
 
-// 21:25
-
+rootContainer.appendChild(apartmentlist.element);
 
 
 // -------------------------------- Komponentų įdėjimas į DOM'e esantį elementą -------------------------------------
@@ -87,6 +107,3 @@ const apartment1 = new Apartment({
 // rootContainer.appendChild(animalCardContainer.element);
 // rootContainer.appendChild(carTable.element);
 // rootContainer.appendChild(animalTable.element);
-rootContainer.appendChild(apartment1.element);
-
-// 20:35

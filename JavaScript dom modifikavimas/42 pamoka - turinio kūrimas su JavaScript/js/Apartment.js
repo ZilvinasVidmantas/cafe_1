@@ -1,12 +1,12 @@
 class Apartment {
-  constructor(props){
+  constructor(props) {
     this.element = document.createElement('div');
     this.props = props;
     this.render();
   }
-
+  
   render = () => {
-    const {city, street, price, squarePrice, squares, decoration, imgSrc} = this.props;
+    const { city, street, price, squarePrice, squares, decoration, imgSrc } = this.props;
     this.element.className = 'row g-2 px-2';
     this.element.innerHTML = `
     <div class="col-3">

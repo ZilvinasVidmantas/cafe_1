@@ -49,10 +49,23 @@ const animalTable = new Table({
     return result;
   }, [])
 });
+// ---------------------------------------- Nekilnojamo turto objektai -------------------------------------
+/*
+  1. Sukurti HTML turinį šiai užduočiai, kad būtų lengviau kurti turinį su JavaScript
+  2. Sukurti Nekilnojamo turto objekto komponentą Apartment
+  3. perdaryti vieną <apartmentData> obejktą, taip, kad jis tiktų sukurti <Apartment> komponentui ir prijungti jį į <rootContainer>
+  4. Sukurti Masyvą <Apartment> objektų, pagal <apartmentData>
+  5. naudojant rootContainer.append(...apartmentData) atvaizduoti juos visus
+  6. Sukurti komponentą <ApartmentList> kuris atvaizduotų visus apartmentData ir papildomai viršuje turėtų antraštę, kurioje:
+    Būtų išvardintos stulpelių prasmės
+    Būtų parodytas visas kiekis elementų (9)
+    Būtų dropDown, su rikiavimo pasirinkimu
+*/
+
 
 // -------------------------------- Komponentų įdėjimas į DOM'e esantį elementą -------------------------------------
 // rootContainer.appendChild(carCardContainer.element);
 // rootContainer.appendChild(animalCardContainer.element);
 // rootContainer.appendChild(carTable.element);
-rootContainer.appendChild(animalTable.element);
+// rootContainer.appendChild(animalTable.element);
 

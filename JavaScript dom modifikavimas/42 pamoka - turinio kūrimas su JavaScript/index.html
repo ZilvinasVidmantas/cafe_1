@@ -11,7 +11,9 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
   <title>42 pamoka - Turinio kūrimas</title>
+  <script src="js/apartmentData.js" defer></script>
   <script src="js/carData.js" defer></script>
   <script src="js/animalData.js" defer></script>
   <script src="js/Table.js" defer></script>
@@ -24,9 +26,60 @@
   <main>
     <div class="container">
       <h1>Turinio kūrimas</h1>
-      <div id="root"></div>
+      <div id="root">
+        <!-- Nuo čia -->
+        <article>
+          <div class="row g-2 p-3 bg-light">
+            <div class="col-3">
+              <select class="form-select">
+                <option selected>Naujesni</option>
+                <option value="1">Brangesnis</option>
+                <option value="2">Pigesni</option>
+              </select>
+            </div>
+            <div class="col-4"></div>
+            <div class="col">Plotas (m<sup>2</sup>)</div>
+            <div class="col">Plotas (a)</div>
+            <div class="col">Įrengimas</div>
+            <div class="col"></div>
+          </div>
+
+          <div class="d-flex align-items-center py-2">
+            <div style="flex-basis: 120px;">Skelbimai (18)</div>
+            <hr class="w-100">
+          </div>
+
+          <div class="row g-2">
+            <div class="col-3">
+              <img src="https://unsplash.it/500/500" class="w-100" height="160" style="object-fit: cover;">
+            </div>
+            <div class="col-4 ps-3 d-flex flex-column justify-content-between">
+              <h3 class="d-flex flex-column h6">
+                <span>Paneriai</span>
+                <span>Užutraukio g.</span>
+              </h3>
+              <div>
+                <strong class="h5 m-0">135 000 €</strong>
+                <span class="d-inline-block ms-4 text-secondary">1 125 €/m<sup>2</sup></span>
+              </div>
+            </div>
+            <div class="col">120</div>
+            <div class="col">4</div>
+            <div class="col text">Dalinė apdaila</div>
+            <div class="col text-center">
+              <button class="btn btn-outline-danger">
+                <span>Įsiminti</span>
+                <i class="bi bi-suit-heart-fill"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+        <!-- iki čia -->
+      </div>
     </div>
   </main>
+
+
 
 </body>
 

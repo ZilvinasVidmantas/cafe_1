@@ -52,3 +52,11 @@ const table2 = new Table({
 // rootContainer.appendChild(animalCardContainer.element);
 rootContainer.appendChild(table1.element);
 // rootContainer.appendChild(table2.element);
+
+
+/*
+  10 min pertrauka
+  Pažymime MS Teams formoj, kad dar NEPADARĖME užduoties
+  Suformuojame gyvūnų lentelę pagal <animalData> duomenis
+  Pažymime MS Teams formoj, kad dar PADARĖME užduoties
+*/

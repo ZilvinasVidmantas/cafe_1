@@ -19,7 +19,7 @@ const animalCardContainer = new CardContainer(animalCards);
 
 // ---------------------------------------- Lentelių kūrimas ------------------------------------------------
 const wordLimit = 55;
-const carTable = new Table( {
+const carTable = new Table({
   columns: ['Image', 'Brand', 'Model', 'Description', 'Link'],
   rows: carData.reduce((result, { brand, model, desc, imgSrc, linkAddress }) => {
     const descWords = desc.split(' ');
@@ -30,14 +30,14 @@ const carTable = new Table( {
       descWords.length > wordLimit ? descWords.slice(0, wordLimit).join(' ') + '...' : desc,
       `<a class="btn btn-primary" href="${linkAddress}" target="blank">More info</a>`
     ];
-    result.push(rowData); 
+    result.push(rowData);
     return result;
   }, [])
 });
 
 const animalTable = new Table({
   columns: ['Image', 'Name', 'Kind', 'About', 'Link'],
-  rows: animalData.reduce((result, { name, kind, about, imgSrc, link}) => {
+  rows: animalData.reduce((result, { name, kind, about, imgSrc, link }) => {
     const rowData = [
       `<img src="${imgSrc}" style="height: 80px; width: 80px; object-fit: cover;"/>`,
       name,
@@ -45,22 +45,41 @@ const animalTable = new Table({
       about,
       `<a class="btn btn-primary" href="${link}" target="blank">More info</a>`
     ];
-    result.push(rowData); 
+    result.push(rowData);
     return result;
   }, [])
 });
 // ---------------------------------------- Nekilnojamo turto objektai -------------------------------------
+// 1. Sukurti HTML turinį šiai užduočiai, kad būtų lengviau kurti turinį su JavaScript
+// 2. Sukurti Nekilnojamo turto objekto komponentą Apartment
+// 3. perdaryti vieną <apartmentData> obejktą, taip, kad jis tiktų sukurti <Apartment> komponentui ir prijungti jį į <rootContainer>
+const decorationDictionaryEnLT = {
+  full: 'Pilna',
+  partial: 'Dalinė',
+}
+
+const apartment1 = new Apartment({
+  city: apartmentData[0].city,
+  street: apartmentData[0].street,
+  price: apartmentData[0].price,
+  squarePrice: (apartmentData[0].price / apartmentData[0].rooms.reduce((sum, x) => sum + x)).toFixed(),
+  squares: apartmentData[0].rooms.reduce((sum, x) => sum + x),
+  decoration: decorationDictionaryEnLT[apartmentData[0].decoration] + ' apdaila',
+  imgSrc: 'https://unsplash.it/300/300'
+});
+// 4. Sukurti Masyvą <Apartment> objektų, pagal <apartmentData>
+
+// 5. naudojant rootContainer.append(...apartmentData) atvaizduoti juos visus
+
 /*
-  1. Sukurti HTML turinį šiai užduočiai, kad būtų lengviau kurti turinį su JavaScript
-  2. Sukurti Nekilnojamo turto objekto komponentą Apartment
-  3. perdaryti vieną <apartmentData> obejktą, taip, kad jis tiktų sukurti <Apartment> komponentui ir prijungti jį į <rootContainer>
-  4. Sukurti Masyvą <Apartment> objektų, pagal <apartmentData>
-  5. naudojant rootContainer.append(...apartmentData) atvaizduoti juos visus
-  6. Sukurti komponentą <ApartmentList> kuris atvaizduotų visus apartmentData ir papildomai viršuje turėtų antraštę, kurioje:
+   6. Sukurti komponentą <ApartmentList> kuris atvaizduotų visus apartmentData ir papildomai viršuje turėtų antraštę, kurioje:
     Būtų išvardintos stulpelių prasmės
     Būtų parodytas visas kiekis elementų (9)
     Būtų dropDown, su rikiavimo pasirinkimu
 */
+
+// 21:25
+
 
 
 // -------------------------------- Komponentų įdėjimas į DOM'e esantį elementą -------------------------------------
@@ -68,4 +87,6 @@ const animalTable = new Table({
 // rootContainer.appendChild(animalCardContainer.element);
 // rootContainer.appendChild(carTable.element);
 // rootContainer.appendChild(animalTable.element);
+rootContainer.appendChild(apartment1.element);
 
+// 20:35

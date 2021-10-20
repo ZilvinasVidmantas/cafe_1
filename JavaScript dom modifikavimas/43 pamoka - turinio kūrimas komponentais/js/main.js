@@ -18,3 +18,6 @@ const peopleData = [
   /* Pasireikškite*/
 ];
 /* Pasireikškite*/
+
+
+// 3. Sukurti komponentus ItemCard ir ItemCardContainer. Sukurti tokį atvaizdavimą: 'task-2.png' 

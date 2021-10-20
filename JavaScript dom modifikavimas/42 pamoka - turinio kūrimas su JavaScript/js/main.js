@@ -16,7 +16,8 @@ const animalCards = animalData.map(({ name, kind, about, imgSrc, link }) => new 
   href: link,
 }));
 const animalCardContainer = new CardContainer(animalCards);
-
+// rootContainer.appendChild(carCardContainer.element);
+// rootContainer.appendChild(animalCardContainer.element);
 // ---------------------------------------- Lentelių kūrimas ------------------------------------------------
 const wordLimit = 55;
 const carTable = new Table({
@@ -49,25 +50,15 @@ const animalTable = new Table({
     return result;
   }, [])
 });
+// rootContainer.appendChild(carTable.element);
+// rootContainer.appendChild(animalTable.element);
+
 // ---------------------------------------- Nekilnojamo turto objektai -------------------------------------
-// 1. Sukurti HTML turinį šiai užduočiai, kad būtų lengviau kurti turinį su JavaScript
-// 2. Sukurti Nekilnojamo turto objekto komponentą Apartment
-// 3. perdaryti vieną <apartmentData> obejktą, taip, kad jis tiktų sukurti <Apartment> komponentui ir prijungti jį į <rootContainer>
 const decorationDictionaryEnLT = {
   full: 'Pilna',
   partial: 'Dalinė',
 }
 
-const apartment1 = new Apartment({
-  city: apartmentData[0].city,
-  street: apartmentData[0].street,
-  price: apartmentData[0].price,
-  squarePrice: (apartmentData[0].price / apartmentData[0].rooms.reduce((sum, x) => sum + x)).toFixed(),
-  squares: apartmentData[0].rooms.reduce((sum, x) => sum + x),
-  decoration: decorationDictionaryEnLT[apartmentData[0].decoration] + ' apdaila',
-  imgSrc: 'https://unsplash.it/300/300'
-});
-// 4. Sukurti Masyvą <Apartment> objektų, pagal <apartmentData>
 const apartmentComponents = apartmentData.map(({ city, street, price, rooms, decoration }) => new Apartment({
   city,
   street,
@@ -78,15 +69,6 @@ const apartmentComponents = apartmentData.map(({ city, street, price, rooms, dec
   imgSrc: 'https://unsplash.it/300/300'
 }));
 
-// 5. naudojant rootContainer.append(...apartmentData) atvaizduoti juos visus
-// rootContainer.append(...apartmentComponents.map(x => x.element));
-
-/*
-   6. Sukurti komponentą <ApartmentList> kuris atvaizduotų visus apartmentData ir papildomai viršuje turėtų antraštę, kurioje:
-    Būtų išvardintos stulpelių prasmės
-    Būtų parodytas visas kiekis elementų (9)
-    Būtų dropDown, su rikiavimo pasirinkimu
-*/
 const apartmentlist = new ApartmentList({
   apartmentData: apartmentData.map(({ city, street, price, rooms, decoration }) => ({
     city,
@@ -100,10 +82,3 @@ const apartmentlist = new ApartmentList({
 });
 
 rootContainer.appendChild(apartmentlist.element);
-
-
-// -------------------------------- Komponentų įdėjimas į DOM'e esantį elementą -------------------------------------
-// rootContainer.appendChild(carCardContainer.element);
-// rootContainer.appendChild(animalCardContainer.element);
-// rootContainer.appendChild(carTable.element);
-// rootContainer.appendChild(animalTable.element);

@@ -11,4 +11,5 @@ const peopeData = [
 ];
 /* Pasireikškite*/
 
-// 2. Sukurkite 3 koretelės komponentus, viens šalia kito per 50px. Šių komponentų išdėstymui sukurkite komponentą <PeopleContainer>.
+// 2. Sukurkite 3 koretelės komponentus, viens šalia kito per vidurį ekrano, su 50px tarpais.
+//   Šių komponentų išdėstymui sukurkite komponentą <PeopleContainer>.

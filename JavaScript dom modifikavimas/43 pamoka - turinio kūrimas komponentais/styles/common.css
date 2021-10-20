@@ -1,0 +1,11 @@
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.text-black {
+  color: #000;
+}
+
+.fw-300 {
+  font-weight: 300;
+}

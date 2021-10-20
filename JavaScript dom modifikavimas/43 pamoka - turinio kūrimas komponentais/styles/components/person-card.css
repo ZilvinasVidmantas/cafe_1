@@ -1,0 +1,12 @@
+.person-card {
+  width: 400px;
+  text-align: center;
+}
+
+.person-card__image {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}

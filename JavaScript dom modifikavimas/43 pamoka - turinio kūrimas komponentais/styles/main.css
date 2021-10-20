@@ -1,0 +1,5 @@
+@import './reset.css';
+@import './common.css';
+
+@import './components/person-card.css';
+@import './components/people-container.css';

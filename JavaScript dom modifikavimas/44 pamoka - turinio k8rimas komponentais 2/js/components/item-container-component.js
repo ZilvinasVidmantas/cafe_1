@@ -6,7 +6,8 @@ class ItemContainerComponent {
   }
 
   renderItems = () => {
-    const htmlElements = this.props.items.map(x => x.htmlElement);
+    const itemComponents = this.props.items.map(x => new ItemComponent(x));
+    const htmlElements = itemComponents.map(x => x.htmlElement);
     this.htmlElement.append(...htmlElements);
   }
 

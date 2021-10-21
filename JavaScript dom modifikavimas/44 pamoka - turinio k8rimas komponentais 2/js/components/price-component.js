@@ -27,7 +27,6 @@ class PriceComponent {
     const { currency, value, min, max } = this.props;
     if (value) {
       const { whole, remainder } = PriceComponent.splitPrice(value);
-      console.log({ whole, remainder });
       this.htmlElement.className = 'price-component';
       this.htmlElement.innerHTML = `
         <span class="price-component__sign">${currency.sign}</span>
@@ -37,7 +36,6 @@ class PriceComponent {
     } else {
       const prices = [min, max].map(value => {
         const { whole, remainder } = PriceComponent.splitPrice(value);
-        console.log({ whole, remainder });
         return `
         <span class="price-component">
           <span class="price-component__sign">${currency.sign}</span>

@@ -1,0 +1,29 @@
+.rating-popper-component {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+
+.rating-popper-component__star-popper {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0.25em;
+  gap: 0.3em;
+  cursor: pointer;
+}
+
+.rating-popper-component__star-popper:after {
+  content: '';
+  height: 0.25em;
+  width: 0.25em;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.rating-popper-component__star-popper:hover:after{
+  border-color: var(--color-primary);
+}

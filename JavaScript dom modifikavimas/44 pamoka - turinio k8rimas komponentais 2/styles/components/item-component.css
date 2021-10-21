@@ -7,7 +7,6 @@
   display: inline-block;
   position: relative;
   width: 100%;
-  background: red;
 }
 
 .item-component__img-container:before {

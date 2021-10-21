@@ -10,7 +10,9 @@ class ItemComponent{
     const { imgSrc, desc } = this.props;
     this.htmlElement.className = 'item-component';
     this.htmlElement.innerHTML = `
-    <img src="${imgSrc}" class="item-component__img">
+    <div class="item-component__img-container">
+      <img src="${imgSrc}" class="item-component__img" />
+    </div>
     <p>${desc}</p>
     `;
   }

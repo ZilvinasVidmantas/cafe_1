@@ -1,0 +1,18 @@
+.price-component {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: 1.2rem;
+}
+
+.price-component__sign {
+  font-size: 0.8em;
+}
+
+.price-component__whole {
+  font-weight: 600;
+  margin: 0 0.1em
+}
+
+.price-component__remainder {
+  font-size: 0.8em;
+}

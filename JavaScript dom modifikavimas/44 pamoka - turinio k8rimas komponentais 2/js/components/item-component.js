@@ -7,13 +7,17 @@ class ItemComponent{
   }
 
   render = () => {
-    const { imgSrc, desc } = this.props;
+    const { imgSrc, desc, price } = this.props;
     this.htmlElement.className = 'item-component';
+    const shortDesc = cutText(desc, 75);
     this.htmlElement.innerHTML = `
     <div class="item-component__img-container">
-      <img src="${imgSrc}" class="item-component__img" />
+    <img src="${imgSrc}" class="item-component__img" />
     </div>
-    <p>${desc}</p>
-    `;
+    <p>${shortDesc}</p>`;
+    if(price){
+      this.htmlElement.innerHTML += new PriceComponent(price).htmlElement.outerHTML;
+    } 
+      
   }
 }

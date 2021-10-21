@@ -1,0 +1,9 @@
+.item-component {
+  min-height: 400px;
+  outline: 1px solid red;
+}
+
+.item-component__img {
+  object-fit: contain;
+  width: 100%;
+}

@@ -12,16 +12,24 @@ class ItemComponent {
         jeigu tekstas netelpa į eilutę turi būti nukirpas su CSS savybe text-overflow: elipsis
         https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
     */
-    const { imgSrc, desc, price, rating, shipsToLithuania } = this.props;
+    const { imgSrc, desc, price, rating, shipsToLithuania, bestSeller } = this.props;
 
     this.htmlElement.className = 'item-component';
     const shortDesc = cutText(desc, 75);
-    this.htmlElement.innerHTML = `
-    <div class="item-component__img-container">
-      <img src="${imgSrc}" class="item-component__img" />
-    </div>
-    <p class="mb-0">${shortDesc}</p>`;
-    if(rating){
+    let bestSellerString = '';
+    if(bestSeller){
+      bestSellerString = `
+      <div class="item-component__badge-container">
+        <span class="item-component__badge">Best Seller</span>
+        <span class="item-component__badge-text">${bestSeller}</span>
+      </div>`;
+    }
+    this.htmlElement.innerHTML = bestSellerString +
+      `<div class="item-component__img-container">
+        <img src="${imgSrc}" class="item-component__img" />
+      </div>
+      <p class="mb-0">${shortDesc}</p>`;
+    if (rating) {
       const popperComponent = new RatingPopperComponent(rating);
       this.htmlElement.appendChild(popperComponent.htmlElement);
     }
@@ -29,11 +37,13 @@ class ItemComponent {
       const priceComponent = new PriceComponent(price);
       this.htmlElement.appendChild(priceComponent.htmlElement);
     }
-    if(shipsToLithuania){
+    if (shipsToLithuania) {
       const shipmentElement = document.createElement('div');
       shipmentElement.className = 'item-component__shipment';
       shipmentElement.innerHTML = "Ships to Lithuania";
       this.htmlElement.appendChild(shipmentElement);
     }
+
+
   }
 }

@@ -1,6 +1,6 @@
 const itemData = [
   {
-    bestSeller: 'In Christmas',
+    bestSeller: 'In Christmas very good item very very bad boy',
     link: 'https://www.amazon.com/Assorted-Watercolor-Stationary-Notecards-Envelopes/dp/B08HLXGS6N/ref=sr_1_29?dchild=1&keywords=cards&qid=1634753011&sr=8-29',
     imgSrc: 'https://m.media-amazon.com/images/I/816m0Iw-E4L._AC_UL320_.jpg',
     desc: 'Silver and high quality moissanite, which is made to last a lifetime. The earrings post are firmly soldered, which make them strong and durable in daily wearing. These earrings are also skin friendly and they will not hurt your skin',

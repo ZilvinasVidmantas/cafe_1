@@ -30,3 +30,43 @@
   color: #494949;
   font-size: 0.85em;
 }
+
+.item-component__badge-container{
+  display: flex;
+  align-items: center;
+
+}
+.item-component__badge{
+  flex-shrink: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.5em;
+  font-size: 0.75em;
+  background: #e67a00;
+  color: white;
+  height: 22px;
+}
+
+.item-component__badge:after{
+  position: absolute;
+  right: -8px;
+  display: inline-block;
+  content: '';
+  border-top: 22px solid #e67a00;
+  border-right: 8px solid transparent;
+}
+
+.item-component__badge-text {
+  padding-left: 1rem;
+  display: none;
+  font-size: 0.75em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.item-component__badge:hover ~ .item-component__badge-text,
+.item-component__badge-text:hover{
+  display: initial;
+}

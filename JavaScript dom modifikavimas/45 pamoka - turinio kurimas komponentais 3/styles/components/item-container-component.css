@@ -1,5 +1,5 @@
 .item-container-component {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, calc(25% - 1.5rem));
   gap: 2rem;
 }

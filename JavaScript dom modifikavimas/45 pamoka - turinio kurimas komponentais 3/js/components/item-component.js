@@ -6,7 +6,13 @@ class ItemComponent {
   }
 
   render = () => {
-    const { imgSrc, desc, price, rating, /* išsitraukti savybę */ } = this.props;
+    /*
+      Sukurti bestSeller badge'ą viršutiniam dešiniam kampem jeigu yra savybė <bestSeller>
+      Užvedus, turi matytis tekstas 
+        jeigu tekstas netelpa į eilutę turi būti nukirpas su CSS savybe text-overflow: elipsis
+        https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+    */
+    const { imgSrc, desc, price, rating, shipsToLithuania } = this.props;
 
     this.htmlElement.className = 'item-component';
     const shortDesc = cutText(desc, 75);
@@ -23,6 +29,11 @@ class ItemComponent {
       const priceComponent = new PriceComponent(price);
       this.htmlElement.appendChild(priceComponent.htmlElement);
     }
-    /* logika, kuri papildo komponentą "Shipts to Lithuania" užrašu () pridėti stilius */
+    if(shipsToLithuania){
+      const shipmentElement = document.createElement('div');
+      shipmentElement.className = 'item-component__shipment';
+      shipmentElement.innerHTML = "Ships to Lithuania";
+      this.htmlElement.appendChild(shipmentElement);
+    }
   }
 }

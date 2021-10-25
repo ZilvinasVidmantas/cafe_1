@@ -25,3 +25,8 @@
   height: 100%;
   object-fit: contain;
 }
+
+.item-component__shipment {
+  color: #494949;
+  font-size: 0.85em;
+}

@@ -6,7 +6,7 @@ class ItemComponent {
   }
 
   render = () => {
-    const { imgSrc, desc, price, rating } = this.props;
+    const { imgSrc, desc, price, rating, /* išsitraukti savybę */ } = this.props;
 
     this.htmlElement.className = 'item-component';
     const shortDesc = cutText(desc, 75);
@@ -19,8 +19,10 @@ class ItemComponent {
       const popperComponent = new RatingPopperComponent(rating);
       this.htmlElement.appendChild(popperComponent.htmlElement);
     }
-    // if (price) {
-    //   this.htmlElement.innerHTML += new PriceComponent(price).htmlElement.outerHTML;
-    // }
+    if (price) {
+      const priceComponent = new PriceComponent(price);
+      this.htmlElement.appendChild(priceComponent.htmlElement);
+    }
+    /* logika, kuri papildo komponentą "Shipts to Lithuania" užrašu () pridėti stilius */
   }
 }

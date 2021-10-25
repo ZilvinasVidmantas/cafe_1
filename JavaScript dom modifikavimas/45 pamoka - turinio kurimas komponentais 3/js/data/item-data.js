@@ -19,7 +19,7 @@ const itemData = [
         name: 'USD',
         sign: '$',
       },
-      value: 10.99
+      value: 10.999
     },
     discounts: [
       { type: 'specific', value: 7.99 },

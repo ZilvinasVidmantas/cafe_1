@@ -12,6 +12,7 @@
   cursor: pointer;
 }
 
+/* <tag>..content...{:after}</tag> */
 .rating-popper-component__star-popper:after {
   content: '';
   height: 0.25em;

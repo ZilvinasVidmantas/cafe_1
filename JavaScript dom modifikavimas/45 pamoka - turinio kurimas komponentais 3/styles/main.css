@@ -1,0 +1,10 @@
+@import './variables.css';
+@import './reset.css';
+@import './common.css';
+
+@import './components/item-container-component.css';
+@import './components/item-component.css';
+@import './components/rating-popper-component.css';
+@import './components/star-component.css';
+@import './components/progress-bar-component.css';
+@import './components/price-component.css';

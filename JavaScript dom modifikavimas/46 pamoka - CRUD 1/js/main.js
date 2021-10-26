@@ -5,9 +5,47 @@
     - komponento atvaizdavimo logiką atlikti metode <render>
 
   2. Prijungti sukurto lentelės komponento-elementą prie egzistuojančio html kodo
-    - įdėti turinį į elementą su id="root"
-  3. Įgalinti lentelės komponento stulpelių pavadinimų atvaizdavimą, pagal duomenis: ['stulpelio pavadinimas1', 'stulpelio pavadinimas2', 'stulpelio pavadinimas3']
-    -
-  4. Naudojant userDataArr suformuoti duomenis tinkamus atvaizduoti lentelės eilutėms
+    - įdėti komponento htmlElement į elementą su id="root"
 
+  3. Įgalinti lentelės komponento stulpelių pavadinimų atvaizdavimą, pagal duomenis: ['Nuotrauka', 'Vartotojas', 'Paštas']
+    - nepamiršti perduoti šiuo duomenų kuriant lentelės komponentą
+    - letelės komponente saugoti šiuos duomenis <this.props.headers>
+
+  4. Naudojant userDataArr suformuoti duomenis tinkamus atvaizduoti lentelės eilutėms
+    - letelės komponente saugoti šiuos duomenis <this.props.data>
+    - type RowData = Array<string>
+    - type Data = Array<RowData>
+
+  5. Lentelės komponento konstruktoriuje užtikrinkite, jog kiekvienos eilutės masyvo elementų kiekis būtų toks pats, kaip stulpelių kiekis
+    - Jeigu salyga netenkinama, išmeskite klaidą
+    - Jeigu salyga tankinama, nieko nedarykite
+
+  6. Sukurkite papildomą stulpelį kiekvienoje eilytėje, ir į jį įdėkite raudoną mygtuką su '✕' ženklu ir geltoną mygtuką su '⟳' ženklu
+    - taip pat priderinkite lentelės antraštę, jog nebūtų tuščio tarpo 
+
+  7. Įgalinkite logiką, jog paspaudus ant mygtuko, konsolėje parašytų string'ą
+    - kiekvienos eilutės tiek trinimo mygtuko paspaudimas turi atspausdinti 'trinimas'
+    - kiekvienos eilutės tiek atnaujinimo mygtuko paspaudimas turi atspausdinti 'atnaujinimas'
+
+  8. Struktūrizuokite kodą atskiromis funkcijomis
+    - constructor: props priskyrimas, html elemnto priskyrimas, render iškvietimas
+    - render: komponento vaizdo sudarymo veiksmų iškvietimas/vykdymas
+    - createRows: Sukuria ir grąžina masyvą sudarytą iš eilučių 
+    - createRow: Sukuria ir grąžina lentelės duomenų-eilutės elementą
+    - createHeader: Sukuria ir grąžina lentelės antraštės-eilutės elementą
+    - deleteRow: Atskausdina konsolėje 'trinimas' 
+    - updateRow: Atskausdina konsolėje 'atnaujinimas' 
+
+  9. Dokumentuotkite funkcijas
+    - Aprašykite, ką daro kiekviena funkcija, kokius parametrus priima, ir ką grąžina
+    - Aprašius metodą, virš jos parašyti :
+        '/**' + ENTER
+
+  10. Virš klasės, aprašykite klasės objektui reikalingus duomenis
+    type RowData = Array<string>
+
+    type TableComponentProps = {
+      headers: ... ,
+      ...
+    }
 */

@@ -52,7 +52,7 @@
 // 2.
 const rootElement = document.querySelector('#root');
 const userTableComponent = new TableComponent({
-  headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
+  headers: ['Nuotrauka', 'Vartotojas', 'Paštas', 'asd'],
   data: userDataArr.reduce((prevRowsArr, { imgSrc, username, email }) => [
     ...prevRowsArr,
     [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]

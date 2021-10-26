@@ -1,6 +1,6 @@
 /*
   1. Sukurti lentelės komponentą faile <table-component.js>, su minimaliu atvaizdavmu (hard-code)
-    - komponentui perduotas savybes daugoti <props>
+    - komponentui perduotas savybes saugoti <props>
     - komponento elementą saugoti savybėje - <htmlElement>
     - komponento atvaizdavimo logiką atlikti metode <render>
 
@@ -24,21 +24,21 @@
     - taip pat priderinkite lentelės antraštę, jog nebūtų tuščio tarpo 
 
   7. Įgalinkite logiką, jog paspaudus ant mygtuko, konsolėje parašytų string'ą
-    - kiekvienos eilutės tiek trinimo mygtuko paspaudimas turi atspausdinti 'trinimas'
-    - kiekvienos eilutės tiek atnaujinimo mygtuko paspaudimas turi atspausdinti 'atnaujinimas'
+    - kiekvienos eilutės trinimo mygtuko paspaudimas turi atspausdinti 'trinimas'
+    - kiekvienos eilutės atnaujinimo mygtuko paspaudimas turi atspausdinti 'atnaujinimas'
 
   8. Struktūrizuokite kodą atskiromis funkcijomis
     - constructor: props priskyrimas, html elemnto priskyrimas, render iškvietimas
     - render: komponento vaizdo sudarymo veiksmų iškvietimas/vykdymas
     - createRows: Sukuria ir grąžina masyvą sudarytą iš eilučių 
-    - createRow: Sukuria ir grąžina lentelės duomenų-eilutės elementą
-    - createHeader: Sukuria ir grąžina lentelės antraštės-eilutės elementą
+    - createRow: Sukuria ir grąžina lentelės duomenų-eilutės elementą pagal Array<string> (RowData) duomenis
+    - createHeader: Sukuria ir grąžina lentelės antraštės-eilutės elementą pagal this.props.headers
     - deleteRow: Atskausdina konsolėje 'trinimas' 
     - updateRow: Atskausdina konsolėje 'atnaujinimas' 
 
   9. Dokumentuotkite funkcijas
     - Aprašykite, ką daro kiekviena funkcija, kokius parametrus priima, ir ką grąžina
-    - Aprašius metodą, virš jos parašyti :
+    - PALENGVINIMAS DOKUMENTUOJANT: Aprašius metodą, virš jos parašyti :
         '/**' + ENTER
 
   10. Virš klasės, aprašykite klasės objektui reikalingus duomenis

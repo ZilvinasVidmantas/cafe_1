@@ -49,3 +49,9 @@
       ...
     }
 */
+// 2.
+const rootElement = document.querySelector('#root');
+const userTableComponent = new TableComponent({
+  /* Ateityje būsiu duomenys */
+});
+rootElement.appendChild(userTableComponent.htmlElement);

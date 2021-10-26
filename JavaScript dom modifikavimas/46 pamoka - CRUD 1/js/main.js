@@ -24,7 +24,7 @@
     - taip pat priderinkite lentelės antraštę, jog nebūtų tuščio tarpo 
 
   7. Įgalinkite logiką, jog paspaudus ant mygtuko, konsolėje parašytų string'ą
-    - kiekvienos eilutės trinimo mygtuko paspaudimas turi atspausdinti 'trinimas'
+    - kiekvienos eilutės trinimo mygtuko paspaudimas turi atspausdinti 'trynimas'
     - kiekvienos eilutės atnaujinimo mygtuko paspaudimas turi atspausdinti 'atnaujinimas'
 
   8. Struktūrizuokite kodą atskiromis funkcijomis
@@ -52,7 +52,7 @@
 // 2.
 const rootElement = document.querySelector('#root');
 const userTableComponent = new TableComponent({
-  headers: ['Nuotrauka', 'Vartotojas', 'Paštas', 'asd'],
+  headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
   data: userDataArr.reduce((prevRowsArr, { imgSrc, username, email }) => [
     ...prevRowsArr,
     [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]

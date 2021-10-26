@@ -11,24 +11,35 @@ class TableComponent {
   render = () => {
     const { headers, data } = this.props;
 
-    // const headersString = headers.reduce((res, text) => res + `<th>${text}</th>`, '');
-    const headersString = headers.map(text => `<th>${text}</th>`).join('');
+    const headersString = headers.map(text => `<th>${text}</th>`).join('') + '<th></th>';
 
-    // const rowsString = data.reduce((rows, rowData) =>
-    //   rows + `<tr>
-    //   ${rowData.reduce((res, text) => res + `<td>${text}</td>`, '')}
-    //   </tr>`, ''
-    // );
-    const rowsString = data
-      .map(rowData => `<tr>${rowData.map(text => `<td>${text}</td>`).join('')}</tr>`)
-      .join('');
+    const rows = data
+      .map(rowData => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          ${rowData.map(text => `<td>${text}</td>`).join('')}
+          <td>
+            <button class="btn btn-danger">✕</button>
+            <button class="btn btn-warning">⟳</button>
+          </td>`;
+
+        const btnDelete = row.querySelector('.btn-danger');
+        btnDelete.addEventListener('click', () => console.log('trynimas'));
+
+        const btnUpdate = row.querySelector('.btn-warning');
+        btnUpdate.addEventListener('click', () => console.log('atnaujinimas'));
+
+        return row;
+      });
 
     this.htmlElement.className = 'table table-striped';
     this.htmlElement.innerHTML = `
       <thead class="bg-dark text-white">
         <tr>${headersString}</tr>
       </thead>
-      <tbody>${rowsString}</tbody>
-    `;
+      <tbody></tbody>`;
+
+    const tbody = this.htmlElement.querySelector('tbody');
+    tbody.append(...rows);
   }
 }

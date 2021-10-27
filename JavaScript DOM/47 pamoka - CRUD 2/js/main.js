@@ -1,4 +1,9 @@
 const rootElement = document.querySelector('#root');
+
+const userFormComponent = new FormComponent({
+  /* perduodamos savybės */
+});
+
 const userTableComponent = new TableComponent({
   headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
   data: userDataArr.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
@@ -9,7 +14,10 @@ const userTableComponent = new TableComponent({
     }
   ], [])
 });
-rootElement.appendChild(userTableComponent.htmlElement);
+rootElement.append(
+  userFormComponent.htmlElement,
+  userTableComponent.htmlElement
+);
 
 
 /*
@@ -26,5 +34,4 @@ rootElement.appendChild(userTableComponent.htmlElement);
     - sustabdyti užklausos darymą, jog nebūtų perkraunama naršyklė
 
   4. Įgalinti metodo 'handleSubmit' logiką, jog jis atspausdintų visų formos įvesties laukų reikšmes
-
 */

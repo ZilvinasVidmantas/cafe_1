@@ -10,15 +10,3 @@ const userTableComponent = new TableComponent({
   ], [])
 });
 rootElement.appendChild(userTableComponent.htmlElement);
-
-/*
-  1. Atskirai atsispausdinkite 4-10 eilutės rezultatą
-  2. Peržiūrėkite virš TableComponent aprašytus tipus komentaruose. 
-    Ar tipai sutampa su [1.] užduotyje peržiūrėtu rezultatu
-  3. Suraskite kur naudojama savybė data TableComponent viduje.
-  4. Kokie elementai yra perduodami TableComponent metodui createRow?
-  5. Kodėl TableComponent 57 eilutėje yra parašyta lambda išraiška?
-  6. Sugalvokite bent po 2 klausimus
-
-  19:35
-*/

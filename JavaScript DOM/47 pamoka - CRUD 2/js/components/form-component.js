@@ -8,7 +8,13 @@ class FormComponent {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    alert('Forma pa\'submitinta');
+    const formData = Array
+      .from(this.htmlElement.querySelectorAll('[name]'))
+      .reduce((ob, field) => {
+        ob[field.name] = field.value;
+        return ob;
+      }, {});
+    console.log(formData);
   }
 
   render = () => {

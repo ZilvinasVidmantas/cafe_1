@@ -18,7 +18,7 @@ class TableComponent {
    * @param {Object} props - komponentui perduodamos pradinės savybės 
    */
   constructor(props) {
-    if (props.data.some(rowData => rowData.length !== props.headers.length))
+    if (props.data.some(x => x.rowData.length !== props.headers.length))
       throw new TypeError('Lentelės duomenys turi ne vienodą kiekį stulpelių');
     this.props = props;
     this.htmlElement = document.createElement('table');

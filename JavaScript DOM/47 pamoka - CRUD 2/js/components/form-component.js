@@ -1,11 +1,17 @@
-class FormComponent{
-  constructor(props){
+class FormComponent {
+  constructor(props) {
     this.props = props;
     this.htmlElement = document.createElement('form');
+    this.htmlElement.addEventListener('submit', this.handleSubmit);
     this.render();
   }
 
-  render = () =>{
+  handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Forma pa\'submitinta');
+  }
+
+  render = () => {
     this.htmlElement.className = 'shadow p-3 my-3';
     this.htmlElement.innerHTML = `
     <h2>Formos pavadinimas</h2>

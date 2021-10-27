@@ -19,7 +19,6 @@ rootElement.append(
   userTableComponent.htmlElement
 );
 
-
 /*
   1. Sukurti formos komponentą faile <form-component.js>, su (hard-code) įvesties laukais ir submit mygtuku
     - komponentui perduotas savybes saugoti <props>

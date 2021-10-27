@@ -19,6 +19,6 @@ rootElement.appendChild(userTableComponent.htmlElement);
   4. Kokie elementai yra perduodami TableComponent metodui createRow?
   5. Kodėl TableComponent 57 eilutėje yra parašyta lambda išraiška?
   6. Sugalvokite bent po 2 klausimus
-  
+
   19:35
 */

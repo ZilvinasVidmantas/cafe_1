@@ -3,7 +3,7 @@ const userDataArr = [
     id: '111111',
     username: 'Dragon99',
     email: 'flame@burst.com',
-    imgSrc: 'https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg/revision/latest?cb=20160103194957',
+    imgSrc: 'https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg',
   },
   {
     id: '222222',
@@ -21,6 +21,6 @@ const userDataArr = [
     id: '444444',
     username: 'Tourus',
     email: 'horns@dungeon.com',
-    imgSrc: 'https://slm-assets.secondlife.com/assets/13686960/lightbox/minotaur.jpg?1458529710',
+    imgSrc: 'https://slm-assets.secondlife.com/assets/13686960/lightbox/minotaur.jpg',
   }
 ];

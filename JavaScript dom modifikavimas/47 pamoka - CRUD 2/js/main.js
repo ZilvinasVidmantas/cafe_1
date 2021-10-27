@@ -1,23 +1,24 @@
 const rootElement = document.querySelector('#root');
 const userTableComponent = new TableComponent({
   headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
-  data: userDataArr.reduce((prevRowsArr, { imgSrc, username, email }) => [
+  data: userDataArr.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
     ...prevRowsArr,
-    [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
+    {
+      id,
+      rowData: [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
+    }
   ], [])
 });
 rootElement.appendChild(userTableComponent.htmlElement);
 
-const user = {
-  name: 'Kepalius',
-  surname: 'Vandalius',
-  printThisFunction: function() {
-    console.log('as esu funkcija')
-    console.log(this);
-  },
-  printThisLambda: () => {
-    console.log('as esu lambda')
-    console.log(this);
-  }
-}
-
+/*
+  1. Atskirai atsispausdinkite 4-10 eilutės rezultatą
+  2. Peržiūrėkite virš TableComponent aprašytus tipus komentaruose. 
+    Ar tipai sutampa su [1.] užduotyje peržiūrėtu rezultatu
+  3. Suraskite kur naudojama savybė data TableComponent viduje.
+  4. Kokie elementai yra perduodami TableComponent metodui createRow?
+  5. Kodėl TableComponent 57 eilutėje yra parašyta lambda išraiška?
+  6. Sugalvokite bent po 2 klausimus
+  
+  19:35
+*/

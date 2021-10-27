@@ -1,9 +1,14 @@
 /*
 type RowData = Array<string>
 
+type DataRowObject = {
+  id: string,
+  rowData: RowData
+}
+
 type TableComponentProps = {
   headers: RowData,
-  data: Array<RowData>
+  data: Array<DataRowObject>
 }
 */
 class TableComponent {
@@ -23,7 +28,9 @@ class TableComponent {
   /**
    *  Ištrina elementą
    */
-  deleteRow = () => console.log('trynimas');
+  deleteRow = (id) => {
+
+  }
 
   /**
    *  Atnaujina elementą
@@ -37,7 +44,7 @@ class TableComponent {
    * 
    * @returns {RowHTMLElement} - sukurta eilutė pagal duomenis
    */
-  createRow = rowData => {
+  createRow = ({ id, rowData }) => {
     const row = document.createElement('tr');
     row.innerHTML = `
     ${rowData.map(text => `<td>${text}</td>`).join('')}
@@ -47,7 +54,7 @@ class TableComponent {
     </td>`;
 
     const btnDelete = row.querySelector('.btn-danger');
-    btnDelete.addEventListener('click', this.deleteRow);
+    btnDelete.addEventListener('click', () => this.deleteRow(id));
 
     const btnUpdate = row.querySelector('.btn-warning');
     btnUpdate.addEventListener('click', this.updateRow);

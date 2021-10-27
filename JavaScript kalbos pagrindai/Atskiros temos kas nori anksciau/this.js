@@ -1,18 +1,28 @@
 'use strict';
-// 'this' raktažodis nusako, kokioje aplinkoje yra vykdomas kodas
+/*
+        Lamda išraiškos <this> kontekstas yra jos kūrėjas
+        Funkcijos <this> kontekstas yra jos iškvietėjas (jeigu nebuvo taikyti funkcijos metodai bind, call arba apply)
+*/
+// 'this' raktažodis nusako, kas yra funkcijos vykdymo kontekstas
 // console.dir(this);
-// Kuriant prototipus, objektai įgauna savo aplinką(scope), iš kurios vėliau galima iškvieti funkcijas
+// 'this' funkcijos viduje yra kontekstas, kurį naudojant buvo iškviesta funkcija
+// 'this' - tai funkcijos iškvietėjas
 
-// Funkcija spausdinta 'students' kintamajį, aplinkoje kurioje buvo iškviesta
-let printStudents = function() {
+// Funkcija spausdina 'students' kintamajį, pagal kontekstą iš kurio buvo iškviesta
+let printStudents = function () {
   console.log(this);
   console.log(this.students);
 }
-// Pririšamas obejktas, kuris funkcijos iškvietimo metu bus 'this'
-// printStudents = printStudents.bind(window); 
-// printStudents = printStudents.bind({
-//   students: [7, 8]
-// }); 
+// Norint funkcijai pririšti objektą, kuris bus pasiekiamas raktažodžiu 'this' VISAM LAIKUI NEGRĮŽTAMAI, galime naudoti 
+// funkcijos metodą 'bind(objektasKurisBusThisFunkcijosIškvietimoMetu)'.
+{
+  // PVZ.:
+  // Pririšamas obejktas, kuris funkcijos iškvietimo metu bus 'this'
+  // printStudents = printStudents.bind(window); 
+  // printStudents = printStudents.bind({
+  //   students: [7, 8]
+  // }); 
+}
 
 // Sukuriame prototipus, kurie turi savybę students
 class Faculty {
@@ -37,14 +47,6 @@ const apzeldinimoFak = new Faculty(['Pinavija', 'Dagilis']);
 
 // window.printStudents
 printStudents.call(ktu); // naudojant funkcijos metodą call, pasakome kas KVIETINIO metu, bus this
-ktu.printStudents();
-su.printStudents();
-apzeldinimoFak.printStudents();
-
-// 'this' funkcijos viduje yra aplinka(objektas) kurį naudojant buvo iškviečiama funkcija
-// 'this' - tai funkcijos iškietėjas
-
-// Norint funkcijai pririšti objektą, kuris bus pasiekiamas raktažodžiu 'this', galime naudoti 
-// funkcijos metodą 'bind(objektasKurisBusThis)'.
-// Žr. 12 eil.;
-
+ktu.printStudents(); // this -> <ktu> kintamuosu pasiekiama atmintis
+su.printStudents(); // this -> <su> kintamuosu pasiekiama atmintis
+apzeldinimoFak.printStudents(); // this -> <apzeldinimoFak> kintamuosu pasiekiama atmintis

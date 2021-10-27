@@ -29,10 +29,7 @@ class TableComponent {
    *  Ištrina elementą
    */
   deleteRow = (id) => {
-    const ii = this.props.data.findIndex(x => x.id === id);
-    this.props.data.splice(ii, 1);
-
-    // Sugalvoti trinimo metodą, panaudojant TIK filter (pakeisti 32-33 eil.)
+    this.props.data = this.props.data.filter(x => x.id !== id);
     this.render();
   }
 

@@ -10,3 +10,14 @@ const userTableComponent = new TableComponent({
   ], [])
 });
 rootElement.appendChild(userTableComponent.htmlElement);
+
+
+/*
+  1. Sukurti formos komponentą faile <form-component.js>, su minimaliu atvaizdavmu (hard-code)
+    - komponentui perduotas savybes saugoti <props>
+    - komponento elementą saugoti savybėje - <htmlElement>
+    - komponento atvaizdavimo logiką atlikti metode <render>
+
+  2. Prijungti sukurto formos komponento-elementą prie egzistuojančio html kodo
+    - įdėti komponento htmlElement į elementą su id="root"
+*/

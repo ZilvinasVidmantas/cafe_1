@@ -24,6 +24,14 @@ class TableComponent {
     this.initialize();
   }
 
+  updateProps = (props) => {
+    this.props = {
+      ...this.props,
+      ...props
+    };
+    this.render();
+  }
+
   /**
    *  Ištrina elementą
    */
@@ -97,6 +105,7 @@ class TableComponent {
    * Atvaizduoja komponento dalis kurios priklauso nuo besikeičiančių duomenų
    */
   render = () => {
+    console.table(this.props.data)
     this.tbody.innerHTML = '';
     const rows = this.createRows();
     this.tbody.append(...rows);

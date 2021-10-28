@@ -17,24 +17,25 @@ class FormComponent {
     console.log(formData);
   }
 
+  createFieldString = (/*...*/) => /*...*/;
+
   render = () => {
+    const { title, fields } = this.props;
     this.htmlElement.className = 'shadow p-3 my-3';
+
+    // Naudojant this.props.fields masyvo objektų duomenis, sukurti įvesties laukų (string) masyvą
+    // 1. sukurti funkciją 'this.createFieldString', kuri grąžintų įvesties lauko String reprezentaciją
+    // 2. Funkcijai 'this.createFieldString' įgalinti parametro priėmimą, ir duomenų panaudojimą
+    // 3. Kurti masyvą performuojant 'this.props.fields objektų duomenis į  metodo 'this.createFieldString' grąžinamus stringus
+    const fieldsStrArr = fields.map(/* */);
+    // 4. [3.] gautą masyvą sujungti be tarpelių į vieną string reikšmę(kuri reprezentuoja įvesties laukus)
+    const fieldsStr = fieldsStrArr.??? ('');
+    // 5. Vietoj hard-code'intų įvestie laukų, įdėti suformuota reprezentacinį string'ą
+
+
     this.htmlElement.innerHTML = `
-    <h2>Formos pavadinimas</h2>
-
-    <div class="mb-3">
-      <label for="username" class="form-label">Vartotojas</label>
-      <input type="text" class="form-control" id="username" name="username">
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">El. paštas</label>
-      <input type="email" class="form-control" id="email" name="email">
-    </div>
-    <div class="mb-3">
-      <label for="imgSrc" class="form-label">Nuotraukos nuoroda</label>
-      <input type="text" class="form-control" id="imgSrc" name="imgSrc">
-    </div>
-
+    <h2>${title}</h2>
+    ${fieldsStr}
     <div class="text-center">
       <button class="btn btn-success">Išsaugoti duomenis</button>
     </div>`;

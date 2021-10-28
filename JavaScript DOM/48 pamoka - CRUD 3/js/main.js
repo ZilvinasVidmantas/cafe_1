@@ -1,8 +1,32 @@
 const rootElement = document.querySelector('#root');
 
-const userFormComponent = new FormComponent({
-  /* perduodamos savybės */
+const createUserFormComponent = new FormComponent({
+  title: 'Sukurti vartotoją',
+  fields: [{
+    label: 'Vartotojas',
+    type: 'text',
+    name: 'username'
+  }, {
+    label: 'El. paštas',
+    type: 'email',
+    name: 'email'
+  }, {
+    label: 'Nuotraukos nuoroda',
+    type: 'text',
+    name: 'imgSrc'
+  }]
 });
+
+const filterUsersFormComponent = new FormComponent({
+  title: 'Ieškoti Vartotojo',
+  fields: [{
+    label: 'Vartotojo vardas ar jo dalis',
+    type: 'text',
+    name: 'username'
+  }]
+});
+
+// 1. Įgalinkite, dinamišką formos pavadinimo priskyrimą.
 
 const userTableComponent = new TableComponent({
   headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
@@ -14,23 +38,11 @@ const userTableComponent = new TableComponent({
     }
   ], [])
 });
+
+
 rootElement.append(
-  userFormComponent.htmlElement,
+  createUserFormComponent.htmlElement,
+  filterUsersFormComponent.htmlElement,
   userTableComponent.htmlElement
 );
 
-/*
-  1. Sukurti formos komponentą faile <form-component.js>, su (hard-code) įvesties laukais ir submit mygtuku
-    - komponentui perduotas savybes saugoti <props>
-    - komponento elementą saugoti savybėje - <htmlElement>
-    - komponento atvaizdavimo logiką atlikti metode <render>
-
-  2. Prijungti sukurtos formos komponento-elementą prie egzistuojančio html kodo
-    - įdėti komponento htmlElement į elementą su id="root"
-
-  3. Sukurti metodą 'handleSubmit', ir vykdyti jį, kuomet form'ą yra submit'inama
-    - uždėti įvykio klausiklį, 'constructor' metode
-    - sustabdyti užklausos darymą, jog nebūtų perkraunama naršyklė
-
-  4. Įgalinti metodo 'handleSubmit' logiką, jog jis atspausdintų visų formos įvesties laukų reikšmes
-*/

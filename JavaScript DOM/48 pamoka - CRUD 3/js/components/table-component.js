@@ -18,11 +18,10 @@ class TableComponent {
    * @param {Object} props - komponentui perduodamos pradinės savybės 
    */
   constructor(props) {
+    this.props = props;
     if (props.data.some(x => x.rowData.length !== props.headers.length))
       throw new TypeError('Lentelės duomenys turi ne vienodą kiekį stulpelių');
-    this.props = props;
-    this.htmlElement = document.createElement('table');
-    this.render();
+    this.initialize();
   }
 
   /**
@@ -78,19 +77,28 @@ class TableComponent {
   createHeaderString = () => this.props.headers.map(text => `<th>${text}</th>`).join('') + '<th></th>';
 
   /**
-   * Sudaro komponento HTML turinį
+   * Atlieka pradinius veiksmus ir
+   * atvaizduoja komponento dalis kurios NEpriklauso nuo besikeičiančių duomenų
    */
-  render = () => {
+  initialize = () => {
+    this.htmlElement = document.createElement('table');
     const headersString = this.createHeaderString();
     this.htmlElement.className = 'table table-striped';
     this.htmlElement.innerHTML = `
-    <thead class="bg-dark text-white">
-    <tr>${headersString}</tr>
-    </thead>
-    <tbody></tbody>`;
+      <thead class="bg-dark text-white">
+        <tr>${headersString}</tr>
+      </thead>
+      <tbody></tbody>`;
+    this.tbody = this.htmlElement.querySelector('tbody');
+    this.render();
+  }
 
+  /**
+   * Atvaizduoja komponento dalis kurios priklauso nuo besikeičiančių duomenų
+   */
+  render = () => {
+    this.tbody.innerHTML = '';
     const rows = this.createRows();
-    const tbody = this.htmlElement.querySelector('tbody');
-    tbody.append(...rows);
+    this.tbody.append(...rows);
   }
 }

@@ -12,6 +12,27 @@ class UserManagerComponent {
     this.htmlElement = document.createElement('div');
     this.htmlElement.className = 'row g-3 flex-lg-row-reverse'
     this.htmlElement.innerHTML = `
+    <div class="col-12 col-lg-3">
+      <form class="shadow p-3">
+        <h2>Sukurti vartotoją</h2>
+        <div class="mb-3">
+          <label for="form1-username" class="form-label">Vartotojas</label>
+          <input type="text" class="form-control" id="form1-username" name="username">
+        </div>
+        <div class="mb-3">
+          <label for="form1-email" class="form-label">El. paštas</label>
+          <input type="email" class="form-control" id="form1-email" name="email">
+        </div>
+        <div class="mb-3">
+          <label for="form1-imgSrc" class="form-label">Nuotraukos nuoroda</label>
+          <input type="text" class="form-control" id="form1-imgSrc" name="imgSrc">
+        </div>
+        <div class="text-center">
+          <button class="btn btn-success">Išsaugoti duomenis</button>
+        </div>
+      </form>
+    </div>
+
     <div class="col-12 col-lg-9">
       <table class="table table-striped">
         <thead class="bg-dark text-white">
@@ -87,7 +108,4 @@ class UserManagerComponent {
     - this.form - formos komponentas
 
   4. Panaudokite [3.] sukurtus komponenetus, jog atvaizdavimas būtų sukurtas naudojant šių komponentų htmlElement savybes
-
-  5. NEPRIVALOMAS
-    Suderinkite šio komponento htmlElement struktūrą ir klases taip, jog ant mažų ekranų komponentai (table ir form) būtų vienas po kitu
 */

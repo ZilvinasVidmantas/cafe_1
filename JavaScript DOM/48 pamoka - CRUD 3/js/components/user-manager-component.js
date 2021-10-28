@@ -9,7 +9,8 @@ class UserManagerComponent {
  * atvaizduoja komponento dalis kurios NEpriklauso nuo besikeičiančių duomenų
  */
   intialize = () => {
-
+    // tam kad nedingtų komponentų event-listener'iai jų turinį prijungti prie šio komponeneto elementų naudojant metodą append arba appendChild
+    // prijungus komponentų turinį su innerHTML, komponentų turinys pus paverčiamas string'u (tam kad prijungti) ir dings event-listener'ių funkcinalumas
   }
 
   /**

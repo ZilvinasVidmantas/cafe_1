@@ -63,3 +63,11 @@ class FormComponent {
 
   }
 }
+
+/*
+  1. Padaryti, jgo formai (papaildomai) galėtumėte perduoti:
+    btnText                                       - mygtuko tekstą
+    btnClass                                      - mygtuko klasę (testavimui naudokite btn-warning/btn-success)
+    borderClass                                   - sienelės klasę (testavimui naudokite .border.border-success/.border.border-warning)
+    fields: [...{...,value: 'pradine' ,....}...]  - įvesties laukų duomenis
+*/

@@ -55,7 +55,7 @@ class TableComponent {
   createRow = ({ id, rowData }) => {
     const row = document.createElement('tr');
     row.innerHTML = `
-    ${rowData.map(text => `<td>${text}</td>`).join('')}
+     ${rowData.map(text => `<td>${text}</td>`).join('')}
     <td>
       <button class="btn btn-danger">✕</button>
       <button class="btn btn-warning">⟳</button>
@@ -105,7 +105,6 @@ class TableComponent {
    * Atvaizduoja komponento dalis kurios priklauso nuo besikeičiančių duomenų
    */
   render = () => {
-    console.table(this.props.data)
     this.tbody.innerHTML = '';
     const rows = this.createRows();
     this.tbody.append(...rows);

@@ -21,19 +21,24 @@ class UserManagerComponent {
       },
       formProps: {
         btnText: 'Sukurti',
+        btnClass: 'btn-success',
+        borderClass: 'border-success',
         title: 'Sukurti vartotoją',
         fields: [{
           label: 'Vartotojas',
           type: 'text',
-          name: 'username'
+          name: 'username',
+          value: 'Jonatanas'
         }, {
           label: 'El. paštas',
           type: 'email',
-          name: 'email'
+          name: 'email',
+          value: 'Dlokas@ketera.misisipi'
         }, {
           label: 'Nuotraukos nuoroda',
           type: 'text',
-          name: 'imgSrc'
+          name: 'imgSrc',
+          value: 'https://unsplash.it/140/100'
         }],
         onSubmit: this.createUser
       }

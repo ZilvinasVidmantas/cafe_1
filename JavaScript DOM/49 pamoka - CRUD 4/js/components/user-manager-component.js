@@ -1,5 +1,5 @@
 let idBasis = 88;
-const generateId = (collection) => {
+const generateId = () => {
   return String(idBasis++);
 }
 

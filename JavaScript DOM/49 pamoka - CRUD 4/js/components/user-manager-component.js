@@ -28,17 +28,14 @@ class UserManagerComponent {
           label: 'Vartotojas',
           type: 'text',
           name: 'username',
-          value: 'Jonatanas'
         }, {
           label: 'El. paštas',
           type: 'email',
           name: 'email',
-          value: 'Dlokas@ketera.misisipi'
         }, {
           label: 'Nuotraukos nuoroda',
           type: 'text',
           name: 'imgSrc',
-          value: 'https://unsplash.it/140/100'
         }],
         onSubmit: this.createUser
       }
@@ -56,6 +53,20 @@ class UserManagerComponent {
     ];
     this.table.updateProps({
       data: this.state.tableProps.data
+    })
+  }
+
+  editUser = () => {
+    this.form.updateProps({
+      title: 'Atnaujinti Vartotoją',
+      btnText: 'Atnaujinti',
+      btnClass: 'btn-warning',
+      borderClass: 'border-warning',
+      fields: [
+        {name: 'username', value: 'Obuolys'},
+        {name: 'email', value: 'mandarinas@gmail.com'},
+        {name: 'imgSrc', value: 'https://unsplash.it/150/100'},
+      ]
     })
   }
 

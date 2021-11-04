@@ -75,7 +75,6 @@ const [maziausias, antraPagalMazuma] = visiSvoriai;
 }
 console.log(maziausias, antraPagalMazuma);
 
-
 console.log('-------------------------');
 
 const hobbies = ['fitbit', 'nike', 'sneakers', 'bicycle', 'sport', 'run'];

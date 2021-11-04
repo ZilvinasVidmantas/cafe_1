@@ -7,7 +7,7 @@
                       // ↙ raktas/pavadinimas
 localStorage.setItem('data', 777);
                           //   ↖ reikšmė
-localStorage.setItem('people', [{name: 'Kėglis'},{ name: 'Jūračka'},{name: 'Samsonas'}]);
+localStorage.setItem('people', [{name: 'Kėglis'}, { name: 'Jūračka'}, {name: 'Samsonas'}]);
 
 // Nauja sintakė išsaugot duomenims į localStorage
 localStorage['authToken'] = '4fg6jh4ghj4gh654j65gh4';
@@ -34,4 +34,6 @@ console.log({
   user2,
   user3
 })
+
+
 

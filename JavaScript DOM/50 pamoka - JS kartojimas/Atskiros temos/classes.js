@@ -27,7 +27,7 @@
     }
 
     // Metodai ....
-    accelerate(amount){
+    accelerate(amount) {
       this.speed += amount;
     }
 
@@ -71,3 +71,53 @@ class AXY {
     savybes naudojantys metodai (dažniausiai spausdinimas)
 }
 */
+
+// ---------------------------------------------------------------- Setter and getter -------------------------------
+/*
+  Seteriai ir geteriai yra skirti supaprastinti objektų duomenų gavimo sitanksę.
+  Kartais jie naudojami įgalinti validacijai, ar inkapsuliacijai.
+  Viską, kas daroma su setteriais/getteriais gali atlikti ir metodų pagalba, tačiau setter'ių ir getter'ių sitaksė daug švaresnė
+*/
+class Person {
+  #weight;
+
+  constructor(name, surname, birthString) {
+    this.name = name;
+    this.surname = surname;
+    this.birthday = new Date(birthString);
+  }
+
+  get age() {
+    return new Date().getFullYear() - this.birthday.getFullYear();
+  }
+
+  set weight(val) {
+    if( typeof val !== 'number') throw new TypeError('Weight must be number');
+    
+    this.#weight = val
+  }
+
+  get weight(){
+    return this.#weight;
+  }
+
+}
+
+const people = [
+  new Person('Kerviguis', 'Kempūra', '1975-07-09'),
+  new Person('Jorana', 'Voričienė', '1978-02-11'),
+  new Person('Saulanė', 'Fakira', '2000-11-24')
+];
+
+// Getter'ių panaudojimas
+people.forEach(p => console.log(p.name, p.surname, '-', p.age));
+
+
+let xx = 77;
+// Setter'ių panaudojimas
+people.forEach(p => {
+  p.weight = xx++;
+});
+
+console.table(people);
+

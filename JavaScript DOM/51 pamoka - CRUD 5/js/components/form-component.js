@@ -71,8 +71,6 @@ class FormComponent {
       objectProps: {}
     });
 
-    console.log(segregatedProps);
-
     this.props = {
       ...this.props,
       ...props

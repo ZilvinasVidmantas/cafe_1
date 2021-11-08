@@ -3,7 +3,6 @@ const generateId = () => {
   return String(idBasis++);
 }
 
-
 // props - (kitų elementų)/(programos dalių) perduotos savybės/duomenys
 // state - komponeneto būsena, kuri keičiama pačio komponeneto, arba jo vaikų
 class UserManagerComponent {
@@ -18,6 +17,7 @@ class UserManagerComponent {
             rowData: [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
           }
         ], []),
+        onEdit: this.editUser
       },
       formProps: {
         btnText: 'Sukurti',
@@ -56,7 +56,12 @@ class UserManagerComponent {
     })
   }
 
-  editUser = () => {
+  editUser = (id) => {
+    /*
+      Pagal gautą Id
+        - surasti atitinkamą vartotoją (this.state.tableProps)
+        - jo duomenis įrašyti į formos atnaujinimą apačioje (65-76)
+    */
     this.form.updateProps({
       title: 'Atnaujinti Vartotoją',
       btnText: 'Atnaujinti',

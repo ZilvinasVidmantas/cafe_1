@@ -41,11 +41,6 @@ class TableComponent {
   }
 
   /**
-   *  Atnaujina elementą
-   */
-  updateRow = () => console.log('atnaujinimas');
-
-  /**
    * Sukuria vienos eilutės HTML elementą
    * 
    * @param {Object} rowData - vienos eilutės objektas
@@ -65,7 +60,7 @@ class TableComponent {
     btnDelete.addEventListener('click', () => this.deleteRow(id));
 
     const btnUpdate = row.querySelector('.btn-warning');
-    btnUpdate.addEventListener('click', this.updateRow);
+    btnUpdate.addEventListener('click', () => this.props.onEdit(id));
 
     return row;
   }

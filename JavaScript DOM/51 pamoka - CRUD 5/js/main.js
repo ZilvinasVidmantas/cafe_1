@@ -31,9 +31,3 @@ const userManager = new UserManagerComponent({
 
 rootElement.append(userManager.htmlElement);
 
-console.log(userManager.form.props);
-setTimeout(() => {
-  userManager.editUser();
-  console.log(userManager.form.props);
-}, 5000)
-

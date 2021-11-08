@@ -54,27 +54,45 @@ class FormComponent {
     this.render();
   }
 
-  /*
-    Papildyti šį metodą, jof nuorods tipų savybės (bet kokiam gylį) būtų papildytos, o ne perrašytos
-    Kitaip tariant, perrašomos turi būti tik privačios savybės, o nuorods tipo kintamieji papildomi/perrašomi
-  */
   updateProps = (props) => {
-    const segregatedProps = Object.entries(props).reduce((res, [propName, propValue]) => {
-      if (propValue instanceof Object) {
-        res.objectProps[propName] = propValue;
-      } else {
-        res.primitiveProps[propName] = propValue;
-      }
-      return res;
-    }, {
-      primitiveProps: {},
-      objectProps: {}
-    });
+
+    // const old = JSON.parse(JSON.stringify(this.props));
+    const { fields: newFields, ...newProps } = props;
+
+    const oldFieldNames = this.props.fields.map(x => x.name);
+    const freshFields = newFields.filter(x=> !oldFieldNames.includes(x.name));
 
     this.props = {
       ...this.props,
-      ...props
+      ...newProps,
+      fields: [
+        ...this.props.fields.map(field => {
+          const sameField = newFields.find(x => x.name === field.name);
+          if (sameField) {
+            return {
+              ...field,
+              ...sameField
+            }
+          } else {
+            return field
+          }
+        }),
+        ...freshFields
+      ]
     };
+
+    // console.log({
+    //   'final': this.props.fields,
+    //   'old': old,
+    //   'new': props
+    // })
+
+    // 1. Sintaksė
+    // 2. Metodo algoritmo esmė
+    // 3. Kaip šis metodas, susijęs su kitais metodais. Kokią darbo dalį jis atlieka?
+    // 4. Kuomet šis metodas yra kviečiamas, ir kam jis skirtas?
+    
+    // 21:20
     this.render();
   }
 

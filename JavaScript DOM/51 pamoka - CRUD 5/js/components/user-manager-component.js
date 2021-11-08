@@ -12,6 +12,7 @@ class UserManagerComponent {
   constructor() {
     this.state = {
       users: userDataArr,
+      editedUserId: null,
       tableProps: {
         headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
         onEdit: this.editUser
@@ -25,14 +26,17 @@ class UserManagerComponent {
           label: 'Vartotojas',
           type: 'text',
           name: 'username',
+          value: ''
         }, {
           label: 'El. paštas',
           type: 'email',
           name: 'email',
+          value: ''
         }, {
           label: 'Nuotraukos nuoroda',
           type: 'text',
           name: 'imgSrc',
+          value: ''
         }],
         onSubmit: this.createUser
       }
@@ -41,47 +45,39 @@ class UserManagerComponent {
   }
 
   formatTableData = () => this.state.users.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
-    ...prevRowsArr,
-    {
+    ...prevRowsArr, {
       id,
       rowData: [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
-    }
-  ], []);
+    }], []);
 
-  createUser = ({ username, email, imgSrc }) => {
-    this.state.tableProps.data = [
-      ...this.state.tableProps.data,
-      {
-        id: generateId(),
-        rowData: [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
-      }
-    ];
-    this.table.updateProps({
-      data: this.state.tableProps.data
-    })
+  formatFormProps = () => {
+    if (this.state.editedUserId) {
+      const { id: _, ...userData } = this.state.users.find(x => x.id === this.state.editedUserId);
+      const fields = Object.entries(userData).map(([name, value]) => ({ name, value }));
+      return {
+        title: 'Atnaujinti Vartotoją',
+        btnText: 'Atnaujinti',
+        btnClass: 'btn-warning',
+        borderClass: 'border-warning',
+        fields
+      };
+    } else {
+      return this.state.formProps
+    }
+  }
+  createUser = (userProps) => {
+    this.state.users.push({
+      ...userProps,
+      id: generateId(),
+    });
+
+    this.render();
   }
 
   editUser = (id) => {
-    const { id: _, ...userData } = this.state.users.find(x => x.id === id);
-    console.log(userData);
+    this.state.editedUserId = id;
 
-    //                [
-    //                 { name: 'username', value: '...' },
-    // userData ->     { name: 'email', value: '...' },           -> this.form.updateProps({... fields: ....})
-    //                 { name: 'imgSrc', value: '...' },
-    //               ]
-
-    this.form.updateProps({
-      title: 'Atnaujinti Vartotoją',
-      btnText: 'Atnaujinti',
-      btnClass: 'btn-warning',
-      borderClass: 'border-warning',
-      fields: [
-        { name: 'username', value: 'Obuolys' },
-        { name: 'email', value: 'mandarinas@gmail.com' },
-        { name: 'imgSrc', value: 'https://unsplash.it/150/100' },
-      ]
-    })
+    this.render();
   }
 
   /**
@@ -113,6 +109,9 @@ class UserManagerComponent {
    * Atvaizduoja komponento dalis kurios priklauso nuo besikeičiančių duomenų
    */
   render = () => {
+    const formProps = this.formatFormProps();
 
+    this.table.updateProps({ data: this.formatTableData() });
+    this.form.updateProps(formProps);
   }
 }

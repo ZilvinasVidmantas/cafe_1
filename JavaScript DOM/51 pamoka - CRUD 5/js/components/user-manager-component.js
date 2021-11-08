@@ -3,20 +3,17 @@ const generateId = () => {
   return String(idBasis++);
 }
 
+// Jeigu programos daliai reikalinga tam tikra duomenų struktūra ar formatas, tuomet reikėtų sukurti funkciją,
+// duomenims performuoti, ir tai programos daliai perduoti tos funkcijos rezultatą(performuotus duomenis). 
+
 // props - (kitų elementų)/(programos dalių) perduotos savybės/duomenys
 // state - komponeneto būsena, kuri keičiama pačio komponeneto, arba jo vaikų
 class UserManagerComponent {
   constructor() {
     this.state = {
+      users: userDataArr,
       tableProps: {
         headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
-        data: userDataArr.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
-          ...prevRowsArr,
-          {
-            id,
-            rowData: [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
-          }
-        ], []),
         onEdit: this.editUser
       },
       formProps: {
@@ -43,6 +40,14 @@ class UserManagerComponent {
     this.intialize();
   }
 
+  formatTableData = () => this.state.users.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
+    ...prevRowsArr,
+    {
+      id,
+      rowData: [`<img src="${imgSrc}" class="table__row-img"/>`, username, email]
+    }
+  ], []);
+
   createUser = ({ username, email, imgSrc }) => {
     this.state.tableProps.data = [
       ...this.state.tableProps.data,
@@ -57,20 +62,24 @@ class UserManagerComponent {
   }
 
   editUser = (id) => {
-    /*
-      Pagal gautą Id
-        - surasti atitinkamą vartotoją (this.state.tableProps)
-        - jo duomenis įrašyti į formos atnaujinimą apačioje (65-76)
-    */
+    const { id: _, ...userData } = this.state.users.find(x => x.id === id);
+    console.log(userData);
+
+    //                [
+    //                 { name: 'username', value: '...' },
+    // userData ->     { name: 'email', value: '...' },           -> this.form.updateProps({... fields: ....})
+    //                 { name: 'imgSrc', value: '...' },
+    //               ]
+
     this.form.updateProps({
       title: 'Atnaujinti Vartotoją',
       btnText: 'Atnaujinti',
       btnClass: 'btn-warning',
       borderClass: 'border-warning',
       fields: [
-        {name: 'username', value: 'Obuolys'},
-        {name: 'email', value: 'mandarinas@gmail.com'},
-        {name: 'imgSrc', value: 'https://unsplash.it/150/100'},
+        { name: 'username', value: 'Obuolys' },
+        { name: 'email', value: 'mandarinas@gmail.com' },
+        { name: 'imgSrc', value: 'https://unsplash.it/150/100' },
       ]
     })
   }
@@ -91,7 +100,10 @@ class UserManagerComponent {
 
     const tableContainer = document.createElement('div');
     tableContainer.className = 'col-12 col-lg-9';
-    this.table = new TableComponent(tableProps);
+    this.table = new TableComponent({
+      ...tableProps,
+      data: this.formatTableData()
+    });
     tableContainer.appendChild(this.table.htmlElement);
 
     this.htmlElement.append(formContainer, tableContainer);

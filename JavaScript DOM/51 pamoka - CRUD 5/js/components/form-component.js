@@ -30,6 +30,14 @@ class FormComponent {
     </div>`;
   }
 
+  createClassNames = () => {
+    const { btnClass, borderClass } = this.props;
+    return {
+      htmlElementClassName: 'shadow p-3 border' + (borderClass ? ' ' + borderClass : ''),
+      buttonClassName: 'btn' + (btnClass ? ' ' + btnClass : '')
+    }
+  }
+
   /**
    * Atlieka pradinius veiksmus ir
    * atvaizduoja komponento dalis kurios NEpriklauso nuo besikeičiančių duomenų
@@ -39,12 +47,11 @@ class FormComponent {
     this.htmlElement.addEventListener('submit', this.handleSubmit);
     FormComponent.#instanceCount++;
 
-    this.htmlElement.className = 'shadow p-3 border';
     this.htmlElement.innerHTML = `
     <h2></h2>
     ${this.props.fields.map(this.initFieldString).join('')}
     <div class="text-center">
-      <button class="btn"></button>
+      <button></button>
     </div>`;
 
     this.header = this.htmlElement.querySelector('h2');
@@ -55,12 +62,10 @@ class FormComponent {
   }
 
   updateProps = (props) => {
-
-    // const old = JSON.parse(JSON.stringify(this.props));
     const { fields: newFields, ...newProps } = props;
 
     const oldFieldNames = this.props.fields.map(x => x.name);
-    const freshFields = newFields.filter(x=> !oldFieldNames.includes(x.name));
+    const freshFields = newFields.filter(x => !oldFieldNames.includes(x.name));
 
     this.props = {
       ...this.props,
@@ -81,18 +86,6 @@ class FormComponent {
       ]
     };
 
-    // console.log({
-    //   'final': this.props.fields,
-    //   'old': old,
-    //   'new': props
-    // })
-
-    // 1. Sintaksė
-    // 2. Metodo algoritmo esmė
-    // 3. Kaip šis metodas, susijęs su kitais metodais. Kokią darbo dalį jis atlieka?
-    // 4. Kuomet šis metodas yra kviečiamas, ir kam jis skirtas?
-    
-    // 21:20
     this.render();
   }
 
@@ -100,16 +93,17 @@ class FormComponent {
    * Atvaizduoja komponento dalis kurios priklauso nuo besikeičiančių duomenų
    */
   render = () => {
-    const { title, btnClass, borderClass, btnText, fields } = this.props;
+    const { title, btnText, fields } = this.props;
+    const { htmlElementClassName, buttonClassName } = this.createClassNames();
+
+    this.htmlElement.className = htmlElementClassName;
+    this.button.className = buttonClassName;
+
     fields.forEach(({ name, value }) => {
-      if (value) this.fields.find(htmlField => htmlField.name === name).value = value;
+      if (value !== undefined) this.fields.find(htmlField => htmlField.name === name).value = value;
     });
-    if (btnClass) this.button.classList.add(btnClass);
-    else this.button.classList.add('btn-primary');
+
     this.button.innerHTML = btnText ?? 'Submit';
-
-    if (borderClass) this.htmlElement.classList.add(borderClass);
-
     this.header.innerHTML = title ?? "Form-" + FormComponent.#instanceCount;
   }
 }

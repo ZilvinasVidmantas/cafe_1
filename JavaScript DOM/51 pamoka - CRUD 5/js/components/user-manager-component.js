@@ -59,7 +59,8 @@ class UserManagerComponent {
         btnText: 'Atnaujinti',
         btnClass: 'btn-warning',
         borderClass: 'border-warning',
-        fields
+        fields,
+        onSubmit: this.updateUser
       };
     } else {
       return this.state.formProps
@@ -70,6 +71,16 @@ class UserManagerComponent {
       ...userProps,
       id: generateId(),
     });
+
+    this.render();
+  }
+
+  updateUser = (userProps) => {
+    const editedUser = this.state.users.find(x => x.id === this.state.editedUserId);
+    for (const key in userProps) {
+      editedUser[key] = userProps[key];
+    }
+    this.state.editedUserId = null;
 
     this.render();
   }

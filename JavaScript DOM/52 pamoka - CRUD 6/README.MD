@@ -5,9 +5,11 @@
 * Node.js
 
 ## Instaliavimas
-...
+npm i
 
 ## Paleidimas
   Primiausiai turime paleisti serverį, parašę komanda šio failo aplanke:
-  - npx json-server --watch database.json
+  - windows: npm run start-win
+  - unix/mac: npm run start-unix
+  
   Tuomet atidaryt index.html failą naudojant naršyklę

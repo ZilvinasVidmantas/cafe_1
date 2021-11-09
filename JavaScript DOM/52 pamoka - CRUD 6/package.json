@@ -1,0 +1,15 @@
+{
+  "name": "crud-vanilla-js",
+  "version": "1.0.0",
+  "description": "CRUD vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "start-win": "node_modules\\.bin\\json-server --watch database.json",
+    "start-unix": "node_modules/.bin/json-server --watch database.json"
+  },
+  "author": "Zilvinas Vidmantas",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

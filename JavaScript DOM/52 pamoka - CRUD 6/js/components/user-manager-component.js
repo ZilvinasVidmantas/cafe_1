@@ -11,7 +11,8 @@ const generateId = () => {
 class UserManagerComponent {
   constructor() {
     this.state = {
-      users: userDataArr,
+      error: null,
+      users: [],
       editedUserId: null,
       tableProps: {
         headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
@@ -102,11 +103,25 @@ class UserManagerComponent {
     this.render();
   }
 
+  saveUsers = (users) =>{
+    this.state.users = users;
+
+    this.render();
+  }
+
+  showAlert = (err) => {
+    alert(err);
+    // this.state.error = err;
+    // TODO: Klaidos rodymas, galbūt su animacija
+    // this.render();
+  }
+
   /**
  * Atlieka pradinius veiksmus ir
  * atvaizduoja komponento dalis kurios NEpriklauso nuo besikeičiančių duomenų
  */
   intialize = () => {
+    API.fetchApartments(this.saveUsers, this.showAlert);
     const { formProps, tableProps } = this.state;
     this.htmlElement = document.createElement('div');
     this.htmlElement.className = 'row g-3 flex-lg-row-reverse';
@@ -143,4 +158,9 @@ class UserManagerComponent {
   }
 }
 
+// 21 val peržiūrėti kodą
+// 21:00 -21:10 pertrauka
+// 21:10 tęsiame
 
+
+// npx json-server --watch database.json

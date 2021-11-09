@@ -95,6 +95,9 @@ class UserManagerComponent {
 
   deleteUser = (id) => {
     this.state.users = this.state.users.filter(x => x.id !== id);
+    // this.state.users.splice(this.state.users.findIndex(x => x.id === id), 1);
+
+    if (id === this.state.editedUserId) this.state.editedUserId = null;
 
     this.render();
   }
@@ -113,15 +116,15 @@ class UserManagerComponent {
     this.form = new FormComponent(formProps);
     formContainer.appendChild(this.form.htmlElement);
 
-    const tableContainer = document.createElement('div');
-    tableContainer.className = 'col-12 col-lg-9';
+    this.tableContainer = document.createElement('div');
+    this.tableContainer.className = 'col-12 col-lg-9';
     this.table = new TableComponent({
       ...tableProps,
       data: this.formatTableData()
     });
-    tableContainer.appendChild(this.table.htmlElement);
 
-    this.htmlElement.append(formContainer, tableContainer);
+    this.htmlElement.append(formContainer, this.tableContainer);
+    this.render();
   }
 
   /**
@@ -129,12 +132,15 @@ class UserManagerComponent {
    */
   render = () => {
     const formProps = this.formatFormProps();
-
-    this.table.updateProps({ data: this.formatTableData() });
+    if (this.state.users.length > 0) {
+      this.tableContainer.innerHTML = '';
+      this.tableContainer.appendChild(this.table.htmlElement);
+      this.table.updateProps({ data: this.formatTableData() });
+    } else {
+      this.tableContainer.innerHTML = '<div class="h2 text-danger text-center">Šiuo metu vartotojų nėra</div>';
+    }
     this.form.updateProps(formProps);
   }
 }
 
-// 18:50 - sprendimo analizei
-// 19:00 - pertrauka
-// 19:10 - klausimai
+

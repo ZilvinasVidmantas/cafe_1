@@ -121,7 +121,7 @@ class UserManagerComponent {
  * atvaizduoja komponento dalis kurios NEpriklauso nuo besikeičiančių duomenų
  */
   intialize = () => {
-    API.fetchApartments(this.saveUsers, this.showAlert);
+    API.fetchUsers(this.saveUsers, this.showAlert);
     const { formProps, tableProps } = this.state;
     this.htmlElement = document.createElement('div');
     this.htmlElement.className = 'row g-3 flex-lg-row-reverse';

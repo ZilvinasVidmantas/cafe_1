@@ -13,6 +13,7 @@ class UserManagerComponent {
     this.state = {
       error: null,
       users: [],
+      loading: false,
       editedUserId: null,
       tableProps: {
         headers: ['Nuotrauka', 'Vartotojas', 'Paštas'],
@@ -103,25 +104,26 @@ class UserManagerComponent {
     this.render();
   }
 
-  saveUsers = (users) =>{
+  saveUsers = (users) => {
+    this.state.loading = false;
     this.state.users = users;
 
     this.render();
   }
 
   showAlert = (err) => {
+    this.state.loading = false;
+
     alert(err);
     // this.state.error = err;
     // TODO: Klaidos rodymas, galbūt su animacija
     // this.render();
   }
 
-  /**
- * Atlieka pradinius veiksmus ir
- * atvaizduoja komponento dalis kurios NEpriklauso nuo besikeičiančių duomenų
- */
   intialize = () => {
+    this.state.loading = true;
     API.fetchUsers(this.saveUsers, this.showAlert);
+
     const { formProps, tableProps } = this.state;
     this.htmlElement = document.createElement('div');
     this.htmlElement.className = 'row g-3 flex-lg-row-reverse';
@@ -142,12 +144,13 @@ class UserManagerComponent {
     this.render();
   }
 
-  /**
-   * Atvaizduoja komponento dalis kurios priklauso nuo besikeičiančių duomenų
-   */
   render = () => {
+    const { loading, users } = this.state;
+
     const formProps = this.formatFormProps();
-    if (this.state.users.length > 0) {
+    if (loading) {
+      this.tableContainer.innerHTML = '<div class="text-center"><img src="assets/loading.gif"/></div>';
+    } else if (users.length > 0) {
       this.tableContainer.innerHTML = '';
       this.tableContainer.appendChild(this.table.htmlElement);
       this.table.updateProps({ data: this.formatTableData() });
@@ -158,9 +161,8 @@ class UserManagerComponent {
   }
 }
 
-// 21 val peržiūrėti kodą
-// 21:00 -21:10 pertrauka
-// 21:10 tęsiame
-
-
-// npx json-server --watch database.json
+/*
+  ...19:00 analizė
+  pertrauka
+  19:10 - atsakymai
+*/

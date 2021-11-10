@@ -2,9 +2,11 @@
 ## Reikalingos programos
 * Naršyklė
 * Node.js
+
 ## Instaliavimas
 Reikia parsisiųsti reikalingas bibliotekas parašius šią komanda, šio failo aplanke:
 * npm i
+
 ## Paleidimas
 * Primiausiai turime paleisti serverį, parašę komanda šio failo aplanke:
   - windows: npm run start-win

@@ -7,5 +7,10 @@ class API {
       .then(successCallback)
       .catch(failureCallback)
   }
-}
 
+  static deleteUser = (id, successCallback, failureCallback) => {
+    fetch(`${baseURL}/users/${id}`, { method: 'DELETE' })
+      .then(res => res.ok ? successCallback() : failureCallback(res.statusText))
+      .catch(failureCallback)
+  }
+}

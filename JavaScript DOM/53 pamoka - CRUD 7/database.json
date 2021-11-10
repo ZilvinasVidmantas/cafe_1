@@ -1,6 +1,12 @@
 {
   "users": [
     {
+      "id": "111111",
+      "username": "Dragon99",
+      "email": "flame@burst.com",
+      "imgSrc": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg"
+    },
+    {
       "id": "222222",
       "username": "Tree",
       "email": "palm@forest.com",
@@ -17,18 +23,6 @@
       "username": "Tourus",
       "email": "horns@dungeon.com",
       "imgSrc": "https://slm-assets.secondlife.com/assets/13686960/lightbox/minotaur.jpg"
-    },
-    {
-      "username": "Dragon99",
-      "email": "flame@burst.com",
-      "imgSrc": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg",
-      "id": "ctCB9DK"
-    },
-    {
-      "username": "Dragon99",
-      "email": "flame@burst.com",
-      "imgSrc": "https://static.wikia.nocookie.net/seraphina/images/b/b2/Dragonseraphina.jpg",
-      "id": "GAaeoHZ"
     }
   ]
 }

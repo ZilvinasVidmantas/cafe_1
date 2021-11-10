@@ -48,6 +48,8 @@ class UserManagerComponent {
     this.intialize();
   }
 
+
+
   formatTableData = () => this.state.users.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
     ...prevRowsArr, {
       id,
@@ -70,11 +72,20 @@ class UserManagerComponent {
       return this.state.formProps
     }
   }
+
+  fetchUsers = () => API.fetchUsers(this.saveUsers, this.showAlert);
+
   createUser = (userProps) => {
     this.state.users.push({
       ...userProps,
       id: generateId(),
     });
+
+    this.render();
+  }
+
+  editUser = (id) => {
+    this.state.editedUserId = id;
 
     this.render();
   }
@@ -89,24 +100,14 @@ class UserManagerComponent {
     this.render();
   }
 
-  editUser = (id) => {
-    this.state.editedUserId = id;
-
-    this.render();
-  }
-
   deleteUser = (id) => {
-    this.state.users = this.state.users.filter(x => x.id !== id);
-    // this.state.users.splice(this.state.users.findIndex(x => x.id === id), 1);
-
+    API.deleteUser(id, this.fetchUsers, this.showAlert);
     if (id === this.state.editedUserId) this.state.editedUserId = null;
-
-    this.render();
   }
 
   saveUsers = (users) => {
-    this.state.loading = false;
     this.state.users = users;
+    this.state.loading = false;
 
     this.render();
   }
@@ -117,12 +118,12 @@ class UserManagerComponent {
     alert(err);
     // this.state.error = err;
     // TODO: Klaidos rodymas, galbūt su animacija
-    // this.render();
+    this.render();
   }
 
   intialize = () => {
     this.state.loading = true;
-    API.fetchUsers(this.saveUsers, this.showAlert);
+    this.fetchUsers();
 
     const { formProps, tableProps } = this.state;
     this.htmlElement = document.createElement('div');
@@ -162,7 +163,6 @@ class UserManagerComponent {
 }
 
 /*
-  ...19:00 analizė
   pertrauka
-  19:10 - atsakymai
+  20:15 - duomenų kūrimas
 */

@@ -69,7 +69,14 @@ class UserManagerComponent {
   }
 
   // READ
-  fetchUsers = () => API.fetchUsers(this.saveUsersToState, this.showAlert);
+  fetchUsers = () => API.fetchUsers(
+    this.saveUsersToState,
+    () => {
+      this.showAlert();
+      this.state.loading = false;
+
+      this.render();
+    });
 
   // CREATE
   createUser = (user) => API.postUser(user, this.fetchUsers, this.showAlert);
@@ -83,23 +90,33 @@ class UserManagerComponent {
 
   // UPDATE 2
   updateUser = (userProps) => {
-    API.patchUser(this.state.editedUserId, userProps, this.fetchUsers, this.showAlert);
-    this.state.editedUserId = null;
+    API.patchUser(
+      this.state.editedUserId,
+      userProps,
+      () => {
+        this.fetchUsers();
+        this.state.editedUserId = null;
+      },
+      this.showAlert
+    );
   }
 
   // DELETE
   deleteUser = (id) => {
-    API.deleteUser(id, this.fetchUsers, this.showAlert);
-    if (id === this.state.editedUserId) this.state.editedUserId = null;
+    API.deleteUser(
+      id,
+      () => {
+        this.fetchUsers();
+        if (id === this.state.editedUserId) this.state.editedUserId = null;
+      },
+      this.showAlert
+    );
   }
 
   showAlert = (err) => {
-    this.state.loading = false;
-
     alert(err);
     // this.state.error = err;
     // TODO: Klaidos rodymas, galbūt su animacija
-    this.render();
   }
 
   intialize = () => {

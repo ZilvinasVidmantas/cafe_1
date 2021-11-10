@@ -83,13 +83,8 @@ class UserManagerComponent {
 
   // UPDATE 2
   updateUser = (userProps) => {
-    const editedUser = this.state.users.find(x => x.id === this.state.editedUserId);
-    for (const key in userProps) {
-      editedUser[key] = userProps[key];
-    }
+    API.patchUser(this.state.editedUserId, userProps, this.fetchUsers, this.showAlert);
     this.state.editedUserId = null;
-
-    this.render();
   }
 
   // DELETE

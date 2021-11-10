@@ -1,13 +1,3 @@
-let idBasis = 88;
-const generateId = () => {
-  return String(idBasis++);
-}
-
-// Jeigu programos daliai reikalinga tam tikra duomenų struktūra ar formatas, tuomet reikėtų sukurti funkciją,
-// duomenims performuoti, ir tai programos daliai perduoti tos funkcijos rezultatą(performuotus duomenis). 
-
-// props - (kitų elementų)/(programos dalių) perduotos savybės/duomenys
-// state - komponeneto būsena, kuri keičiama pačio komponeneto, arba jo vaikų
 class UserManagerComponent {
   constructor() {
     this.state = {
@@ -48,7 +38,12 @@ class UserManagerComponent {
     this.intialize();
   }
 
+  saveUsersToState = (users) => {
+    this.state.users = users;
+    this.state.loading = false;
 
+    this.render();
+  }
 
   formatTableData = () => this.state.users.reduce((prevRowsArr, { imgSrc, username, email, id }) => [
     ...prevRowsArr, {
@@ -73,23 +68,20 @@ class UserManagerComponent {
     }
   }
 
-  fetchUsers = () => API.fetchUsers(this.saveUsers, this.showAlert);
+  // READ
+  fetchUsers = () => API.fetchUsers(this.saveUsersToState, this.showAlert);
 
-  createUser = (userProps) => {
-    this.state.users.push({
-      ...userProps,
-      id: generateId(),
-    });
+  // CREATE
+  createUser = (user) => API.postUser(user, this.fetchUsers, this.showAlert);
 
-    this.render();
-  }
-
+  // UPDATE 1
   editUser = (id) => {
     this.state.editedUserId = id;
 
     this.render();
   }
 
+  // UPDATE 2
   updateUser = (userProps) => {
     const editedUser = this.state.users.find(x => x.id === this.state.editedUserId);
     for (const key in userProps) {
@@ -100,16 +92,10 @@ class UserManagerComponent {
     this.render();
   }
 
+  // DELETE
   deleteUser = (id) => {
     API.deleteUser(id, this.fetchUsers, this.showAlert);
     if (id === this.state.editedUserId) this.state.editedUserId = null;
-  }
-
-  saveUsers = (users) => {
-    this.state.users = users;
-    this.state.loading = false;
-
-    this.render();
   }
 
   showAlert = (err) => {
@@ -161,8 +147,3 @@ class UserManagerComponent {
     this.form.updateProps(formProps);
   }
 }
-
-/*
-  pertrauka
-  20:15 - duomenų kūrimas
-*/

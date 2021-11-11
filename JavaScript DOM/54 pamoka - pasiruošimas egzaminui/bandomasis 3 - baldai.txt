@@ -8,22 +8,24 @@
 2. Sukurkite pardavimui skirtų automobilių masyvą naudodami JSON server. [1]
     - Daiktus sukurkite taip, jog būtų panaudotos visos savybių variacijos.
     - Taip pat rekomenduojama susikurti json duomenų kopiją, jog aplikacijai pakeitus duomenis būtų galima persikopijuoti orginalius/pradinius duomenis.
-    žaislą aprašančios savybės:
-      type Toy = {
-        id: string,
-        title: string,
-        price: {
-          currency: '$' | '€',
-          amount: number
+    - Baldą aprašančios savybės:
+      type Furniture = {
+        id: string;
+        title: string;
+        type: string;
+        price: number;
+        location: {
+          country: string;
+          city: string;
+          street: string;
+        }
+        owner: {
+          fullname: string;
+          mobile: string;
+          address: string;
+          email: string
         },
-        ageRestrictions: {
-          from: number;
-        } | null,
-        discount: {
-          type: 'percentage' | 'toFixed' | 'amount',
-          amount: number
-        },
-        imgSrc: 'string'
+        imgSrc: string;
       }
 
 3. Sukurkite projekto aprašymą: [1]  
@@ -39,8 +41,8 @@
   Susikurkite/parsisiųskite  ir strukturizuokite failus:
     - js/
       - components/
-        - ToyCardComponent.js
-        - ToysGridComponent.js
+        - FurnitureCardComponent.js
+        - FurnitureGridComponent.js
       - API.js
       - main.js
     - index.html
@@ -52,19 +54,19 @@
     * įsitraukite javaScript failus
     * sukurkite šakinį elementą, kuriame generuosite turinį su javaScript
     
-  * js/components/ToysGridComponent.js
+  * js/components/FurnitureGridComponent.js
         * Sukurkite minimalų komponentą ir htmlElement turinį testavimui
 
   * js/main.js
-        * Prijunkite ToysGridComponent klasės objektą į jau egzistuojantį HTML elementą
+        * Prijunkite FurnitureGridComponent klasės objektą į jau egzistuojantį HTML elementą
 
-5. Papildykite failą API.js, aprašyti HTTP requestams. Patikrinkite rezultatus konsolėje. [1]
-  HTTP metodas | url         | tikslas
+5. Sukurkite failą API.js, aprašyti HTTP requestams. Patikrinkite rezultatus konsolėje. [1]
+  HTTP metodas | url              | tikslas
   ------------------------------------------------------
-  GET          | /toys       | gauti visus žaislus
-  DELETE       | /toys/{id}  | ištrinti vieną žaislą
+  GET          | /furniture       | gauti visus baldus
+  DELETE       | /furniture/{id}  | ištrinti vieną baldą
 
-6. Faile ToyGridComponent.js panaudokite API.js faile sukurtą funkciją gauti visiems žaislams: [1]
+6. Faile CarGridComponent.js panaudokite API.js faile sukurtą funkciją gauti visiems baldams: [1]
   - Tol kol siunčiami duomenys parašykite 'siunčiama...'
   - Parsiuntus užrašykite 'parsiųsta!'
   
@@ -73,14 +75,9 @@
   - Kol siunčiami duomenys, atvaizduokite animaciją
   - Parsiuntus duomenis atvaizduokite minimalius kortelių elementus, pagal parsiųstus duomenis
 
-8. ToyCardComponent klasėje įgalinkite komponeneto atvaizdavimą pagal this.props gautas reikšmes: [1]
-  - JEIGU KAINA PATEIKTA DOLERIAIS, PAVERSKITE EURAIS IR TUOMET ATVAIZDUOKITE
-  - KAINAI KONVERTUOTI IŠ DOLERIŲ Į EURUS NAUDOKITE STATINĮ KINTAMAJĮ <USD_EUR>
-  - GALUTINIAM VARIANTE, VISOS KAINOS TURI BŪTI EURAIS
-  - Nuolaida gali būti įvairių tipų: 
-      'percentage' - rodoma nubraukta kaina ir kaina su procentine nuolaida
-      'toFixed' - rodoma nubraukta kaina ir fiksuota mažesnė kaina 
-      'amount' - rodoma nubraukta kaina ir kaina su absoliučia nuolaida
+8. FurnitureCardComponent klasėje įgalinkite komponeneto atvaizdavimą pagal this.props gautas reikšmes: [1]
+  - Dizainais pasirenkamas laisvi, tačiau turi būt matomi visi duomenys
 
-9. Kiekvienoje ToyCardComponent kortelėje sukurkite ištrinimo mygtuką, kuris trintų kortelę ir kortelę atitinkančius duomenis serveryje [2]
+9. Kiekvienoje FurnitureCardComponent kortelėje sukurkite ištrinimo mygtuką, kuris trintų kortelę ir kortelę atitinkančius duomenis serveryje [2]
   - Po ištrinimo turi dingti kortelė iš puslapyje matomų komponentų sąrašo ir serverio duomenų.
+

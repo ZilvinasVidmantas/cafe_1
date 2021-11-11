@@ -58,6 +58,7 @@ class CarGridComponent {
     } else if (cars.length > 0) {
       this.htmlElement.innerHTML = '';
       const carElements = cars
+      //      destruring + rest params
         .map(({ id, ...props }) => new CarCardComponent({
           ...props,
           onDelete: () => this.deleteCar(id)

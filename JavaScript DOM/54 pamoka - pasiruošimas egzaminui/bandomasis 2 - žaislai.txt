@@ -20,7 +20,7 @@
           from: number;
         } | null,
         discount: {
-          type: 'percentage' | 'toFixed' | 'amount',
+          type: 'percentage' | 'toFixed' | 'absolute',
           amount: number
         },
         imgSrc: 'string'
@@ -81,7 +81,7 @@
   - Nuolaida gali būti įvairių tipų: 
       'percentage' - rodoma nubraukta kaina ir kaina su procentine nuolaida
       'toFixed' - rodoma nubraukta kaina ir fiksuota mažesnė kaina 
-      'amount' - rodoma nubraukta kaina ir kaina su absoliučia nuolaida
+      'absolute' - rodoma nubraukta kaina ir kaina su absoliučia nuolaida
 
 9. Kiekvienoje ToyCardComponent kortelėje sukurkite ištrinimo mygtuką, kuris trintų kortelę ir kortelę atitinkančius duomenis serveryje [2]
   - Po ištrinimo turi dingti kortelė iš puslapyje matomų komponentų sąrašo ir serverio duomenų.

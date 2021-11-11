@@ -71,7 +71,8 @@
 7. Įgalinti laukimo animaciją, kol yra parsiunčiami duomenys [1]
   - dirbtinai užvilkinti parsiuntimą 1s, jog matytūsi animaciją
   - Kol siunčiami duomenys, atvaizduokite animaciją
-  - Parsiuntus duomenis atvaizduokite minimalius kortelių elementus, pagal parsiųstus duomenis
+  - Su kiekvinu parsiųstų duomenų objektu sukurkite minimalias korteles (ToyCardComponent).
+    - šias korteles atvaizduokite 'bootstrap grid'u
 
 8. ToyCardComponent klasėje įgalinkite komponeneto atvaizdavimą pagal this.props gautas reikšmes: [1]
   - JEIGU KAINA PATEIKTA DOLERIAIS, PAVERSKITE EURAIS IR TUOMET ATVAIZDUOKITE

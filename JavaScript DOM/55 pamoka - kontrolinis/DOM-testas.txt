@@ -14,7 +14,7 @@ Pateikimas:
   Bus vertinamas tik tas kodas, kuris bus pa'commit'intas IKI 22:15
 
 Atlikimo būdas:
-  Dirbate savarankiškai, kontrolinio metu būti pokalbyje nėra būtina.
+  Dirbate savarankiškai.
 
 Eiga:
   1. Sukurkite repozitoriją, kurioje atliksite darbus. [1]

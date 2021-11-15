@@ -82,3 +82,10 @@
 9. Kiekvienoje FurnitureCardComponent kortelėje sukurkite ištrinimo mygtuką, kuris trintų kortelę ir kortelę atitinkančius duomenis serveryje [2]
   - Po ištrinimo turi dingti kortelė iš puslapyje matomų komponentų sąrašo ir serverio duomenų.
 
+kaupiamieji - 40%
+  html css - 7%
+  js - 10%
+  dom - 7%
+  react - 16%
+baigiamasis 35%
+teorinis 25%

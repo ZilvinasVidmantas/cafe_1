@@ -1,14 +1,7 @@
-import React from 'react';
-
-class Field extends React.Component {
-
-  // constructor(props){
-  //   super(props);
-  // }
+import React, { Component } from 'react';
+class Field extends Component {
 
   render() {
-    console.log('Field prop\'sai');
-    console.log(this.props);
     const { type, name, label, id } = this.props;
 
     return (

@@ -4,7 +4,7 @@ class Paragraph extends React.Component {
 
   render() {
     return (
-      <p>Paragrafo tekstas</p>
+      <p>{this.props.text}</p>
     );
   }
 }

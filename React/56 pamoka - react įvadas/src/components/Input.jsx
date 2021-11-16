@@ -3,8 +3,9 @@ import React from 'react';
 class Input extends React.Component {
 
   render() {
+    const { type, name} = this.props;
     return (
-      <input type="text" name="field" /> 
+      <input type={type} name={name} /> 
     );
   }
 }

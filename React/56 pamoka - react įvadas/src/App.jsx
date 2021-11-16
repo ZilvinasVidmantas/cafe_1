@@ -10,9 +10,9 @@ class App extends React.Component {
     return (
       <main>
         <h1>Čia yra aplikacija</h1>
-        <Header />
-        <Paragraph />
-        <Input />
+        <Header text="Headerio tekstas"/>
+        <Paragraph text="Paragrafo tekstas"/>
+        <Input type="number" name="pavadinimas"/>
         <Field
           type="password"
           label="Slaptažodis"

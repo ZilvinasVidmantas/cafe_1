@@ -1,5 +1,8 @@
 import React from 'react';
 import Paragraph from './components/Paragraph';
+import Header from './components/Header';
+import Input from './components/Input';
+import Field from './components/Field';
 
 class App extends React.Component {
 
@@ -7,15 +10,10 @@ class App extends React.Component {
     return (
       <main>
         <h1>Čia yra aplikacija</h1>
+        <Header />
         <Paragraph />
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
-        <Paragraph />
+        <Input />
+        <Field />
       </main>
     );
   }
@@ -24,6 +22,8 @@ class App extends React.Component {
 export default App;
 
 /*
+  PASIDARYKITE 10 MIN PERTAUKA
+
   Sukurkite Header.jsx komponentą, kuris kurtų:
      <h2>tekstas</h2> 
 

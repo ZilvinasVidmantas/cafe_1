@@ -2,11 +2,19 @@ import React from 'react';
 
 class Field extends React.Component {
 
+  // constructor(props){
+  //   super(props);
+  // }
+
   render() {
+    console.log('Field prop\'sai');
+    console.log(this.props);
+    const { type, name, label, id } = this.props;
+
     return (
       <div>
-        <label htmlFor="id-raktas">laukas</label> <br/>
-        <input type="text" name="field" id="id-raktas" />
+        <label htmlFor={id}>{label}</label> <br />
+        <input type={type} name={name} id={id} />
       </div>
     );
   }

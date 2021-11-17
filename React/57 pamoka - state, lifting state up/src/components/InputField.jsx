@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class InputField extends Component {
+class InputField extends PureComponent {
 
   handleInputChange = (e) => this.props.onChange(e.target.value);
 
   render() {
     const { type, name, label, id, value } = this.props;
+    console.log(`InputField[${name}].render()`);
 
     return (
       <div>

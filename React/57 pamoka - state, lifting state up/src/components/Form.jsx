@@ -1,86 +1,82 @@
 import React from 'react';
 import InputField from './InputField';
 class Form extends React.Component {
+
   state = {
-    name: 'Serbentautas',
-    surname: 'Bordiūras',
-    age: '19',
-    password: 'Labas123',
-    email: 'serbentas@gmail.com',
-    formDataJSON: ''
+    fields: {
+      name: {
+        type: 'text',
+        label: 'Vardas',
+        value: ''
+      },
+      surname: {
+        type: 'text',
+        label: 'Pavardė',
+        value: ''
+      },
+      age: {
+        type: 'number',
+        label: 'Amžius',
+        value: ''
+      },
+      password: {
+        type: 'password',
+        label: 'Slaptažodis',
+        value: ''
+      },
+      email: {
+        type: 'email',
+        label: 'El. paštas',
+        value: ''
+      },
+    },
+    fieldChangeHandlers: {
+      name: (value) => this.handleFieldChange('name', value),
+      surname: (value) => this.handleFieldChange('surname', value),
+      age: (value) => this.handleFieldChange('age', value),
+      password: (value) => this.handleFieldChange('password', value),
+      email: (value) => this.handleFieldChange('email', value),
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      formDataJSON: JSON.stringify({
-        name: this.state.name,
-        surname: this.state.surname,
-        age: this.state.age,
-        password: this.state.password,
-        email: this.state.email,
-      }, undefined, 1)
-    })
   }
 
-  handleNameChange = (name) => this.setState({ name });
+  handleFieldChange = (fieldName, value) => this.setState({
+    fields: {
+      ...this.state.fields,
+      [fieldName]: {
+        ...this.state.fields[fieldName],
+        value
+      }
+    }
+  });
 
-  handleSurnameChange = (surname) => this.setState({ surname });
-
-  handleAgeChange = (age) => this.setState({ age });
-
-  handleEmailChange = (email) => this.setState({ email });
-
-  handlePasswordChange = (password) => this.setState({ password });
+  createFields = () => Object.entries(this.state.fields)
+    .map(([name, { type, label, value }]) => (
+      <InputField
+        key={name}
+        name={name}
+        type={type}
+        label={label}
+        id={`${name}-field-id`}
+        value={value}
+        onChange={this.state.fieldChangeHandlers[name]}
+      />
+    ));
 
 
   render() {
-    console.log(this.state.formDataJSON);
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <InputField
-          name="name"
-          type="text"
-          label="Vardas"
-          id="name-field-id"
-          value={this.state.name}
-          onChange={this.handleNameChange}
-        />
-        <InputField
-          name="surname"
-          type="text"
-          label="Pavardė"
-          id="surname-field-id"
-          value={this.state.surname}
-          onChange={this.handleSurnameChange}
-        />
-        <InputField
-          name="age"
-          type="number"
-          label="Amžius"
-          id="age-field-id"
-          value={this.state.age}
-          onChange={this.handleAgeChange}
-        />
-        <InputField
-          name="email"
-          type="email"
-          label="El. Paštas"
-          id="email-field-id"
-          value={this.state.email}
-          onChange={this.handleEmailChange}
-        />
-        <InputField
-          name="password"
-          type="password"
-          label="Slaptažodis"
-          id="password-field-id"
-          value={this.state.password}
-          onChange={this.handlePasswordChange}
-        />
+    const fields = this.createFields();
 
-        <button type="submit">Submit</button>
-        <pre>{this.state.formDataJSON}</pre>
+    return (
+      <form onSubmit={this.handleSubmit} style={{ display: 'flex', gap: '40px' }}>
+        <div>
+          {fields}
+          <button type="submit">Submit</button>
+        </div>
+        <pre>{JSON.stringify(this.state, undefined, 1)}</pre>
       </form>
     )
   }
@@ -99,4 +95,9 @@ export default Form;
     * Papildyti state
     * Papildyti handleSubmit funkciją, jog this.stateformDataJSON atsirastų duomenys
     * sukurti funkcijas keisti naujų (name, surname, age) įvesčių reikšmes
+
+  Pertrauka 10 min
+  Analizė ir klausimų formavimas
+  tęsiame 20:50
+
 */

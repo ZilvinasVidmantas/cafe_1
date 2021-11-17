@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Field from './components/Field';
+import Form from './components/Form';
 
 class App extends Component {
 
@@ -7,22 +7,11 @@ class App extends Component {
     return (
       <main>
         <h1>Čia yra aplikacija</h1>
-        <Field
-          type="password"
-          label="Slaptažodis"
-          name="password"
-          id="password-field-id"
-        />
-        <Field
-          type="email"
-          label="El. Paštas"
-          name="email"
-          id="email-field-id"
-        />
+        <Form />
       </main>
     );
   }
 }
 
 export default App;
-
+// 19:15

@@ -1,18 +1,32 @@
-/*
-  1.Sukurti komponentą, kuris turėtų App.js faile aprašytus įvesties laukus apgaubtus 
-  <form>...</form>
+import React from 'react';
+import Field from './Field';
+class Form extends React.Component {
 
-  2. App įtraukite Form komponentą ir iš App pašalinkite įvesties laukus
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Pas\'submit\'inta');
+  }
 
-  3. Formai pridėkite mygtuką, su type="submit""
+  render(){
+    return(
+      <form onSubmit={this.handleSubmit}>
+         <Field
+          type="password"
+          label="Slaptažodis"
+          name="password"
+          id="password-field-id"
+        />
+        <Field
+          type="email"
+          label="El. Paštas"
+          name="email"
+          id="email-field-id"
+        />
 
-  4. Formai uždėkite sintetinį įvykio klausiklį (SyntheticEventListener) 'onSumbit', kurs vykdytų
-    Form komponenete aprašytą funkciją 'this.handleSubmit'
-      Šioje funkcijoje:
-        * nutraukite natūralų naršyklės persikrovivą
-        * astspausdinkite "Pasubmit'inta"
+        <button type="submit">Submit</button>
+      </form>
+    )
+  }
+}
 
-
-
-
-*/
+export default Form;

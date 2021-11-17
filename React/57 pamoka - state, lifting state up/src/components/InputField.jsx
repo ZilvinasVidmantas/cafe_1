@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
-class Field extends Component {
-  state = { value: '' };
+class InputField extends Component {
 
-  handleInputChange = (e) => this.setState({ value: e.target.value });
+  handleInputChange = (e) => this.props.onChange(e.target.value);
 
   render() {
-    const { type, name, label, id } = this.props;
+    const { type, name, label, id, value } = this.props;
 
     return (
       <div>
@@ -15,7 +14,7 @@ class Field extends Component {
           type={type}
           name={name}
           id={id}
-          value={this.state.value}
+          value={value}
           onChange={this.handleInputChange}
         />
       </div>
@@ -23,4 +22,4 @@ class Field extends Component {
   }
 }
 
-export default Field;
+export default InputField;

@@ -37,19 +37,10 @@ class Form extends React.Component {
     e.preventDefault();
   }
 
-  /*
-    Įrašykite gautą parametro <value> reikšmę į atitinkamą this.state.values lauko reikšmę pagal parametrą <fieldName>
-      tai atlikdami, nepakeiskite kitų this.state esančių duomenų
-
-    21:50
-  */ 
   handleFieldChange = (fieldName, value) => this.setState({
-    fields: {
-      ...this.state.fields,
-      [fieldName]: {
-        ...this.state.fields[fieldName],
-        value
-      }
+    values: {
+      ...this.state.values,
+      [fieldName]: value
     }
   });
 

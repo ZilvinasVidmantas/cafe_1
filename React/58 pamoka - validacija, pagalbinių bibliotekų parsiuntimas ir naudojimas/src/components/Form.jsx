@@ -52,6 +52,10 @@ class Form extends React.Component {
     // iki 18:10 sprendimas
     // 10 min pertrauka
     // 18:20 Atsakymas ir klausimai
+
+    // P.S.:
+    //  * Object.entries(...)
+    //  * Array.prototype.reduce
   } 
  
 

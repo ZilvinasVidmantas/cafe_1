@@ -10,27 +10,12 @@ class App extends Component {
         <Form
           title="Registracija"
           submitText="Registruotis"
-          fields={[{
-            name: 'name',
-            type: 'text',
-            label: 'Vardas',
-          }, {
-            name: 'surname',
-            type: 'text',
-            label: 'Pavardė',
-          }, {
-            name: 'age',
-            type: 'number',
-            label: 'Amžius',
-          }, {
-            name: 'password',
-            type: 'password',
-            label: 'Slaptažodis',
-          }, {
-            name: 'email',
-            type: 'email',
-            label: 'El. paštas',
-          },
+          fields={[
+            { name: 'name', type: 'text', label: 'Vardas' },
+            { name: 'surname', type: 'text', label: 'Pavardė' },
+            { name: 'age', type: 'number', label: 'Amžius' },
+            { name: 'password', type: 'password', label: 'Slaptažodis' },
+            { name: 'email', type: 'email', label: 'El. paštas' },
           ]}
         />
       </main>

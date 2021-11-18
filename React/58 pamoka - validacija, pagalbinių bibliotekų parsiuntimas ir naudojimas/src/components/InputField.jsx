@@ -6,7 +6,6 @@ class InputField extends PureComponent {
 
   render() {
     const { type, name, label, id, value } = this.props;
-    console.log(`InputField[${name}].render()`);
 
     return (
       <div>

@@ -2,42 +2,58 @@ import React from 'react';
 import InputField from './InputField';
 class Form extends React.Component {
 
-  state = {
-    fields: {
-      name: {
-        type: 'text',
-        label: 'Vardas',
-        value: ''
+  constructor(props){
+    super(props);
+    
+    
+    this.state = {
+      fields: {
+        name: {
+          type: 'text',
+          label: 'Vardas',
+          value: ''
+        },
+        surname: {
+          type: 'text',
+          label: 'Pavardė',
+          value: ''
+        },
+        age: {
+          type: 'number',
+          label: 'Amžius',
+          value: ''
+        },
+        password: {
+          type: 'password',
+          label: 'Slaptažodis',
+          value: ''
+        },
+        email: {
+          type: 'email',
+          label: 'El. paštas',
+          value: ''
+        },
       },
-      surname: {
-        type: 'text',
-        label: 'Pavardė',
-        value: ''
-      },
-      age: {
-        type: 'number',
-        label: 'Amžius',
-        value: ''
-      },
-      password: {
-        type: 'password',
-        label: 'Slaptažodis',
-        value: ''
-      },
-      email: {
-        type: 'email',
-        label: 'El. paštas',
-        value: ''
-      },
-    },
-    fieldChangeHandlers: {
-      name: (value) => this.handleFieldChange('name', value),
-      surname: (value) => this.handleFieldChange('surname', value),
-      age: (value) => this.handleFieldChange('age', value),
-      password: (value) => this.handleFieldChange('password', value),
-      email: (value) => this.handleFieldChange('email', value),
+      fieldChangeHandlers: {
+        name: (value) => this.handleFieldChange('name', value),
+        surname: (value) => this.handleFieldChange('surname', value),
+        age: (value) => this.handleFieldChange('age', value),
+        password: (value) => this.handleFieldChange('password', value),
+        email: (value) => this.handleFieldChange('email', value),
+      }
     }
-  }
+    console.log('Tai:');
+    console.log(props.fields);
+    console.log('Turi tapti, tai:');
+    console.log(this.state.fields);
+    // Rezultatus išsaugokite kitamajame:
+    // const fields = ...;
+
+    // iki 18:10 sprendimas
+    // 10 min pertrauka
+    // 18:20 Atsakymas ir klausimai
+  } 
+ 
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -67,14 +83,15 @@ class Form extends React.Component {
     ));
 
   render() {
+    const { title, submitText } = this.props;
     const fields = this.createFields();
 
     return (
       <form onSubmit={this.handleSubmit} style={{ display: 'flex', gap: '40px' }}>
         <div>
-          <h2>{this.props.title}</h2>
+          <h2>{title}</h2>
           {fields}
-          <button type="submit">Submit</button>
+          <button type="submit">{submitText}</button>
         </div>
         <pre>{JSON.stringify(this.state, undefined, 3)}</pre>
       </form>

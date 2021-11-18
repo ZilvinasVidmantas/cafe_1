@@ -8,27 +8,34 @@ class Form extends React.Component {
     const state = props.fields.reduce((result, { name, ...fieldProps }) => {
       result.fields[name] = { ...fieldProps, value: '' };
       result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
-      result.????[name] = ???;
+      result.errors[name] = null;
 
       return result;
     }, {
       fields: {},
-      fieldChangeHandlers: {}
-      // ???
+      fieldChangeHandlers: {},
+      errors: {}
     });
 
     /*
-      Naudodami tą patį reduce metodą, sugeneruoti objektą errors:
-       {
-        name: null,
-        surname: null,
-        age: null,
-        password: null,
-        email: null,
-      }
-      10
+      1. Pakeisti state struktūrą, jog pradinės reikšmės būtų išsaugomos atskirame objekte, 
+        values: {
+          name: '',
+          surname: '',
+          age: '',
+          password: '',
+          email: '',
+        }
+
+      2. Pervadinti state.fields į  ->  state.fieldProps
+
+      10 min sprendimui
+      10 min pertrauka
+      21:10
+      
     */
     this.state = state;
+    console.log(state);
 
 
   }

@@ -5,40 +5,32 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    const fields = props.fields.reduce((fieldsObject, { name,  ...fieldProps }) => {
-      fieldsObject[name] = {...fieldProps, value: '' };
-
-      return fieldsObject;
-    }, {});
-
-    const fieldChangeHandlers =  Object.keys(fields).reduce((handlers, fieldName) => {
-      handlers[fieldName] = value => this.handleFieldChange(fieldName, value);
-
-      return handlers;
-    }, {});
-
-    const state = props.fields.reduce((result, { name,  ...fieldProps }) => {
-      result.fields[name] = {...fieldProps, value: '' };
+    const state = props.fields.reduce((result, { name, ...fieldProps }) => {
+      result.fields[name] = { ...fieldProps, value: '' };
       result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
+      result.????[name] = ???;
 
       return result;
     }, {
       fields: {},
       fieldChangeHandlers: {}
+      // ???
     });
 
-    this.state = {
-      fields,
-      fieldChangeHandlers
-    };
+    /*
+      Naudodami tą patį reduce metodą, sugeneruoti objektą errors:
+       {
+        name: null,
+        surname: null,
+        age: null,
+        password: null,
+        email: null,
+      }
+      10
+    */
+    this.state = state;
 
-    console.log('Sugeneruota atskirai:');
-    console.log({
-      fields,
-      fieldChangeHandlers
-    })
-    console.log('Sugeneruota vienu ciklu:');
-    console.log(state);
+
   }
 
 

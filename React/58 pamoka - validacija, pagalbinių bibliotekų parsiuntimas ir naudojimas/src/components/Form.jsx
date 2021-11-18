@@ -72,10 +72,11 @@ class Form extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} style={{ display: 'flex', gap: '40px' }}>
         <div>
+          <h2>{this.props.title}</h2>
           {fields}
           <button type="submit">Submit</button>
         </div>
-        <pre>{JSON.stringify(this.state, undefined, 1)}</pre>
+        <pre>{JSON.stringify(this.state, undefined, 3)}</pre>
       </form>
     )
   }

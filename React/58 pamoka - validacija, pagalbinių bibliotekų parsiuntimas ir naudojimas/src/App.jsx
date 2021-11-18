@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <main>
         <h1>Čia yra aplikacija</h1>
-        <Form />
+        <Form title="Registracija"/>
       </main>
     );
   }
@@ -16,7 +16,8 @@ class App extends Component {
 export default App;
 
 /*
-  Sukurkite papildomą prop'są formai 'title': string. 
-    Perdavus šį prop'są formai, turi atsirast <h2>{this.props.title}</h2> antraštė virš formos
+  Sukurkite papildomą prop'są formai 'submitText': string. 
+    Panaudokite šį props'ą vietoj į'hardcode'into žodžiu Submit Formos mygtuke
 
+  18:20
 */

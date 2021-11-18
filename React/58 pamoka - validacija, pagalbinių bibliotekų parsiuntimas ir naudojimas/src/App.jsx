@@ -14,3 +14,9 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+  Sukurkite papildomą prop'są formai 'title': string. 
+    Perdavus šį prop'są formai, turi atsirast <h2>{this.props.title}</h2> antraštė virš formos
+
+*/

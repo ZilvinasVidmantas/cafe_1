@@ -17,25 +17,28 @@ class Form extends React.Component {
       return handlers;
     }, {});
 
-    /*
-      State'ui suformuotos reikšmės teisingai, tačiau naudojame 2 iteraciniu metodus. 
-        Iš perfekcionistinės perspektyvos, būtų galima ta parašyti su vienu iteraciniu metodu
+    const state = props.fields.reduce((result, { name,  ...fieldProps }) => {
+      result.fields[name] = {...fieldProps, value: '' };
+      result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
 
-        Pabandykite sukurti <fields> ir <fieldChangeHandlers> naudojant vieną Array,prototype.reduce metodą
-
-        25 sprendimas
-        10 min pertrauka
-
-        tęsiame 19:25
-    */
+      return result;
+    }, {
+      fields: {},
+      fieldChangeHandlers: {}
+    });
 
     this.state = {
       fields,
       fieldChangeHandlers
-    }
+    };
 
-
-
+    console.log('Sugeneruota atskirai:');
+    console.log({
+      fields,
+      fieldChangeHandlers
+    })
+    console.log('Sugeneruota vienu ciklu:');
+    console.log(state);
   }
 
 

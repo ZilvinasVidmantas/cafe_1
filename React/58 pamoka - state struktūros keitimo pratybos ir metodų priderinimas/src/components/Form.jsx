@@ -5,39 +5,31 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    const state = props.fields.reduce((result, { name, ...fieldProps }) => {
-      result.fields[name] = { ...fieldProps, value: '' };
+    // this.state = props.fields.reduce(({ fields, fieldChangeHandlers, errors, values }, { name, ...fieldProps }) => ({
+    //   fields: { ...fields, [name]: fieldProps },
+    //   fieldChangeHandlers: { ...fieldChangeHandlers, [name]: value => this.handleFieldChange(name, value) },
+    //   errors: { ...errors, [name]: null },
+    //   values: { ...values, [name]: '' },
+    // }), {
+    //   fields: {},
+    //   fieldChangeHandlers: {},
+    //   errors: {},
+    //   values: {}
+    // });
+
+    this.state = props.fields.reduce((result, { name, ...fieldProps }) => {
+      result.fieldsProps[name] = fieldProps;
       result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
       result.errors[name] = null;
+      result.values[name] = '';
 
       return result;
     }, {
-      fields: {},
+      fieldsProps: {},
       fieldChangeHandlers: {},
-      errors: {}
+      errors: {},
+      values: {}
     });
-
-    /*
-      1. Pakeisti state struktūrą, jog pradinės reikšmės būtų išsaugomos atskirame objekte, 
-        values: {
-          name: '',
-          surname: '',
-          age: '',
-          password: '',
-          email: '',
-        }
-
-      2. Pervadinti state.fields į  ->  state.fieldProps
-
-      10 min sprendimui
-      10 min pertrauka
-      21:10
-      
-    */
-    this.state = state;
-    console.log(state);
-
-
   }
 
 
@@ -45,6 +37,12 @@ class Form extends React.Component {
     e.preventDefault();
   }
 
+  /*
+    Įrašykite gautą parametro <value> reikšmę į atitinkamą this.state.values lauko reikšmę pagal parametrą <fieldName>
+      tai atlikdami, nepakeiskite kitų this.state esančių duomenų
+
+    21:50
+  */ 
   handleFieldChange = (fieldName, value) => this.setState({
     fields: {
       ...this.state.fields,
@@ -55,18 +53,20 @@ class Form extends React.Component {
     }
   });
 
-  createFields = () => Object.entries(this.state.fields)
-    .map(([name, { type, label, value }]) => (
+  createFields = () => {
+    const { fieldsProps, values, fieldChangeHandlers } = this.state;
+
+    return Object.keys(fieldsProps).map(name =>
       <InputField
         key={name}
         name={name}
-        type={type}
-        label={label}
         id={`${name}-field-id`}
-        value={value}
-        onChange={this.state.fieldChangeHandlers[name]}
+        value={values[name]}
+        onChange={fieldChangeHandlers[name]}
+        {...fieldsProps[name]}
       />
-    ));
+    );
+  }
 
   render() {
     const { title, submitText } = this.props;

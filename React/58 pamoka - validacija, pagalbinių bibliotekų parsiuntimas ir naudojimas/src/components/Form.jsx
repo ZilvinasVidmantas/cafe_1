@@ -2,38 +2,17 @@ import React from 'react';
 import InputField from './InputField';
 class Form extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    
-    
+
+    const fields = props.fields.reduce((fieldsObject, { name,  ...fieldProps }) => {
+      fieldsObject[name] = {...fieldProps, value: '' };
+
+      return fieldsObject;
+    }, {});
+
     this.state = {
-      fields: {
-        name: {
-          type: 'text',
-          label: 'Vardas',
-          value: ''
-        },
-        surname: {
-          type: 'text',
-          label: 'Pavardė',
-          value: ''
-        },
-        age: {
-          type: 'number',
-          label: 'Amžius',
-          value: ''
-        },
-        password: {
-          type: 'password',
-          label: 'Slaptažodis',
-          value: ''
-        },
-        email: {
-          type: 'email',
-          label: 'El. paštas',
-          value: ''
-        },
-      },
+      fields,
       fieldChangeHandlers: {
         name: (value) => this.handleFieldChange('name', value),
         surname: (value) => this.handleFieldChange('surname', value),
@@ -42,22 +21,18 @@ class Form extends React.Component {
         email: (value) => this.handleFieldChange('email', value),
       }
     }
-    console.log('Tai:');
-    console.log(props.fields);
-    console.log('Turi tapti, tai:');
-    console.log(this.state.fields);
-    // Rezultatus išsaugokite kitamajame:
-    // const fields = ...;
+    /*
+      MOKYMOSI TIKSLAIS:
+        Panaudokite performuotus laukus Objektu <fields>, kad suformuoti fieldChangeHandlers objektą 
+        19:40
 
-    // iki 18:10 sprendimas
-    // 10 min pertrauka
-    // 18:20 Atsakymas ir klausimai
+        const fieldsChangeHandlers = ...    
+        P.S.:
+          * Array.prototype.reduce
+          * Object.keys
+    */
+  }
 
-    // P.S.:
-    //  * Object.entries(...)
-    //  * Array.prototype.reduce
-  } 
- 
 
   handleSubmit = (e) => {
     e.preventDefault();

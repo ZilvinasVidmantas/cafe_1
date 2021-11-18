@@ -25,9 +25,3 @@ class App extends Component {
 
 export default App;
 
-/*
-  Sukurkite papildomą prop'są formai 'submitText': string.
-    Panaudokite šį props'ą vietoj į'hardcode'into žodžiu Submit Formos mygtuke
-
-  18:30
-*/

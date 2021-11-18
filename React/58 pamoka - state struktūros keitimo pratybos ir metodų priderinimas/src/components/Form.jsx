@@ -17,7 +17,7 @@ class Form extends React.Component {
     //   values: {}
     // });
 
-    this.state = props.fields.reduce((result, { name, ...fieldProps }) => {
+    const { fieldsProps, fieldChangeHandlers, ...state } = props.fields.reduce((result, { name, ...fieldProps }) => {
       result.fieldsProps[name] = fieldProps;
       result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
       result.errors[name] = null;
@@ -30,6 +30,12 @@ class Form extends React.Component {
       errors: {},
       values: {}
     });
+
+    this.fieldsProps = fieldsProps;
+    this.fieldChangeHandlers = fieldChangeHandlers;
+
+    this.state = state;
+
   }
 
 
@@ -45,7 +51,7 @@ class Form extends React.Component {
   });
 
   createFields = () => {
-    const { fieldsProps, values, fieldChangeHandlers } = this.state;
+    const { fieldsProps, fieldChangeHandlers, state: { values } } = this;
 
     return Object.keys(fieldsProps).map(name =>
       <InputField

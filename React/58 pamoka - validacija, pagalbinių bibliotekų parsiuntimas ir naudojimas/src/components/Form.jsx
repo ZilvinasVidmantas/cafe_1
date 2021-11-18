@@ -11,26 +11,31 @@ class Form extends React.Component {
       return fieldsObject;
     }, {});
 
+    const fieldChangeHandlers =  Object.keys(fields).reduce((handlers, fieldName) => {
+      handlers[fieldName] = value => this.handleFieldChange(fieldName, value);
+
+      return handlers;
+    }, {});
+
+    /*
+      State'ui suformuotos reikšmės teisingai, tačiau naudojame 2 iteraciniu metodus. 
+        Iš perfekcionistinės perspektyvos, būtų galima ta parašyti su vienu iteraciniu metodu
+
+        Pabandykite sukurti <fields> ir <fieldChangeHandlers> naudojant vieną Array,prototype.reduce metodą
+
+        25 sprendimas
+        10 min pertrauka
+
+        tęsiame 19:25
+    */
+
     this.state = {
       fields,
-      fieldChangeHandlers: {
-        name: (value) => this.handleFieldChange('name', value),
-        surname: (value) => this.handleFieldChange('surname', value),
-        age: (value) => this.handleFieldChange('age', value),
-        password: (value) => this.handleFieldChange('password', value),
-        email: (value) => this.handleFieldChange('email', value),
-      }
+      fieldChangeHandlers
     }
-    /*
-      MOKYMOSI TIKSLAIS:
-        Panaudokite performuotus laukus Objektu <fields>, kad suformuoti fieldChangeHandlers objektą 
-        19:40
 
-        const fieldsChangeHandlers = ...    
-        P.S.:
-          * Array.prototype.reduce
-          * Object.keys
-    */
+
+
   }
 
 

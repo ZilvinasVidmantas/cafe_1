@@ -1,56 +1,64 @@
 import React from 'react';
 import InputField from './InputField';
+
+
 class Form extends React.Component {
 
   constructor(props) {
     super(props);
 
-    // this.state = props.fields.reduce(({ fields, fieldChangeHandlers, errors, values }, { name, ...fieldProps }) => ({
-    //   fields: { ...fields, [name]: fieldProps },
-    //   fieldChangeHandlers: { ...fieldChangeHandlers, [name]: value => this.handleFieldChange(name, value) },
-    //   errors: { ...errors, [name]: null },
-    //   values: { ...values, [name]: '' },
-    // }), {
-    //   fields: {},
-    //   fieldChangeHandlers: {},
-    //   errors: {},
-    //   values: {}
-    // });
+    const { fieldsProps, fieldChangeHandlers, validators, ...state } = props.fields.reduce(
+      (result, { name, validator, ...fieldProps }) => {
+        result.fieldsProps[name] = fieldProps;
+        result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
+        result.errors[name] = null;
+        result.values[name] = '';
+        if (validator) {
+          result.validators[name] = validator;
+        }
 
-    const { fieldsProps, fieldChangeHandlers, ...state } = props.fields.reduce((result, { name, ...fieldProps }) => {
-      result.fieldsProps[name] = fieldProps;
-      result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
-      result.errors[name] = null;
-      result.values[name] = '';
-
-      return result;
-    }, {
+        return result;
+      }, {
       fieldsProps: {},
       fieldChangeHandlers: {},
       errors: {},
-      values: {}
+      values: {},
+      validators: {}
     });
 
     this.fieldsProps = fieldsProps;
     this.fieldChangeHandlers = fieldChangeHandlers;
+    this.validators = validators;
 
     this.state = state;
   }
-
 
   handleSubmit = (e) => {
     e.preventDefault();
   }
 
-  handleFieldChange = (fieldName, value) => this.setState({
-    values: {
-      ...this.state.values,
-      [fieldName]: value
+  handleFieldChange = (fieldName, value) => {
+    const newState = {
+      values: {
+        ...this.state.values,
+        [fieldName]: value
+      }
     }
-  });
+    
+    const fieldValidator = this.validators[fieldName];
+    if (this.validators[fieldName]) {
+      const errorResult = fieldValidator(value);
+      newState.errors = {
+        ...this.state.errors,
+        [fieldName]: errorResult === true ? null : errorResult
+      }
+    }
+
+    this.setState(newState);
+  }
 
   createFields = () => {
-    const { fieldsProps, fieldChangeHandlers, state: { values } } = this;
+    const { fieldsProps, fieldChangeHandlers, state: { values, errors } } = this;
 
     return Object.keys(fieldsProps).map(name =>
       <InputField
@@ -58,6 +66,7 @@ class Form extends React.Component {
         name={name}
         id={`${name}-field-id`}
         value={values[name]}
+        error={errors[name]}
         onChange={fieldChangeHandlers[name]}
         {...fieldsProps[name]}
       />

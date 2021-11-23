@@ -80,6 +80,17 @@ class Form extends React.Component {
     );
   }
 
+  /* 
+    Sukurkite submit mygtukui stilius:
+      * pagrąžintas paprastas mygtukas ( savo nuožiūra )                    .submitBtn
+      * pagrąžintas paprastas mygtukas + ATRODANTIS UŽBUKINTAS/PAPILKINTAS  .submitBtn.muted
+    
+    Eiga:
+      * Komponentui sukurkite aplanką, tokiu pavadinimu, kaip vadinasi failas
+      * failą pervadinkite index.jsx
+      * stilius saugokit faile styles.module.scss tame pačiame aplanke kaip ir komponento logika
+      * panaudokite stilius, importuojant scss failo klasių pavadinimus į kintamajį <styles>
+    */
   render() {
     const { title, submitText } = this.props;
     const fields = this.createFields();
@@ -89,7 +100,8 @@ class Form extends React.Component {
         <div>
           <h2>{title}</h2>
           {fields}
-          <button type="submit">{submitText}</button>
+          <button type="submit" className={styles.submitBtn}>{submitText}</button>
+          <button type="submit" className={styles.submitBtn + ' ' + styles.muted}>{submitText}</button>
         </div>
         <pre>{JSON.stringify(this.state, undefined, 3)}</pre>
       </form>

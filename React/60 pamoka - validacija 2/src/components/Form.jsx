@@ -32,8 +32,17 @@ class Form extends React.Component {
     this.state = state;
   }
 
+  get valid(){
+    // 1.
+    // grąžinti true, jeigu formoje nėra klaidų
+  }
+
+
   handleSubmit = (e) => {
     e.preventDefault();
+    // 2.
+    // Vykdyti <this.props.onSubmit> funkciją tik tuomet, jeigu forma yra be klaidų
+    // P.S.: panaudoti get'erį <valid>
     this.props.onSubmit(this.state.values);
   }
 

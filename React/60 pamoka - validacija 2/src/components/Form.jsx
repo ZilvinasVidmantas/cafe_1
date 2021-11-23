@@ -32,18 +32,17 @@ class Form extends React.Component {
     this.state = state;
   }
 
-  get valid(){
-    // 1.
-    // grąžinti true, jeigu formoje nėra klaidų
+  get valid() {
+    return Object.values(this.state.errors).every(x => x === null);
   }
-
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // 2.
-    // Vykdyti <this.props.onSubmit> funkciją tik tuomet, jeigu forma yra be klaidų
-    // P.S.: panaudoti get'erį <valid>
-    this.props.onSubmit(this.state.values);
+    if (this.valid) {
+      this.props.onSubmit(this.state.values);
+    } else {
+      console.error('Yra klaidų. Uždaugęs būsiu alert\'u su animacija');
+    }
   }
 
   handleFieldChange = (fieldName, value) => {
@@ -53,7 +52,7 @@ class Form extends React.Component {
         [fieldName]: value
       }
     }
-    
+
     const fieldValidator = this.validators[fieldName];
     if (fieldValidator) {
       newState.errors = {

@@ -29,15 +29,6 @@ class App extends Component {
     console.log('Funkcija vykdoma App komponente')
   }
 
-  /*
-    įgalinkite komponente Form, jog funkcija <doStuff> išsikviestų, kuomet
-    submit'iname formą;
-
-    P.S.:
-      * Perduokite funkciją naudodami props'ą: onSubmit
-  
-  */
-
   render() {
     return (
       <main style={{ width: '900px', margin: '1rem auto' }}>
@@ -46,6 +37,7 @@ class App extends Component {
           title="Registracija"
           submitText="Registruotis"
           fields={formFields}
+          onSubmit={this.doStuff}
         />
       </main>
     );

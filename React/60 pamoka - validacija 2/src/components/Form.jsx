@@ -1,7 +1,6 @@
 import React from 'react';
 import InputField from './InputField';
 
-
 class Form extends React.Component {
 
   constructor(props) {
@@ -35,6 +34,7 @@ class Form extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.onSubmit(this.state.values);
   }
 
   handleFieldChange = (fieldName, value) => {

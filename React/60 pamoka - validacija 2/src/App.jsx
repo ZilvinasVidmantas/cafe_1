@@ -3,17 +3,21 @@ import validator from 'validator';
 import Form from './components/Form';
 
 // 2-32 simbolių, tik raidės ir tarpai 
-const nameValidator = (val) => /^[a-zA-Z ąčęėįšųūžĄČĘĖĮŠŲŪŽ]{2,32}$/.test(val) 
-  ? null 
+const nameValidator = (val) => /^[a-zA-Z ąčęėįšųūžĄČĘĖĮŠŲŪŽ]{2,32}$/.test(val)
+  ? null
   : 'Privalo būti nuo 2 iki 32 lietuviškų raidžių';
 // 2-32 simbolių, tik raidės ir tarpai 
-const surnameValidator = (val) => val.length < 6 ? 'Klaida' : null;
+const surnameValidator = (val) => /^[a-zA-Z ąčęėįšųūžĄČĘĖĮŠŲŪŽ]{2,32}$/.test(val)
+  ? null
+  : 'Privalo būti nuo 2 iki 32 lietuviškų raidžių';
 // 1 - 150 
-const ageValidator = (val) => val.length < 6 ? 'Klaida' : null;
+const ageValidator = (val) => validator.isInt(val, { min: 1, max: 150 }) ? null : 'Amžius privalo būti nuo 1 iki 150 metų.';
 // 1 Didžioji, 1 Mažoji, min 6 simboliai
-const passwordValidator = (val) => val.length < 6 ? 'Klaida' : null;
+const passwordValidator = (val) => validator.isStrongPassword(val, { minLength: 6, minSymbols: 0, minNumbers: 0 })
+  ? null
+  : 'Slapažodis privalo būti nors 6 simbolių, su nors viena mažąja ir nors viena didžiąja raide.';
 // Turi būt paštas
-const emailValidator = (val) => val.length < 6 ? 'Klaida' : null;
+const emailValidator = (val) => validator.isEmail(val) ? null : 'Neteisingas pašto formatas';
 
 const formFields = [
   { name: 'name', type: 'text', label: 'Vardas', validator: nameValidator },

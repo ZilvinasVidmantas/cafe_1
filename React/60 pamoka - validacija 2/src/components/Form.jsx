@@ -46,11 +46,10 @@ class Form extends React.Component {
     }
     
     const fieldValidator = this.validators[fieldName];
-    if (this.validators[fieldName]) {
-      const errorResult = fieldValidator(value);
+    if (fieldValidator) {
       newState.errors = {
         ...this.state.errors,
-        [fieldName]: errorResult === true ? null : errorResult
+        [fieldName]: fieldValidator(value)
       }
     }
 

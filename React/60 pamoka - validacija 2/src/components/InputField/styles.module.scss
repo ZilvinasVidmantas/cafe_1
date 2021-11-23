@@ -1,3 +1,5 @@
+@import "src/styles/variables.scss";
+
 .container {
   margin-bottom: 0.25rem;
 }
@@ -11,7 +13,7 @@
 }
 
 .fieldContainer.error {
-  color: red;
+  color: $errorColor;
 }
 
 .label {
@@ -22,7 +24,7 @@
 .fieldContainer:before {
   content: '';
   height: 1px;
-  background: #888;
+  background: $defaultColor;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -30,12 +32,12 @@
 }
 
 .fieldContainer.error:before {
-  background: #be1d1d;
+  background: $errorColorDarken;
 }
 
 .lineFocused {
   height: 1.3px;
-  background: linear-gradient(90deg, #888 0%, rgb(66, 0, 172) 50%);
+  background: linear-gradient(90deg, $defaultColor 0%, $primaryColor 50%);
   width: 200%;
   position: absolute;
   bottom: 0;
@@ -44,7 +46,7 @@
 }
 
 .fieldContainer.error>.lineFocused {
-  background: linear-gradient(90deg, #be1d1d 0%, red 50%);
+  background: linear-gradient(90deg, $errorColorDarken 0%, $errorColor 50%);
 }
 
 .input {
@@ -53,7 +55,7 @@
 }
 
 .fieldContainer.error>.input {
-  color: red;
+  color: $errorColor;
 }
 
 .input:focus {
@@ -66,6 +68,6 @@
 }
 
 .errorMessage {
-  color: red;
+  color: $errorColor;
   font-size: 0.7em;
 }

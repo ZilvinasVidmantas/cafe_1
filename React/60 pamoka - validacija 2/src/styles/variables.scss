@@ -1,4 +1,8 @@
+$white: #fff;
+$grey: #bbb;
 $errorColor: red;
 $errorColorDarken: darken($errorColor, 15);
 $defaultColor: #888;
-$primaryColor: #4200ac;
+$primaryColor: #1d8cc0;
+$primaryColorHover: darken($primaryColor, 15);
+$primaryColorMuted: desaturate($primaryColor, 50%);

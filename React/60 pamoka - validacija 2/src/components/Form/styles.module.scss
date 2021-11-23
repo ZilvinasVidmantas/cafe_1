@@ -1,0 +1,21 @@
+@import "src/styles/variables.scss";
+
+.submitBtn {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  outline: none;
+  background: $primaryColor;
+  color: $white;
+}
+
+.submitBtn:hover {
+  background: $primaryColorHover;
+  cursor: pointer;
+}
+
+.submitBtn.muted {
+  background: $primaryColorMuted;
+  user-select: none;
+  cursor: not-allowed;
+  color: $grey;
+}

@@ -1,0 +1,71 @@
+.container {
+  margin-bottom: 0.25rem;
+}
+
+.fieldContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1px;
+}
+
+.fieldContainer.error {
+  color: red;
+}
+
+.label {
+  display: block;
+  font-size: 0.8em
+}
+
+.fieldContainer:before {
+  content: '';
+  height: 1px;
+  background: #888;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.fieldContainer.error:before {
+  background: #be1d1d;
+}
+
+.lineFocused {
+  height: 1.3px;
+  background: linear-gradient(90deg, #888 0%, rgb(66, 0, 172) 50%);
+  width: 200%;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  transition: left 0.3s linear;
+}
+
+.fieldContainer.error>.lineFocused {
+  background: linear-gradient(90deg, #be1d1d 0%, red 50%);
+}
+
+.input {
+  border: none;
+  outline: none;
+}
+
+.fieldContainer.error>.input {
+  color: red;
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+}
+
+.input:focus~.lineFocused {
+  left: -100%;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.7em;
+}

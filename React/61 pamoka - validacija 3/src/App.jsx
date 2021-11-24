@@ -33,12 +33,12 @@ class App extends Component {
     return (
       <main style={{ width: '900px', margin: '1rem auto' }}>
         <h1>Čia yra aplikacija</h1>
-        <Form
+        {/* <Form
           title="Registracija"
           submitText="Registruotis"
           fields={formFields}
           onSubmit={this.doStuff}
-        />
+        /> */}
       </main>
     );
   }
@@ -47,12 +47,21 @@ class App extends Component {
 export default App;
 /*
    Validacijos temos užduotys:
-    * Rodyti muted mygtuką, jeigu forma nevalidi
+    // * Rodyti muted mygtuką, jeigu forma nevalidi
     * Sukurti SelectField
+      * Sukurkite SelectField komponentą 
+      * Sukurkite komponentui vaizdą render metode. Kolkas, duomenis į'hardcode'inkite
+      * Sukurkite ir perduokite SelectField'ui prop'sus
+        * Kuom skiriasi <select>... <option value=".."></options> ... </select> nuo <input ...> ? 
+        * Kokie prop'sai turėtų būti perduodami SelectField'ui?
+        * Kaip pavyzdį naudokite InputField
+        * App komponente, sukurkite SelectField pavyzdį su miestais ['vilnius', 'kaunas', 'klaipeda']
+    -----------
     * Iškelti InputField ir SelectField bendrus dalykus į Field komponentą (Panaikinti perpanaudojimą)
     * Iškelti validavimo prop'sus į atskirą objektą
     * Įgalinti Form komponentui galimybę validuoti kiekvieną input individualiai arba paspaudus submit 
       * naudojant prop: <validationOnSubmit>
+      * 
     * Pakeisti state neturinčius komponentus funkciniais
 */
 

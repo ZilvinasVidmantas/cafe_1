@@ -6,7 +6,7 @@ class InputField extends PureComponent {
   handleInputChange = (e) => this.props.onChange(e.target.value);
 
   render() {
-    const { type, name, label, id, value, error } = this.props;
+    const { type, name, label, id, value, error, onFocus } = this.props;
 
     let className = styles.fieldContainer;
     if (error) className += ' ' + styles.error;
@@ -22,6 +22,7 @@ class InputField extends PureComponent {
             id={id}
             value={value}
             onChange={this.handleInputChange}
+            onFocus={onFocus}
           />
           <div className={styles.lineFocused}></div>
         </div>

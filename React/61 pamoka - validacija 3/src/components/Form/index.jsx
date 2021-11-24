@@ -11,10 +11,12 @@ class Form extends React.Component {
       (result, { name, validator, ...fieldProps }) => {
         result.fieldsProps[name] = fieldProps;
         result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
-        result.errors[name] = null;
         result.values[name] = '';
+        result.errors[name] = null;
+        result.touched[name] = false;
         if (validator) {
           result.validators[name] = validator;
+          result.errors[name] = validator('');
         }
 
         return result;
@@ -23,6 +25,7 @@ class Form extends React.Component {
       fieldChangeHandlers: {},
       errors: {},
       values: {},
+      touched: {},
       validators: {}
     });
 
@@ -41,8 +44,6 @@ class Form extends React.Component {
     e.preventDefault();
     if (this.valid) {
       this.props.onSubmit(this.state.values);
-    } else {
-      console.error('Yra klaidų. Uždaugęs būsiu alert\'u su animacija');
     }
   }
 
@@ -65,8 +66,17 @@ class Form extends React.Component {
     this.setState(newState);
   }
 
+  handleTouch = (event) => {
+    this.setState(state => ({
+      touched: {
+        ...state.touched,
+        [event.target.name]: true
+      }
+    }));
+  }
+
   createFields = () => {
-    const { fieldsProps, fieldChangeHandlers, state: { values, errors } } = this;
+    const { fieldsProps, fieldChangeHandlers, state: { values, errors, touched } } = this;
 
     return Object.keys(fieldsProps).map(name =>
       <InputField
@@ -74,35 +84,27 @@ class Form extends React.Component {
         name={name}
         id={`${name}-field-id`}
         value={values[name]}
-        error={errors[name]}
+        error={touched[name] && errors[name]}
         onChange={fieldChangeHandlers[name]}
+        onFocus={this.handleTouch}
         {...fieldsProps[name]}
       />
     );
   }
 
-  /* 
-    Sukurkite submit mygtukui stilius:
-      * pagrąžintas paprastas mygtukas ( savo nuožiūra )                    .submitBtn
-      * pagrąžintas paprastas mygtukas + ATRODANTIS UŽBUKINTAS/PAPILKINTAS  .submitBtn.muted
-    
-    Eiga:
-      * Komponentui sukurkite aplanką, tokiu pavadinimu, kaip vadinasi failas
-      * failą pervadinkite index.jsx
-      * stilius saugokit faile styles.module.scss tame pačiame aplanke kaip ir komponento logika
-      * panaudokite stilius, importuojant scss failo klasių pavadinimus į kintamajį <styles>
-    */
   render() {
     const { title, submitText } = this.props;
     const fields = this.createFields();
+
+    let submitBtnClassName = styles.submitBtn;
+    if (!this.valid) submitBtnClassName += ' ' + styles.muted;
 
     return (
       <form onSubmit={this.handleSubmit} style={{ display: 'flex', gap: '40px' }}>
         <div>
           <h2>{title}</h2>
           {fields}
-          <button type="submit" className={styles.submitBtn}>{submitText}</button>
-          <button type="submit" className={styles.submitBtn + ' ' + styles.muted}>{submitText}</button>
+          <button type="submit" className={submitBtnClassName}>{submitText}</button>
         </div>
         <pre>{JSON.stringify(this.state, undefined, 3)}</pre>
       </form>

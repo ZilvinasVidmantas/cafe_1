@@ -45,4 +45,14 @@ class App extends Component {
 }
 
 export default App;
+/*
+   Validacijos temos užduotys:
+    * Rodyti muted mygtuką, jeigu forma nevalidi
+    * Sukurti SelectField
+    * Iškelti InputField ir SelectField bendrus dalykus į Field komponentą (Panaikinti perpanaudojimą)
+    * Iškelti validavimo prop'sus į atskirą objektą
+    * Įgalinti Form komponentui galimybę validuoti kiekvieną input individualiai arba paspaudus submit 
+      * naudojant prop: <validationOnSubmit>
+    * Pakeisti state neturinčius komponentus funkciniais
+*/
 

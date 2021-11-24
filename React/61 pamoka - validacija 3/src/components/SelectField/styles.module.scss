@@ -1,0 +1,73 @@
+@import "src/styles/variables.scss";
+// 19:10
+.container {
+  margin-bottom: 0.25rem;
+}
+
+.fieldContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1px;
+}
+
+.fieldContainer.error {
+  color: $errorColor;
+}
+
+.label {
+  display: block;
+  font-size: 0.8em
+}
+
+.fieldContainer:before {
+  content: '';
+  height: 1px;
+  background: $defaultColor;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.fieldContainer.error:before {
+  background: $errorColorDarken;
+}
+
+.lineFocused {
+  height: 1.3px;
+  background: linear-gradient(90deg, $defaultColor 0%, $primaryColor 50%);
+  width: 200%;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  transition: left 0.3s linear;
+}
+
+.fieldContainer.error>.lineFocused {
+  background: linear-gradient(90deg, $errorColorDarken 0%, $errorColor 50%);
+}
+
+select {
+  border: none;
+  outline: none;
+}
+
+.fieldContainer.error>select {
+  color: $errorColor;
+}
+
+select:focus {
+  border: none;
+  outline: none;
+}
+
+select:focus~.lineFocused {
+  left: -100%;
+}
+
+.errorMessage {
+  color: $errorColor;
+  font-size: 0.7em;
+}

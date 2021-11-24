@@ -1,5 +1,6 @@
 import React from 'react';
 import InputField from '../InputField';
+import SelectField from '../SelectField';
 import styles from './styles.module.scss';
 
 class Form extends React.Component {
@@ -7,11 +8,10 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    const { fieldsProps, fieldChangeHandlers, validators, ...state } = props.fields.reduce(
+    const { fieldsProps, validators, ...state } = props.fields.reduce(
       (result, { name, validator, ...fieldProps }) => {
         result.fieldsProps[name] = fieldProps;
-        result.fieldChangeHandlers[name] = value => this.handleFieldChange(name, value);
-        result.values[name] = '';
+        result.values[name] = fieldProps.options ? fieldProps.options[0].value : '';
         result.errors[name] = null;
         result.touched[name] = false;
         if (validator) {
@@ -22,7 +22,6 @@ class Form extends React.Component {
         return result;
       }, {
       fieldsProps: {},
-      fieldChangeHandlers: {},
       errors: {},
       values: {},
       touched: {},
@@ -30,7 +29,6 @@ class Form extends React.Component {
     });
 
     this.fieldsProps = fieldsProps;
-    this.fieldChangeHandlers = fieldChangeHandlers;
     this.validators = validators;
 
     this.state = state;
@@ -47,7 +45,8 @@ class Form extends React.Component {
     }
   }
 
-  handleFieldChange = (fieldName, value) => {
+  handleFieldChange = (event) => {
+    const { value, name: fieldName} = event.target;
     const newState = {
       values: {
         ...this.state.values,
@@ -76,19 +75,23 @@ class Form extends React.Component {
   }
 
   createFields = () => {
-    const { fieldsProps, fieldChangeHandlers, state: { values, errors, touched } } = this;
+    const { fieldsProps, state: { values, errors, touched } } = this;
 
-    return Object.keys(fieldsProps).map(name =>
-      <InputField
-        key={name}
-        name={name}
-        id={`${name}-field-id`}
-        value={values[name]}
-        error={touched[name] && errors[name]}
-        onChange={fieldChangeHandlers[name]}
-        onFocus={this.handleTouch}
-        {...fieldsProps[name]}
-      />
+    return Object.keys(fieldsProps).map(name => {
+      const fieldProps = fieldsProps[name];
+      const props = {
+        key: name,
+        name: name,
+        id: `${name}-field-id`,
+        value: values[name],
+        error: touched[name] && errors[name],
+        onChange: this.handleFieldChange,
+        onFocus: this.handleTouch,
+        ...fieldProps
+      }
+
+      return fieldProps.options ? <SelectField {...props} /> : <InputField {...props} />;
+    }
     );
   }
 

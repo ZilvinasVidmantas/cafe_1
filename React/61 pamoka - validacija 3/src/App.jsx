@@ -20,9 +20,36 @@ const formFields = [
   { name: 'age', type: 'number', label: 'Amžius', validator: ageValidator },
   { name: 'password', type: 'password', label: 'Slaptažodis', validator: passwordValidator },
   { name: 'email', type: 'email', label: 'El. paštas', validator: emailValidator },
+  {
+    name: 'city',
+    label: 'Miestas',
+    options: [
+      { value: '', title: '-- Pasirinkite Miestą', disabled: true },
+      { value: 'vilnius', title: 'Vilnius' },
+      { value: 'kaunas', title: 'Kaunas' },
+      { value: 'klaipeda', title: 'Klaipėda' },
+    ],
+    validator: val => !validator.isEmpty(val) ? null : 'Pasirinkite miestą',
+  },
 ];
 
 class App extends Component {
+  constructor() {
+    super();
+
+    const options = [
+      { value: '', title: '-- Pasirinkite Miestą', disabled: true },
+      { value: 'vilnius', title: 'Vilnius' },
+      { value: 'kaunas', title: 'Kaunas' },
+      { value: 'klaipeda', title: 'Klaipėda' },
+    ];
+
+    this.state = {
+      options: options,
+      selectedCity: options[0].value
+    };
+  }
+
   doStuff = (data) => {
     console.log('Funkcija vykdoma App komponente')
     console.log(data);
@@ -33,12 +60,13 @@ class App extends Component {
     return (
       <main style={{ width: '900px', margin: '1rem auto' }}>
         <h1>Čia yra aplikacija</h1>
-        {/* <Form
+        <Form
           title="Registracija"
           submitText="Registruotis"
           fields={formFields}
           onSubmit={this.doStuff}
-        /> */}
+        />
+
       </main>
     );
   }
@@ -46,22 +74,23 @@ class App extends Component {
 
 export default App;
 /*
+  19:20
    Validacijos temos užduotys:
     // * Rodyti muted mygtuką, jeigu forma nevalidi
-    * Sukurti SelectField
-      * Sukurkite SelectField komponentą 
-      * Sukurkite komponentui vaizdą render metode. Kolkas, duomenis į'hardcode'inkite
-      * Sukurkite ir perduokite SelectField'ui prop'sus
-        * Kuom skiriasi <select>... <option value=".."></options> ... </select> nuo <input ...> ? 
-        * Kokie prop'sai turėtų būti perduodami SelectField'ui?
-        * Kaip pavyzdį naudokite InputField
-        * App komponente, sukurkite SelectField pavyzdį su miestais ['vilnius', 'kaunas', 'klaipeda']
+    // * Sukurti SelectField
+      // * Sukurkite SelectField komponentą
+      // * Sukurkite komponentui vaizdą render metode. Kolkas, duomenis į'hardcode'inkite
+      // * Sukurkite ir perduokite SelectField'ui prop'sus
+        // * Kuom skiriasi <select>... <option value=".."></options> ... </select> nuo <input ...> ?
+        // * Kokie prop'sai turėtų būti perduodami SelectField'ui?
+        // * Kaip pavyzdį naudokite InputField
+        // * App komponente, sukurkite SelectField pavyzdį su miestais ['vilnius', 'kaunas', 'klaipeda']
     -----------
     * Iškelti InputField ir SelectField bendrus dalykus į Field komponentą (Panaikinti perpanaudojimą)
     * Iškelti validavimo prop'sus į atskirą objektą
-    * Įgalinti Form komponentui galimybę validuoti kiekvieną input individualiai arba paspaudus submit 
+    * Įgalinti Form komponentui galimybę validuoti kiekvieną input individualiai arba paspaudus submit
       * naudojant prop: <validationOnSubmit>
-      * 
+      *
     * Pakeisti state neturinčius komponentus funkciniais
 */
 

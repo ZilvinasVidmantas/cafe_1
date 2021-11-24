@@ -34,7 +34,6 @@ export default class SelectField extends Component {
         </div>
         {error ? <div className={styles.errorMessage}>{error}</div> : null}
       </div>
-
     );
   }
 }

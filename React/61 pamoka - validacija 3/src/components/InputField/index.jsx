@@ -26,7 +26,6 @@ class InputField extends PureComponent {
         </div>
         {error ? <div className={styles.errorMessage}>{error}</div> : null}
       </div>
-
     );
   }
 }

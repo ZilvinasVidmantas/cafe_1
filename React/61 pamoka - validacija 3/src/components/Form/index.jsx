@@ -16,7 +16,7 @@ class Form extends React.Component {
         result.touched[name] = false;
         if (validator) {
           result.validators[name] = validator;
-          result.errors[name] = validator('');
+          result.errors[name] = validator(result.values[name]);
         }
 
         return result;
@@ -46,7 +46,7 @@ class Form extends React.Component {
   }
 
   handleFieldChange = (event) => {
-    const { value, name: fieldName} = event.target;
+    const { value, name: fieldName } = event.target;
     const newState = {
       values: {
         ...this.state.values,
@@ -91,8 +91,7 @@ class Form extends React.Component {
       }
 
       return fieldProps.options ? <SelectField {...props} /> : <InputField {...props} />;
-    }
-    );
+    });
   }
 
   render() {

@@ -34,22 +34,7 @@ const formFields = [
 ];
 
 class App extends Component {
-  constructor() {
-    super();
-
-    const options = [
-      { value: '', title: '-- Pasirinkite Miestą', disabled: true },
-      { value: 'vilnius', title: 'Vilnius' },
-      { value: 'kaunas', title: 'Kaunas' },
-      { value: 'klaipeda', title: 'Klaipėda' },
-    ];
-
-    this.state = {
-      options: options,
-      selectedCity: options[0].value
-    };
-  }
-
+  
   doStuff = (data) => {
     console.log('Funkcija vykdoma App komponente')
     console.log(data);

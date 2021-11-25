@@ -1,35 +1,43 @@
 import { useState } from 'react';
 
-const arithmeticActions = {
-  add: (a, b) => a + b,
-  subtract: (a, b) => a - b,
-  multiply: (a, b) => a * b,
-  divide: (a, b) => a / b,
-}
+const { arithmeticActions, options, initialOption } = [
+  { name: 'add', action: (a, b) => a + b, text: 'Pridėti' },
+  { name: 'subtract', action: (a, b) => a - b, text: 'Atimti' },
+  { name: 'multiply', action: (a, b) => a * b, text: 'Padauginti' },
+  { name: 'divide', action: (a, b) => a / b, text: 'Padalinti' },
+]
+  .reduce((result, { name, action, text }, i) => {
+    if(i === 0) result.initialOption = name;
+    result.arithmeticActions[name] = action;
+    result.options.push(<option key={name} value={name}>{text}</option>);
+    return result;
+  }, {
+    arithmeticActions: {},
+    options: [],
+    initialOption: null
+  });
 
 const App = () => {
-  const [counter, setCounter] = useState(5);
-  const [amount, setAmount] = useState(2);
-  const [arithmeticAction, setArtimethicAction] = useState();
+  const [base, setBase] = useState(1);
+  const [operand, setOperand] = useState(1);
+  const [selectedAction, setSelectedAction] = useState(initialOption);
+
+  const [handleCalculation] = useState(() => () => {
+    const selectedFunction = arithmeticActions[selectedAction];
+    const calculateValue = selectedFunction(base, operand);
+    setBase(calculateValue);
+  });
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>{counter}</h1>
-      <input type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} />
-      <select value="ccc" onChange={(event) => {/* Ką daryti, jeigu keičiasi pasirinkta reikšmė*/ }}>
-        <option value="aaa">Add</option>
-        <option value="bbb">Subtract</option>
-        <option value="ccc">Multiply</option>
-        <option value="ddd">Divide</option>
+      <h1>{base}</h1>
+      <input type="number" value={operand} onChange={(e) => setOperand(Number(e.target.value))} />
+      <select value={selectedAction} onChange={(event) => setSelectedAction(event.target.value)}>
+        {options}
       </select>
-      <button onClick={() => { }}>Count</button>
+      <button onClick={handleCalculation}>Calculate</button>
     </div>
   );
 }
 
 export default App;
-
-/*
-  Įgalinkite logiką, jog paspaudus mygtuką 'count', būtų atliekaas veiksmas, kuris nurodytas select'e
-
-*/

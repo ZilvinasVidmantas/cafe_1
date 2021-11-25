@@ -7,6 +7,7 @@ const App = () => {
     <div style={{ textAlign: 'center'}}>
       <h1>{counter}</h1>
       <button onClick={() => setCounter(counter + 1)}>Increase</button>
+      <button onClick={() => setCounter(counter - 1)}>Decrease</button>
     </div>
   );
 }
@@ -14,6 +15,6 @@ const App = () => {
 export default App;
 
 /*
-  Sukurkite mygtuką, kuris sumažintų <counter> reikšmę vienetu
-
+  Sukurkite input'ą, kuriame saugokite skaičių, susietą dvipusiu(two-way) binding būdų
+  Paspaudus paddinimo/sumažinimo mygtukus, turi būti didinama/mažina pagal įvesties lauke įrašytą reikšmę 
 */

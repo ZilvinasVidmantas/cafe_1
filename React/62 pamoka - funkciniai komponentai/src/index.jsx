@@ -6,7 +6,10 @@ import Squares from './Squares';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Squares/>
+    <>
+      <App />
+      <Squares />
+    </>
   </React.StrictMode>,
   document.getElementById('root')
 );

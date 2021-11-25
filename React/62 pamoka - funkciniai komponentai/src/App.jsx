@@ -7,7 +7,7 @@ const { arithmeticActions, options, initialOption } = [
   { name: 'divide', action: (a, b) => a / b, text: 'Padalinti' },
 ]
   .reduce((result, { name, action, text }, i) => {
-    if(i === 0) result.initialOption = name;
+    if (i === 0) result.initialOption = name;
     result.arithmeticActions[name] = action;
     result.options.push(<option key={name} value={name}>{text}</option>);
     return result;
@@ -22,11 +22,11 @@ const App = () => {
   const [operand, setOperand] = useState(1);
   const [selectedAction, setSelectedAction] = useState(initialOption);
 
-  const [handleCalculation] = useState(() => () => {
+  const handleCalculation = () => {
     const selectedFunction = arithmeticActions[selectedAction];
     const calculateValue = selectedFunction(base, operand);
     setBase(calculateValue);
-  });
+  };
 
   return (
     <div style={{ textAlign: 'center' }}>

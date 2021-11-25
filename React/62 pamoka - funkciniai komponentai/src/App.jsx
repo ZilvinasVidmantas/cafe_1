@@ -1,12 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [counter, setCounter] = useState(5);
+
   return (
-    <div>
-      <h1>Čia yra apsas</h1>
+    <div style={{ textAlign: 'center'}}>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter(counter + 1)}>Increase</button>
     </div>
   );
 }
 
 export default App;
+
+/*
+  Sukurkite mygtuką, kuris sumažintų <counter> reikšmę vienetu
+
+*/

@@ -36,7 +36,7 @@ const Task1 = () => {
     : collapsableContentExtended;
 
   return (
-    <Box component="section" sx={{ fontFamile: '' }}>
+    <Box component="section">
       <Typography component="h2" variant="h4" gutterBottom>Task 1</Typography>
       <Box sx={{ fontFamily }}>
         <Box sx={{ display: 'flex', mb: 3 }}>

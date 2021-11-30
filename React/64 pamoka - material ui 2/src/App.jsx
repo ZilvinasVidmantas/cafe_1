@@ -14,6 +14,14 @@ const App = () => {
         <Box component="main">
           <WideContainer>
             <Task1 />
+            <Task1 />
+            <Task1 />
+            <Task1 />
+            <Task1 />
+            <Task1 />
+            <Task1 />
+            <Task1 />
+            <Task1 />
           </WideContainer>
         </Box>
       </CssBaseline>

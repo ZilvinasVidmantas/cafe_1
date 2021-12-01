@@ -10,20 +10,20 @@ import {
 } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import ApartmentGridPage from './pages/ApartmentGridPage';
-
-/*
-  Sukurkite puslapį <ApartmentLocationPage>, kuris būtų pasiekiamas adresu '/search/location'
-*/
+import ApartmentLocationPage from './pages/ApartmentLocationPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <CssBaseline>
-        <Navbar />
         <BrowserRouter>
+          <Navbar />
           <Routes>
-            <Route path="/" element={ <HomePage />} />
-            <Route path="/search/apartments" element={ <ApartmentGridPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search/apartments" element={<ApartmentGridPage />} />
+            <Route path="/search/location" element={<ApartmentLocationPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </CssBaseline>
@@ -33,15 +33,3 @@ const App = () => {
 
 export default App;
 
-/*
-  1. Atnaujintike <Task1> komponentą panaudodami:
-    https://mui.com/components/avatars/
-
-  2. task2.jpg TIK VAIZDAS, BE FUNKCIONALUMO
-    pavyzdys: PAMATYSITE PA'SCROLL'INUS Į APAČIĄ
-      https://www.airbnb.lt/
-    Sukurkite analogišką navbar, kaip task2/jpg
-      Reikalingi komponentai:
-        Container - https://mui.com/api/container/
-        App Bar - https://mui.com/components/app-bar/
-*/

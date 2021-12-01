@@ -1,29 +1,31 @@
 import React from 'react';
-import { Box, CssBaseline } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import Navbar from './components/partials/Navbar/Navbar';
-import Task1 from './Task1';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme } from './styles/lightTheme';
-import WideContainer from './components/WideContainer';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import HomePage from './pages/HomePage';
+import ApartmentGridPage from './pages/ApartmentGridPage';
+
+/*
+  Sukurkite puslapį <ApartmentLocationPage>, kuris būtų pasiekiamas adresu '/search/location'
+*/
 
 const App = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <CssBaseline>
         <Navbar />
-        <Box component="main">
-          <WideContainer>
-            <Task1 />
-            <Task1 />
-            <Task1 />
-            <Task1 />
-            <Task1 />
-            <Task1 />
-            <Task1 />
-            <Task1 />
-            <Task1 />
-          </WideContainer>
-        </Box>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={ <HomePage />} />
+            <Route path="/search/apartments" element={ <ApartmentGridPage />} />
+          </Routes>
+        </BrowserRouter>
       </CssBaseline>
     </ThemeProvider>
   )

@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import Image from './components/Image'
+import Image from './Image'
 
 const fontFamily = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
 const collapsableContentExtended = <>

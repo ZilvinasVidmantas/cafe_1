@@ -8,6 +8,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import HomePageLayout from './components/layouts/HomePageLayout';
 import HomePage from './pages/HomePage';
 import ApartmentGridPage from './pages/ApartmentGridPage';
 import ApartmentLocationPage from './pages/ApartmentLocationPage';
@@ -21,17 +22,14 @@ const App = () => {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/location" element={<ApartmentLocationPage />} />
-            <Route path="/apartments" element={<ApartmentGridPage />} />
 
-            {/* <Route path="/" element={<HomePage />} > 
-               <Route path="search" element={<SearchPage />} > 
-                   <Route path="location" element={<ApartmentLocationPage />} /> 
-                   <Route path="apartments" element={<ApartmentGridPage />} />
-                </Route>
-            </Route> */}
+            <Route path="/" element={<HomePageLayout />} >
+              <Route index element={<HomePage />} />
+              <Route path="search" element={<SearchPage />} />
+              <Route path="apartment-location" element={<ApartmentLocationPage />} />
+              <Route path="apartment-grid" element={<ApartmentGridPage />} />
+            </Route>
+
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>

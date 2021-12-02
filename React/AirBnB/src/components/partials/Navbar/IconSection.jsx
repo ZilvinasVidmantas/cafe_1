@@ -8,9 +8,9 @@ const IconSection = () => {
       <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
         <AirbnbIcon />
       </Link>
-      <Link to="/search">Apartment Grid</Link>
-      <Link to="/apartments">Apartment Grid</Link>
-      <Link to="/location">Arpartments By Location</Link>
+      <Link to="/search">Search aparments</Link>
+      <Link to="/apartment-location">Apartments by location</Link>
+      <Link to="/apartment-grid">Apartment grid</Link>
     </Box>
   );
 };

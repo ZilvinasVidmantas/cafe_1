@@ -8,6 +8,10 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+
+import DateAdapter from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+
 import HomePageLayout from './components/layouts/HomePageLayout';
 import HomePage from './pages/HomePage';
 import ApartmentGridPage from './pages/ApartmentGridPage';
@@ -17,23 +21,26 @@ import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <CssBaseline>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePageLayout />} >
-              <Route index element={<HomePage />} />
-              <Route path="search" element={<SearchPage />} />
-              <Route path="apartment-location" element={<ApartmentLocationPage />} />
-              <Route path="apartment-grid" element={<ApartmentGridPage />} />
-            </Route>
-            
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </BrowserRouter>
-      </CssBaseline>
-    </ThemeProvider>
+    <LocalizationProvider dateAdapter={DateAdapter}>
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<HomePageLayout />} >
+                <Route index element={<HomePage />} />
+                <Route path="search" element={<SearchPage />} />
+                <Route path="apartment-location" element={<ApartmentLocationPage />} />
+                <Route path="apartment-grid" element={<ApartmentGridPage />} />
+              </Route>
+
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </BrowserRouter>
+        </CssBaseline>
+      </ThemeProvider>
+    </LocalizationProvider >
+
   )
 };
 

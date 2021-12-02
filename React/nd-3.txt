@@ -1,0 +1,11 @@
+Peržiūrėti:
+  * https://www.youtube.com/watch?v=k_FR957CTjg&ab_channel=iNovotek
+  * https://www.youtube.com/watch?v=EyqpbNgrW3o&ab_channel=codingNerd
+  
+Atlikti:
+  * AirBnB puslapyje, pagaigti kurti formą
+  * Sukurti savo projekto griaučius su MUI temos nustatymais ir Router'iu
+
+Perskaityti:
+  * https://reactjs.org/docs/context.html
+  * https://reactjs.org/docs/hooks-state.html

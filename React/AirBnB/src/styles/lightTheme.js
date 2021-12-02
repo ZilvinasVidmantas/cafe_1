@@ -24,7 +24,9 @@ export const lightTheme = createTheme(themeBase, {
   },
   palette: {
     primary: {
-      main: '#ff385c'
+      main: '#ff385c',
+      dark: '#e31238',
+      light: '#ff6984'
     }
   }
 });

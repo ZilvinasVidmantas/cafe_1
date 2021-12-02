@@ -12,29 +12,30 @@ const countries = [
   { label: 'Russia', cities: ['Maskva', 'Sanct Peterburg'] },
 ];
 
-
 // const apartmentTypes = [];
 
 const SearchPage = () => {
-  const [country, setCountry] = useState('');
   const [cities, setCities] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [city, setCity] = useState(null);
+  const country = selectedCountry?.label ?? null;
 
-  const handleCityChange = (_, selectedOption, type) => {
-    switch (type) {
-      case "selectOption":
-        const { label: country, cities } = selectedOption;
-        setCountry(country);
-        setCities(cities);
-        break;
-      case "clear":
-        setCountry('');
-        setCities([]);
-        break;
+  const handleCountryChange = (_, selectedCountry) => {
+    // 1
+    setCities(selectedCountry ? selectedCountry.cities : []);
+    // 2
+    // setCities(selectedCountry?.cities ?? []);
+    // 3
+    // if (selectedCountry) setCities(selectedCountry.cities);
+    // else setCities([]);
 
-      default:
-        break;
-    }
-  }
+    setSelectedCountry(selectedCountry);
+    setCity(null);
+  };
+
+  const handleCityChange = (_, selectedCity) => setCity(selectedCity);
+
+  console.log(country, city);
 
   return (
     <form>
@@ -45,13 +46,9 @@ const SearchPage = () => {
             id="country"
             options={countries}
             sx={{ width: 300 }}
-            onChange={handleCityChange}
-            renderInput={(props) => <TextField
-              {...props}
-              label="Šalis"
-              name="country"
-              onChange={(e) => setCountry(e.target.value)}
-            />}
+            value={selectedCountry}
+            onChange={handleCountryChange}
+            renderInput={(props) => <TextField{...props} label="Šalis" name="country" />}
           />
         </Grid>
         <Grid item xl={4}>
@@ -59,6 +56,8 @@ const SearchPage = () => {
             disablePortal
             id="city"
             options={cities}
+            value={city}
+            onChange={handleCityChange}
             disabled={cities.length === 0}
             sx={{ width: 300 }}
             renderInput={(props) =>
@@ -81,15 +80,6 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
-
-/*
-  pertrauka 10 min.
-
-  papildyti pagrindinės spalvos nustatymus šviesiu ir tamsiu atspalviais
-
-*/
-
-
 
 
 /*

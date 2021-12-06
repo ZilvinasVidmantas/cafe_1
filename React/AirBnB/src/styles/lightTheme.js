@@ -18,7 +18,7 @@ export const lightTheme = createTheme(themeBase, {
   mixins: {
     toolbar: {
       [themeBase.breakpoints.up('sm')]: {
-        minHeight: themeBase.spacing(10)
+        minHeight: 80
       }
     }
   },

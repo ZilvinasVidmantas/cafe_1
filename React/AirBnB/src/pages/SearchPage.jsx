@@ -38,7 +38,6 @@ const SearchPage = () => {
   const [cities, setCities] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [city, setCity] = useState(null);
-
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -62,8 +61,6 @@ const SearchPage = () => {
   const handleEndDateChange = (...args) => {
     setEndDate(args);
   }
-
- 
 
   return (
     <SearchPageContainer component="form">

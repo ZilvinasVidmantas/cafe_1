@@ -14,8 +14,8 @@ const RangeField = () => {
   }
 
   return (
-    <>
-      <Typography id="input-slider" gutterBottom>Kainos rėžiai</Typography>
+    <Box>
+      <Typography gutterBottom>Kainos rėžiai</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
         <RangeFieldInput
           value={min}
@@ -31,15 +31,26 @@ const RangeField = () => {
           step={50}
           min={100}
           max={5000}
-          aria-labelledby="priceRange"
           getAriaLabel={() => 'Kaina'}
           value={[min, max]}
           onChange={handlePriceRangeChange}
           valueLabelDisplay="auto"
         />
       </Box>
-    </>
+    </Box>
   );
 };
 
 export default RangeField;
+
+
+/*
+  1. Įgalinti jog, min ir max, slider'io reikšmės būtų gaunamos per propsus, komponentui RangeField
+  * ir beabejo tas reikšmes per propsus perduoti ir pritaikyti
+  
+  2. Įgalinti Range Field pavadinimo perdavimą per propsus
+  * ir beabejo tas reikšmes per propsus perduoti ir pritaikyti
+
+  3. Iškelti RangeField Update atsinaujinimo logiką į SearchPage
+
+*/

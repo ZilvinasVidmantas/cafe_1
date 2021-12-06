@@ -40,7 +40,8 @@ const SearchPage = () => {
   const [city, setCity] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
+  const [price, setPrice] = useState([100, 6000]);
+  const [min, max] = price;
 
   const handleCountryChange = (_, selectedCountry) => {
     setCities(selectedCountry ? selectedCountry.cities : []);
@@ -61,6 +62,15 @@ const SearchPage = () => {
   const handleEndDateChange = (...args) => {
     setEndDate(args);
   }
+
+  console.log({
+    country: selectedCountry?.label,
+    city,
+    startDate,
+    endDate,
+    priceMin: min,
+    priceMax: max,
+  });
 
   return (
     <SearchPageContainer component="form">
@@ -127,7 +137,9 @@ const SearchPage = () => {
 
           <Grid item sm={12} >
             <RangeField
-              value={[100, 6000]}
+              title="Kainos rėžiai"
+              onChange={(newPrice) => setPrice(newPrice)}
+              value={price}
               min={100}
               max={6000}
               step={50}

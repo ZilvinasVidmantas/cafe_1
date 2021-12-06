@@ -7,7 +7,7 @@ import {
 import RangeFieldInput from './RangeFieldInput';
 
 const RangeField = () => {
-  const [priceRange, setPriceRange] = useState([100, 1500]);
+  const [[min, max], setPriceRange] = useState([100, 1500]);
 
   const handlePriceRangeChange = (_, newValue) => {
     setPriceRange(newValue);
@@ -17,8 +17,14 @@ const RangeField = () => {
     <>
       <Typography id="input-slider" gutterBottom>Kainos rėžiai</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-        <RangeFieldInput />
-        <RangeFieldInput />
+        <RangeFieldInput
+          value={min}
+          onChange={(e) => setPriceRange([Number(e.target.value), max])}
+        />
+        <RangeFieldInput
+          value={max}
+          onChange={(e) => setPriceRange([min, Number(e.target.value)])}
+        />
       </Box>
       <Box sx={{ mt: 1, mb: 2, px: 1.5 }}>
         <Slider
@@ -27,7 +33,7 @@ const RangeField = () => {
           max={5000}
           aria-labelledby="priceRange"
           getAriaLabel={() => 'Kaina'}
-          value={priceRange}
+          value={[min, max]}
           onChange={handlePriceRangeChange}
           valueLabelDisplay="auto"
         />
@@ -37,12 +43,3 @@ const RangeField = () => {
 };
 
 export default RangeField;
-
-/*
-  1. Atvaizduoti Slider'io reikšmes Input'uose
-    * Perduoti reikšmę per props ir ją panaudoti
-  2. Pakeitus Input'o reikšmę, nustayti naują <priceRange> būsenos kintamojo reikšmę
-    * Perduoti onChange funkciją per props, ir ją panaudoti
-
-
-*/

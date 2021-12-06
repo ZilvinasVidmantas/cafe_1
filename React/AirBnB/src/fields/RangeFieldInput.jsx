@@ -1,14 +1,15 @@
 import React from 'react';
 import Input from '@mui/material/Input';
 
-const RangeFieldInput = () => {
+const RangeFieldInput = ({ value, onChange }) => {
 
   return (
     <Input
       type="text"
       sx={{ width: 100 }}
       inputProps={{ sx: { textAlign: 'center' } }}
-      value={2000}
+      value={value}
+      onChange={onChange}
     />
   );
 };

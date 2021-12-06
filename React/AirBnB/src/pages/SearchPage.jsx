@@ -131,7 +131,7 @@ const SearchPage = () => {
           </Grid>
 
           <Grid item sm={12} >
-            <Typography id="input-slider" gutterBottom>Kainos reziai</Typography>
+            <Typography id="input-slider" gutterBottom>Kainos rėžiai</Typography>
             <Box sx={{ mt: 1, mb: 2, px: 1.5 }}>
               <Slider
                 step={50}
@@ -157,3 +157,17 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
+
+/*
+  10 pertauka
+  5 persikopijuoti kodą
+  19:30
+*/ 
+
+/*
+  1. Pradžios ir pabaigos datas sudėkite į vieną eilutę
+
+  2. Virš sliderio sukurkite (bet po užrašu 'Kainos rėžiai') 2 input'us minimaliai ir 
+  maksimaliai reikšmėms įvesti
+
+*/

@@ -6,8 +6,8 @@ import {
 } from '@mui/material';
 import RangeFieldInput from './RangeFieldInput';
 
-const RangeField = () => {
-  const [[min, max], setPriceRange] = useState([100, 1500]);
+const RangeField = ({ value, ...sliderProps}) => {
+  const [[selectedMin, selectedMax], setPriceRange] = useState(value);
 
   const handlePriceRangeChange = (_, newValue) => {
     setPriceRange(newValue);
@@ -18,21 +18,18 @@ const RangeField = () => {
       <Typography gutterBottom>Kainos rėžiai</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
         <RangeFieldInput
-          value={min}
-          onChange={(e) => setPriceRange([Number(e.target.value), max])}
+          value={selectedMin}
+          onChange={(e) => setPriceRange([Number(e.target.value), selectedMax])}
         />
         <RangeFieldInput
-          value={max}
-          onChange={(e) => setPriceRange([min, Number(e.target.value)])}
+          value={selectedMax}
+          onChange={(e) => setPriceRange([selectedMin, Number(e.target.value)])}
         />
       </Box>
       <Box sx={{ mt: 1, mb: 2, px: 1.5 }}>
         <Slider
-          step={50}
-          min={100}
-          max={5000}
-          getAriaLabel={() => 'Kaina'}
-          value={[min, max]}
+          {...sliderProps}
+          value={[selectedMin, selectedMax]}
           onChange={handlePriceRangeChange}
           valueLabelDisplay="auto"
         />
@@ -45,9 +42,6 @@ export default RangeField;
 
 
 /*
-  1. Įgalinti jog, min ir max, slider'io reikšmės būtų gaunamos per propsus, komponentui RangeField
-  * ir beabejo tas reikšmes per propsus perduoti ir pritaikyti
-  
   2. Įgalinti Range Field pavadinimo perdavimą per propsus
   * ir beabejo tas reikšmes per propsus perduoti ir pritaikyti
 

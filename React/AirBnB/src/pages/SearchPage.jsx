@@ -126,7 +126,12 @@ const SearchPage = () => {
           </Grid>
 
           <Grid item sm={12} >
-            <RangeField />
+            <RangeField
+              value={[100, 6000]}
+              min={100}
+              max={6000}
+              step={50}
+            />
           </Grid>
         </Grid>
         <Box sx={{ display: 'flex', jsutifyContent: 'center', gap: 2 }}>

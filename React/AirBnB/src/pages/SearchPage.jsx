@@ -5,11 +5,12 @@ import {
   Autocomplete,
   TextField,
   Button,
-  Typography
+  Typography,
+  Paper
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import Slider from '@mui/material/Slider';
+import RangeField from '../fields/RangeField';
 
 const addDays = (date, days) => {
   const newDate = new Date(date);
@@ -41,7 +42,6 @@ const SearchPage = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const [priceRange, setPriceRange] = useState([100, 1500]);
 
   const handleCountryChange = (_, selectedCountry) => {
     setCities(selectedCountry ? selectedCountry.cities : []);
@@ -63,13 +63,11 @@ const SearchPage = () => {
     setEndDate(args);
   }
 
-  const handlePriceRangeChange = (_, newValue) => {
-    setPriceRange(newValue);
-  }
+ 
 
   return (
     <SearchPageContainer component="form">
-      <Box sx={{ width: 1 / 3 }}>
+      <Paper sx={{ width: 400, p: 3 }} elevation={4}>
         <Typography align="center" sx={{ mb: 3 }} component="h2" variant="h4" color="primary">Ieškoti būsto nuomai</Typography>
         <Grid container spacing={2}>
           <Grid item sm={12}>
@@ -108,7 +106,7 @@ const SearchPage = () => {
             />
           </Grid>
 
-          <Grid item sm={12}>
+          <Grid item sm={6}>
             <DesktopDatePicker
               label="Atvykimo data"
               inputFormat="dd/MM/yyyy"
@@ -119,7 +117,7 @@ const SearchPage = () => {
             />
           </Grid>
 
-          <Grid item sm={12}>
+          <Grid item sm={6}>
             <DesktopDatePicker
               minDate={startDate ? addDays(startDate, 1) : new Date()}
               label="Isvykimo data"
@@ -131,43 +129,17 @@ const SearchPage = () => {
           </Grid>
 
           <Grid item sm={12} >
-            <Typography id="input-slider" gutterBottom>Kainos rėžiai</Typography>
-            <Box sx={{ mt: 1, mb: 2, px: 1.5 }}>
-              <Slider
-                step={50}
-                min={100}
-                max={5000}
-                aria-labelledby="priceRange"
-                getAriaLabel={() => 'Kaina'}
-                value={priceRange}
-                onChange={handlePriceRangeChange}
-                valueLabelDisplay="auto"
-              />
-            </Box>
+            <RangeField />
           </Grid>
         </Grid>
         <Box sx={{ display: 'flex', jsutifyContent: 'center', gap: 2 }}>
           <Button type="submit" variant="contained">Show Apartments in Map</Button>
           <Button type="submit" variant="contained">Show Apartments in Grid</Button>
         </Box>
-      </Box>
+      </Paper>
     </SearchPageContainer>
 
   );
 };
 
 export default SearchPage;
-
-/*
-  10 pertauka
-  5 persikopijuoti kodą
-  19:30
-*/ 
-
-/*
-  1. Pradžios ir pabaigos datas sudėkite į vieną eilutę
-
-  2. Virš sliderio sukurkite (bet po užrašu 'Kainos rėžiai') 2 input'us minimaliai ir 
-  maksimaliai reikšmėms įvesti
-
-*/

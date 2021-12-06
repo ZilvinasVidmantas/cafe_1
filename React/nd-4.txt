@@ -1,0 +1,13 @@
+Peržiūrėti:
+  Mui Theming - https://www.youtube.com/watch?v=EyqpbNgrW3o&ab_channel=codingNerd
+  Reack router - https://www.youtube.com/watch?v=0cSVuySEB0A&ab_channel=HiteshChoudhary
+
+Perskaityti:
+  https://reactjs.org/docs/hooks-effect.html
+  https://reactjs.org/docs/hooks-reference.html#useeffect
+  https://reactjs.org/docs/hooks-reference.html#usereducer
+  https://reactjs.org/docs/hooks-reference.html#usecontext
+  https://reactrouter.com/docs/en/v6/getting-started/tutorial
+
+Pasidaryti: 
+  https://www.youtube.com/watch?v=fqup-BL3VjI&ab_channel=CodeAndCreate

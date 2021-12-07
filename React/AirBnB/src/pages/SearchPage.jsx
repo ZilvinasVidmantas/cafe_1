@@ -16,7 +16,7 @@ const addDays = (date, days) => {
   const newDate = new Date(date);
   newDate.setDate(newDate.getDate() + days);
   return newDate;
-}
+};
 
 const countries = [
   { label: 'Lithuania', cities: ['Vilnius', 'Kaunas', 'Klaipėda'], },
@@ -157,3 +157,10 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
+
+
+/*
+  * Sukurti pradinius apartment'ų option'us
+  * Sukurti state kintamajį apartment tipams, ir atspausdinti jį šalia kitų duomenų kiekvieno render'io metu
+  18:30 tęsiam
+*/

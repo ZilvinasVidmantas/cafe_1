@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/material';
-import { styled } from '@mui/material/styles'
+import { styled, useTheme } from '@mui/material/styles';
 import { useLocation } from "react-router-dom";
 import { addDays } from "../helpers/dateHelpers";
+import Carousel from 'react-material-ui-carousel';
 
 const random = (from, to) => from + Math.floor(Math.random() * (to - from))
 
@@ -19,7 +20,7 @@ for (let i = 1; i <= 60; i++) {
   apartments.push({
     id: String(i),
     title: 'Pavadinimas' + i,
-    imgSrc: [
+    images: [
       `https://random.imagecdn.app/${imgSize}/${imgSize}`,
       `https://random.imagecdn.app/${imgSize + 1}/${imgSize + 1}`,
       `https://random.imagecdn.app/${imgSize + 2}/${imgSize + 2}`,
@@ -53,13 +54,13 @@ const ApartmentGrid = styled(Box)(({ theme }) => ({
 
 const ApartmentImageContainer = styled('div')({
   position: 'relative',
-  '&:before': {
+  ':before': {
     content: '" "',
     display: 'block',
     width: '100%',
     paddingTop: '100%',
   },
-  '&>img': {
+  '>img': {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -70,28 +71,61 @@ const ApartmentImageContainer = styled('div')({
 });
 
 const ApartmentImage = ({ alt, ...props }) => {
-  return <ApartmentImageContainer><img {...props} alt={props.alt ?? 'Išgraušk'} /></ApartmentImageContainer>
-}
+  return <ApartmentImageContainer><img {...props} alt={props.alt ?? 'Mes nenaudojam SEO'} /></ApartmentImageContainer>;
+};
+
+const ApartmentImageCarousel = (props) => {
+  const theme = useTheme();
+  console.log(theme.palette.primary.main);
+
+  const images = apartments[0].images;
+
+  return (
+    <Carousel
+      animation="slide"
+      autoPlay={false}
+      IndicatorIcon={<span />}
+      strictIndexing={true}
+      indicatorContainerProps={{
+        style: {
+          position: 'relative',
+          bottom: '50px',
+          zIndex: 5
+        }
+      }}
+      indicatorIconButtonProps={{
+        style: {
+          height: 12,
+          width: 12,
+          margin: 3,
+          backgroundColor: '#fffb',
+        }
+      }}
+
+      activeIndicatorIconButtonProps={{
+        style: {
+          backgroundColor: theme.palette.primary.main,
+        }
+      }}
+    >
+      {
+        images.map((image, i) => <ApartmentImage
+          key={i}
+          src={image}
+        />)
+      }
+    </Carousel>
+  )
+};
+
 
 const ApartmentGridPage = () => {
   const location = useLocation();
 
   return (
     <ApartmentGrid>
-      <Box sx={{ bgcolor: 'red' }}>
-        <ApartmentImage src="https://random.imagecdn.app/400/400" />
-      </Box>
-      <Box sx={{ bgcolor: 'red' }}>
-        <ApartmentImage src="https://random.imagecdn.app/400/400" />
-      </Box>
-      <Box sx={{ bgcolor: 'red' }}>
-        <ApartmentImage src="https://random.imagecdn.app/400/400" />
-      </Box>
-      <Box sx={{ bgcolor: 'red' }}>
-        <ApartmentImage src="https://random.imagecdn.app/400/400" />
-      </Box>
-      <Box sx={{ bgcolor: 'red' }}>
-        <ApartmentImage src="https://random.imagecdn.app/400/400" />
+      <Box>
+        <ApartmentImageCarousel />
       </Box>
     </ApartmentGrid>
   );
@@ -104,8 +138,8 @@ export default ApartmentGridPage;
   pertrauka 10min
   Kortelė:
     // * Basic grid - 20:10
-    * Viena uotrauka 20:25
-    * pertauka 21:00
+    // * Viena uotrauka 20:25
+    // * pertauka 21:00
     * Nuotraukų slider'is 21:10
       * https://www.npmjs.com/package/react-material-ui-carousel
       *

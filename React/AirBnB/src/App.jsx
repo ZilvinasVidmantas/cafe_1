@@ -33,7 +33,6 @@ const App = () => {
                 <Route path="apartment-location" element={<ApartmentLocationPage />} />
                 <Route path="apartment-grid" element={<ApartmentGridPage />} />
               </Route>
-
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>

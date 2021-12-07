@@ -11,6 +11,7 @@ import {
 import { styled } from '@mui/material/styles';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import RangeField from '../fields/RangeField';
+import { useNavigate } from "react-router-dom";
 
 const addDays = (date, days) => {
   const newDate = new Date(date);
@@ -24,7 +25,7 @@ const countries = [
   { label: 'Russia', cities: ['Maskva', 'Sanct Peterburg'] },
 ];
 
-// const apartmentTypes = [];
+const apartmentTypes = ['flat', 'house', 'cottage'];
 
 const SearchPageContainer = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -36,20 +37,20 @@ const SearchPageContainer = styled(Box)(({ theme }) => ({
 
 const SearchPage = () => {
   const [cities, setCities] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [country, setCountry] = useState(null);
   const [city, setCity] = useState(null);
+  const [apartmentType, setApartmentType] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [price, setPrice] = useState([100, 6000]);
-  const [min, max] = price;
+  const [priceRange, setPriceRange] = useState([100, 6000]);
+
+  const navigate = useNavigate();
 
   const handleCountryChange = (_, selectedCountry) => {
     setCities(selectedCountry ? selectedCountry.cities : []);
-    setSelectedCountry(selectedCountry);
+    setCountry(selectedCountry);
     setCity(null);
   };
-
-  const handleCityChange = (_, selectedCity) => setCity(selectedCity);
 
   const handleStartDateChange = (newStartDate) => {
     setStartDate(newStartDate);
@@ -59,21 +60,40 @@ const SearchPage = () => {
     }
   }
 
-  const handleEndDateChange = (...args) => {
-    setEndDate(args);
+  const formatFormData = () => {
+    const [priceMin, priceMax] = priceRange;
+
+    return {
+      country: country?.label ?? null,
+      city,
+      apartmentType,
+      startDate,
+      endDate,
+      priceMin,
+      priceMax
+    }
+  };
+
+  const handleSubmit = (type) => {
+    let to;
+    switch (type) {
+      case "map":
+        to = 'apartment-location';
+        break;
+
+      case "grid":
+        to = 'apartment-grid';
+        break;
+
+      default:
+        throw new Error('Nėra tokio pasirikties tipo');
+    };
+    const data = formatFormData();
+    navigate(to, { state: data });
   }
 
-  console.log({
-    country: selectedCountry?.label,
-    city,
-    startDate,
-    endDate,
-    priceMin: min,
-    priceMax: max,
-  });
-
   return (
-    <SearchPageContainer component="form">
+    <SearchPageContainer>
       <Paper sx={{ width: 400, p: 3 }} elevation={4}>
         <Typography align="center" sx={{ mb: 3 }} component="h2" variant="h4" color="primary">Ieškoti būsto nuomai</Typography>
         <Grid container spacing={2}>
@@ -82,7 +102,7 @@ const SearchPage = () => {
               id="country"
               fullWidth
               options={countries}
-              value={selectedCountry}
+              value={country}
               onChange={handleCountryChange}
               renderInput={(props) => <TextField{...props} label="Šalis" name="country" />}
             />
@@ -93,7 +113,7 @@ const SearchPage = () => {
               fullWidth
               options={cities}
               value={city}
-              onChange={handleCityChange}
+              onChange={(_, selectedCity) => setCity(selectedCity)}
               disabled={cities.length === 0}
               renderInput={(props) =>
                 <TextField
@@ -108,11 +128,12 @@ const SearchPage = () => {
             <Autocomplete
               id="apartments"
               fullWidth
-              options={[]}
+              options={apartmentTypes}
+              value={apartmentType}
+              onChange={(_, selectedApartment) => setApartmentType(selectedApartment)}
               renderInput={(props) => <TextField{...props} label="Būsto tipas" name="apartmentType" />}
             />
           </Grid>
-
           <Grid item sm={6}>
             <DesktopDatePicker
               label="Atvykimo data"
@@ -123,23 +144,21 @@ const SearchPage = () => {
               renderInput={(params) => <TextField {...params} sx={{ width: '100%' }} />}
             />
           </Grid>
-
           <Grid item sm={6}>
             <DesktopDatePicker
               minDate={startDate ? addDays(startDate, 1) : new Date()}
               label="Isvykimo data"
               inputFormat="dd/MM/yyyy"
               value={endDate}
-              onChange={handleEndDateChange}
+              onChange={(newEndDate) => setEndDate(newEndDate)}
               renderInput={(params) => <TextField {...params} sx={{ width: '100%' }} />}
             />
           </Grid>
-
           <Grid item sm={12} >
             <RangeField
               title="Kainos rėžiai"
-              onChange={(newPrice) => setPrice(newPrice)}
-              value={price}
+              onChange={(newPrice) => setPriceRange(newPrice)}
+              value={priceRange}
               min={100}
               max={6000}
               step={50}
@@ -147,8 +166,8 @@ const SearchPage = () => {
           </Grid>
         </Grid>
         <Box sx={{ display: 'flex', jsutifyContent: 'center', gap: 2 }}>
-          <Button type="submit" variant="contained">Show Apartments in Map</Button>
-          <Button type="submit" variant="contained">Show Apartments in Grid</Button>
+          <Button variant="contained" onClick={() => handleSubmit('map')}>Show Apartments in Map</Button>
+          <Button variant="contained" onClick={() => handleSubmit('grid')}>Show Apartments in Grid</Button>
         </Box>
       </Paper>
     </SearchPageContainer>
@@ -157,10 +176,3 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
-
-
-/*
-  * Sukurti pradinius apartment'ų option'us
-  * Sukurti state kintamajį apartment tipams, ir atspausdinti jį šalia kitų duomenų kiekvieno render'io metu
-  18:30 tęsiam
-*/

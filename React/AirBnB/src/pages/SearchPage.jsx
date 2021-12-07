@@ -12,12 +12,8 @@ import { styled } from '@mui/material/styles';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import RangeField from '../fields/RangeField';
 import { useNavigate } from "react-router-dom";
+import { addDays } from '../helpers/dateHelpers';
 
-const addDays = (date, days) => {
-  const newDate = new Date(date);
-  newDate.setDate(newDate.getDate() + days);
-  return newDate;
-};
 
 const countries = [
   { label: 'Lithuania', cities: ['Vilnius', 'Kaunas', 'Klaipėda'], },
@@ -78,11 +74,11 @@ const SearchPage = () => {
     let to;
     switch (type) {
       case "map":
-        to = 'apartment-location';
+        to = '/apartment-location';
         break;
 
       case "grid":
-        to = 'apartment-grid';
+        to = '/apartment-grid';
         break;
 
       default:

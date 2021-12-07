@@ -1,4 +1,6 @@
 import React from 'react';
+import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles'
 import { useLocation } from "react-router-dom";
 import { addDays } from "../helpers/dateHelpers";
 
@@ -30,13 +32,68 @@ for (let i = 1; i <= 60; i++) {
   })
 }
 
+const ApartmentGrid = styled(Box)(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gap: theme.spacing(2),
+  [theme.breakpoints.up('sm')]: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+  },
+  [theme.breakpoints.up('md')]: {
+    gridTemplateColumns: 'repeat(3, 1fr)',
+
+  },
+  [theme.breakpoints.up('lg')]: {
+    gridTemplateColumns: 'repeat(4, 1fr)',
+  },
+  [theme.breakpoints.up('xl')]: {
+    gridTemplateColumns: 'repeat(5, 1fr)',
+  },
+}));
+
+const ApartmentImageContainer = styled('div')({
+  position: 'relative',
+  '&:before': {
+    content: '" "',
+    display: 'block',
+    width: '100%',
+    paddingTop: '100%',
+  },
+  '&>img': {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover'
+  }
+});
+
+const ApartmentImage = ({ alt, ...props }) => {
+  return <ApartmentImageContainer><img {...props} alt={props.alt ?? 'Išgraušk'} /></ApartmentImageContainer>
+}
+
 const ApartmentGridPage = () => {
   const location = useLocation();
 
   return (
-    <div>
-      Apartment Page
-    </div>
+    <ApartmentGrid>
+      <Box sx={{ bgcolor: 'red' }}>
+        <ApartmentImage src="https://random.imagecdn.app/400/400" />
+      </Box>
+      <Box sx={{ bgcolor: 'red' }}>
+        <ApartmentImage src="https://random.imagecdn.app/400/400" />
+      </Box>
+      <Box sx={{ bgcolor: 'red' }}>
+        <ApartmentImage src="https://random.imagecdn.app/400/400" />
+      </Box>
+      <Box sx={{ bgcolor: 'red' }}>
+        <ApartmentImage src="https://random.imagecdn.app/400/400" />
+      </Box>
+      <Box sx={{ bgcolor: 'red' }}>
+        <ApartmentImage src="https://random.imagecdn.app/400/400" />
+      </Box>
+    </ApartmentGrid>
   );
 };
 
@@ -44,4 +101,15 @@ export default ApartmentGridPage;
 
 /*
   Sukurkite Kortelių Grid'ą
+  pertrauka 10min
+  Kortelė:
+    // * Basic grid - 20:10
+    * Viena uotrauka 20:25
+    * pertauka 21:00
+    * Nuotraukų slider'is 21:10
+      * https://www.npmjs.com/package/react-material-ui-carousel
+      *
+    * Datos formatas rytoj
+    * like'o formatas rytoj
+    * Likęs stilizavimas rytoj
 */

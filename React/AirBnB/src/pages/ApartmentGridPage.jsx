@@ -137,7 +137,7 @@ const ApartmentGridPage = () => {
 
   return (
     <ApartmentGrid sx={{ my: 4 }}>
-      <ApartmentCard {...apartments[0]} />
+      {apartments.map(apartment => <ApartmentCard key={apartment.id} {...apartment} />)}
     </ApartmentGrid>
   );
 };

@@ -24,7 +24,7 @@ export const lightTheme = createTheme(themeBase, {
   },
   palette: {
     primary: {
-      main: 'red',
+      main: '#e31238',
       dark: '#e31238',
       light: '#ff6984'
     }

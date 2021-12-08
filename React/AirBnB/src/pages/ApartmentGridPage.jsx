@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import React from 'react';
+import { Box, Typography } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import { useLocation } from "react-router-dom";
-import { addDays } from "../helpers/dateHelpers";
+import { addDays, formatDateRange } from "../helpers/dateHelpers";
 import Carousel from 'react-material-ui-carousel';
 
 const random = (from, to) => from + Math.floor(Math.random() * (to - from))
@@ -11,7 +11,7 @@ const apartments = [];
 
 for (let i = 1; i <= 60; i++) {
   const distance = random(100, 900);
-  const imgSize = random(400, 600);
+  const imgSize = random(400, 410);
   const price = random(25, 200);
   const randomDaysFrom = random(1, 20);
   const dateFrom = addDays(new Date(), randomDaysFrom);
@@ -54,6 +54,8 @@ const ApartmentGrid = styled(Box)(({ theme }) => ({
 
 const ApartmentImageContainer = styled('div')({
   position: 'relative',
+  borderRadius: 12,
+  overflow: 'hidden',
   ':before': {
     content: '" "',
     display: 'block',
@@ -74,11 +76,8 @@ const ApartmentImage = ({ alt, ...props }) => {
   return <ApartmentImageContainer><img {...props} alt={props.alt ?? 'Mes nenaudojam SEO'} /></ApartmentImageContainer>;
 };
 
-const ApartmentImageCarousel = (props) => {
+const ApartmentImageCarousel = ({ images }) => {
   const theme = useTheme();
-  console.log(theme.palette.primary.main);
-
-  const images = apartments[0].images;
 
   return (
     <Carousel
@@ -88,8 +87,8 @@ const ApartmentImageCarousel = (props) => {
       strictIndexing={true}
       indicatorContainerProps={{
         style: {
-          position: 'relative',
-          bottom: '50px',
+          position: 'absolute',
+          bottom: 10,
           zIndex: 5
         }
       }}
@@ -101,7 +100,6 @@ const ApartmentImageCarousel = (props) => {
           backgroundColor: '#fffb',
         }
       }}
-
       activeIndicatorIconButtonProps={{
         style: {
           backgroundColor: theme.palette.primary.main,
@@ -118,15 +116,28 @@ const ApartmentImageCarousel = (props) => {
   )
 };
 
+const ApartmentCard = ({ id, title, distance, images, liked, openDateRange, price }) => (
+  <Box>
+    <ApartmentImageCarousel images={images} />
+    <Box sx={{ mt: 1 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography sx={{ fontWeight: 'bold', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>{title}</Typography>
+        <Typography sx={{ fontSize: 15 }}>&#36;{price} / už naktį</Typography>
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography sx={{ fontSize: 14 }}>Už {distance} kilometrų</Typography>
+        <Typography sx={{ fontSize: 14 }}>{formatDateRange(openDateRange)}</Typography>
+      </Box>
+    </Box>
+  </Box>
+)
 
 const ApartmentGridPage = () => {
   const location = useLocation();
 
   return (
-    <ApartmentGrid>
-      <Box>
-        <ApartmentImageCarousel />
-      </Box>
+    <ApartmentGrid sx={{ my: 4 }}>
+      <ApartmentCard {...apartments[0]} />
     </ApartmentGrid>
   );
 };

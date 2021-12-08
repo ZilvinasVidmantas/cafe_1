@@ -135,6 +135,8 @@ const ApartmentCard = ({ id, title, distance, images, liked, openDateRange, pric
 const ApartmentGridPage = () => {
   const location = useLocation();
 
+  console.log(location);
+
   return (
     <ApartmentGrid sx={{ my: 4 }}>
       {apartments.map(apartment => <ApartmentCard key={apartment.id} {...apartment} />)}

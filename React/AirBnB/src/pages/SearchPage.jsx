@@ -31,6 +31,9 @@ const SearchPageContainer = styled(Box)(({ theme }) => ({
   height: `calc(100vh - ${theme.mixins.toolbar[theme.breakpoints.up('sm')].minHeight}px)`
 }));
 
+const initialPriceRange = [10, 500];
+const [minPrice, maxPrice] = initialPriceRange;
+
 const SearchPage = () => {
   const [cities, setCities] = useState([]);
   const [country, setCountry] = useState(null);
@@ -38,7 +41,7 @@ const SearchPage = () => {
   const [apartmentType, setApartmentType] = useState(null);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [priceRange, setPriceRange] = useState([100, 6000]);
+  const [priceRange, setPriceRange] = useState(initialPriceRange);
 
   const navigate = useNavigate();
 
@@ -155,9 +158,9 @@ const SearchPage = () => {
               title="Kainos rėžiai"
               onChange={(newPrice) => setPriceRange(newPrice)}
               value={priceRange}
-              min={100}
-              max={6000}
-              step={50}
+              min={minPrice}
+              max={maxPrice}
+              step={10}
             />
           </Grid>
         </Grid>

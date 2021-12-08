@@ -1,0 +1,122 @@
+{
+  "apartments": {
+    "id": "0",
+    "address": "Vilniaus g. 42a-17",
+    "countryId": "1",
+    "cityId": "2",
+    "apartmentTypeId": "2",
+    "images": [
+      "https://a0.muscache.com/im/pictures/c3681c26-a1d7-4476-a0df-2b4ceca31e10.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/39b5310b-2cb9-4f2a-a430-d1a9a9b12ad5.jpg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/d8082b02-b1a7-43b9-9a6c-44cbbc7df411.jpg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/6cef5c77-8ee5-414d-a97e-5755b52fc5da.jpg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/c6bf02eb-90c0-4608-a514-e9dfa8276dc1.jpg?im_w=1440"
+    ],
+    "distance": 107,
+    "openDateRange": [
+      "2021-12-14",
+      "2021-12-21"
+    ],
+    "wishlistId": "1",
+    "price": {
+      "currency": "EUR",
+      "value": 30
+    }
+  },
+  "whishlists": [
+    {
+      "id": "1",
+      "title": "Tūsams"
+    }
+  ],
+  "countries": [
+    {
+      "id": "1",
+      "title": "Lithuania"
+    },
+    {
+      "id": "2",
+      "title": "United States"
+    },
+    {
+      "id": "3",
+      "title": "Russia"
+    },
+    {
+      "id": "4",
+      "title": "Germany"
+    }
+  ],
+  "cities": [
+    {
+      "id": "1",
+      "title": "Vilnius",
+      "countryId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Kaunas",
+      "countryId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Klaipėda",
+      "countryId": "1"
+    },
+    {
+      "id": "4",
+      "title": "New York",
+      "countryId": "2"
+    },
+    {
+      "id": "5",
+      "title": "Chicago",
+      "countryId": "2"
+    },
+    {
+      "id": "6",
+      "title": "Kansas",
+      "countryId": "2"
+    },
+    {
+      "id": "7",
+      "title": "Maskva",
+      "countryId": "3"
+    },
+    {
+      "id": "8",
+      "title": "Sanct Peterburg",
+      "countryId": "3"
+    },
+    {
+      "id": "9",
+      "title": "Hamburg",
+      "countryId": "4"
+    }
+  ],
+  "apartmentTypes": [
+    {
+      "id": "1",
+      "title": "house"
+    },
+    {
+      "id": "2",
+      "title": "flat"
+    },
+    {
+      "id": "3",
+      "title": "cottage"
+    }
+  ]
+}
+/*
+  1-5 - Lietuvoje, Vilniuje                 - Gytautas
+  6-10 - Lietuvoje, Kaune                   - Gintaras
+  11-15 - Lietuvoje, Klaipėdoje             - Titas
+  16-20 - USA, New York                     - Tadas
+  21-25 - USA, Chicago                      - Gerardas
+  26-30 - USA, Kansas                       - Laima
+  31-35 - Russia, Maskva                    - Kristijonas
+  36-40 - Russia, Sanct Peterburg           - Vilius
+  41-45 - Germany, Hamburg                  - Greta
+*/

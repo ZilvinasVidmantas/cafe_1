@@ -1,6 +1,6 @@
 import React from 'react';
 import { CssBaseline } from '@mui/material';
-import Navbar from './components/partials/Navbar/Navbar';
+import Navbar from './components/partials/Navbar';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme } from './styles/lightTheme';
 import {

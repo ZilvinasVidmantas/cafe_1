@@ -4,21 +4,22 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ApartmentTypography from './ApartmentTypography';
 import ApartmentFilterButton from './ApartmentFilterButton';
+import Typography from '@mui/material/Typography';
 
 const ApartmentGridHeaderFilterContainer = () => {
   return (
     <Box sx={{ display: 'flex', gap: 1 }}>
       <ApartmentFilterButton className="active">
-        <ApartmentTypography>Bet kada</ApartmentTypography>
+        <Typography>Bet kada</Typography>
         <KeyboardArrowDownIcon />
       </ApartmentFilterButton>
       <ApartmentFilterButton>
-        <ApartmentTypography>Svečiai</ApartmentTypography>
+        <Typography>Svečiai</Typography>
         <KeyboardArrowDownIcon />
       </ApartmentFilterButton>
       <ApartmentFilterButton>
         <SettingsIcon sx={{ mr: 1 }} />
-        <ApartmentTypography>Filtrai</ApartmentTypography>
+        <Typography>Filtrai</Typography>
       </ApartmentFilterButton>
     </Box>
   )

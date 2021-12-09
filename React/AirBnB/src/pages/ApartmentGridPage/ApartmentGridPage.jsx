@@ -34,6 +34,8 @@ for (let i = 1; i <= 60; i++) {
   })
 }
 
+
+
 const ApartmentGridPage = () => {
   const location = useLocation();
 
@@ -50,3 +52,4 @@ const ApartmentGridPage = () => {
 };
 
 export default ApartmentGridPage;
+

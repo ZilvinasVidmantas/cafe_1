@@ -1,32 +1,1218 @@
 {
-  "apartments": {
-    "id": "0",
-    "address": "Vilniaus g. 42a-17",
-    "countryId": "1",
-    "cityId": "2",
-    "apartmentTypeId": "2",
-    "images": [
-      "https://a0.muscache.com/im/pictures/c3681c26-a1d7-4476-a0df-2b4ceca31e10.jpg?im_w=1200",
-      "https://a0.muscache.com/im/pictures/39b5310b-2cb9-4f2a-a430-d1a9a9b12ad5.jpg?im_w=1440",
-      "https://a0.muscache.com/im/pictures/d8082b02-b1a7-43b9-9a6c-44cbbc7df411.jpg?im_w=1440",
-      "https://a0.muscache.com/im/pictures/6cef5c77-8ee5-414d-a97e-5755b52fc5da.jpg?im_w=1440",
-      "https://a0.muscache.com/im/pictures/c6bf02eb-90c0-4608-a514-e9dfa8276dc1.jpg?im_w=1440"
-    ],
-    "distance": 107,
-    "openDateRange": [
-      "2021-12-14",
-      "2021-12-21"
-    ],
-    "wishlistId": "1",
-    "price": {
-      "currency": "EUR",
-      "value": 30
+  "apartments": [
+    {
+      "id": "36",
+      "address": "Gorochovaja st, 3-5, St Petersburg, Rusija",
+      "countryId": "3",
+      "cityId": "8",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/5bac2491-aeab-47f4-92e1-d528c0c4f531.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/5d28ee09-203f-4247-b83a-38a717a98562.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/29ceb7a1-5c98-4e94-96a0-c9a62c24820a.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/65e7f73f-8391-4af1-9d57-35df3c9b0daa.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/52d127c5-fdc7-49e8-ab4b-de2bfe974a92.jpg?im_w=1200"
+      ],
+      "distance": 731,
+      "openDateRange": [
+        "2021-12-24",
+        "2021-12-26"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 22
+      }
+    },
+    {
+      "id": "37",
+      "address": "Voznesensky Ave, 1-19, St Petersburg, Rusija",
+      "countryId": "3",
+      "cityId": "8",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/63c3dd2e-15b5-4415-95a9-fca79b27c3cb.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/8ebd5e74-e08d-44f6-bed8-dfae48a4ab6c.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/bf1516ac-c26e-40e1-b7fa-8a399fc20b9e.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/d667f00c-7cb2-41df-b5ee-0f3b2b8f3102.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/fcd39bde-e715-4a96-9c78-5a35d42f1a29.jpg?im_w=1200"
+      ],
+      "distance": 742,
+      "openDateRange": [
+        "2021-12-10",
+        "2021-12-17"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 34
+      }
+    },
+    {
+      "id": "38",
+      "address": "Nevsky Ave, 24-74, St Petersburg, Rusija",
+      "countryId": "3",
+      "cityId": "8",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/miso/Hosting-46386630/original/6bffd3e3-aa79-4804-84a7-ff12231c8422.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/b03196a7-4928-4221-b4f9-e3a0d92e52b5.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/bdb277fc-e877-41de-aa21-3932ec151db5.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/f103d95c-175a-4722-921d-288539bab0d4.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/52bbd1b0-7c16-4749-be46-af9b55251eee.jpg?im_w=1200"
+      ],
+      "distance": 723,
+      "openDateRange": [
+        "2021-12-16",
+        "2021-12-30"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 34
+      }
+    },
+    {
+      "id": "39",
+      "address": "Voznesensky Ave, 64-28, St Petersburg, Rusija",
+      "countryId": "3",
+      "cityId": "8",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/5cc7e63c-23d1-4ec7-a90b-eacc29b59491.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/9f023fe8-152c-47a7-9990-cf54da72ee89.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/364d46d1-a97d-49d9-aed5-e6490244fadf.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/feec300b-5ea8-4069-b04c-b01e9154f4bd.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/4cb79b5d-f59a-43bd-95d5-82984e1c8c55.jpg?im_w=1200"
+      ],
+      "distance": 761,
+      "openDateRange": [
+        "2021-12-28",
+        "2022-01-28"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 134
+      }
+    },
+    {
+      "id": "40",
+      "address": "Prospekt Nauki, 14, к. 1, Lit. A, St Petersburg, Rusija",
+      "countryId": "3",
+      "cityId": "8",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/8f91f568-ea7a-4360-940d-e8f1e0e5c868.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/a9f5861e-8ce3-4c68-9d46-1371a9eaaee0.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/28ecab5f-1a64-4b16-b7ea-3470f5bfdbf5.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/a7302227-3814-44ea-8307-04958de0af07.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/ba9b410c-75f6-4061-8ea8-bd373b9160ad.jpg?im_w=1200"
+      ],
+      "distance": 789,
+      "openDateRange": [
+        "2022-01-01",
+        "2022-12-30"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 2998
+      }
+    },
+    {
+      "id": "16",
+      "address": "4925 Tristique Street",
+      "countryId": "2",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/1cf16f5a-b134-4590-b71d-134e7c67c47c.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/c64aae23-5198-40dd-a91e-8697bbcb11cf.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/18c0de6f-ad80-48ff-9d98-2ee7c59fd717.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/df53f418-ebd3-4c97-951f-5f106d5baeb3.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/edf2ac29-37ab-41ed-a1d7-fa143260b7e6.jpg?im_w=1200"
+      ],
+      "distance": 6843,
+      "openDateRange": [
+        "2021-12-14",
+        "2022-03-29"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "$",
+        "value": 103
+      }
+    },
+    {
+      "id": "17",
+      "address": "734-541 Fringilla Rd.",
+      "countryId": "2",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/6c2cc930-5c55-4aaa-b5ca-1113565eaee3.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/2d3facd5-f4f9-4df1-bd7a-a927aa4d88d6.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/4e9c7aa9-7fdc-45ec-b994-8c3b750bcf63.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/9b7ad1c2-bca9-4301-9d8d-31996e04a190.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/86138057-aa07-4707-b0f3-e828bb2d0b7a.jpg?im_w=1200"
+      ],
+      "distance": 6850,
+      "openDateRange": [
+        "2021-12-14",
+        "2021-05-12"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "$",
+        "value": 53
+      }
+    },
+    {
+      "id": "18",
+      "address": "7958 Prince Court Buffalo",
+      "countryId": "2",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/d9b46c08-f8b8-45f9-8d6e-0fe389f2f47b.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/210682be-a968-4c65-b81b-80aea04b8a9e.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/64b2d955-ef20-4a79-b8fd-47771929b36c.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/1ba07433-85af-440f-b9bc-09bb273694be.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/3e43276e-71e5-49dc-bfbc-080bdab145ad.jpg?im_w=1200"
+      ],
+      "distance": 6860,
+      "openDateRange": [
+        "2021-12-19",
+        "2021-12-25"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 67
+      }
+    },
+    {
+      "id": "19",
+      "address": "2 Trusel Dr. Brooklyn",
+      "countryId": "2",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/miso/Hosting-53501723/original/33db9329-5eff-4686-a360-03bfc50d6a1d.jpeg?im_w=960",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-53501723/original/f3608749-0037-4258-9d8a-b422ae4a9b88.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-53501723/original/446c3e86-3bd6-462f-8270-4fa3d0e80108.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-53501723/original/2ff4ac45-b62c-4a57-a079-1fc1c59ee653.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-53501723/original/8ff1aa01-b36b-41e5-ba40-127be9f13e8b.jpeg?im_w=1200"
+      ],
+      "distance": 6836,
+      "openDateRange": [
+        "2021-12-20",
+        "2021-12-29"
+      ],
+      "wishlistId": "null",
+      "price": {
+        "currency": "USD",
+        "value": 406
+      }
+    },
+    {
+      "id": "20",
+      "address": "7521 Delaware St. Manhattan",
+      "countryId": "2",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/1dd4b978-3ae2-4c5d-a817-0e3caf3efa0f.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/8b1c9643-5207-43e9-9615-dfe1ed442371.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/e8d6ba0f-9a8c-4298-97d3-90cdb1e22081.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/06e4e095-0722-4b88-8012-d102f679fb72.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/9a0ae7d9-354d-4875-a95a-59b423b7a5f1.jpg?im_w=1200"
+      ],
+      "distance": 6870,
+      "openDateRange": [
+        "2022-01-20",
+        "2022-12-29"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "USD",
+        "value": 366
+      }
+    },
+    {
+      "id": "6",
+      "address": "Vilniaus g. 42a-17",
+      "countryId": "1",
+      "cityId": "2",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/c3681c26-a1d7-4476-a0df-2b4ceca31e10.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/39b5310b-2cb9-4f2a-a430-d1a9a9b12ad5.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/d8082b02-b1a7-43b9-9a6c-44cbbc7df411.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/6cef5c77-8ee5-414d-a97e-5755b52fc5da.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/c6bf02eb-90c0-4608-a514-e9dfa8276dc1.jpg?im_w=1440"
+      ],
+      "distance": 107,
+      "openDateRange": [
+        "2021-12-14",
+        "2021-12-21"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 30
+      }
+    },
+    {
+      "id": "7",
+      "address": "Karaliaus Mindaugo pr. 18",
+      "countryId": "1",
+      "cityId": "2",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/f8bc3247-b94b-49c7-87a1-cf534b3ae0a3.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/4b473ac4-33a3-402e-bfd2-bdd16c4f7a2e.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/fb29ff23-b393-41f9-91dd-1bab6852a1d4.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/6663eac8-1e35-4341-b8ad-b362f6c6fc05.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/05f3e5b5-9814-420b-abf5-e6c605a528cd.jpg?im_w=720"
+      ],
+      "distance": 111,
+      "openDateRange": [
+        "2021-12-15",
+        "2021-12-26"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 61
+      }
+    },
+    {
+      "id": "8",
+      "address": "Vilties g. 24-18",
+      "countryId": "1",
+      "cityId": "2",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/0a9873d1-f948-48b1-acca-0a62696bc6b2.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/dd8c2a63-4e01-4a3e-9699-98a91801baf5.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/b7ddb86e-2abc-4503-aced-ee6712825f87.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/0ed05fa8-f541-4fa5-9468-e80236102cd9.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/8656a5cc-fafa-468c-97bb-07da14a41733.jpg?im_w=720"
+      ],
+      "distance": 115,
+      "openDateRange": [
+        "2021-12-20",
+        "2021-12-25"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 41
+      }
+    },
+    {
+      "id": "9",
+      "address": "Palangos gatvė 5-36",
+      "countryId": "1",
+      "cityId": "2",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/aa43f46f-3540-490e-bc9e-9db52a750906.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/ec196bce-5f01-4663-a40b-f0118ab08759.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/dcd464b5-001c-4035-91f8-1786fafbe23b.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/8503ef52-a840-4885-999d-12a90d355996.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/32b6dad4-70bc-431b-9c40-efffb661d615.jpg?im_w=720"
+      ],
+      "distance": 114,
+      "openDateRange": [
+        "2021-12-27",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 60
+      }
+    },
+    {
+      "id": "10",
+      "address": "Kęstučio g. 36-42",
+      "countryId": "1",
+      "cityId": "2",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/cfad902f-5b5a-47fa-8ae9-0310c5da4846.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/e590953b-5828-485a-b597-ae487465f47e.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/f30e314d-128c-4a32-ac98-390a63b35173.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/b1a29dc1-b784-41fd-9df7-b97da0a02d27.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/a07e0a37-6544-4749-8dfb-feb87752cee0.jpg?im_w=720"
+      ],
+      "distance": 110,
+      "openDateRange": [
+        "2021-12-16",
+        "2021-12-29"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 62
+      }
+    },
+    {
+      "id": "26",
+      "address": "Unit 1102-T, 1316 Baltimore Ave.",
+      "countryId": "2",
+      "cityId": "6",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://res.cloudinary.com/apartmentlist/image/upload/f_auto,q_auto,t_web-base/1b25d720ed5b31c91e5ac05660e584d6.jpg",
+        "https://res.cloudinary.com/apartmentlist/image/upload/f_auto,q_auto,t_web-base/539ac6613910d78a9c8cf092797dc892.jpg",
+        "https://res.cloudinary.com/apartmentlist/image/upload/f_auto,q_auto,t_web-base/29c8b5187ac98024ada900e5a0542340.jpg",
+        "https://res.cloudinary.com/apartmentlist/image/upload/f_auto,q_auto,t_web-base/204aea974eba265be7028aa49b3ef244.jpg",
+        "https://res.cloudinary.com/apartmentlist/image/upload/f_auto,q_auto,t_web-base/dc4aacaafb0d1167f10e831f7b2951bc.jpg"
+      ],
+      "distance": 8000,
+      "openDateRange": [
+        "2021-12-16",
+        "2021-12-31"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "USD",
+        "value": 450
+      }
+    },
+    {
+      "id": "27",
+      "address": "4400 Virginia Ave.",
+      "countryId": "2",
+      "cityId": "6",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318559107.jpg?k=3ac91dc34b5a197c8e06f0c555acdd66104608437d8a1e3b2579c09c3b6663be&o=&hp=1",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318559115.jpg?k=8879b2a4b45d19fbf54e0db036caf668c72ae8f08f2069036da15b200511f5b6&o=&hp=1",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318559110.jpg?k=f056bc201b006bc7c2cf2c34edbed1a96d1106d80c8c242dabd8b57607bd4665&o=&hp=1",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318559106.jpg?k=b46c2185d7a9d579266fc7e5499face67d21d196deb4125edf9b71c94cb925bc&o=&hp=1",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/318559117.jpg?k=25c7b77cf9c28c4c163b5f14ad1aaa1fca68a8bf670f23f00a5cf39f574e9b77&o=&hp=1"
+      ],
+      "distance": 8040,
+      "openDateRange": [
+        "2021-12-26",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 368
+      }
+    },
+    {
+      "id": "28",
+      "address": "1120 East 23rd St.",
+      "countryId": "2",
+      "cityId": "6",
+      "apartmentTypeId": "3",
+      "images": [
+        "https://media-cdn.tripadvisor.com/media/vr-splice-j/06/e1/70/03.jpg",
+        "https://media-cdn.tripadvisor.com/media/vr-splice-j/06/e1/70/0c.jpg",
+        "https://media-cdn.tripadvisor.com/media/vr-splice-j/06/e1/6f/f5.jpg",
+        "https://media-cdn.tripadvisor.com/media/vr-splice-j/06/e1/6f/f3.jpg",
+        "https://media-cdn.tripadvisor.com/media/vr-splice-j/06/e1/6f/e1.jpg"
+      ],
+      "distance": 8090,
+      "openDateRange": [
+        "2021-12-13",
+        "2021-12-25"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 158
+      }
+    },
+    {
+      "id": "29",
+      "address": "1818 Independence Ave.",
+      "countryId": "2",
+      "cityId": "6",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://photos.zillowstatic.com/fp/04dc5daf49f17d60dd96cafafb9fa4aa-cc_ft_768.webp",
+        "https://photos.zillowstatic.com/fp/993cab661bf74ca814149f829a990083-cc_ft_576.webp",
+        "https://photos.zillowstatic.com/fp/76681088215714b06be1d15c6eabab98-cc_ft_384.webp",
+        "https://photos.zillowstatic.com/fp/c22a1237d19e4619dc9d41dd32bf0f29-cc_ft_384.webp",
+        "https://photos.zillowstatic.com/fp/3214dbd5a45201e113d72ee21dfd8b7d-cc_ft_384.webp"
+      ],
+      "distance": 8009,
+      "openDateRange": [
+        "2021-12-19",
+        "2021-12-25"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 479
+      }
+    },
+    {
+      "id": "30",
+      "address": "3511 West 48th Street",
+      "countryId": "2",
+      "cityId": "6",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://cdngeneralcf.rentcafe.com/dmslivecafe/3/1395963/000-photo-front-view-9664214.jpg?&width=580&height=385&mode=pad&bgcolor=333333&scale=both",
+        "https://cdngeneralcf.rentcafe.com/dmslivecafe/3/1395963/008-photo-kitchen-9664227.jpg?&width=580&height=385&mode=pad&bgcolor=333333&scale=both",
+        "https://cdngeneralcf.rentcafe.com/dmslivecafe/3/1395963/012-photo-primary-bathroom-9664219.jpg?&width=580&height=385&mode=pad&bgcolor=333333&scale=both",
+        "https://cdngeneralcf.rentcafe.com/dmslivecafe/3/1395963/015-photo-rear-view-9664222.jpg?&width=580&height=385&mode=pad&bgcolor=333333&scale=both",
+        "https://cdngeneralcf.rentcafe.com/dmslivecafe/3/1395963/000-photo-front-view-9664214.jpg?&width=580&height=385&mode=pad&bgcolor=333333&scale=both"
+      ],
+      "distance": 8124,
+      "openDateRange": [
+        "2021-12-20",
+        "2021-12-29"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "USD",
+        "value": 385
+      }
+    },
+    {
+      "id": "11",
+      "address": "Barškių g. 25",
+      "countryId": "1",
+      "cityId": "3",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://a0.muscache.com/im/pictures/d2d35243-aea8-4991-8c71-613f9037a642.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/27bc108b-a3f8-4777-9039-0d44b10ab195.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/ec666c2b-5825-47d2-8433-b676e55c2028.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/c8272bfd-ddb4-4a2d-a2c8-b6cffb60bdde.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/33f3c9c9-0478-437b-bd0f-1510440fa13b.jpg?im_w=720"
+      ],
+      "distance": 321,
+      "openDateRange": [
+        "2021-12-13",
+        "2021-01-01"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 32
+      }
+    },
+    {
+      "id": "12",
+      "address": "Tilžės g. 73A-12",
+      "countryId": "1",
+      "cityId": "3",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/e98ae4bd-9c59-45b5-b366-47cf1ed042f9.jpg?im_w=960",
+        "https://a0.muscache.com/im/pictures/6cc59b8f-d4ce-4d48-b179-48728df76194.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/2478afdd-043c-4421-9daf-1decb741b615.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/fb4ee0db-fd8f-4c8a-9576-7346910a007d.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/0c6efe21-f76e-4316-94f9-c0f17b06fe17.jpg?im_w=1200"
+      ],
+      "distance": 254,
+      "openDateRange": [
+        "2021-12-24",
+        "2021-12-31"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 15
+      }
+    },
+    {
+      "id": "13",
+      "address": "Liepų g. 16-2a",
+      "countryId": "1",
+      "cityId": "3",
+      "apartmentTypeId": "3",
+      "images": [
+        "https://a0.muscache.com/im/pictures/d8f5b546-429b-46fa-9a2b-e86e9a7ec450.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/08a80a9b-43ac-40cc-866d-ff895c3abe19.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/c3b98170-26ff-48f3-850a-88ff01b83215.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/a930de30-f2ef-46a0-8c07-00166b95c550.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/74672e49-511c-406e-8ecf-4817ec8d2131.jpg?im_w=720"
+      ],
+      "distance": 307,
+      "openDateRange": [
+        "2021-12-10",
+        "2021-01-10"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 27
+      }
+    },
+    {
+      "id": "14",
+      "address": "Ryšininkų g. 3",
+      "countryId": "1",
+      "cityId": "3",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://a0.muscache.com/im/pictures/4a35e751-51a3-4d98-ab21-faa8559ff70f.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/3c6222d9-910b-4fdc-bb7b-3100bc650c83.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/2dc8788c-4c8d-49e2-b22c-5e2e8e003411.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/fb20c517-0325-4e0b-a4b4-51bc9759ed31.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/389ddc9e-5190-4372-8fcd-e106be7d84f3.jpg?im_w=720"
+      ],
+      "distance": 341,
+      "openDateRange": [
+        "2021-01-01",
+        "2021-01-30"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 48
+      }
+    },
+    {
+      "id": "15",
+      "address": "Kauno g. 3B",
+      "countryId": "1",
+      "cityId": "3",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://a0.muscache.com/im/pictures/76c9bd41-0c5e-4ce7-b819-cb40b60be7e4.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/09263179-5a4f-4b0f-9e3c-04a63e4e53eb.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/36bf98f5-3737-468c-926e-33031bcb7235.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/073ae395-03f4-4ff0-9b23-947ceacea7cc.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/a242fe79-17a6-4d1e-b1ec-f867f950c51e.jpg?im_w=720"
+      ],
+      "distance": 311,
+      "openDateRange": [
+        "2021-12-14",
+        "2021-12-21"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 155
+      }
+    },
+    {
+      "id": "21",
+      "address": "S Wabash Ave 3-17",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/e3eb5527-a34e-44df-93cc-fe69f8c8b76c.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/3bdcd652-65c8-4987-8ae4-f0f3b8cd74ce.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/dca29bad-f675-4189-873d-8e29675d215d.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/e1a50687-77a1-48b3-b4a6-4c1fe55980e0.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/dffde098-ccae-4ed2-96ab-31674e9179b7.jpeg?im_w=1440"
+      ],
+      "distance": 7539,
+      "openDateRange": [
+        "2021-12-14",
+        "2021-12-21"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "USD",
+        "value": 138
+      }
+    },
+    {
+      "id": "22",
+      "address": "W Chicago Ave 8-5",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/a65526c1-9f3c-4213-a8f7-e28710b42491.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/8c877dba-e8a3-406d-b3c6-01cf5ada7dec.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/291c78e4-6ac8-4fa7-9784-d37672bfb885.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/a2e08c81-b3cf-4a01-aabc-4ffcd68be20f.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/aa8c99cb-8739-458f-a0b3-d8e0aaac2333.jpeg?im_w=1440"
+      ],
+      "distance": 7541,
+      "openDateRange": [
+        "2021-12-15",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 80
+      }
+    },
+    {
+      "id": "23",
+      "address": "S Springfield Ave 13-2",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/baabfa8f-af16-4ec6-91b1-451ae69cab12.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/a8bbc63c-333c-4e53-944a-5cc1eee38746.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/1828d514-8674-4fe4-9aef-fb9950aef429.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/8f457f8b-e23a-42f7-8ed8-598cb11d60e0.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/b0e2e05e-5979-4676-aaaf-36750f57a4f4.jpg?im_w=1440"
+      ],
+      "distance": 7542,
+      "openDateRange": [
+        "2021-12-12",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 43
+      }
+    },
+    {
+      "id": "24",
+      "address": "W Jackson Blvd 5-5",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/4f7ea0c5-e681-440d-be83-c9624b2d73e8.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/068f9ec0-1178-4b95-aa96-c04a4c138e52.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/53fad4ac-7209-4f6b-b5b8-9337c55163ee.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/4d2f60d2-c58a-4222-a76c-ffd8d690757d.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/4752a675-57c1-4572-b5be-7428687f2921.jpg?im_w=1440"
+      ],
+      "distance": 7548,
+      "openDateRange": [
+        "2021-12-10",
+        "2021-12-25"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 48
+      }
+    },
+    {
+      "id": "25",
+      "address": "S 17th Ave 2-3",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/f1ee17cd-95e6-4ddc-9d2f-c1311307a493.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/6f1a9d53-7bb6-42b8-aa3e-173acbb52d65.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/46783bd9-d170-48df-80d1-ae01ca847094.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/a5174385-b7e5-4c7d-8161-3de22a48cd85.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/f05111e8-b315-424f-b5cc-eea791eb0e16.jpg?im_w=1440"
+      ],
+      "distance": 7552,
+      "openDateRange": [
+        "2021-12-12",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 39
+      }
+    },
+    {
+      "id": "21",
+      "address": "S Wabash Ave 3-17",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/e3eb5527-a34e-44df-93cc-fe69f8c8b76c.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/3bdcd652-65c8-4987-8ae4-f0f3b8cd74ce.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/dca29bad-f675-4189-873d-8e29675d215d.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/e1a50687-77a1-48b3-b4a6-4c1fe55980e0.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/dffde098-ccae-4ed2-96ab-31674e9179b7.jpeg?im_w=1440"
+      ],
+      "distance": 7539,
+      "openDateRange": [
+        "2021-12-14",
+        "2021-12-21"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "USD",
+        "value": 138
+      }
+    },
+    {
+      "id": "22",
+      "address": "W Chicago Ave 8-5",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/a65526c1-9f3c-4213-a8f7-e28710b42491.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/8c877dba-e8a3-406d-b3c6-01cf5ada7dec.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/291c78e4-6ac8-4fa7-9784-d37672bfb885.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/a2e08c81-b3cf-4a01-aabc-4ffcd68be20f.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/aa8c99cb-8739-458f-a0b3-d8e0aaac2333.jpeg?im_w=1440"
+      ],
+      "distance": 7541,
+      "openDateRange": [
+        "2021-12-15",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 80
+      }
+    },
+    {
+      "id": "23",
+      "address": "S Springfield Ave 13-2",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/baabfa8f-af16-4ec6-91b1-451ae69cab12.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/a8bbc63c-333c-4e53-944a-5cc1eee38746.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/1828d514-8674-4fe4-9aef-fb9950aef429.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/8f457f8b-e23a-42f7-8ed8-598cb11d60e0.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/b0e2e05e-5979-4676-aaaf-36750f57a4f4.jpg?im_w=1440"
+      ],
+      "distance": 7542,
+      "openDateRange": [
+        "2021-12-12",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 43
+      }
+    },
+    {
+      "id": "24",
+      "address": "W Jackson Blvd 5-5",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/4f7ea0c5-e681-440d-be83-c9624b2d73e8.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/068f9ec0-1178-4b95-aa96-c04a4c138e52.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/53fad4ac-7209-4f6b-b5b8-9337c55163ee.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/4d2f60d2-c58a-4222-a76c-ffd8d690757d.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/4752a675-57c1-4572-b5be-7428687f2921.jpg?im_w=1440"
+      ],
+      "distance": 7548,
+      "openDateRange": [
+        "2021-12-10",
+        "2021-12-25"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 48
+      }
+    },
+    {
+      "id": "25",
+      "address": "S 17th Ave 2-3",
+      "countryId": "2",
+      "cityId": "5",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/f1ee17cd-95e6-4ddc-9d2f-c1311307a493.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/6f1a9d53-7bb6-42b8-aa3e-173acbb52d65.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/46783bd9-d170-48df-80d1-ae01ca847094.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/a5174385-b7e5-4c7d-8161-3de22a48cd85.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/f05111e8-b315-424f-b5cc-eea791eb0e16.jpg?im_w=1440"
+      ],
+      "distance": 7552,
+      "openDateRange": [
+        "2021-12-12",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "USD",
+        "value": 39
+      }
+    },
+    {
+      "id": "41",
+      "address": "CENTER HAMBURG 789-14",
+      "countryId": "4",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/7c7f2117-ecea-4825-a817-021ab2d88f32.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/14745307/f048ee68_original.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/10567337/bd4db17b_original.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/10930948/ed5bcaa2_original.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/10567243/7c596033_original.jpg?im_w=720"
+      ],
+      "distance": 1314,
+      "openDateRange": [
+        "2021-12-28",
+        "2021-12-30"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 35
+      }
+    },
+    {
+      "id": "42",
+      "address": "Grose Backerstrase 365-54",
+      "countryId": "4",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/2a749c39-a19c-4427-9f7c-0faceda89ed2.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/b55fb518-5295-446b-9c7f-3a234eecefd7.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/49717575-77be-4f6a-9a72-29516474c890.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/b2dc334d-6cde-4631-bc1e-1ac1e0e2d5d8.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/0471d8a1-eaae-4406-bc7f-f5051deb6e36.jpg?im_w=720"
+      ],
+      "distance": 1322,
+      "openDateRange": [
+        "2021-12-24",
+        "2021-12-26"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 75
+      }
+    },
+    {
+      "id": "43",
+      "address": "Fehlandstrase 22-3",
+      "countryId": "4",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/06754dfe-334a-447e-8db4-da74c5cfe651.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/922a4cc1-2f81-4f9f-95d7-567b79fa0a65.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/c6e808b0-32f9-480e-bd7c-e104f2e1bc43.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/2dc98f27-10ba-4bd2-8b84-ba267f160652.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/7d0d23b5-2507-4734-9225-915d1ff1c83b.jpg?im_w=7200"
+      ],
+      "distance": 1311,
+      "openDateRange": [
+        "2022-01-14",
+        "2022-01-16"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 80
+      }
+    },
+    {
+      "id": "44",
+      "address": "Rehhoffstrase 54-67",
+      "countryId": "4",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/miso/Hosting-45723862/original/501cbe08-cda3-4ba6-869a-b66f970fcae2.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-45723862/original/c4b1170a-f9a4-443f-b245-1b556f1143c6.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-45723862/original/47e7bfc4-8b6c-4fde-b87a-d912f0908f5d.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/ec33dea7-8421-4e5d-8074-35aa28d70fce.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/f0449a94-633a-4f65-9ff6-bd983bb4af62.jpg?im_w=1200"
+      ],
+      "distance": 1309,
+      "openDateRange": [
+        "2021-12-28",
+        "2021-12-30"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 65
+      }
+    },
+    {
+      "id": "45",
+      "address": "Cremon 255-67",
+      "countryId": "4",
+      "cityId": "4",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/3e457563-9cea-4087-8a7b-f474a18d3a67.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/851ce220-d56f-4dec-94cb-db41e0dbe524.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/b2817cc3-d613-42e7-96d6-01fbcac74ea7.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/3858b9c3-0498-4920-aa67-5e8acce77247.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/9bb8a046-45d4-44de-8d7b-869ebdc76aa4.jpg?im_w=1200"
+      ],
+      "distance": 1298,
+      "openDateRange": [
+        "2022-01-05",
+        "2022-01-14"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 101
+      }
+    },
+    {
+      "id": "31",
+      "address": "Radunosios aikštės g. 54-17",
+      "countryId": "3",
+      "cityId": "7",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/06a5b243-88c4-45da-848b-925dd8b0e58e.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/eae03605-7eaf-4521-8dd5-5f7db5486f86.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/3a04281d-f34b-4fd9-914f-3095fde90f68.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/5aebd481-b79e-44f4-bee0-1365eac8f8af.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/457f8114-c4b0-4492-80b4-8b4972a3cafe.jpg?im_w=1440"
+      ],
+      "distance": 2549,
+      "openDateRange": [
+        "2021-12-28",
+        "2022-01-03"
+      ],
+      "wishlistId": "1",
+      "price": {
+        "currency": "EUR",
+        "value": 250
+      }
+    },
+    {
+      "id": "32",
+      "address": "Arbato g. 78-45",
+      "countryId": "3",
+      "cityId": "7",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://a0.muscache.com/im/pictures/338191de-69d5-49c0-921a-2b6825cf2837.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/b5ec2dda-1874-45d2-bf88-d848f4bcea66.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/10c73e07-49f6-4582-b3a3-13e42dcc6274.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/f0b384d0-ffc6-4f1a-957f-5ad20c41c253.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/b787b0e0-b733-48c3-bddc-f7e6bb72877f.jpg?im_w=1440"
+      ],
+      "distance": 2200,
+      "openDateRange": [
+        "2021-12-18",
+        "2021-12-22"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 92
+      }
+    },
+    {
+      "id": "33",
+      "address": "Lvovo g. 148-a",
+      "countryId": "3",
+      "cityId": "7",
+      "apartmentTypeId": "2",
+      "images": [
+        "https://a0.muscache.com/im/pictures/35bbc42f-3273-454c-aaf0-80a2e4cd7cb2.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/5c40e73f-37d6-4788-b374-1eea4facf2b5.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/064e8709-d9b2-42e0-899e-bf4fd2964309.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/74fc4388-db1a-4cb3-b27a-d52bf6303615.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/788f8438-c32d-4603-b8b7-8111ecbbeb7d.jpg?im_w=1440"
+      ],
+      "distance": 2417,
+      "openDateRange": [
+        "2022-01-10",
+        "2022-01-22"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 442
+      }
+    },
+    {
+      "id": "34",
+      "address": "Gdansko g. 10-C",
+      "countryId": "3",
+      "cityId": "7",
+      "apartmentTypeId": "1",
+      "images": [
+        "https://a0.muscache.com/im/pictures/b477671f-3803-46cc-a81d-2df6ee61cd71.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-36281881/original/0d2ce372-b133-484b-a112-f53b92c63c8b.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-36281881/original/a194b253-6693-4a22-af51-19815c76638d.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-36281881/original/8e0196a9-bb1c-40e9-8def-bb01f04a982e.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-36281881/original/e9abd7ed-113f-49c2-8c85-c2b432d4a09c.jpeg?im_w=1440"
+      ],
+      "distance": 1859,
+      "openDateRange": [
+        "2022-02-17",
+        "2022-02-24"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 397
+      }
+    },
+    {
+      "id": "35",
+      "address": "Ksystovo g. 514",
+      "countryId": "3",
+      "cityId": "7",
+      "apartmentTypeId": "3",
+      "images": [
+        "https://a0.muscache.com/im/pictures/a72ddb37-a603-423b-9f32-e833c1fc3e62.jpg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/5278c1b9-4c45-43f5-80e6-ab214f9c02c7.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/e8e31c22-6ce7-4fd8-97f1-e3db47b6adda.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/c31cd6fc-9b28-4d4b-bd05-f5b149c180db.jpg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/5e623e4b-f7ca-44a6-a707-ea45f256a56b.jpg?im_w=1440"
+      ],
+      "distance": 1687,
+      "openDateRange": [
+        "2021-12-17",
+        "2021-12-31"
+      ],
+      "wishlistId": null,
+      "price": {
+        "currency": "EUR",
+        "value": 257
+      }
+    },
+    {
+      "id": 1,
+      "address": "18228 Ida Corners",
+      "countryId": "1",
+      "cityId": "1",
+      "apartmentTypeId": 1,
+      "images": [
+        "https://skelbiu-img.dgn.lt/1_18_3286309462/isnuomuojamas-jaukus-namas.jpg",
+        "https://skelbiu-img.dgn.lt/1_18_3286312296/isnuomuojamas-jaukus-namas.jpg",
+        "https://skelbiu-img.dgn.lt/1_18_3286314120/isnuomuojamas-jaukus-namas.jpg",
+        "https://skelbiu-img.dgn.lt/1_18_3286313446/isnuomuojamas-jaukus-namas.jpg",
+        "https://skelbiu-img.dgn.lt/1_18_3286311674/isnuomuojamas-jaukus-namas.jpg"
+      ],
+      "distance": 95,
+      "openDateRange": [
+        "2022-04-29",
+        "2022-05-12"
+      ],
+      "wishLists": null,
+      "price": {
+        "currency": "EUR",
+        "value": 724
+      }
+    },
+    {
+      "id": 2,
+      "address": "3453 Bradtke Manors",
+      "countryId": "1",
+      "cityId": "1",
+      "apartmentTypeId": 1,
+      "images": [
+        "https://aruodas-img.dgn.lt/object_62_99589377/vilnius-pilaite.jpg",
+        "https://aruodas-img.dgn.lt/object_62_99589385/vilnius-pilaite.jpg",
+        "https://aruodas-img.dgn.lt/object_62_99589393/vilnius-pilaite.jpg",
+        "https://aruodas-img.dgn.lt/object_62_99589409/vilnius-pilaite.jpg",
+        "https://aruodas-img.dgn.lt/object_62_99589421/vilnius-pilaite.jpg"
+      ],
+      "distance": 27,
+      "openDateRange": [
+        "2022-06-21",
+        "2022-06-28"
+      ],
+      "wishLists": null,
+      "price": {
+        "currency": "EUR",
+        "value": 633
+      }
+    },
+    {
+      "id": 3,
+      "address": "61970 Kilback Squares",
+      "countryId": "1",
+      "cityId": "1",
+      "apartmentTypeId": 2,
+      "images": [
+        "https://aruodas-img.dgn.lt/object_62_86896837/siauliai-centras-grafo-zubovo-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_87358263/siauliai-centras-grafo-zubovo-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_86899219/siauliai-centras-grafo-zubovo-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_86896767/siauliai-centras-grafo-zubovo-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_86896577/siauliai-centras-grafo-zubovo-g.jpg"
+      ],
+      "distance": 30,
+      "openDateRange": [
+        "2022-09-10",
+        "2022-09-25"
+      ],
+      "wishLists": null,
+      "price": {
+        "currency": "EUR",
+        "value": 704
+      }
+    },
+    {
+      "id": 4,
+      "address": "205 Collins Lodge",
+      "countryId": "1",
+      "cityId": "1",
+      "apartmentTypeId": 2,
+      "images": [
+        "https://aruodas-img.dgn.lt/object_62_101012039/vilnius-ozkiniai-grusiakalnio-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_101012035/vilnius-ozkiniai-grusiakalnio-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_101012045/vilnius-ozkiniai-grusiakalnio-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_101012055/vilnius-ozkiniai-grusiakalnio-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_101012061/vilnius-ozkiniai-grusiakalnio-g.jpg"
+      ],
+      "distance": 26,
+      "openDateRange": [
+        "2022-04-03",
+        "2022-04-30"
+      ],
+      "wishLists": null,
+      "price": {
+        "currency": "EUR",
+        "value": 446
+      }
+    },
+    {
+      "id": 5,
+      "address": "7205 Jakubowski Wells",
+      "countryId": "1",
+      "cityId": "1",
+      "apartmentTypeId": 1,
+      "images": [
+        "https://aruodas-img.dgn.lt/object_62_100779463/vilnius-pilaite-stalupenu-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_100779445/vilnius-pilaite-stalupenu-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_100779425/vilnius-pilaite-stalupenu-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_100779437/vilnius-pilaite-stalupenu-g.jpg",
+        "https://aruodas-img.dgn.lt/object_62_100779421/vilnius-pilaite-stalupenu-g.jpg"
+      ],
+      "distance": 97,
+      "openDateRange": [
+        "2022-05-29",
+        "2022-06-01"
+      ],
+      "wishLists": null,
+      "price": {
+        "currency": "EUR",
+        "value": 419
+      }
     }
-  },
+  ],
   "whishlists": [
     {
       "id": "1",
       "title": "Tūsams"
+    },
+    {
+      "id": "2",
+      "title": "Ramybei"
+    },
+    {
+      "id": "3",
+      "title": "Poilsiui"
     }
   ],
   "countries": [
@@ -109,14 +1295,3 @@
     }
   ]
 }
-/*
-  1-5 - Lietuvoje, Vilniuje                 - Gytautas
-  6-10 - Lietuvoje, Kaune                   - Gintaras
-  11-15 - Lietuvoje, Klaipėdoje             - Titas
-  16-20 - USA, New York                     - Tadas
-  21-25 - USA, Chicago                      - Gerardas
-  26-30 - USA, Kansas                       - Laima
-  31-35 - Russia, Maskva                    - Kristijonas
-  36-40 - Russia, Sanct Peterburg           - Vilius
-  41-45 - Germany, Hamburg                  - Greta
-*/

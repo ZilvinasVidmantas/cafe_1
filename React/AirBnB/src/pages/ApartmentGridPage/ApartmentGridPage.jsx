@@ -1,11 +1,13 @@
 import React from 'react';
-import { Box, Typography, Button, Fab } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import { useLocation } from "react-router-dom";
-import { addDays, formatDateRange } from "../helpers/dateHelpers";
+import { addDays, formatDateRange } from "../../helpers/dateHelpers";
 import Carousel from 'react-material-ui-carousel';
+import CapsuleButton from '../../components/buttons/CapsuleButton';
 import HouseIcon from '@mui/icons-material/House';
-import CapsuleButton from '../components/buttons/CapsuleButton';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const random = (from, to) => from + Math.floor(Math.random() * (to - from))
 
@@ -142,43 +144,64 @@ const ApartmentButton = styled(Button)(({ theme }) => ({
   ':hover': {
     backgroundColor: theme.palette.action.hover,
   },
+}));
+
+const ApartmentFilterButton = styled(CapsuleButton)(({ theme }) => ({
+  padding: theme.spacing(1, 2),
+  border: `1px solid ${theme.palette.grey[400]}`,
+  ':hover': {
+    borderColor: theme.palette.common.black,
+  },
+  '&.active': {
+    background: theme.palette.action.hover,
+    border: `2px solid ${theme.palette.common.black}`,
+  }
 }))
+
+const ApartmentTypography = styled(Typography)({
+  fontSize: 14
+});
 
 const ApartmentGridHeader = () => {
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between' }} >
-
-
-      <Box sx={{ display: 'flex', mt: 4, mb: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 3.5, mb: 0 }} >
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Box sx={{ pb: 1, borderBottom: 1 }}>
           <ApartmentButton>
-            <HouseIcon sx={{ verticalAlign: 'bottom', mr: 0.5 }} />
-            <Typography sx={{ verticalAlign: 'bottom' }} color="text.primary">Nuosavi namai</Typography>
+            <HouseIcon sx={{ mr: 0.5 }} />
+            <ApartmentTypography color="text.primary" sx={{ fontWeight: 600 }}>Nuosavi namai</ApartmentTypography>
           </ApartmentButton>
         </Box>
         <Box sx={{ pb: 1 }}>
           <ApartmentButton>
-            <Typography sx={{ verticalAlign: 'bottom' }} color="text.secondary">Butai</Typography>
+            <ApartmentTypography color="text.secondary" sx={{ fontWeight: 600 }}>Butai</ApartmentTypography>
           </ApartmentButton>
 
         </Box>
         <Box sx={{ pb: 1 }}>
           <ApartmentButton>
-            <Typography sx={{ verticalAlign: 'bottom' }} color="text.secondary">Kotedžai</Typography>
+            <ApartmentTypography color="text.secondary" sx={{ fontWeight: 600 }}>Kotedžai</ApartmentTypography>
           </ApartmentButton>
         </Box>
       </Box>
-      <Box sx={{ display: 'flex' }}>
-        <Fab variant="extended">Bet kada</Fab>
-        <Fab variant="extended">Svečiai</Fab>
-        <Fab variant="extended">Filtrai</Fab>
+      <Box sx={{ display: 'flex', gap: 1 }}>
+        <ApartmentFilterButton className="active">
+          <ApartmentTypography>Bet kada</ApartmentTypography>
+          <KeyboardArrowDownIcon />
+        </ApartmentFilterButton>
+        <ApartmentFilterButton>
+          <ApartmentTypography>Svečiai</ApartmentTypography>
+          <KeyboardArrowDownIcon />
+        </ApartmentFilterButton>
+        <ApartmentFilterButton>
+          <SettingsIcon sx={{ mr: 1 }} />
+          <ApartmentTypography>Filtrai</ApartmentTypography>
+        </ApartmentFilterButton>
       </Box>
     </Box >
   );
 };
-
-
 
 const ApartmentGridPage = () => {
   const location = useLocation();

@@ -14,7 +14,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 import HomePageLayout from './components/layouts/HomePageLayout';
 import HomePage from './pages/HomePage';
-import ApartmentGridPage from './pages/ApartmentGridPage';
+import ApartmentGridPage from './pages/ApartmentGridPage/ApartmentGridPage';
 import ApartmentLocationPage from './pages/ApartmentLocationPage';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';

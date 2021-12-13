@@ -4,22 +4,22 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SettingsIcon from '@mui/icons-material/Settings';
 // import ApartmentTypography from './ApartmentTypography';
 import Typography from '@mui/material/Typography';
-import ApartmentGridPageHeaderFilterButton from './apartment-grid-page-header-filter-button';
+import OutlinedCapsuleButton from '../../../components/buttons/outlined-capsule-button';
 
 const ApartmentGridPageHeaderFilterContainer = () => (
   <Box sx={{ display: 'flex', gap: 1 }}>
-    <ApartmentGridPageHeaderFilterButton className="active">
+    <OutlinedCapsuleButton className="active">
       <Typography>Bet kada</Typography>
       <KeyboardArrowDownIcon />
-    </ApartmentGridPageHeaderFilterButton>
-    <ApartmentGridPageHeaderFilterButton>
+    </OutlinedCapsuleButton>
+    <OutlinedCapsuleButton>
       <Typography>Svečiai</Typography>
       <KeyboardArrowDownIcon />
-    </ApartmentGridPageHeaderFilterButton>
-    <ApartmentGridPageHeaderFilterButton>
+    </OutlinedCapsuleButton>
+    <OutlinedCapsuleButton>
       <SettingsIcon sx={{ mr: 1 }} />
       <Typography>Filtrai</Typography>
-    </ApartmentGridPageHeaderFilterButton>
+    </OutlinedCapsuleButton>
   </Box>
 );
 

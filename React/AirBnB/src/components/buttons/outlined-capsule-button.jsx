@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
-import CapsuleButton from '../../../components/buttons/capsule-button';
+import CapsuleButton from './capsule-button';
 
-const ApartmentGridPageHeaderFilterButton = styled(CapsuleButton)(({ theme }) => ({
+const OutlinedCapsuleButton = styled(CapsuleButton)(({ theme }) => ({
   padding: theme.spacing(1, 2),
   border: `1px solid ${theme.palette.grey[400]}`,
   ':hover': {
@@ -13,4 +13,4 @@ const ApartmentGridPageHeaderFilterButton = styled(CapsuleButton)(({ theme }) =>
   },
 }));
 
-export default ApartmentGridPageHeaderFilterButton;
+export default OutlinedCapsuleButton;

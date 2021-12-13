@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
-const ApartmentGridPageHeaderButton = styled(Button)(({ theme }) => ({
+const HoverableSquareButton = styled(Button)(({ theme }) => ({
   backgroundColor: 'none',
   textTransform: 'none',
   color: theme.palette.text.secondary,
@@ -10,4 +10,4 @@ const ApartmentGridPageHeaderButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export default ApartmentGridPageHeaderButton;
+export default HoverableSquareButton;

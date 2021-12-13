@@ -5,7 +5,7 @@ import ApartmentGridPageHeaderFilterContainer from './apartment-grid-page-header
 
 const ApartmentGridHeader = () => (
   <Box sx={{
-    display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 3.5, mb: 0, fontSize: 10,
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 3.5, mb: 0,
   }}
   >
     <ApartmentGridPageHeaderTypeContainer />

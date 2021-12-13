@@ -3,7 +3,6 @@ import { Box } from '@mui/material';
 import HouseIcon from '@mui/icons-material/House';
 import Typography from '@mui/material/Typography';
 import HoverableSquareButton from '../../../components/buttons/hoverable-square-button';
-// import ApartmentTypography from './ApartmentTypography';
 
 const ApartmentGridPageHeaderTypeContainer = () => (
   <Box sx={{ display: 'flex', alignItems: 'center' }}>

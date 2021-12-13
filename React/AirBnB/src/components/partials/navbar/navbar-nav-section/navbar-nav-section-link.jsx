@@ -6,7 +6,6 @@ const StyledLink = styled(NavLink)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.palette.text.secondary,
   fontWeight: theme.typography.fontWeightBold,
-  fontSize: theme.typography.fontSize,
   ':hover': {
     color: theme.palette.text.primary,
   },

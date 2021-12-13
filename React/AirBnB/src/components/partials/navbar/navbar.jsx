@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import WideContainer from '../../wide-container';
-import NavbarIconSection from './navbar-icon-section';
+import NavbarNavSection from './navbar-nav-section/navbar-nav-section';
 import NavbarSearchSection from './navbar-search-section';
 import NavbarUserSection from './navbar-user-section';
 
@@ -30,7 +30,7 @@ const Navbar = () => (
       <WideContainer>
         <StyledToolbar>
           <Box sx={{ display: 'flex', alignItems: 'stretch', width: 1 / 2 }}>
-            <NavbarIconSection />
+            <NavbarNavSection />
           </Box>
           <Box sx={{
             display: 'flex', alignItems: 'center', flexBasis: 348, flexShrink: 0,

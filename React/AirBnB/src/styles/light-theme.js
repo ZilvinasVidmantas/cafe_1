@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-// https://mui.com/customization/default-theme/
 const themeBase = createTheme({
   spacing: 8,
   breakpoints: {

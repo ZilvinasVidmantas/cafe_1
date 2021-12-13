@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { addDays } from '../../helpers/date-helpers';
 import ApartmentGridHeader from './apartment-grid-page-header/apartment-grid-page-header';
 import AprtmentGridPageGrid from './apartment-grid-page-grid';
 import AparmentGridPageCard from './apartment-grid-page-card';
+import ApartmentContext from '../../contexts/apartment-context';
 
 const random = (from, to) => from + Math.floor(Math.random() * (to - from));
 
@@ -35,9 +36,11 @@ for (let i = 1; i <= 60; i += 1) {
 }
 
 const ApartmentGridPage = () => {
+  const apartmentContext = useContext(ApartmentContext);
+  // eslint-disable-next-line no-unused-vars
   const location = useLocation();
 
-  console.log(location);
+  console.log(apartmentContext);
 
   return (
     <Box>

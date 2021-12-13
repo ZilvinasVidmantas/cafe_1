@@ -210,7 +210,7 @@
         "2021-12-20",
         "2021-12-29"
       ],
-      "wishlistId": "null",
+      "wishlistId": null,
       "price": {
         "currency": "USD",
         "value": 406
@@ -721,126 +721,6 @@
       }
     },
     {
-      "id": "21",
-      "address": "S Wabash Ave 3-17",
-      "countryId": "2",
-      "cityId": "5",
-      "apartmentTypeId": "2",
-      "images": [
-        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/e3eb5527-a34e-44df-93cc-fe69f8c8b76c.jpeg?im_w=1200",
-        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/3bdcd652-65c8-4987-8ae4-f0f3b8cd74ce.jpeg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/dca29bad-f675-4189-873d-8e29675d215d.jpeg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/e1a50687-77a1-48b3-b4a6-4c1fe55980e0.jpeg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-37107126/original/dffde098-ccae-4ed2-96ab-31674e9179b7.jpeg?im_w=1440"
-      ],
-      "distance": 7539,
-      "openDateRange": [
-        "2021-12-14",
-        "2021-12-21"
-      ],
-      "wishlistId": "1",
-      "price": {
-        "currency": "USD",
-        "value": 138
-      }
-    },
-    {
-      "id": "22",
-      "address": "W Chicago Ave 8-5",
-      "countryId": "2",
-      "cityId": "5",
-      "apartmentTypeId": "2",
-      "images": [
-        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/a65526c1-9f3c-4213-a8f7-e28710b42491.jpeg?im_w=1200",
-        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/8c877dba-e8a3-406d-b3c6-01cf5ada7dec.jpeg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/291c78e4-6ac8-4fa7-9784-d37672bfb885.jpeg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/a2e08c81-b3cf-4a01-aabc-4ffcd68be20f.jpeg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/miso/Hosting-51530318/original/aa8c99cb-8739-458f-a0b3-d8e0aaac2333.jpeg?im_w=1440"
-      ],
-      "distance": 7541,
-      "openDateRange": [
-        "2021-12-15",
-        "2021-12-31"
-      ],
-      "wishlistId": null,
-      "price": {
-        "currency": "USD",
-        "value": 80
-      }
-    },
-    {
-      "id": "23",
-      "address": "S Springfield Ave 13-2",
-      "countryId": "2",
-      "cityId": "5",
-      "apartmentTypeId": "2",
-      "images": [
-        "https://a0.muscache.com/im/pictures/baabfa8f-af16-4ec6-91b1-451ae69cab12.jpg?im_w=1200",
-        "https://a0.muscache.com/im/pictures/a8bbc63c-333c-4e53-944a-5cc1eee38746.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/1828d514-8674-4fe4-9aef-fb9950aef429.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/8f457f8b-e23a-42f7-8ed8-598cb11d60e0.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/b0e2e05e-5979-4676-aaaf-36750f57a4f4.jpg?im_w=1440"
-      ],
-      "distance": 7542,
-      "openDateRange": [
-        "2021-12-12",
-        "2021-12-31"
-      ],
-      "wishlistId": null,
-      "price": {
-        "currency": "USD",
-        "value": 43
-      }
-    },
-    {
-      "id": "24",
-      "address": "W Jackson Blvd 5-5",
-      "countryId": "2",
-      "cityId": "5",
-      "apartmentTypeId": "2",
-      "images": [
-        "https://a0.muscache.com/im/pictures/4f7ea0c5-e681-440d-be83-c9624b2d73e8.jpg?im_w=1200",
-        "https://a0.muscache.com/im/pictures/068f9ec0-1178-4b95-aa96-c04a4c138e52.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/53fad4ac-7209-4f6b-b5b8-9337c55163ee.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/4d2f60d2-c58a-4222-a76c-ffd8d690757d.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/4752a675-57c1-4572-b5be-7428687f2921.jpg?im_w=1440"
-      ],
-      "distance": 7548,
-      "openDateRange": [
-        "2021-12-10",
-        "2021-12-25"
-      ],
-      "wishlistId": null,
-      "price": {
-        "currency": "USD",
-        "value": 48
-      }
-    },
-    {
-      "id": "25",
-      "address": "S 17th Ave 2-3",
-      "countryId": "2",
-      "cityId": "5",
-      "apartmentTypeId": "2",
-      "images": [
-        "https://a0.muscache.com/im/pictures/f1ee17cd-95e6-4ddc-9d2f-c1311307a493.jpg?im_w=1200",
-        "https://a0.muscache.com/im/pictures/6f1a9d53-7bb6-42b8-aa3e-173acbb52d65.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/46783bd9-d170-48df-80d1-ae01ca847094.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/a5174385-b7e5-4c7d-8161-3de22a48cd85.jpg?im_w=1440",
-        "https://a0.muscache.com/im/pictures/f05111e8-b315-424f-b5cc-eea791eb0e16.jpg?im_w=1440"
-      ],
-      "distance": 7552,
-      "openDateRange": [
-        "2021-12-12",
-        "2021-12-31"
-      ],
-      "wishlistId": null,
-      "price": {
-        "currency": "USD",
-        "value": 39
-      }
-    },
-    {
       "id": "41",
       "address": "CENTER HAMBURG 789-14",
       "countryId": "4",
@@ -1081,11 +961,11 @@
       }
     },
     {
-      "id": 1,
+      "id": "1",
       "address": "18228 Ida Corners",
       "countryId": "1",
       "cityId": "1",
-      "apartmentTypeId": 1,
+      "apartmentTypeId": "1",
       "images": [
         "https://skelbiu-img.dgn.lt/1_18_3286309462/isnuomuojamas-jaukus-namas.jpg",
         "https://skelbiu-img.dgn.lt/1_18_3286312296/isnuomuojamas-jaukus-namas.jpg",
@@ -1098,18 +978,18 @@
         "2022-04-29",
         "2022-05-12"
       ],
-      "wishLists": null,
+      "wishlistId": null,
       "price": {
         "currency": "EUR",
         "value": 724
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "address": "3453 Bradtke Manors",
       "countryId": "1",
       "cityId": "1",
-      "apartmentTypeId": 1,
+      "apartmentTypeId": "1",
       "images": [
         "https://aruodas-img.dgn.lt/object_62_99589377/vilnius-pilaite.jpg",
         "https://aruodas-img.dgn.lt/object_62_99589385/vilnius-pilaite.jpg",
@@ -1122,18 +1002,18 @@
         "2022-06-21",
         "2022-06-28"
       ],
-      "wishLists": null,
+      "wishlistId": null,
       "price": {
         "currency": "EUR",
         "value": 633
       }
     },
     {
-      "id": 3,
+      "id": "3",
       "address": "61970 Kilback Squares",
       "countryId": "1",
       "cityId": "1",
-      "apartmentTypeId": 2,
+      "apartmentTypeId": "2",
       "images": [
         "https://aruodas-img.dgn.lt/object_62_86896837/siauliai-centras-grafo-zubovo-g.jpg",
         "https://aruodas-img.dgn.lt/object_62_87358263/siauliai-centras-grafo-zubovo-g.jpg",
@@ -1146,18 +1026,18 @@
         "2022-09-10",
         "2022-09-25"
       ],
-      "wishLists": null,
+      "wishlistId": null,
       "price": {
         "currency": "EUR",
         "value": 704
       }
     },
     {
-      "id": 4,
+      "id": "4",
       "address": "205 Collins Lodge",
       "countryId": "1",
       "cityId": "1",
-      "apartmentTypeId": 2,
+      "apartmentTypeId": "2",
       "images": [
         "https://aruodas-img.dgn.lt/object_62_101012039/vilnius-ozkiniai-grusiakalnio-g.jpg",
         "https://aruodas-img.dgn.lt/object_62_101012035/vilnius-ozkiniai-grusiakalnio-g.jpg",
@@ -1170,18 +1050,18 @@
         "2022-04-03",
         "2022-04-30"
       ],
-      "wishLists": null,
+      "wishlistId": null,
       "price": {
         "currency": "EUR",
         "value": 446
       }
     },
     {
-      "id": 5,
+      "id": "5",
       "address": "7205 Jakubowski Wells",
       "countryId": "1",
       "cityId": "1",
-      "apartmentTypeId": 1,
+      "apartmentTypeId": "1",
       "images": [
         "https://aruodas-img.dgn.lt/object_62_100779463/vilnius-pilaite-stalupenu-g.jpg",
         "https://aruodas-img.dgn.lt/object_62_100779445/vilnius-pilaite-stalupenu-g.jpg",
@@ -1194,14 +1074,14 @@
         "2022-05-29",
         "2022-06-01"
       ],
-      "wishLists": null,
+      "wishlistId": null,
       "price": {
         "currency": "EUR",
         "value": 419
       }
     }
   ],
-  "whishlists": [
+  "wishlists": [
     {
       "id": "1",
       "title": "Tūsams"
@@ -1283,15 +1163,15 @@
   "apartmentTypes": [
     {
       "id": "1",
-      "title": "house"
+      "title": "Nuosavas namas"
     },
     {
       "id": "2",
-      "title": "flat"
+      "title": "Butas"
     },
     {
       "id": "3",
-      "title": "cottage"
+      "title": "Kotedžas"
     }
   ]
 }

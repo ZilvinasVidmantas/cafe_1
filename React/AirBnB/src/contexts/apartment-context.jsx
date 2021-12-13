@@ -13,18 +13,16 @@ export const ApartmentProvider = ({ children }) => {
     cities: [],
     countries: [],
     apartmentTypes: [],
+    wishlists: [],
   });
 
   useEffect(() => {
-    const fetchCities = async () => {
-      const cities = await APIService.fetchCities();
-      setState({
-        ...state,
-        cities,
-      });
+    const fetchData = async () => {
+      const data = await APIService.fetchApartmentContextData();
+      setState(data);
     };
 
-    fetchCities();
+    fetchData();
   }, []);
 
   return (

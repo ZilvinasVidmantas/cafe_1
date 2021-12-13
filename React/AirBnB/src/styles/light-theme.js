@@ -12,6 +12,9 @@ const themeBase = createTheme({
       xl: 1760,
     },
   },
+  typography: {
+    htmlFontSize: 14,
+  },
 });
 
 const lightTheme = createTheme(themeBase, {

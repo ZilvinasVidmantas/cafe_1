@@ -5,7 +5,9 @@ const annonymousInstance = axios.create({
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
+  mode: 'no-cors',
 });
 
 const apartmentRelationships = ['country', 'city'].map((x) => `_expand=${x}`).join('&');

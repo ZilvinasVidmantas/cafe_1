@@ -1,9 +1,3 @@
-1.
-Sukurti routą, /apartment/:id, kuris vestų į naujai sukurtą komponentą apartment-page.jsx
-  * Šiame puslapyje atspausdinkite ':id' dideliu tekstu, tam naudokite:
-      https://reactrouter.com/docs/en/v6/getting-started/tutorial#reading-url-params
-  * Išsitestuokite keisdami url
-
 2.
 apartment-grid-page-card.jsx faile, apgaubkite korteles nuorodą, kuri vestų į atitinkamo būsto
 individualų puslapį:
@@ -21,3 +15,6 @@ apartment-grid-page.jsx ir jo vaikiniuose komponentuose, įgalinkite, jog būtų
     http://localhost:3000/apartment-grid?apartmentType=house
     http://localhost:3000/apartment-grid?apartmentType=all
     ir t.t...
+
+20:20-20:30
+21:10-21:20

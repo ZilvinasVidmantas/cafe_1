@@ -16,11 +16,10 @@ const ApartmentGridPage = () => {
     <Box>
       <ApartmentGridHeader />
       <AprtmentGridPageGrid>
-        {apartments.map(({ city, country, ...apartment }) => (
+        {apartments.map(({ ...apartment }) => (
           <AparmentGridPageCard
             key={apartment.id}
             {...apartment}
-            title={`${city.title}, ${country.title}`}
           />
         ))}
       </AprtmentGridPageGrid>
@@ -29,6 +28,3 @@ const ApartmentGridPage = () => {
 };
 
 export default ApartmentGridPage;
-
-// api-service.js faile suformuokite PAPILDOMĄ savybę title,
-// jog to nereikėtų atlikinėti šiame komponente

@@ -46,11 +46,14 @@ const fetchApartmentContextData = async () => {
     fetchWishlists()]);
 
   const formatedApartments = apartments.map(({
-    wishlistId, openDateRange, price, ...rest
+    wishlistId, openDateRange, price, city, country, ...rest
   }) => {
     const apartment = {
       ...rest,
       openDateRange: openDateRange.map((x) => new Date(x)),
+      city,
+      country,
+      title: `${city.title}, ${country.title}`,
       price: `${price.value} ${price.currency}`,
     };
     if (wishlistId) {

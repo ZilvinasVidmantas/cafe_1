@@ -10,7 +10,6 @@ const ApartmentGridPage = () => {
   const { apartments } = useContext(ApartmentContext);
   // eslint-disable-next-line no-unused-vars
   const location = useLocation();
-  console.log(apartments);
 
   return (
     <Box>

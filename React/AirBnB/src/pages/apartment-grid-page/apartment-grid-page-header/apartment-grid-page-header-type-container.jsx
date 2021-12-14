@@ -1,29 +1,52 @@
-import * as React from 'react';
-import { Box } from '@mui/material';
-import HouseIcon from '@mui/icons-material/House';
-import Typography from '@mui/material/Typography';
+import React, { useContext, useState, useEffect } from 'react';
+import { Box, styled } from '@mui/material';
 import HoverableSquareButton from '../../../components/buttons/hoverable-square-button';
+import ApartmentContext from '../../../contexts/apartment-context';
 
-const ApartmentGridPageHeaderTypeContainer = () => (
-  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-    <Box sx={{ pb: 1, borderBottom: 1 }}>
-      <HoverableSquareButton>
-        <HouseIcon sx={{ mr: 0.5 }} />
-        <Typography color="text.primary" sx={{ fontWeight: 600 }}>Nuosavi namai</Typography>
-      </HoverableSquareButton>
-    </Box>
-    <Box sx={{ pb: 1 }}>
-      <HoverableSquareButton>
-        <Typography color="text.secondary" sx={{ fontWeight: 600 }}>Butai</Typography>
-      </HoverableSquareButton>
+const createActivatableApartmentTypes = (apartmentTypes) => apartmentTypes.map((apart, i) => ({
+  ...apart,
+  active: i === 0,
+}));
+
+const HoverableSquareButtonContainer = styled(Box)(({ theme }) => ({
+  paddingBotton: theme.spacing(1),
+  '&.active': {
+    boxShadow: `0 1px 0 ${theme.palette.common.black}`,
+  },
+}));
+
+const ApartmentGridPageHeaderTypeContainer = () => {
+  const { apartmentTypes: initialApartmentTypes } = useContext(ApartmentContext);
+  const [apartmentTypes, setApartmentTypes] = useState([]);
+
+  const setActiveApartment = (id) => {
+    setApartmentTypes((prev) => prev.map((apart) => ({
+      ...apart,
+      active: apart.id === id,
+    })));
+  };
+
+  useEffect(() => {
+    const activatableApartmentTypes = createActivatableApartmentTypes(initialApartmentTypes);
+    setApartmentTypes(activatableApartmentTypes);
+  }, [initialApartmentTypes]);
+
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      {
+        apartmentTypes.length > 0
+          ? apartmentTypes.map(({ id, title, active }) => (
+            <HoverableSquareButtonContainer key={id} className={active ? 'active' : ''}>
+              <HoverableSquareButton onClick={() => setActiveApartment(id)} active={active}>
+                {title}
+              </HoverableSquareButton>
+            </HoverableSquareButtonContainer>
+          ))
+          : null
+      }
 
     </Box>
-    <Box sx={{ pb: 1 }}>
-      <HoverableSquareButton>
-        <Typography color="text.secondary" sx={{ fontWeight: 600 }}>Kotedžai</Typography>
-      </HoverableSquareButton>
-    </Box>
-  </Box>
-);
+  );
+};
 
 export default ApartmentGridPageHeaderTypeContainer;

@@ -13,6 +13,7 @@ const themeBase = createTheme({
   },
   typography: {
     fontSize: 13,
+    fontSizeLg: 15,
   },
 });
 

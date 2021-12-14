@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import React from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SettingsIcon from '@mui/icons-material/Settings';
-// import ApartmentTypography from './ApartmentTypography';
 import Typography from '@mui/material/Typography';
 import OutlinedCapsuleButton from '../../../components/buttons/outlined-capsule-button';
 

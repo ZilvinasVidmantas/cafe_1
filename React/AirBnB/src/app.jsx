@@ -10,14 +10,15 @@ import DateAdapter from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 import lightTheme from './styles/light-theme';
+import { ApartmentProvider } from './contexts/apartment-context';
 import Navbar from './components/partials/navbar/navbar';
 import HomePageLayout from './components/layouts/home-page-layout';
 import HomePage from './pages/home-page';
 import ApartmentGridPage from './pages/apartment-grid-page/apartment-grid-page';
 import ApartmentLocationPage from './pages/apartment-location-page';
 import SearchPage from './pages/search-page';
+import ApartmentPage from './pages/apartment-page';
 import NotFoundPage from './pages/not-found-page';
-import { ApartmentProvider } from './contexts/apartment-context';
 
 const App = () => (
   <LocalizationProvider dateAdapter={DateAdapter}>
@@ -32,6 +33,7 @@ const App = () => (
                 <Route path="search" element={<SearchPage />} />
                 <Route path="apartment-location" element={<ApartmentLocationPage />} />
                 <Route path="apartment-grid" element={<ApartmentGridPage />} />
+                <Route path="apartment/:id" element={<ApartmentPage />} />
               </Route>
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

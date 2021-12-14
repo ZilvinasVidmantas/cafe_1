@@ -1,11 +1,3 @@
-2.
-apartment-grid-page-card.jsx faile, apgaubkite korteles nuorodą, kuri vestų į atitinkamo būsto
-individualų puslapį:
-  Tam naudokite:
-    https://reactrouter.com/docs/en/v6/getting-started/tutorial#add-some-links
-
-  Teisingai atlikus užduotį, turėtų matytis paspausto būsto id (kurį pirmoje užduotyje gavote naudodami useParams(...))
-
 3. 
 apartment-grid-page.jsx ir jo vaikiniuose komponentuose, įgalinkite, jog būtų galima pasirinkiti būsto tipą:
   * Pirmiausiai sukurkite pasirinkimo galimybę naudodami useState ir suvaldymo funkciją paspaudus ant mygtukų
@@ -16,5 +8,4 @@ apartment-grid-page.jsx ir jo vaikiniuose komponentuose, įgalinkite, jog būtų
     http://localhost:3000/apartment-grid?apartmentType=all
     ir t.t...
 
-20:20-20:30
 21:10-21:20

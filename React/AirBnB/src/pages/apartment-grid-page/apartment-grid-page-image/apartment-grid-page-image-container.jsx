@@ -4,6 +4,7 @@ const ApartmentgridPageImageContainer = styled('div')({
   position: 'relative',
   borderRadius: 12,
   overflow: 'hidden',
+  cursor: 'pointer',
   ':before': {
     content: '" "',
     display: 'block',

@@ -1,7 +1,9 @@
 import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
-const HoverableSquareButton = styled(Button)(({ theme, active }) => ({
+const HoverableSquareButton = styled(Button, {
+  shouldForwardProp: (prop) => prop !== 'active',
+})(({ theme, active }) => ({
   backgroundColor: 'none',
   textTransform: 'none',
   fontWeight: theme.typography.fontWeightBold,

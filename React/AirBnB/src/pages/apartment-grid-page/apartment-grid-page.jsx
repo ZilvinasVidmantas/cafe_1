@@ -1,15 +1,26 @@
-import React, { useContext } from 'react';
+/* eslint-disable */
+import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import ApartmentGridHeader from './apartment-grid-page-header/apartment-grid-page-header';
 import AprtmentGridPageGrid from './apartment-grid-page-grid';
 import AparmentGridPageCard from './apartment-grid-page-card';
-import ApartmentContext from '../../contexts/apartment-context';
+import { URLSearchParamsToObject } from '../../helpers/url-search-params-helpers';
+import APIService from '../../services/api-service';
 
 const ApartmentGridPage = () => {
-  const { apartments } = useContext(ApartmentContext);
-  // eslint-disable-next-line no-unused-vars
-  const location = useLocation();
+  const [apartments, setApartments] = useState([]);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const searchParamsObj = URLSearchParamsToObject(searchParams);
+    // IFFE - Imeditaly invoked function expression
+    (async () => {
+      const fetchedApartments = await APIService.fetchApartments(searchParamsObj);
+      // TODO: SUMODELIUOTI DUOMENIS, fetchedApartments, taip kad tiktų AparmentGridPageCard
+      // setApartments(fetchedApartments);
+    })();
+  }, [searchParams]);
 
   return (
     <Box>

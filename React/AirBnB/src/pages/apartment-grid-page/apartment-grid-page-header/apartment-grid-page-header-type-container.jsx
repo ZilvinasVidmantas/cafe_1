@@ -1,12 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Box, styled } from '@mui/material';
+import { useSearchParams } from 'react-router-dom';
 import HoverableSquareButton from '../../../components/buttons/hoverable-square-button';
 import ApartmentContext from '../../../contexts/apartment-context';
-
-const createActivatableApartmentTypes = (apartmentTypes) => apartmentTypes.map((apart, i) => ({
-  ...apart,
-  active: i === 0,
-}));
+import { URLSearchParamsToObject } from '../../../helpers/url-search-params-helpers';
 
 const HoverableSquareButtonContainer = styled(Box)(({ theme }) => ({
   paddingBotton: theme.spacing(1),
@@ -16,37 +13,57 @@ const HoverableSquareButtonContainer = styled(Box)(({ theme }) => ({
 }));
 
 const ApartmentGridPageHeaderTypeContainer = () => {
-  const { apartmentTypes: initialApartmentTypes } = useContext(ApartmentContext);
-  const [apartmentTypes, setApartmentTypes] = useState([]);
+  const { apartmentTypes } = useContext(ApartmentContext);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [selectableApartmentTypes, setSelectableApartmentTypes] = useState([]);
 
-  const setActiveApartment = (id) => {
-    setApartmentTypes((prev) => prev.map((apart) => ({
-      ...apart,
-      active: apart.id === id,
-    })));
+  const setActiveApartmentType = (apartmentTypeTitle) => {
+    const searchParamsObj = URLSearchParamsToObject(searchParams);
+
+    if (apartmentTypeTitle !== 'Visi') {
+      searchParamsObj.apartmentType = apartmentTypeTitle;
+    } else {
+      delete searchParamsObj.apartmentType;
+    }
+
+    setSearchParams(searchParamsObj);
   };
 
+  // Skirtas sukurti Pasirenkamiem tipam
   useEffect(() => {
-    if (initialApartmentTypes.length !== 0) {
-      const activatableApartmentTypes = createActivatableApartmentTypes(initialApartmentTypes);
-      setApartmentTypes(activatableApartmentTypes);
+    if (apartmentTypes.length !== 0) {
+      const apartmentType = searchParams.get('apartmentType');
+      const newApartmentTypes = apartmentTypes.map((x) => ({ ...x, active: false }));
+      const allTypesOption = {
+        id: '-1',
+        title: 'Visi',
+        active: false,
+      };
+      newApartmentTypes.unshift(allTypesOption);
+
+      if (apartmentType) {
+        const selectedApartmentType = newApartmentTypes.find((x) => x.title === apartmentType);
+        selectedApartmentType.active = true;
+      } else {
+        allTypesOption.active = true;
+      }
+      setSelectableApartmentTypes(newApartmentTypes);
     }
-  }, [initialApartmentTypes]);
+  }, [apartmentTypes, searchParams]);
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       {
-        apartmentTypes.length > 0
-          ? apartmentTypes.map(({ id, title, active }) => (
+        selectableApartmentTypes.length > 0
+          ? selectableApartmentTypes.map(({ id, title, active }) => (
             <HoverableSquareButtonContainer key={id} className={active ? 'active' : ''}>
-              <HoverableSquareButton onClick={() => setActiveApartment(id)} active={active}>
+              <HoverableSquareButton onClick={() => setActiveApartmentType(title)} active={active}>
                 {title}
               </HoverableSquareButton>
             </HoverableSquareButtonContainer>
           ))
           : null
       }
-
     </Box>
   );
 };

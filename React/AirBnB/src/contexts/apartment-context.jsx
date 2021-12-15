@@ -1,8 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, {
+  createContext, useState, useEffect, useMemo,
+} from 'react';
 import APIService from '../services/api-service';
 
 const initialValue = {
-  apartments: [],
+  cities: [],
+  countries: [],
+  apartmentTypes: [],
+  wishlists: [],
 };
 
 const ApartmentContext = createContext(initialValue);
@@ -17,6 +22,7 @@ export const ApartmentProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    console.log('incijuojamas parsiuntimas kontekste');
     const fetchData = async () => {
       const data = await APIService.fetchApartmentContextData();
       setState(data);
@@ -25,8 +31,12 @@ export const ApartmentProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const providerValue = useMemo(() => ({
+    ...state,
+  }), [state]);
+
   return (
-    <ApartmentContext.Provider value={state}>
+    <ApartmentContext.Provider value={providerValue}>
       {children}
     </ApartmentContext.Provider>
   );

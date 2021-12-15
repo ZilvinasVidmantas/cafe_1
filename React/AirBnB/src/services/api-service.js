@@ -13,7 +13,7 @@ const annonymousInstance = axios.create({
 const apartmentRelationships = ['country', 'city'].map((x) => `_expand=${x}`).join('&');
 
 const fetchApartments = async () => {
-  const response = await annonymousInstance.get(`/apartments?${apartmentRelationships}`);
+  const response = await annonymousInstance.get(`/apartments?${apartmentRelationships}&_start=1&_end=16`);
   return response.data;
 };
 
@@ -44,6 +44,8 @@ const fetchApartmentContextData = async () => {
     fetchCountries(),
     fetchCities(),
     fetchWishlists()]);
+
+  // MVC
 
   const formatedApartments = apartments.map(({
     wishlistId, openDateRange, price, city, country, ...rest

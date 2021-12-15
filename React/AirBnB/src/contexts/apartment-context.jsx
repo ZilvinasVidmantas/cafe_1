@@ -33,12 +33,3 @@ export const ApartmentProvider = ({ children }) => {
 };
 
 export default ApartmentContext;
-
-/*
-  Sukurti api-service.js funkcijas gauti duomenims:
-    apartments
-    cities
-    countries
-    apartmentTypes
-  Gavus duomenis, įrašyti juos į ApartmentProvider <state>
-*/

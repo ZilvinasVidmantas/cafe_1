@@ -27,8 +27,10 @@ const ApartmentGridPageHeaderTypeContainer = () => {
   };
 
   useEffect(() => {
-    const activatableApartmentTypes = createActivatableApartmentTypes(initialApartmentTypes);
-    setApartmentTypes(activatableApartmentTypes);
+    if (initialApartmentTypes.length !== 0) {
+      const activatableApartmentTypes = createActivatableApartmentTypes(initialApartmentTypes);
+      setApartmentTypes(activatableApartmentTypes);
+    }
   }, [initialApartmentTypes]);
 
   return (

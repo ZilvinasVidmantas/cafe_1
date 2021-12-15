@@ -1,7 +1,7 @@
 3. 
 apartment-grid-page.jsx ir jo vaikiniuose komponentuose, įgalinkite, jog būtų galima pasirinkiti būsto tipą:
   * Pirmiausiai sukurkite pasirinkimo galimybę naudodami useState ir suvaldymo funkciją paspaudus ant mygtukų
-  * Tuomet panaudokite, router hook'sus, kad įrašyti pasikinktą tipą į url:
+  * Tuomet panaudokite, router hook'sus, kad įrašyti pasirinktą tipą į url:
     https://reactrouter.com/docs/en/v6/getting-started/tutorial#search-params
     pvz.:
     http://localhost:3000/apartment-grid?apartmentType=house

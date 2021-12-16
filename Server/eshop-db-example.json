@@ -1,0 +1,49 @@
+{
+  "carts": [
+    {
+      "id": "11",
+      "userId": "111"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "Nvidia GTX-7300",
+      "inStock": 6,
+      "price": 1200
+    },
+    {
+      "id": "2",
+      "title": "Radeon Vision-85",
+      "inStock": 18,
+      "price": 800
+    }
+  ],
+  "users": [
+    {
+      "id": "111",
+      "name": "Jonas"
+    }
+  ],
+  "cartProducts": [
+    {
+      "id": "1111",
+      "cartId": "11",
+      "productId": "1",
+      "count": 3
+    },
+    {
+      "id": "2222",
+      "cartId": "11",
+      "productId": "2",
+      "count": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": "11111",
+      "cartId": "11",
+      "status": "pending_payment"
+    }
+  ]
+}

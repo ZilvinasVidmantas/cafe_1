@@ -1,9 +1,0 @@
-- Prisijungimas
-- Duomenys atvaizduojami pagal serveryje esančius duomenis
-- Autorizuota (tik prisijungus) erdvė
-- Pagrindinis puslapis
-- Teikiamų paslaugos puslapis (tai gali būt ir pagrindinis, priklauso nuo dizaino), kuriame yra sąrašas paslaugų/prekių 
-- Atskiras vienos paslaugos/prekės puslapis
-- Administracinis puslapis - prisijungus. Kuriame galima redaguoti viešai rodomas prekes/paslaugas
-
-Sugalvokite kokį Pavyzdinį projektą darysime. Jeigu nebus pasiūlųmų, darysime Labai supaprastinta Airbnb versiją.

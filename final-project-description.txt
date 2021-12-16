@@ -7,7 +7,7 @@ Projekto pateikimas:
 
 Techninės priemonės:
   * React.js
-  * FE Framework'as (Material-ui)
+  * FE komponentų Framework'as (Material-ui)
   * react-router-dom 'v5' arba 'v6'
   * Redux.js (ir|arba) React Context.
   * Validacija įvedamiems duomenims (Formik)
@@ -64,4 +64,5 @@ Vertinimas:
   8. Panaudota komponentų biblioteka su pritaikytais temos nustatymais [1]
   9. Puslapiavimas (ir|arba) infinite* scroll [1]
   10. CRUD veiksmai [1] 
+  11. Formos validacija [1]
     

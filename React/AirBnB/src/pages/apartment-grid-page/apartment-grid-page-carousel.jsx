@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Carousel from 'react-material-ui-carousel';
-import ApartmentGridPageImage from './apartment-grid-page-image/apartment-grid-page-image';
+import ApartmentGridPageImage from './apartment-grid-page-image';
 
 const AparmentGridPageCarousel = ({ images, onClick }) => {
   const theme = useTheme();

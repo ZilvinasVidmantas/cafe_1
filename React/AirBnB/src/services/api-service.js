@@ -10,10 +10,8 @@ const annonymousInstance = axios.create({
   mode: 'no-cors',
 });
 
-const apartmentRelationships = ['country', 'city'].map((x) => `_expand=${x}`).join('&');
-
 const fetchApartments = async () => {
-  const response = await annonymousInstance.get(`/apartments?${apartmentRelationships}&_start=1&_end=17`);
+  const response = await annonymousInstance.get('/apartments?_expand=city&_expand=country&_page=1&_limit=20');
   return response.data;
 };
 
@@ -68,8 +66,8 @@ const fetchJoinedApartments = async () => {
 const APIService = {
   fetchCities,
   fetchApartments,
-  fetchApartmentTypes,
   fetchCountries,
+  fetchApartmentTypes,
   fetchJoinedApartments,
 };
 

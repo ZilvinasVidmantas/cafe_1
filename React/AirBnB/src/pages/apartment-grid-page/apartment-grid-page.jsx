@@ -1,32 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { useSearchParams } from 'react-router-dom';
 import ApartmentGridHeader from './apartment-grid-page-header/apartment-grid-page-header';
 import AprtmentGridPageGrid from './apartment-grid-page-grid';
 import AparmentGridPageCard from './apartment-grid-page-card';
-import { URLSearchParamsToObject } from '../../helpers/url-search-params-helpers';
 import APIService from '../../services/api-service';
 
+const emptyApartments = [...new Array(20)].map((_, id) => ({ id }));
 const ApartmentGridPage = () => {
-  const [apartments, setApartments] = useState([]);
-  const [searchParams] = useSearchParams();
+  const [apartments, setApartments] = useState(emptyApartments);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const searchParamsObj = URLSearchParamsToObject(searchParams);
     (async () => {
-      const fetchedApartments = await APIService.fetchJoinedApartments(searchParamsObj);
-      console.table(fetchedApartments);
+      const fetchedApartments = await APIService.fetchJoinedApartments();
       setApartments(fetchedApartments);
+      setLoading(false);
     })();
-  }, [searchParams]);
+  }, []);
 
   return (
     <Box>
       <ApartmentGridHeader />
       <AprtmentGridPageGrid>
-        {apartments.map(({ ...apartment }) => (
+        {apartments.map((apartment) => (
           <AparmentGridPageCard
             key={apartment.id}
+            loading={loading}
             {...apartment}
           />
         ))}

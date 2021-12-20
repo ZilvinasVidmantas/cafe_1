@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 
-const ApartmentgridPageImageContainer = styled('div')({
+const SquareContainer = styled('div')({
   position: 'relative',
   borderRadius: 12,
   overflow: 'hidden',
@@ -11,7 +11,7 @@ const ApartmentgridPageImageContainer = styled('div')({
     width: '100%',
     paddingTop: '100%',
   },
-  '>img': {
+  '>*': {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -21,4 +21,4 @@ const ApartmentgridPageImageContainer = styled('div')({
   },
 });
 
-export default ApartmentgridPageImageContainer;
+export default SquareContainer;

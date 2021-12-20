@@ -10,7 +10,6 @@ import DateAdapter from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 import lightTheme from './styles/light-theme';
-import { ApartmentProvider } from './contexts/apartment-context';
 import Navbar from './components/partials/navbar/navbar';
 import HomePageLayout from './components/layouts/home-page-layout';
 import HomePage from './pages/home-page';
@@ -22,25 +21,23 @@ import NotFoundPage from './pages/not-found-page';
 
 const App = () => (
   <LocalizationProvider dateAdapter={DateAdapter}>
-    <ApartmentProvider>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline>
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<HomePageLayout />}>
-                <Route index element={<HomePage />} />
-                <Route path="search" element={<SearchPage />} />
-                <Route path="apartment-location" element={<ApartmentLocationPage />} />
-                <Route path="apartment-grid" element={<ApartmentGridPage />} />
-                <Route path="apartment/:id" element={<ApartmentPage />} />
-              </Route>
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </BrowserRouter>
-        </CssBaseline>
-      </ThemeProvider>
-    </ApartmentProvider>
+    <ThemeProvider theme={lightTheme}>
+      <CssBaseline>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePageLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="search" element={<SearchPage />} />
+              <Route path="apartment-location" element={<ApartmentLocationPage />} />
+              <Route path="apartment-grid" element={<ApartmentGridPage />} />
+              <Route path="apartment/:id" element={<ApartmentPage />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CssBaseline>
+    </ThemeProvider>
   </LocalizationProvider>
 
 );

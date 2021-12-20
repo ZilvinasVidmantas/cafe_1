@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
@@ -14,11 +13,10 @@ const ApartmentGridPage = () => {
 
   useEffect(() => {
     const searchParamsObj = URLSearchParamsToObject(searchParams);
-    // IFFE - Imeditaly invoked function expression
     (async () => {
-      const fetchedApartments = await APIService.fetchApartments(searchParamsObj);
-      // TODO: SUMODELIUOTI DUOMENIS, fetchedApartments, taip kad tiktų AparmentGridPageCard
-      // setApartments(fetchedApartments);
+      const fetchedApartments = await APIService.fetchJoinedApartments(searchParamsObj);
+      console.table(fetchedApartments);
+      setApartments(fetchedApartments);
     })();
   }, [searchParams]);
 

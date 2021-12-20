@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, styled } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import HoverableSquareButton from '../../../components/buttons/hoverable-square-button';
-import ApartmentContext from '../../../contexts/apartment-context';
 import { URLSearchParamsToObject } from '../../../helpers/url-search-params-helpers';
+import ApiService from '../../../services/api-service';
 
 const HoverableSquareButtonContainer = styled(Box)(({ theme }) => ({
   paddingBotton: theme.spacing(1),
@@ -13,7 +13,7 @@ const HoverableSquareButtonContainer = styled(Box)(({ theme }) => ({
 }));
 
 const ApartmentGridPageHeaderTypeContainer = () => {
-  const { apartmentTypes } = useContext(ApartmentContext);
+  const [apartmentTypes, setApartmentTypes] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectableApartmentTypes, setSelectableApartmentTypes] = useState([]);
 
@@ -28,6 +28,13 @@ const ApartmentGridPageHeaderTypeContainer = () => {
 
     setSearchParams(searchParamsObj);
   };
+
+  useEffect(() => {
+    (async () => {
+      const fetchedApartmentTypes = await ApiService.fetchApartmentTypes();
+      setApartmentTypes(fetchedApartmentTypes);
+    })();
+  }, []);
 
   // Skirtas sukurti Pasirenkamiem tipam
   useEffect(() => {

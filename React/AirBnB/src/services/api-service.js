@@ -13,7 +13,7 @@ const annonymousInstance = axios.create({
 const apartmentRelationships = ['country', 'city'].map((x) => `_expand=${x}`).join('&');
 
 const fetchApartments = async () => {
-  const response = await annonymousInstance.get(`/apartments?${apartmentRelationships}&_start=1&_end=16`);
+  const response = await annonymousInstance.get(`/apartments?${apartmentRelationships}&_start=1&_end=17`);
   return response.data;
 };
 
@@ -37,15 +37,11 @@ const fetchWishlists = async () => {
   return response.data;
 };
 
-const fetchApartmentContextData = async () => {
-  const [apartments, apartmentTypes, countries, cities, wishlists] = await Promise.all([
+const fetchJoinedApartments = async () => {
+  const [apartments, wishlists] = await Promise.all([
     fetchApartments(),
-    fetchApartmentTypes(),
-    fetchCountries(),
-    fetchCities(),
-    fetchWishlists()]);
-
-  // MVC
+    fetchWishlists(),
+  ]);
 
   const formatedApartments = apartments.map(({
     wishlistId, openDateRange, price, city, country, ...rest
@@ -66,9 +62,7 @@ const fetchApartmentContextData = async () => {
     return apartment;
   });
 
-  return {
-    apartments: formatedApartments, apartmentTypes, countries, cities, wishlists,
-  };
+  return formatedApartments;
 };
 
 const APIService = {
@@ -76,7 +70,7 @@ const APIService = {
   fetchApartments,
   fetchApartmentTypes,
   fetchCountries,
-  fetchApartmentContextData,
+  fetchJoinedApartments,
 };
 
 export default APIService;

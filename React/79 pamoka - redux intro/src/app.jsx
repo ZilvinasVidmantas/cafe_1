@@ -5,19 +5,25 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import { CssBaseline } from '@mui/material';
 import store from './store';
 import HomePage from './pages/home-page';
 import UsersPanelPage from './pages/users-panel-page';
+import PageLayout from './components/layouts/page-layout';
 
 const App = () => (
-  <ReduxProvider store={store}>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/users-panel" element={<UsersPanelPage />} />
-      </Routes>
-    </BrowserRouter>
-  </ReduxProvider>
+  <CssBaseline>
+    <ReduxProvider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PageLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/users-panel" element={<UsersPanelPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ReduxProvider>
+  </CssBaseline>
 );
 
 export default App;

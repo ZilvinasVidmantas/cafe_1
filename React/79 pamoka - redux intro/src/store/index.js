@@ -10,7 +10,6 @@ const initState = {
     { id: '5', name: 'Bagnis', age: 98 },
   ],
 };
-// 19:16
 
 /*
   Redux reducer:

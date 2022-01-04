@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Box, Typography, TextField, Button,
 } from '@mui/material';
@@ -42,15 +43,23 @@ const UserPanelPageFormAdd = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [errors, setErrors] = useState(null);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = validate({ name, age });
-    setErrors(newErrors);
     if (!newErrors) {
-      alert('Siunčiame duomenis į Redux');
+      dispatch({
+        type: 'ADD_USER',
+        payload: {
+          name,
+          age: Number(age),
+        },
+      });
+      setName('');
+      setAge('');
     } else {
-      alert('yra klaidų');
+      setErrors(newErrors);
     }
   };
 

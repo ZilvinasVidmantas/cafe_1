@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import { v4 as createId } from 'uuid';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initState = {
@@ -27,8 +28,13 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case 'ADD_USER':
-      // Kodas, kuris grąžina nauja būseną, su papildytų nauju vartotoju
-      return state;
+      return {
+        users: [...state.users, {
+          id: createId(),
+          name: action.payload.name,
+          age: action.payload.age,
+        }],
+      };
 
     case 'DELETE_USER':
       return {

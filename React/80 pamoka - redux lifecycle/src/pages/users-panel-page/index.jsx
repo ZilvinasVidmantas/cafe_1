@@ -11,7 +11,7 @@ const UsersPanelPage = () => {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-      <Paper sx={{ width: 400, p: 2 }} elevation={2}>
+      <Paper sx={{ width: 500, p: 2 }} elevation={2}>
         <Typography element="h1" variant="h5">Users Manager</Typography>
         <Divider />
         <FormAdd />

@@ -1,13 +1,20 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   List, ListItem, ListItemText, Box, IconButton, Paper, Typography,
 } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-// 20:15
 const UsersPanelPage = () => {
   const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  const handleDeleteItem = (id) => {
+    dispatch({
+      type: 'DELETE_USER',
+      payload: { id },
+    });
+  };
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -19,7 +26,7 @@ const UsersPanelPage = () => {
               key={id}
               disableGutters
               secondaryAction={(
-                <IconButton color="error">
+                <IconButton color="error" onClick={() => handleDeleteItem(id)}>
                   <DeleteForeverIcon />
                 </IconButton>
               )}

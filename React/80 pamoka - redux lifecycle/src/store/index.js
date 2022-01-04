@@ -31,8 +31,9 @@ const reducer = (state = initState, action) => {
       return state;
 
     case 'DELETE_USER':
-      // Kodas, kuris grąžina nauja būseną, su ištrintu vartotoju
-      return state;
+      return {
+        users: state.users.filter((x) => x.id !== action.payload.id),
+      };
 
     default:
       return state;

@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 import { v4 as createId } from 'uuid';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import changeState from 'immer';
 import {
   ADD_USER,
   DELETE_USER,
@@ -37,34 +38,27 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_USER:
-      return {
-        ...state,
-        users: [...state.users, {
+      return changeState(state, (newState) => {
+        const newUser = {
           id: createId(),
           name: action.payload.name,
           age: action.payload.age,
-        }],
-      };
+        };
+        newState.users.push(newUser);
+      });
 
     case DELETE_USER:
-      return {
-        ...state,
-        users: state.users.filter((x) => x.id !== action.payload.id),
-      };
+      return changeState(state, (newState) => {
+        const userToDeleteIndex = newState.users.findIndex((u) => u.id === action.payload.id);
+        newState.users.splice(userToDeleteIndex, 1);
+      });
 
     case UPDATE_USER:
-      return {
-        ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.payload.id) {
-            return {
-              ...user,
-              ...action.payload,
-            };
-          }
-          return user;
-        }),
-      };
+      return changeState(state, (newState) => {
+        const userToUpdate = newState.users.find((u) => u.id === action.payload.id);
+        userToUpdate.age = action.payload.age;
+        userToUpdate.name = action.payload.name;
+      });
 
     default:
       return state;

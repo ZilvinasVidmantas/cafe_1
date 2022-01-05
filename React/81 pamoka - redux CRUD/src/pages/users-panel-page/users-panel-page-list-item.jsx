@@ -3,9 +3,13 @@ import {
   ListItem, ListItemText, IconButton,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 
-const UserPanelPageListItem = ({ id, name, age }) => {
+const UserPanelPageListItem = ({
+  id, name, age, onEdit, edited,
+}) => {
   const dispatch = useDispatch();
 
   const handleDeleteItem = () => {
@@ -17,12 +21,24 @@ const UserPanelPageListItem = ({ id, name, age }) => {
 
   return (
     <ListItem
+      sx={{
+        bgcolor: edited ? 'grey.200' : 'none',
+      }}
       key={id}
       disableGutters
       secondaryAction={(
-        <IconButton color="error" onClick={handleDeleteItem}>
-          <DeleteForeverIcon />
-        </IconButton>
+        <>
+          <IconButton color="warning" onClick={() => onEdit({ id, name, age })}>
+            {
+              edited
+                ? <DoDisturbAltIcon />
+                : <AutorenewIcon />
+            }
+          </IconButton>
+          <IconButton color="error" onClick={handleDeleteItem}>
+            <DeleteForeverIcon />
+          </IconButton>
+        </>
     )}
     >
       <ListItemText primary={`${name} - ${age}`} />

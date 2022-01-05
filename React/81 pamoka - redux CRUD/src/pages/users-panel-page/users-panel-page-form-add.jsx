@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import {
   Box, Typography, TextField, Button,
 } from '@mui/material';
@@ -39,23 +38,23 @@ const formatErrorJSX = (error) => {
   return error;
 };
 
-const UserPanelPageFormAdd = () => {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
+const UserPanelPageFormAdd = ({
+  title,
+  btnText,
+  color,
+  onSubmit,
+  name,
+  age,
+  setName,
+  setAge,
+}) => {
   const [errors, setErrors] = useState(null);
-  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = validate({ name, age });
     if (!newErrors) {
-      dispatch({
-        type: 'ADD_USER',
-        payload: {
-          name,
-          age: Number(age),
-        },
-      });
+      onSubmit({ name, age });
       setName('');
       setAge('');
     } else {
@@ -65,7 +64,7 @@ const UserPanelPageFormAdd = () => {
 
   return (
     <Box component="form" onSubmit={handleSubmit}>
-      <Typography element="h2" variant="h6" sx={{ my: 1 }}>Add User</Typography>
+      <Typography element="h2" variant="h6" sx={{ my: 1 }}>{title}</Typography>
       <Box sx={{
         display: 'flex', gap: 1, pb: 2, alignItems: 'start',
       }}
@@ -102,7 +101,7 @@ const UserPanelPageFormAdd = () => {
             }
           }}
         />
-        <Button variant="contained" type="submit" size="large">Add</Button>
+        <Button variant="contained" type="submit" size="large" color={color}>{btnText}</Button>
       </Box>
     </Box>
   );

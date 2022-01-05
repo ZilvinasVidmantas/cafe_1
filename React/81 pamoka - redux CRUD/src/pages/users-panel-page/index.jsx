@@ -6,6 +6,7 @@ import {
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
 import { createAddUserAction, createUpdateUserAction } from '../../store/action-creators';
+import { selectUsers } from '../../store/selectors';
 
 const formData = {
   add: {
@@ -25,7 +26,7 @@ const UsersPanelPage = () => {
   const [ageInput, setAgeInput] = useState('');
   const [editedUserId, setEditedUserId] = useState(null);
   const [formType, setFormType] = useState('add');
-  const users = useSelector((state) => state.users);
+  const users = useSelector(selectUsers);
   const dispatch = useDispatch();
 
   const reset = () => {

@@ -3,16 +3,13 @@ import { v4 as createId } from 'uuid';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initState = {
-  page: {
-
-    users: [
-      { id: '1', name: 'Kevinas', age: 12 },
-      { id: '2', name: 'Silensis', age: 19 },
-      { id: '3', name: 'Vakunda', age: 7 },
-      { id: '4', name: 'Majoris', age: 9 },
-      { id: '5', name: 'Bagnis', age: 98 },
-    ],
-  },
+  users: [
+    { id: '1', name: 'Kevinas', age: 12 },
+    { id: '2', name: 'Silensis', age: 19 },
+    { id: '3', name: 'Vakunda', age: 7 },
+    { id: '4', name: 'Majoris', age: 9 },
+    { id: '5', name: 'Bagnis', age: 98 },
+  ],
 };
 
 /*

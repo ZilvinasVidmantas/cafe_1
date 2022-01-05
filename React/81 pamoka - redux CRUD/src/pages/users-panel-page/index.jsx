@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
+import { createAddUserAction, createUpdateUserAction } from '../../store/action-creators';
 
 const formData = {
   add: {
@@ -46,24 +47,17 @@ const UsersPanelPage = () => {
   };
 
   const addUser = ({ name, age }) => {
-    dispatch({
-      type: 'ADD_USER',
-      payload: {
-        name,
-        age: Number(age),
-      },
-    });
+    const addUserAction = createAddUserAction({ name, age });
+    dispatch(addUserAction);
   };
 
   const updateUser = ({ name, age }) => {
-    dispatch({
-      type: 'UPDATE_USER',
-      payload: {
-        id: editedUserId,
-        name,
-        age: Number(age),
-      },
+    const updateUserAction = createUpdateUserAction({
+      id: editedUserId,
+      name,
+      age,
     });
+    dispatch(updateUserAction);
     reset();
   };
 
@@ -99,3 +93,7 @@ const UsersPanelPage = () => {
 };
 
 export default UsersPanelPage;
+
+// 10 pertraukėlė
+// 15 įsigilinimas
+// 19:25 tęsiame

@@ -8,6 +8,9 @@ import {
 } from './action-types';
 
 const initState = {
+  auth: {
+    loggedIn: false,
+  },
   users: [
     { id: '1', name: 'Kevinas', age: 12 },
     { id: '2', name: 'Silensis', age: 19 },
@@ -35,6 +38,7 @@ const reducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_USER:
       return {
+        ...state,
         users: [...state.users, {
           id: createId(),
           name: action.payload.name,
@@ -44,11 +48,13 @@ const reducer = (state = initState, action) => {
 
     case DELETE_USER:
       return {
+        ...state,
         users: state.users.filter((x) => x.id !== action.payload.id),
       };
 
     case UPDATE_USER:
       return {
+        ...state,
         users: state.users.map((user) => {
           if (user.id === action.payload.id) {
             return {

@@ -1,5 +1,11 @@
+import {
+  ADD_USER,
+  DELETE_USER,
+  UPDATE_USER,
+} from './action-types';
+
 export const createAddUserAction = ({ name, age }) => ({
-  type: 'ADD_USER',
+  type: ADD_USER,
   payload: {
     name,
     age: Number(age),
@@ -7,7 +13,7 @@ export const createAddUserAction = ({ name, age }) => ({
 });
 
 export const createUpdateUserAction = ({ id, name, age }) => ({
-  type: 'UPDATE_USER',
+  type: UPDATE_USER,
   payload: {
     id,
     name,
@@ -16,7 +22,7 @@ export const createUpdateUserAction = ({ id, name, age }) => ({
 });
 
 export const createDeleteUserAction = (id) => ({
-  type: 'DELETE_USER',
+  type: DELETE_USER,
   payload: { id },
 });
 

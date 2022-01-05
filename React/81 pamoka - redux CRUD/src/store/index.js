@@ -1,6 +1,11 @@
 import { createStore } from 'redux';
 import { v4 as createId } from 'uuid';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import {
+  ADD_USER,
+  DELETE_USER,
+  UPDATE_USER,
+} from './action-types';
 
 const initState = {
   users: [
@@ -28,7 +33,7 @@ const initState = {
 // eslint-disable-next-line default-param-last
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case 'ADD_USER':
+    case ADD_USER:
       return {
         users: [...state.users, {
           id: createId(),
@@ -37,12 +42,12 @@ const reducer = (state = initState, action) => {
         }],
       };
 
-    case 'DELETE_USER':
+    case DELETE_USER:
       return {
         users: state.users.filter((x) => x.id !== action.payload.id),
       };
 
-    case 'UPDATE_USER':
+    case UPDATE_USER:
       return {
         users: state.users.map((user) => {
           if (user.id === action.payload.id) {

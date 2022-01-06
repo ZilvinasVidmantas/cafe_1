@@ -7,9 +7,11 @@ import {
 } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
 import store from './store';
+import PageLayout from './components/layouts/page-layout';
 import HomePage from './pages/home-page';
 import UsersPanelPage from './pages/users-panel-page';
-import PageLayout from './components/layouts/page-layout';
+import LoginPage from './pages/login-page';
+import RegisterPage from './pages/register-page';
 
 const App = () => (
   <CssBaseline>
@@ -19,6 +21,8 @@ const App = () => (
           <Route path="/" element={<PageLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/users-panel" element={<UsersPanelPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

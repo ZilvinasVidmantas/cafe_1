@@ -5,23 +5,9 @@ import {
 } from '@mui/material';
 import AuthForm from '../components/auth-form';
 
-/*
-  Surišti įvesties laukų duomenis su LoginPage state kintamaisiais (email, password)
-
-  Surišus šiuos duomenis, atvaspausdinti juos konsolėje,
-  kiekvieną kart pakeitus nors vieną ir įvesties laukų
-
-  15min
-  10min
-  tęsiame 19:20
-*/
-
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log({
-    email, password,
-  });
 
   return (
     <AuthForm

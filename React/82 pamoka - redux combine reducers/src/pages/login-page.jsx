@@ -5,12 +5,17 @@ import {
 } from '@mui/material';
 import AuthForm from '../components/auth-form';
 
-const title = ['Prisijungti'];
+/*
+  Surišti įvesties laukų duomenis su LoginPage state kintamaisiais (email, password)
+
+  Surišus šiuos duomenis, atvaspausdinti juos konsolėje,
+  kiekvieną kart pakeitus nors vieną ir įvesties laukų
+*/
 
 const LoginPage = () => (
   <AuthForm
-    title={title}
-    linkTo="/login"
+    title="Prisijungti"
+    linkTo="/register"
     linkTitle="Neturite paskyros? Registruokitės"
   >
     <Grid container spacing={4}>

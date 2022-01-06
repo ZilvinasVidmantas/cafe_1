@@ -8,10 +8,12 @@ import {
 } from '@mui/material';
 import AuthForm from '../components/auth-form';
 
-const title = ['Registruotis'];
-
 const RegisterPage = () => (
-  <AuthForm title={title} linkTo="/register" linkTitle="Jau turite paskyrą? Prisijunkite">
+  <AuthForm
+    title="Registracija"
+    linkTo="/login"
+    linkTitle="Jau turite paskyrą? Prisijunkite"
+  >
     <Box component="form" noValidate>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>

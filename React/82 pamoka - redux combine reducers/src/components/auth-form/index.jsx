@@ -14,13 +14,14 @@ const AuthForm = ({
   title,
   linkTo,
   linkTitle,
+  onSubmit,
 }) => (
   <Container
     maxWidth="xs"
     component="main"
     sx={{ pt: '7vh' }}
   >
-    <Box component="form">
+    <Box component="form" onSubmit={onSubmit}>
       <Box sx={{
         mb: 3,
         display: 'flex',

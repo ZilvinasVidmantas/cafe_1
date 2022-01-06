@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
-import { createDeleteUserAction } from '../../store/action-creators';
+import { createDeleteUserAction } from '../../store/users/action-creators';
 
 const UserPanelPageListItem = ({
   id, name, age, onEdit, edited,

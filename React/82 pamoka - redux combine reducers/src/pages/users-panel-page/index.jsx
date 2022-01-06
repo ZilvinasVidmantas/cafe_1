@@ -5,8 +5,8 @@ import {
 } from '@mui/material';
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
-import { createAddUserAction, createUpdateUserAction } from '../../store/action-creators';
-import { selectUsers } from '../../store/selectors';
+import { createAddUserAction, createUpdateUserAction } from '../../store/users/action-creators';
+import { selectUsers } from '../../store/users/selectors';
 
 const formData = {
   add: {

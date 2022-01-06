@@ -17,7 +17,7 @@ const initState = {
 };
 
 // eslint-disable-next-line default-param-last
-const reducer = (state = initState, action) => {
+const usersReducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_USER:
       return changeState(state, (newState) => {
@@ -47,4 +47,4 @@ const reducer = (state = initState, action) => {
   }
 };
 
-export default reducer;
+export default usersReducer;

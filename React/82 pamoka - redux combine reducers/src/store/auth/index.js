@@ -3,7 +3,7 @@ const initState = {
 };
 
 // eslint-disable-next-line default-param-last
-const reducer = (state = initState, action) => {
+const authReducer = (state = initState, action) => {
   switch (action.type) {
     // Action'ų apdorojimas
     default:
@@ -11,4 +11,6 @@ const reducer = (state = initState, action) => {
   }
 };
 
-export default reducer;
+export const aaa = 7;
+
+export default authReducer;

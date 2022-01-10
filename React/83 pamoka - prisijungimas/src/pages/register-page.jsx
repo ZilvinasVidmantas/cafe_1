@@ -14,7 +14,7 @@ const RegisterPage = () => (
     linkTo="/login"
     linkTitle="Jau turite paskyrą? Prisijunkite"
   >
-    <Box component="form" noValidate>
+    <Box>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField

@@ -3,21 +3,23 @@ import {
   TextField,
   Grid,
 } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { createLoginSuccessAction } from '../store/auth/action-creators';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     (async () => {
       try {
-        const response = await ApiService.login({ email, password });
-        console.log('------- Prisijungem ----------');
-        console.log(response);
+        const { user, token } = await ApiService.login({ email, password });
+        dispatch(createLoginSuccessAction({ user, token }));
       } catch (error) {
         console.log('------- Neprisijungem ----------');
         console.log(error);

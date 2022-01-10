@@ -8,6 +8,11 @@ export const createLoginSuccessAction = ({ token, user }) => ({
   },
 });
 
+export const logoutAction = {
+  // jūsų struktūra
+};
+
 export default {
   createLoginSuccessAction,
+  logoutAction,
 };

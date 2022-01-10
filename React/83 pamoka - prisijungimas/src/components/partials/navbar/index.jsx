@@ -7,8 +7,11 @@ import Link from './navbar-link';
 const Navbar = () => {
   const auth = useSelector(authSelector);
   console.log(auth);
-
-
+  /*
+    1. Kuomet vartotojas prisijungęs, paslėpti Login ir Register nuorodas
+    2. Vietoj Login ir Resgiter nuorodų įdėti mygtuką Su užrašu "Logout"
+  */
+ 
   return (
     <AppBar position="sticky" sx={{ height: 56 }}>
       <Container sx={{

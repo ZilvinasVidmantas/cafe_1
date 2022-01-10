@@ -8,7 +8,6 @@ const initState = SessionStorage.get('auth') ?? {
   token: null,
   user: null,
 };
-console.log(initState);
 
 // eslint-disable-next-line default-param-last
 const authReducer = (oldState = initState, action) => {

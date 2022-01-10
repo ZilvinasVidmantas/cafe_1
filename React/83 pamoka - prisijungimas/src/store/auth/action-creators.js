@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS } from './action-types';
+import { LOGIN_SUCCESS, LOGOUT } from './action-types';
 
 export const createLoginSuccessAction = ({ token, user }) => ({
   type: LOGIN_SUCCESS,
@@ -8,9 +8,7 @@ export const createLoginSuccessAction = ({ token, user }) => ({
   },
 });
 
-export const logoutAction = {
-  // jūsų struktūra
-};
+export const logoutAction = { type: LOGOUT };
 
 export default {
   createLoginSuccessAction,

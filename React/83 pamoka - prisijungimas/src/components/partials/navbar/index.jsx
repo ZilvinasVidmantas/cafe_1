@@ -2,12 +2,16 @@ import React from 'react';
 import {
   AppBar, Container, Box, Button,
 } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutAction } from '../../../store/auth/action-creators';
 import { authSelector } from '../../../store/auth/selectors';
 import Link from './navbar-link';
 
 const Navbar = () => {
   const auth = useSelector(authSelector);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => dispatch(logoutAction);
 
   return (
     <AppBar position="sticky" sx={{ height: 56 }}>
@@ -23,7 +27,7 @@ const Navbar = () => {
         </Box>
         {
           auth.loggedIn
-            ? <Button color="secondary" variant="contained" sx={{ my: 1 }}>Logout</Button>
+            ? <Button color="secondary" variant="contained" sx={{ my: 1 }} onClick={handleLogout}>Logout</Button>
             : (
               <Box sx={{ display: 'flex' }}>
                 <Link to="/login">Login</Link>

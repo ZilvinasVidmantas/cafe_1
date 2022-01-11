@@ -4,7 +4,6 @@ import UsersPanelPage from '../pages/users-panel-page';
 import LoginPage from '../pages/login-page';
 import RegisterPage from '../pages/register-page';
 import { PUBLIC, VISITOR, ADMIN } from './auth-types';
-import RequireVisitor from './require-visitor';
 
 export const HomeRoute = {
   title: 'Home',
@@ -13,9 +12,9 @@ export const HomeRoute = {
   page: <HomePage />,
 };
 
-export const UserPanelRoute = {
-  title: 'UserPanel',
-  path: '/user-panel',
+export const UsersPanelRoute = {
+  title: 'Users panel',
+  path: '/users-panel',
   type: ADMIN,
   page: <UsersPanelPage />,
 };
@@ -24,22 +23,20 @@ export const LoginRoute = {
   title: 'Login',
   path: '/login',
   type: VISITOR,
-  page: <RequireVisitor><LoginPage /></RequireVisitor>,
+  page: <LoginPage />,
 };
 
 export const RegisterRoute = { 
   title: 'Register',
   path: '/register',
   type: VISITOR,
-  page: <RequireVisitor><RegisterPage /></RequireVisitor>,
+  page: <RegisterPage />,
 };
 
-const pageLayoutRoutes = [
+export const pageLayoutRoutes = [
   HomeRoute,
-  UserPanelRoute,
+  UsersPanelRoute,
   LoginRoute,
   RegisterRoute,
-]
-console.log(pageLayoutRoutes);
+];
 
-export default pageLayoutRoutes;

@@ -5,16 +5,30 @@ import {
   Routes,
 } from 'react-router-dom';
 import PageLayout from '../components/layouts/page-layout';
-import routes from './routes';
+import { pageLayoutRoutes } from './routes';
+import { VISITOR } from './auth-types';
+import RequireVisitor from './require-visitor';
+
+const buildedPageLayoutRoutes = pageLayoutRoutes.map(({ page, path, type }) => {
+  let authentictedPage;
+  switch (type) {
+    case VISITOR:
+      authentictedPage = <RequireVisitor>{page}</RequireVisitor>;
+      break;
+    default:
+      authentictedPage = page;
+  }
+  return <Route key={path} path={path} element={authentictedPage} />;
+});
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<PageLayout />}>
-        {routes.map(({ page, path }) => (
-          <Route key={path} path={path} element={page} />
-        ))}
+        {buildedPageLayoutRoutes}
       </Route>
+      <Route path="/dashboard" />
+
     </Routes>
   </BrowserRouter>
 );

@@ -5,7 +5,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import {
   HomeRoute,
-  UserPanelRoute,
+  UsersPanelRoute,
   LoginRoute,
   RegisterRoute,
 } from '../../../routing/routes';
@@ -29,7 +29,7 @@ const Navbar = () => {
       >
         <Box sx={{ display: 'flex' }}>
           <Link to={HomeRoute.path}>Home</Link>
-          <Link to={UserPanelRoute.path}>Users panel</Link>
+          <Link to={UsersPanelRoute.path}>Users panel</Link>
         </Box>
         {
           auth.loggedIn

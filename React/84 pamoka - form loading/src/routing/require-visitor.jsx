@@ -8,7 +8,7 @@ const RequireVisitor = ({ children }) => {
   const { loggedIn } = useSelector(authSelector);
 
   if (loggedIn) {
-    return <Navigate to={HomeRoute.link} />;
+    return <Navigate to={HomeRoute.path} />;
   }
 
   return children;

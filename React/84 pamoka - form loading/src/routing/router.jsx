@@ -5,29 +5,15 @@ import {
   Routes,
 } from 'react-router-dom';
 import PageLayout from '../components/layouts/page-layout';
-import HomePage from '../pages/home-page';
-import UsersPanelPage from '../pages/users-panel-page';
-import LoginPage from '../pages/login-page';
-import RegisterPage from '../pages/register-page';
-import RequireVisitor from './require-visitor';
-import {
-  HomeRoute,
-  UserPanelRoute,
-  LoginRoute,
-  RegisterRoute,
-} from './routes';
+import routes from './routes';
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<PageLayout />}>
-        <Route path={HomeRoute.path} element={<HomePage />} />
-        <Route path={UserPanelRoute.path} element={<UsersPanelPage />} />
-        <Route path={LoginRoute.path} element={<RequireVisitor><LoginPage /></RequireVisitor>} />
-        <Route
-          path={RegisterRoute.path}
-          element={<RequireVisitor><RegisterPage /></RequireVisitor>}
-        />
+        {routes.map(({ page, path }) => (
+          <Route key={path} path={path} element={page} />
+        ))}
       </Route>
     </Routes>
   </BrowserRouter>

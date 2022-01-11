@@ -28,7 +28,6 @@ const LoginPage = () => {
         dispatch(createLoginSuccessAction({ user, token }));
       } catch (error) {
         setErrorMsg(error.message);
-      } finally {
         setLoading(false);
       }
     })();

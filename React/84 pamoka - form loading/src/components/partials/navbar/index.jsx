@@ -3,6 +3,12 @@ import {
   AppBar, Container, Box, Button,
 } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import {
+  HomeRoute,
+  UserPanelRoute,
+  LoginRoute,
+  RegisterRoute,
+} from '../../../routing/routes';
 import { logoutAction } from '../../../store/auth/action-creators';
 import { authSelector } from '../../../store/auth/selectors';
 import Link from './navbar-link';
@@ -22,16 +28,16 @@ const Navbar = () => {
       }}
       >
         <Box sx={{ display: 'flex' }}>
-          <Link to="/">Home</Link>
-          <Link to="/users-panel">Users panel</Link>
+          <Link to={HomeRoute.path}>Home</Link>
+          <Link to={UserPanelRoute.path}>Users panel</Link>
         </Box>
         {
           auth.loggedIn
             ? <Button color="secondary" variant="contained" sx={{ my: 1 }} onClick={handleLogout}>Logout</Button>
             : (
               <Box sx={{ display: 'flex' }}>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                <Link to={LoginRoute.path}>Login</Link>
+                <Link to={RegisterRoute.path}>Register</Link>
               </Box>
             )
         }

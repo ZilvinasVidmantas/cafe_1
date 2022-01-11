@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { createLoginSuccessAction } from '../store/auth/action-creators';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
+import { RegisterRoute } from '../routing/routes';
 
 const LoginPage = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -36,7 +37,7 @@ const LoginPage = () => {
   return (
     <AuthForm
       title="Prisijungti"
-      linkTo="/register"
+      linkTo={RegisterRoute.path}
       linkTitle="Neturite paskyros? Registruokitės"
       onSubmit={handleLogin}
       loading={loading}

@@ -11,6 +11,7 @@ import LoginPage from '../pages/login-page';
 import RegisterPage from '../pages/register-page';
 import RequireVisitor from './require-visitor';
 import {
+  HomeRoute,
   UserPanelRoute,
   LoginRoute,
   RegisterRoute,
@@ -20,7 +21,7 @@ const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<PageLayout />}>
-        <Route index element={<HomePage />} />
+        <Route path={HomeRoute.path} element={<HomePage />} />
         <Route path={UserPanelRoute.path} element={<UsersPanelPage />} />
         <Route path={LoginRoute.path} element={<RequireVisitor><LoginPage /></RequireVisitor>} />
         <Route

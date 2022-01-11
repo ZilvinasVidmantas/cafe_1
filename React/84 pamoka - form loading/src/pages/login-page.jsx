@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import {
   TextField,
   Grid,
+  Alert,
+  IconButton,
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch } from 'react-redux';
 import { createLoginSuccessAction } from '../store/auth/action-creators';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
 
 const LoginPage = () => {
+  const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,8 +27,7 @@ const LoginPage = () => {
         const { user, token } = await ApiService.login({ email, password });
         dispatch(createLoginSuccessAction({ user, token }));
       } catch (error) {
-        console.log('------- Neprisijungem ----------');
-        console.log(error);
+        setErrorMsg(error.message);
       } finally {
         setLoading(false);
       }
@@ -40,6 +43,31 @@ const LoginPage = () => {
       loading={loading}
     >
       <Grid container spacing={4}>
+        {
+          errorMsg
+            ? (
+              <Grid item xs={12}>
+                <Alert
+                  severity="error"
+                  action={(
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      size="small"
+                      onClick={() => setErrorMsg(null)}
+                    >
+                      <CloseIcon fontSize="inherit" />
+                    </IconButton>
+                )}
+
+                >
+                  {errorMsg}
+                </Alert>
+              </Grid>
+            )
+            : null
+        }
+
         <Grid item xs={12}>
           <TextField
             variant="outlined"

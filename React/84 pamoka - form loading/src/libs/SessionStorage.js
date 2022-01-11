@@ -1,5 +1,5 @@
 const SessionStorage = new (class SessionStorage {
-  construtor() {
+  constructor() {
     this.storage = window.sessionStorage;
     // this.storage = window.localStorage;
   }

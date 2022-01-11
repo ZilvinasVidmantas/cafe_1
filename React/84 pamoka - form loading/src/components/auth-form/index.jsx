@@ -4,6 +4,7 @@ import {
   Box,
   Avatar,
   Typography,
+  CircularProgress,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link } from 'react-router-dom';
@@ -15,6 +16,7 @@ const AuthForm = ({
   linkTo,
   linkTitle,
   onSubmit,
+  loading,
 }) => (
   <Container
     maxWidth="xs"
@@ -38,7 +40,7 @@ const AuthForm = ({
       </Box>
       {children}
       <Button>
-        {title}
+        {loading ? <CircularProgress color="inherit" /> : title }
       </Button>
       <Link to={linkTo}>
         {linkTitle}

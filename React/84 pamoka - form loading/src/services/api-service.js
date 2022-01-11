@@ -12,7 +12,7 @@ const fakeFetch = ({ email, password }) => new Promise(((success, failure) => {
     } else {
       failure(new Error('Incorect email or/and password'));
     }
-  }, 1000);
+  }, 2000);
 }));
 
 const login = async ({ email, password }) => {

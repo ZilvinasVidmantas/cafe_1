@@ -3,7 +3,6 @@ import changeState from 'immer';
 import { LOGIN_SUCCESS, LOGOUT } from './action-types';
 import SessionStorage from '../../libs/SessionStorage';
 
-console.log(SessionStorage);
 const initState = SessionStorage.get('auth') ?? {
   loggedIn: false,
   token: null,

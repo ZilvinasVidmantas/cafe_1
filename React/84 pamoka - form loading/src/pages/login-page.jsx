@@ -9,6 +9,7 @@ import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -18,11 +19,14 @@ const LoginPage = () => {
 
     (async () => {
       try {
+        setLoading(true);
         const { user, token } = await ApiService.login({ email, password });
         dispatch(createLoginSuccessAction({ user, token }));
       } catch (error) {
         console.log('------- Neprisijungem ----------');
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     })();
   };
@@ -33,12 +37,12 @@ const LoginPage = () => {
       linkTo="/register"
       linkTitle="Neturite paskyros? Registruokitės"
       onSubmit={handleLogin}
+      loading={loading}
     >
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <TextField
             variant="outlined"
-            required
             fullWidth
             id="email"
             label="El. paštas"
@@ -46,13 +50,13 @@ const LoginPage = () => {
             autoComplete="email"
             autoFocus
             value={email}
+            disabled={loading}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sx={{ mb: 4 }}>
           <TextField
             variant="outlined"
-            required
             fullWidth
             name="password"
             label="Slaptažodis"
@@ -60,6 +64,7 @@ const LoginPage = () => {
             id="password"
             autoComplete="current-password"
             value={password}
+            disabled={loading}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Grid>

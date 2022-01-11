@@ -8,6 +8,7 @@ import PageLayout from '../components/layouts/page-layout';
 import { pageLayoutRoutes } from './routes';
 import { VISITOR } from './auth-types';
 import RequireVisitor from './require-visitor';
+import ErrorPage from '../pages/error-page';
 
 const buildedPageLayoutRoutes = pageLayoutRoutes.map(({ page, path, type }) => {
   let authentictedPage;
@@ -26,8 +27,8 @@ const Router = () => (
     <Routes>
       <Route path="/" element={<PageLayout />}>
         {buildedPageLayoutRoutes}
+        <Route path="*" element={<ErrorPage />} />
       </Route>
-      <Route path="/dashboard" />
 
     </Routes>
   </BrowserRouter>

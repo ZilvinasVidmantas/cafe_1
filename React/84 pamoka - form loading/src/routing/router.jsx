@@ -5,21 +5,21 @@ import {
   Routes,
 } from 'react-router-dom';
 import PageLayout from '../components/layouts/page-layout';
-import { pageLayoutRoutes } from './routes';
+import { pageLayoutRoutes } from './route-connectors';
 import { VISITOR } from './auth-types';
 import RequireVisitor from './require-visitor';
 import ErrorPage from '../pages/error-page';
 
-const buildedPageLayoutRoutes = pageLayoutRoutes.map(({ page, path, type }) => {
+const buildedPageLayoutRoutes = pageLayoutRoutes.map(({ Page, route, auth }) => {
   let authentictedPage;
-  switch (type) {
+  switch (auth) {
     case VISITOR:
-      authentictedPage = <RequireVisitor>{page}</RequireVisitor>;
+      authentictedPage = <RequireVisitor><Page /></RequireVisitor>;
       break;
     default:
-      authentictedPage = page;
+      authentictedPage = <Page />;
   }
-  return <Route key={path} path={path} element={authentictedPage} />;
+  return <Route key={route} path={route} element={authentictedPage} />;
 });
 
 const Router = () => (

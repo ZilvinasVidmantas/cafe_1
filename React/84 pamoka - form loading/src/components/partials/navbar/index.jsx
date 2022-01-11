@@ -28,16 +28,16 @@ const Navbar = () => {
       }}
       >
         <Box sx={{ display: 'flex' }}>
-          <Link to={HomeRoute.path}>Home</Link>
-          <Link to={UsersPanelRoute.path}>Users panel</Link>
+          <Link to={HomeRoute}>Home</Link>
+          <Link to={UsersPanelRoute}>Users panel</Link>
         </Box>
         {
           auth.loggedIn
             ? <Button color="secondary" variant="contained" sx={{ my: 1 }} onClick={handleLogout}>Logout</Button>
             : (
               <Box sx={{ display: 'flex' }}>
-                <Link to={LoginRoute.path}>Login</Link>
-                <Link to={RegisterRoute.path}>Register</Link>
+                <Link to={LoginRoute}>Login</Link>
+                <Link to={RegisterRoute}>Register</Link>
               </Box>
             )
         }

@@ -12,7 +12,7 @@ import { LoginRoute } from '../routing/routes';
 const RegisterPage = () => (
   <AuthForm
     title="Registracija"
-    linkTo={LoginRoute.path}
+    linkTo={LoginRoute}
     linkTitle="Jau turite paskyrą? Prisijunkite"
   >
     <Box>

@@ -37,7 +37,7 @@ const LoginPage = () => {
   return (
     <AuthForm
       title="Prisijungti"
-      linkTo={RegisterRoute.path}
+      linkTo={RegisterRoute}
       linkTitle="Neturite paskyros? Registruokitės"
       onSubmit={handleLogin}
       loading={loading}

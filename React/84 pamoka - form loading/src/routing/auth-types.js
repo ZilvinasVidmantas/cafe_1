@@ -1,5 +1,3 @@
-// Always available
-export const PUBLIC = 'PUBLIC';
 // no authorization ONLY
 export const VISITOR = 'VISITOR';
 // ONLY authenticated

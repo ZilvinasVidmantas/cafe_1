@@ -14,7 +14,7 @@ import { authSelector } from '../../../store/auth/selectors';
 import Link from './navbar-link';
 
 const Navbar = ({ sidebarIcon }) => {
-  const auth = useSelector(authSelector);
+  const { loggedIn, user } = useSelector(authSelector);
   const dispatch = useDispatch();
 
   const handleLogout = () => dispatch(logoutAction);
@@ -30,10 +30,15 @@ const Navbar = ({ sidebarIcon }) => {
         <Box sx={{ display: 'flex' }}>
           { sidebarIcon ?? null}
           <Link to={HomeRoute}>Home</Link>
-          <Link to={UsersPanelRoute}>Users panel</Link>
+          {
+            user && user.role === 'admin'
+              ? <Link to={UsersPanelRoute}>Users panel</Link>
+              : null
+          }
+
         </Box>
         {
-          auth.loggedIn
+          loggedIn
             ? <Button color="secondary" variant="contained" sx={{ my: 1 }} onClick={handleLogout}>Logout</Button>
             : (
               <Box sx={{ display: 'flex' }}>

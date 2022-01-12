@@ -5,7 +5,7 @@ const fakeFetch = ({ email, password }) => new Promise(((success, failure) => {
         token: 'isdfvblska;dfgb;sdfh',
         user: {
           id: '5165',
-          role: 'admin',
+          role: 'user',
           email: 'admin@gmail.com',
         },
       });

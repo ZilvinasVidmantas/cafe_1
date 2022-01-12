@@ -29,6 +29,7 @@ const authReducer = (oldState = initState, action) => {
         state.loggedIn = false;
         state.token = null;
         state.user = null;
+        state.redirectTo = null;
       });
       SessionStorage.clear('auth');
 

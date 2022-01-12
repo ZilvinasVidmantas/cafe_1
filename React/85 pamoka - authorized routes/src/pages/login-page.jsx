@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import {
   TextField,
   Grid,
@@ -6,13 +8,14 @@ import {
   IconButton,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useDispatch } from 'react-redux';
+
 import { createLoginSuccessAction } from '../store/auth/action-creators';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
 import { RegisterRoute } from '../routing/routes';
 
 const LoginPage = () => {
+  const [searchParams] = useSearchParams();
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -26,7 +29,9 @@ const LoginPage = () => {
       try {
         setLoading(true);
         const { user, token } = await ApiService.login({ email, password });
-        dispatch(createLoginSuccessAction({ user, token }));
+        const redirectTo = searchParams.get('redirectTo');
+        const loginSuccessAction = createLoginSuccessAction({ user, token, redirectTo });
+        dispatch(loginSuccessAction);
       } catch (error) {
         setErrorMsg(error.message);
         setLoading(false);

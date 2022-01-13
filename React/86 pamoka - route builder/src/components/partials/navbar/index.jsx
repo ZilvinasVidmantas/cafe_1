@@ -3,15 +3,10 @@ import {
   AppBar, Container, Box, Button,
 } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  HomeRoute,
-  UsersPanelRoute,
-  LoginRoute,
-  RegisterRoute,
-} from '../../../routing/routes';
 import { logoutAction } from '../../../store/auth/action-creators';
 import { authSelector } from '../../../store/auth/selectors';
 import Link from './navbar-link';
+import routes from '../../../routing/routes';
 
 const Navbar = ({ sidebarIcon }) => {
   const { loggedIn, user } = useSelector(authSelector);
@@ -29,10 +24,10 @@ const Navbar = ({ sidebarIcon }) => {
       >
         <Box sx={{ display: 'flex' }}>
           { sidebarIcon ?? null}
-          <Link to={HomeRoute}>Home</Link>
+          <Link to={routes.HomePage}>Home</Link>
           {
             user && user.role === 'admin'
-              ? <Link to={UsersPanelRoute}>Users panel</Link>
+              ? <Link to={routes.UsersPanelPage}>Users panel</Link>
               : null
           }
 
@@ -42,8 +37,8 @@ const Navbar = ({ sidebarIcon }) => {
             ? <Button color="secondary" variant="contained" sx={{ my: 1 }} onClick={handleLogout}>Logout</Button>
             : (
               <Box sx={{ display: 'flex' }}>
-                <Link to={LoginRoute}>Login</Link>
-                <Link to={RegisterRoute}>Register</Link>
+                <Link to={routes.LoginPage}>Login</Link>
+                <Link to={routes.RegisterPage}>Register</Link>
               </Box>
             )
         }

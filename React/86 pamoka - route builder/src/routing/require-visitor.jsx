@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { authSelector } from '../store/auth/selectors';
-import { HomeRoute } from './routes';
+import routes from './routes';
 
 const RequireVisitor = ({ children }) => {
   const { loggedIn, redirectTo } = useSelector(authSelector);
 
   if (loggedIn) {
-    return <Navigate to={redirectTo ?? HomeRoute} />;
+    return <Navigate to={redirectTo ?? routes.HomePage} />;
   }
 
   return children;

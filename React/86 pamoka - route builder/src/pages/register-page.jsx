@@ -7,12 +7,12 @@ import {
   Box,
 } from '@mui/material';
 import AuthForm from '../components/auth-form';
-import { LoginRoute } from '../routing/routes';
+import routes from '../routing/routes';
 
 const RegisterPage = () => (
   <AuthForm
     title="Registracija"
-    linkTo={LoginRoute}
+    linkTo={routes.LoginPage}
     linkTitle="Jau turite paskyrą? Prisijunkite"
   >
     <Box>

@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { createLoginSuccessAction } from '../store/auth/action-creators';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
-import { RegisterRoute } from '../routing/routes';
+import routes from '../routing/routes';
 
 const LoginPage = () => {
   const [searchParams] = useSearchParams();
@@ -42,7 +42,7 @@ const LoginPage = () => {
   return (
     <AuthForm
       title="Prisijungti"
-      linkTo={RegisterRoute}
+      linkTo={routes.RegisterPage}
       linkTitle="Neturite paskyros? Registruokitės"
       onSubmit={handleLogin}
       loading={loading}

@@ -4,40 +4,52 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import PageLayout from '../components/layouts/page-layout';
-import DashboardLayout from '../components/layouts/dashboard-layout';
-import { pageLayoutRoutes } from './route-connectors';
-import { VISITOR } from './auth-types';
+import { VISITOR, ADMIN, LOGGED_IN } from './auth-types';
+
 import RequireVisitor from './require-visitor';
 import RequireAdmin from './require-admin';
 import RequireLoggedIn from './require-logged-in';
-import ErrorPage from '../pages/error-page';
-import UsersPanelPage from '../pages/users-panel-page';
-import ProfilePage from '../pages/profile-page';
 
-const buildedPageLayoutRoutes = pageLayoutRoutes.map(({ Page, route, auth }) => {
-  let authentictedPage;
-  switch (auth) {
-    case VISITOR:
-      authentictedPage = <RequireVisitor><Page /></RequireVisitor>;
-      break;
-    default:
-      authentictedPage = <Page />;
+import routeStructure from './route-structure';
+
+const addRouteProtection = {
+  [VISITOR]: (Page) => <RequireVisitor><Page /></RequireVisitor>,
+  [ADMIN]: (Page) => <RequireAdmin><Page /></RequireAdmin>,
+  [LOGGED_IN]: (Page) => <RequireLoggedIn><Page /></RequireLoggedIn>,
+};
+
+const buildRouteRecursive = ({
+  path,
+  Page,
+  auth,
+  children,
+}) => {
+  if (children) {
+    return (
+      <Route key={Page.name} path={path} element={<Page />}>
+        {children.map(buildRouteRecursive)}
+      </Route>
+    );
   }
-  return <Route key={route} path={route} element={authentictedPage} />;
-});
+
+  const element = addRouteProtection[auth]
+    ? addRouteProtection[auth](Page)
+    : <Page />;
+
+  return (
+    <Route
+      key={Page.name}
+      path={path ?? undefined}
+      index={path === null}
+      element={element}
+    />
+  );
+};
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route path="users" element={<RequireAdmin><UsersPanelPage /></RequireAdmin>} />
-        <Route path="profile" element={<RequireLoggedIn><ProfilePage /></RequireLoggedIn>} />
-      </Route>
-      <Route path="/" element={<PageLayout />}>
-        {buildedPageLayoutRoutes}
-        <Route path="*" element={<ErrorPage />} />
-      </Route>
+      {routeStructure.map(buildRouteRecursive)}
     </Routes>
   </BrowserRouter>
 );

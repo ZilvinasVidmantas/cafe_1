@@ -200,7 +200,7 @@ Praktikoje tai daroma tokiu būdų:
     * Duomenų bazę užpildome duomenimis, kurie įgalins prisijungimus.
     * Priklausomai nuo pasiriktos Duomenų bazės, reikės tai daryti dvejopai
       * Realiacinėms DB(MySQL, OracleSQL, MSSQL ir t.t.) - kurti duomenų modelius, ir naudojantis jomis kurti migracijas
-      !!! ŠIO KURSO METU NAUDOSIME - MongoDB
+      !!! ŠIO KURSO METU NAUDOSIME - JSON-SERVER
       * Nereliacinėms DB(MongoDB) - kurti duomenų modelius, ir susieti juo ryšiais serverio pusės aplikacijoje
   * Sulaukus prisijungimo užklausos, identifikuojame vartotoją, kuris bandė prisijungti, ir esant sėkmingui prisijungimui
     siunčiame užšifruotus duomenis, su vėliau atšifravimui reikalinga informacija - token'ą
@@ -302,13 +302,4 @@ Pagal šios lentelės duomenis turėtumėte suprasti, kad:
 
 Tokių Pilnai sudarytų užklausų jūsų aplikacijoje turi būti apie 15-30
 
-
-
-
-
-
-
-
-
-
-
+18:30

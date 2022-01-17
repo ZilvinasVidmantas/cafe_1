@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
-import { createDeleteUserAction } from '../../store/users/action-creators';
+import { deleteUser } from '../../store/users';
 
 const UserPanelPageListItem = ({
   id, name, age, onEdit, edited,
@@ -14,7 +14,7 @@ const UserPanelPageListItem = ({
   const dispatch = useDispatch();
 
   const handleDeleteItem = () => {
-    const deleteUserAction = createDeleteUserAction(id);
+    const deleteUserAction = deleteUser({ id });
     dispatch(deleteUserAction);
   };
 

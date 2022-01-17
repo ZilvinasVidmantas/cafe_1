@@ -3,16 +3,15 @@ import {
   AppBar, Container, Box, Button,
 } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutAction } from '../../../store/auth/action-creators';
-import { authSelector } from '../../../store/auth/selectors';
+import { logout, selectAuth } from '../../../store/auth';
 import Link from './navbar-link';
 import routes from '../../../routing/routes';
 
 const Navbar = ({ sidebarIcon }) => {
-  const { loggedIn, user } = useSelector(authSelector);
+  const { loggedIn, user } = useSelector(selectAuth);
   const dispatch = useDispatch();
 
-  const handleLogout = () => dispatch(logoutAction);
+  const handleLogout = () => dispatch(logout());
 
   return (
     <AppBar position="sticky" sx={{ height: 56 }}>

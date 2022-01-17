@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { createLoginSuccessAction } from '../store/auth/action-creators';
+import { loginSuccess } from '../store/auth';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
 import routes from '../routing/routes';
@@ -30,7 +30,7 @@ const LoginPage = () => {
         setLoading(true);
         const { user, token } = await ApiService.login({ email, password });
         const redirectTo = searchParams.get('redirectTo');
-        const loginSuccessAction = createLoginSuccessAction({ user, token, redirectTo });
+        const loginSuccessAction = loginSuccess({ user, token, redirectTo });
         dispatch(loginSuccessAction);
       } catch (error) {
         setErrorMsg(error.message);

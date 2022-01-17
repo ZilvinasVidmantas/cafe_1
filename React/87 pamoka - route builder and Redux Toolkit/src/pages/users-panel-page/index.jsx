@@ -5,8 +5,7 @@ import {
 } from '@mui/material';
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
-import { createAddUserAction, createUpdateUserAction } from '../../store/users/action-creators';
-import { selectUsers } from '../../store/users/selectors';
+import { selectUsers, addUser, updateUser } from '../../store/users';
 
 const formData = {
   add: {
@@ -47,13 +46,13 @@ const UsersPanelPage = () => {
     }
   };
 
-  const addUser = ({ name, age }) => {
-    const addUserAction = createAddUserAction({ name, age });
+  const handleAddUser = ({ name, age }) => {
+    const addUserAction = addUser({ name, age });
     dispatch(addUserAction);
   };
 
-  const updateUser = ({ name, age }) => {
-    const updateUserAction = createUpdateUserAction({
+  const handleUpdateUser = ({ name, age }) => {
+    const updateUserAction = updateUser({
       id: editedUserId,
       name,
       age,
@@ -73,7 +72,7 @@ const UsersPanelPage = () => {
           age={ageInput}
           setName={setNameInput}
           setAge={setAgeInput}
-          onSubmit={formType === 'add' ? addUser : updateUser}
+          onSubmit={formType === 'add' ? handleAddUser : handleUpdateUser}
         />
         <Divider />
         <List>

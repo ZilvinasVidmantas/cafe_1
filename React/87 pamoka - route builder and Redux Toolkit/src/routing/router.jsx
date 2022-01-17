@@ -5,12 +5,11 @@ import {
   Routes,
 } from 'react-router-dom';
 import { VISITOR, ADMIN, LOGGED_IN } from './auth-types';
-
 import RequireVisitor from './require-visitor';
 import RequireAdmin from './require-admin';
 import RequireLoggedIn from './require-logged-in';
-
 import routeStructure from './route-structure';
+import routePageEnum from './route-page-enum';
 
 const addRouteProtection = {
   [VISITOR]: (Page) => <RequireVisitor><Page /></RequireVisitor>,
@@ -20,13 +19,14 @@ const addRouteProtection = {
 
 const buildRouteRecursive = ({
   path,
-  Page,
+  pageName,
   auth,
   children,
 }) => {
+  const Page = routePageEnum[pageName];
   if (children) {
     return (
-      <Route key={Page.name} path={path} element={<Page />}>
+      <Route key={pageName} path={path} element={<Page />}>
         {children.map(buildRouteRecursive)}
       </Route>
     );
@@ -38,7 +38,7 @@ const buildRouteRecursive = ({
 
   return (
     <Route
-      key={Page.name}
+      key={pageName}
       path={path ?? undefined}
       index={path === null}
       element={element}

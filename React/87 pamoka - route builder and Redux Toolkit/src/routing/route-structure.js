@@ -1,53 +1,43 @@
 import { VISITOR, ADMIN, LOGGED_IN } from './auth-types';
 
-import PageLayout from '../components/layouts/page-layout';
-import HomePage from '../pages/home-page';
-import LoginPage from '../pages/login-page';
-import RegisterPage from '../pages/register-page';
-import ErrorPage from '../pages/error-page';
-
-import DashboardLayout from '../components/layouts/dashboard-layout';
-import ProfilePage from '../pages/profile-page';
-import UsersPanelPage from '../pages/users-panel-page';
-
 export default [
   {
     path: '/dashboard',
-    Page: DashboardLayout,
+    pageName: 'DashboardLayout',
     children: [
       {
         path: 'profile',
-        Page: ProfilePage,
+        pageName: 'ProfilePage',
         auth: LOGGED_IN,
       },
       {
         path: 'users-panel',
-        Page: UsersPanelPage,
+        pageName: 'UsersPanelPage',
         auth: ADMIN,
       },
     ],
   },
   {
     path: '/',
-    Page: PageLayout,
+    pageName: 'PageLayout',
     children: [
       {
         path: null,
-        Page: HomePage,
+        pageName: 'HomePage',
       },
       {
         path: 'login',
-        Page: LoginPage,
+        pageName: 'LoginPage',
         auth: VISITOR,
       },
       {
         path: 'register',
-        Page: RegisterPage,
+        pageName: 'RegisterPage',
         auth: VISITOR,
       },
       {
         path: '*',
-        Page: ErrorPage,
+        pageName: 'ErrorPage',
       },
     ],
   },

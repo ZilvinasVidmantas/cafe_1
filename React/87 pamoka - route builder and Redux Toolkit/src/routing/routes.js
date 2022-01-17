@@ -2,17 +2,18 @@ import routeStructure from './route-structure';
 
 const dynamicSymbols = ['*', ':'];
 
-const buildRoute = (allPaths, { path, children, Page }) => {
+const buildRoute = (allPaths, { path, children, pageName }) => {
   if (children) {
     const childrenRoutesArr = Object.entries(children.reduce(buildRoute, {}));
-    const fullChildrenRoutes = childrenRoutesArr.reduce((childrenRoutes, [pageName, childPath]) => {
-      const newChildrenRoutes = { ...childrenRoutes };
-      newChildrenRoutes[pageName] = path[path.length - 1] !== '/'
-        ? `${path}/${childPath}`
-        : path + childPath;
+    const fullChildrenRoutes = childrenRoutesArr
+      .reduce((childrenRoutes, [childPageName, childPath]) => {
+        const newChildrenRoutes = { ...childrenRoutes };
+        newChildrenRoutes[childPageName] = path[path.length - 1] !== '/'
+          ? `${path}/${childPath}`
+          : path + childPath;
 
-      return newChildrenRoutes;
-    }, {});
+        return newChildrenRoutes;
+      }, {});
     return {
       ...allPaths,
       ...fullChildrenRoutes,
@@ -29,7 +30,7 @@ const buildRoute = (allPaths, { path, children, Page }) => {
   }
   const newAllPaths = { ...allPaths };
 
-  newAllPaths[Page.name] = path ?? '';
+  newAllPaths[pageName] = path ?? '';
   return newAllPaths;
 };
 

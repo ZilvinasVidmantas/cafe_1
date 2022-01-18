@@ -35,7 +35,7 @@ const formData = {
   },
 };
 
-const initialValues = {
+let initialValues = {
   name: '',
   age: '',
 };
@@ -76,21 +76,26 @@ const UsersPanelPage = () => {
     initialValues,
     validationSchema,
     onSubmit,
-    enableReinitialize: true,
+    enableReinitialize: true, // Ar stebėti initialValues pasikeitimą
   });
 
   const editUser = ({ id, name, age }) => {
     if (id === editedUserId) {
       setEditedUserId(null);
       setFormType('add');
-      formik.setValues({
+      initialValues = {
         name: '',
         age: '',
-      });
+      };
+      formik.setValues(initialValues);
     } else {
       setEditedUserId(id);
       setFormType('update');
-      formik.setValues({ name, age });
+      initialValues = {
+        name,
+        age,
+      };
+      formik.setValues(initialValues);
     }
   };
 
@@ -117,6 +122,15 @@ const UsersPanelPage = () => {
           ))}
         </List>
       </Paper>
+      <pre>
+        {JSON.stringify({
+          values: formik.values,
+          errors: formik.errors,
+          touched: formik.touched,
+          dirty: formik.dirty,
+          isValid: formik.isValid,
+        }, null, 4)}
+      </pre>
     </Box>
   );
 };

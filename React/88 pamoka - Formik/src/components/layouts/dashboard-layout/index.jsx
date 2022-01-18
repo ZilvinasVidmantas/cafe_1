@@ -19,17 +19,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Outlet } from 'react-router-dom';
 import DrawerHeader from './dashboard-layout-drawer-header';
+import openedMixin from './mixins/opened-mixin';
 
 const drawerWidth = 240;
-
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: 'hidden',
-});
 
 const closedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
@@ -68,8 +60,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
     ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
+      ...openedMixin(theme, drawerWidth),
+      '& .MuiDrawer-paper': openedMixin(theme, drawerWidth),
     }),
     ...(!open && {
       ...closedMixin(theme),

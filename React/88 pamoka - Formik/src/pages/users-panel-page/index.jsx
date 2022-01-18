@@ -3,9 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   List, Box, Paper, Typography, Divider,
 } from '@mui/material';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
 import { selectUsers, addUser, updateUser } from '../../store/users';
+
+const validationSchema = yup.object({
+  name: yup
+    .string()
+    .required('Is Required')
+    .min(4, 'Min 4 letters')
+    .max(16, 'Max 4 letters'),
+  age: yup
+    .number('Must be numeric')
+    .integer('Must be integed')
+    .required('Is required')
+    .positive('Must be positive'),
+});
 
 const formData = {
   add: {
@@ -20,31 +35,16 @@ const formData = {
   },
 };
 
+const initialValues = {
+  name: '',
+  age: '',
+};
+
 const UsersPanelPage = () => {
-  const [nameInput, setNameInput] = useState('');
-  const [ageInput, setAgeInput] = useState('');
   const [editedUserId, setEditedUserId] = useState(null);
   const [formType, setFormType] = useState('add');
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
-
-  const reset = () => {
-    setEditedUserId(null);
-    setFormType('add');
-    setNameInput('');
-    setAgeInput('');
-  };
-
-  const editUser = ({ id, name, age }) => {
-    if (id === editedUserId) {
-      reset();
-    } else {
-      setEditedUserId(id);
-      setFormType('update');
-      setNameInput(name);
-      setAgeInput(age);
-    }
-  };
 
   const handleAddUser = ({ name, age }) => {
     const addUserAction = addUser({ name, age });
@@ -58,7 +58,40 @@ const UsersPanelPage = () => {
       age,
     });
     dispatch(updateUserAction);
-    reset();
+  };
+
+  const onSubmit = (values) => {
+    if (editedUserId) {
+      handleUpdateUser(values);
+      setEditedUserId(null);
+      setFormType('add');
+    } else {
+      handleAddUser(values);
+    }
+    // eslint-disable-next-line no-use-before-define
+    formik.resetForm();
+  };
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+    enableReinitialize: true,
+  });
+
+  const editUser = ({ id, name, age }) => {
+    if (id === editedUserId) {
+      setEditedUserId(null);
+      setFormType('add');
+      formik.setValues({
+        name: '',
+        age: '',
+      });
+    } else {
+      setEditedUserId(id);
+      setFormType('update');
+      formik.setValues({ name, age });
+    }
   };
 
   return (
@@ -68,11 +101,7 @@ const UsersPanelPage = () => {
         <Divider />
         <FormAdd
           {...formData[formType]}
-          name={nameInput}
-          age={ageInput}
-          setName={setNameInput}
-          setAge={setAgeInput}
-          onSubmit={formType === 'add' ? handleAddUser : handleUpdateUser}
+          formik={formik}
         />
         <Divider />
         <List>
@@ -93,7 +122,3 @@ const UsersPanelPage = () => {
 };
 
 export default UsersPanelPage;
-
-// 10 pertraukėlė
-// 15 įsigilinimas
-// 19:25 tęsiame

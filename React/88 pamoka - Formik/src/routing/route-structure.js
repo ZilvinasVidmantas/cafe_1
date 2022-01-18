@@ -1,4 +1,4 @@
-import { VISITOR, ADMIN, LOGGED_IN } from './auth-types';
+import { VISITOR, LOGGED_IN } from './auth-types';
 
 export default [
   {
@@ -13,7 +13,7 @@ export default [
       {
         path: 'users-panel',
         pageName: 'UsersPanelPage',
-        auth: ADMIN,
+        // auth: ADMIN,
       },
     ],
   },

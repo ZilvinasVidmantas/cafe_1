@@ -31,7 +31,6 @@ const initialValues = {
   password: '',
 };
 
-// 
 const LoginPage = () => {
   const [searchParams] = useSearchParams();
   const [errorMsg, setErrorMsg] = useState(null);
@@ -58,7 +57,6 @@ const LoginPage = () => {
   });
 
   return (
-
     <AuthForm
       title="Prisijungti"
       linkTo={routes.RegisterPage}

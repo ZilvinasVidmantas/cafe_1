@@ -1,66 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box, Typography, TextField, Button,
 } from '@mui/material';
-
-// TODO: export helper function
-const isNumeric = (val) => /^-?\d+$/.test(val);
-
-// TODO: formik validation
-const validate = ({ name, age }) => {
-  const errors = {};
-  let noErrors = true;
-  if (name === '') {
-    errors.name = 'Privalo būti užpildytas';
-    noErrors = false;
-  }
-  if (age === '') {
-    errors.age = 'Privalo būti užpildytas';
-    noErrors = false;
-  }
-  if (!isNumeric(age)) {
-    const errMessage = 'Privalo būti skaičius';
-    if (errors.age) errors.age = [errors.age, errMessage];
-    else errors.age = errMessage;
-    noErrors = false;
-  }
-  return noErrors ? null : errors;
-};
-
-const formatErrorJSX = (error) => {
-  if (error instanceof Array) {
-    return (
-      <>
-        { error.map((x) => <Box key={x} component="span" sx={{ display: 'block' }}>{x}</Box>)}
-      </>
-    );
-  }
-  return error;
-};
 
 const UserPanelPageFormAdd = ({
   title,
   btnText,
   color,
-  onSubmit,
-  name,
-  age,
-  setName,
-  setAge,
+  formik,
 }) => {
-  const [errors, setErrors] = useState(null);
+  const {
+    values, errors, touched, isValid, dirty,
+    handleChange, handleBlur, handleSubmit,
+  } = formik;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = validate({ name, age });
-    if (!newErrors) {
-      onSubmit({ name, age });
-      setName('');
-      setAge('');
-    } else {
-      setErrors(newErrors);
-    }
-  };
+  const buttonDisabled = !isValid || !dirty;
 
   return (
     <Box component="form" onSubmit={handleSubmit}>
@@ -70,38 +24,41 @@ const UserPanelPageFormAdd = ({
       }}
       >
         <TextField
-          error={Boolean(errors?.name)}
-          helperText={formatErrorJSX(errors?.name)}
           id="name"
           label="Name"
           variant="filled"
           size="small"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-            if (errors) {
-              const { name: _, ...otherErrors } = errors;
-              setErrors(otherErrors);
-            }
-          }}
+          name="name"
+          // Props provided by Formik
+          value={values.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.name && Boolean(errors.name)}
+          helperText={touched.name && errors.name}
         />
         <TextField
-          error={Boolean(errors?.age)}
-          helperText={formatErrorJSX(errors?.age)}
           id="age"
           label="Age"
           variant="filled"
           size="small"
-          value={age}
-          onChange={(e) => {
-            setAge(e.target.value);
-            if (errors) {
-              const { age: _, ...otherErrors } = errors;
-              setErrors(otherErrors);
-            }
-          }}
+          type="number"
+          name="age"
+          // Props provided by Formik
+          value={values.age}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.age && Boolean(errors.age)}
+          helperText={touched.age && errors.age}
         />
-        <Button variant="contained" type="submit" size="large" color={color}>{btnText}</Button>
+        <Button
+          variant="contained"
+          type="submit"
+          size="large"
+          color={color}
+          disabled={buttonDisabled}
+        >
+          {btnText}
+        </Button>
       </Box>
     </Box>
   );

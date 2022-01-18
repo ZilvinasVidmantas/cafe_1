@@ -8,44 +8,64 @@ import {
   IconButton,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 import { loginSuccess } from '../store/auth';
 import AuthForm from '../components/auth-form';
 import ApiService from '../services/api-service';
 import routes from '../routing/routes';
 
+const validationSchema = yup.object({
+  email: yup
+    .string()
+    .email('Is not valid email')
+    .required('Is required'),
+  password: yup
+    .string()
+    .required('Is required'),
+});
+
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+// 
 const LoginPage = () => {
   const [searchParams] = useSearchParams();
   const [errorMsg, setErrorMsg] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    (async () => {
-      try {
-        setLoading(true);
-        const { user, token } = await ApiService.login({ email, password });
-        const redirectTo = searchParams.get('redirectTo');
-        const loginSuccessAction = loginSuccess({ user, token, redirectTo });
-        dispatch(loginSuccessAction);
-      } catch (error) {
-        setErrorMsg(error.message);
-        setLoading(false);
-      }
-    })();
+  const handleLogin = async ({ email, password }) => {
+    try {
+      const { user, token } = await ApiService.login({ email, password });
+      const redirectTo = searchParams.get('redirectTo');
+      const loginSuccessAction = loginSuccess({ user, token, redirectTo });
+      dispatch(loginSuccessAction);
+    } catch (error) {
+      setErrorMsg(error.message);
+    }
   };
 
+  const {
+    values, errors, touched, isValid, dirty, isSubmitting,
+    handleChange, handleBlur, handleSubmit,
+  } = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: handleLogin,
+  });
+
   return (
+
     <AuthForm
       title="Prisijungti"
       linkTo={routes.RegisterPage}
       linkTitle="Neturite paskyros? Registruokitės"
-      onSubmit={handleLogin}
-      loading={loading}
+      onSubmit={handleSubmit}
+      loading={isSubmitting}
+      isValid={dirty && isValid}
     >
       <Grid container spacing={4}>
         {
@@ -72,33 +92,37 @@ const LoginPage = () => {
             )
             : null
         }
-
         <Grid item xs={12}>
           <TextField
             variant="outlined"
             fullWidth
             id="email"
             label="El. paštas"
+            // Props provided by Formik
             name="email"
-            autoComplete="email"
-            autoFocus
-            value={email}
-            disabled={loading}
-            onChange={(e) => setEmail(e.target.value)}
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.email && Boolean(errors.email)}
+            helperText={touched.email && errors.email}
+            disabled={isSubmitting}
           />
         </Grid>
         <Grid item xs={12} sx={{ mb: 4 }}>
           <TextField
             variant="outlined"
             fullWidth
-            name="password"
             label="Slaptažodis"
             type="password"
             id="password"
-            autoComplete="current-password"
-            value={password}
-            disabled={loading}
-            onChange={(e) => setPassword(e.target.value)}
+            // Props provided by Formik
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.password && Boolean(errors.password)}
+            helperText={touched.password && errors.password}
+            disabled={isSubmitting}
           />
         </Grid>
       </Grid>

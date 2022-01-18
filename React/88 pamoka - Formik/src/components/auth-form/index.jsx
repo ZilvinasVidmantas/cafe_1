@@ -15,8 +15,9 @@ const AuthForm = ({
   title,
   linkTo,
   linkTitle,
-  onSubmit,
+  isValid,
   loading,
+  onSubmit,
 }) => (
   <Container
     maxWidth="xs"
@@ -39,7 +40,7 @@ const AuthForm = ({
         </Typography>
       </Box>
       {children}
-      <Button>
+      <Button disabled={!isValid}>
         {loading ? <CircularProgress color="inherit" /> : title }
       </Button>
       <Link to={linkTo}>

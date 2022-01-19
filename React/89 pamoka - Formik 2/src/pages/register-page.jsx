@@ -38,7 +38,7 @@ const validationSchema = yup.object({
     .test(
       'emailAvailableTest',
       'Email is taken. Choose another',
-      (email, { parent: { emailAvailable, emailChecked } }) => {
+      (_, { parent: {emailChecked, emailAvailable}}) => {
         if(!emailChecked) return true;
         return emailAvailable;
       },
@@ -56,7 +56,15 @@ const validationSchema = yup.object({
     .oneOf([yup.ref('password')], 'Passwords do not match'),
   subscribed: yup 
     .boolean()
+    .required('Is required'),
+  emailChecked: yup 
+    .boolean()
     .required('Is required')
+    .oneOf([true], 'Email must be checked'),
+  emailAvailable: yup
+    .boolean()
+    .required('Is required')
+    .oneOf([true], 'Email must be available'),
 });
 
 
@@ -71,25 +79,27 @@ const initialValues = {
   emailAvailable: false,
 };
 
-// 20:45 pertraukos pabaiga
-// 20:55 kodo peržiūros pabaiga
-
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
     values, touched, errors, isValid, dirty,
-    handleChange, handleBlur, setFieldValue
+    handleChange, handleBlur, setFieldValue, setValues
   } = useFormik({
     initialValues,
     validationSchema
   });
 
   const handleEmailChange = (e) => {
-    handleChange(e);
     if(values.emailChecked){
-      setFieldValue('emailChecked', false);
-      setFieldValue('emailAvailable', false);
+      setValues({
+        ...values,
+        email: e.target.value,
+        emailChecked: false,
+        emailAvailable: false
+      }, true);
+    }else{
+      handleChange(e);
     }
   }
 
@@ -132,6 +142,7 @@ const RegisterPage = () => {
           title="Registracija"
           linkTo={routes.LoginPage}
           linkTitle="Jau turite paskyrą? Prisijunkite"
+          isValid={dirty && isValid}
         >
           <Box>
             <Grid container spacing={2}>

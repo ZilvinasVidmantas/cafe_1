@@ -82,12 +82,18 @@ const initialValues = {
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const onSubmit = async({emailChecked, emailAvailable, ...formData}) => {
+    const result = await apiService.register(formData);
+    console.log('Registracija pavyko', result);
+  }
+
   const {
-    values, touched, errors, isValid, dirty,
-    handleChange, handleBlur, setFieldValue, setValues
+    values, touched, errors, isValid, dirty, isSubmitting,
+    handleChange, handleBlur, setFieldValue, setValues, handleSubmit
   } = useFormik({
     initialValues,
-    validationSchema
+    validationSchema,
+    onSubmit
   });
 
   const handleEmailChange = (e) => {
@@ -143,6 +149,8 @@ const RegisterPage = () => {
           linkTo={routes.LoginPage}
           linkTitle="Jau turite paskyrą? Prisijunkite"
           isValid={dirty && isValid}
+          onSubmit={handleSubmit}
+          loading={isSubmitting}
         >
           <Box>
             <Grid container spacing={2}>
@@ -158,6 +166,7 @@ const RegisterPage = () => {
                   value={values.name}
                   error={touched.name && Boolean(errors.name)}
                   helperText={touched.name && errors.name}
+                  disabled={isSubmitting}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -172,6 +181,7 @@ const RegisterPage = () => {
                   value={values.surname}
                   error={touched.surname && Boolean(errors.surname)}
                   helperText={touched.surname && errors.surname}
+                  disabled={isSubmitting}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -189,6 +199,7 @@ const RegisterPage = () => {
                   value={values.email}
                   error={touched.email && Boolean(errors.email)}
                   helperText={touched.email && errors.email}
+                  disabled={isSubmitting}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -204,6 +215,7 @@ const RegisterPage = () => {
                   value={values.password}
                   error={touched.password && Boolean(errors.password)}
                   helperText={touched.password && errors.password}
+                  disabled={isSubmitting}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -219,6 +231,7 @@ const RegisterPage = () => {
                   value={values.repeatPassword}
                   error={touched.repeatPassword && Boolean(errors.repeatPassword)}
                   helperText={touched.repeatPassword && errors.repeatPassword}
+                  disabled={isSubmitting}
                 />
               </Grid>
               <Grid item sx={{ mb: 2 }} xs={12}>
@@ -230,6 +243,7 @@ const RegisterPage = () => {
                       name="subscribed"
                       onChange={handleChange}
                       checked={values.subscribed}
+                      disabled={isSubmitting}
                     />
                   )}
                   label="Noriu gauti su rinkodara susijusius pranešimus"

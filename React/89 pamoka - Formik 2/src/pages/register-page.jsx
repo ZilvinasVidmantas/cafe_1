@@ -1,5 +1,4 @@
-/* eslint-disable */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   TextField,
   FormControlLabel,
@@ -38,8 +37,8 @@ const validationSchema = yup.object({
     .test(
       'emailAvailableTest',
       'Email is taken. Choose another',
-      (_, { parent: {emailChecked, emailAvailable}}) => {
-        if(!emailChecked) return true;
+      (_, { parent: { emailChecked, emailAvailable } }) => {
+        if (!emailChecked) return true;
         return emailAvailable;
       },
     ),
@@ -54,10 +53,10 @@ const validationSchema = yup.object({
     .string()
     .required('Is required')
     .oneOf([yup.ref('password')], 'Passwords do not match'),
-  subscribed: yup 
+  subscribed: yup
     .boolean()
     .required('Is required'),
-  emailChecked: yup 
+  emailChecked: yup
     .boolean()
     .required('Is required')
     .oneOf([true], 'Email must be checked'),
@@ -66,7 +65,6 @@ const validationSchema = yup.object({
     .required('Is required')
     .oneOf([true], 'Email must be available'),
 });
-
 
 const initialValues = {
   name: '',
@@ -82,178 +80,164 @@ const initialValues = {
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async({emailChecked, emailAvailable, ...formData}) => {
+  const onSubmit = async ({ emailChecked, emailAvailable, ...formData }) => {
     const result = await apiService.register(formData);
     console.log('Registracija pavyko', result);
-  }
+  };
 
   const {
     values, touched, errors, isValid, dirty, isSubmitting,
-    handleChange, handleBlur, setFieldValue, setValues, handleSubmit
+    handleChange, handleBlur, setFieldValue, setValues, handleSubmit,
   } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit
+    onSubmit,
   });
 
   const handleEmailChange = (e) => {
-    if(values.emailChecked){
+    if (values.emailChecked) {
       setValues({
         ...values,
         email: e.target.value,
         emailChecked: false,
-        emailAvailable: false
+        emailAvailable: false,
       }, true);
-    }else{
+    } else {
       handleChange(e);
     }
-  }
+  };
 
   const handleEmailBlur = (e) => {
     handleBlur(e);
-    if(!errors.email){
+    if (!errors.email) {
       setIsLoading(true);
-      (async() => {
+      (async () => {
         const emailAvailable = await apiService.checkEmail(values.email);
         setFieldValue('emailChecked', true);
         setFieldValue('emailAvailable', emailAvailable);
         setIsLoading(false);
       })();
     }
+  };
+
+  let emailEndAdornment;
+  if (isLoading) {
+    emailEndAdornment = <InputAdornment position="end"><CircularProgress size={24} /></InputAdornment>;
+  } else if (values.emailChecked) {
+    emailEndAdornment = values.emailAvailable
+      ? <InputAdornment position="end"><CheckCircleIcon color="success" /></InputAdornment>
+      : <InputAdornment position="end"><ErrorIcon color="error" /></InputAdornment>;
   }
 
-  const emailEndAdornment = isLoading
-    ? <InputAdornment position="end"><CircularProgress size={24}/></InputAdornment>
-    : values.emailChecked
-      ? values.emailAvailable
-        ? <InputAdornment position="end"><CheckCircleIcon color="success" /></InputAdornment>
-        : <InputAdornment position="end"><ErrorIcon color="error" /></InputAdornment>
-      : undefined;
-
   return (
-    <>
-      <pre style={{
-        position: 'fixed',
-        top: 300,
-        left: 0,
-        paddingLeft: 20,
-      }}
-      >
-        {JSON.stringify({
-          values, touched, errors, isValid, dirty,
-        }, null, 4)}
-      </pre>
-      <div style={{ marginLeft: 150 }}>
-        <AuthForm
-          title="Registracija"
-          linkTo={routes.LoginPage}
-          linkTitle="Jau turite paskyrą? Prisijunkite"
-          isValid={dirty && isValid}
-          onSubmit={handleSubmit}
-          loading={isSubmitting}
-        >
-          <Box>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="Vardas"
+    <AuthForm
+      title="Registracija"
+      linkTo={routes.LoginPage}
+      linkTitle="Jau turite paskyrą? Prisijunkite"
+      isValid={dirty && isValid}
+      onSubmit={handleSubmit}
+      loading={isSubmitting}
+    >
+      <Box>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              label="Vardas"
+              // Props provided by Formik
+              name="name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.name}
+              error={touched.name && Boolean(errors.name)}
+              helperText={touched.name && errors.name}
+              disabled={isSubmitting}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              label="Pavardė"
+              // Props provided by Formik
+              name="surname"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.surname}
+              error={touched.surname && Boolean(errors.surname)}
+              helperText={touched.surname && errors.surname}
+              disabled={isSubmitting}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              label="El. paštas"
+              InputProps={{
+                endAdornment: emailEndAdornment,
+              }}
+              // Props provided by Formik
+              name="email"
+              onChange={handleEmailChange}
+              onBlur={handleEmailBlur}
+              value={values.email}
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && errors.email}
+              disabled={isSubmitting}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              label="Slaptažodis"
+              type="password"
+              // Props provided by Formik
+              name="password"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.password}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
+              disabled={isSubmitting}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              fullWidth
+              label="Pakartokite Slaptažodį"
+              type="password"
+              // Props provided by Formik
+              name="repeatPassword"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.repeatPassword}
+              error={touched.repeatPassword && Boolean(errors.repeatPassword)}
+              helperText={touched.repeatPassword && errors.repeatPassword}
+              disabled={isSubmitting}
+            />
+          </Grid>
+          <Grid item sx={{ mb: 2 }} xs={12}>
+            <FormControlLabel
+              control={(
+                <Checkbox
+                  color="primary"
                   // Props provided by Formik
-                  name="name"
+                  name="subscribed"
                   onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.name}
-                  error={touched.name && Boolean(errors.name)}
-                  helperText={touched.name && errors.name}
+                  checked={values.subscribed}
                   disabled={isSubmitting}
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="Pavardė"
-                   // Props provided by Formik
-                  name="surname"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.surname}
-                  error={touched.surname && Boolean(errors.surname)}
-                  helperText={touched.surname && errors.surname}
-                  disabled={isSubmitting}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="El. paštas"
-                  InputProps={{
-                    endAdornment: emailEndAdornment
-                  }}
-                   // Props provided by Formik
-                  name="email"
-                  onChange={handleEmailChange}
-                  onBlur={handleEmailBlur}
-                  value={values.email}
-                  error={touched.email && Boolean(errors.email)}
-                  helperText={touched.email && errors.email}
-                  disabled={isSubmitting}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="Slaptažodis"
-                  type="password"
-                  // Props provided by Formik
-                  name="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                  error={touched.password && Boolean(errors.password)}
-                  helperText={touched.password && errors.password}
-                  disabled={isSubmitting}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  label="Pakartokite Slaptažodį"
-                  type="password"
-                  // Props provided by Formik
-                  name="repeatPassword"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.repeatPassword}
-                  error={touched.repeatPassword && Boolean(errors.repeatPassword)}
-                  helperText={touched.repeatPassword && errors.repeatPassword}
-                  disabled={isSubmitting}
-                />
-              </Grid>
-              <Grid item sx={{ mb: 2 }} xs={12}>
-                <FormControlLabel
-                  control={(
-                    <Checkbox
-                      color="primary"
-                       // Props provided by Formik
-                      name="subscribed"
-                      onChange={handleChange}
-                      checked={values.subscribed}
-                      disabled={isSubmitting}
-                    />
                   )}
-                  label="Noriu gauti su rinkodara susijusius pranešimus"
-                />
-              </Grid>
-            </Grid>
-          </Box>
-        </AuthForm>
-      </div>
-    </>
+              label="Noriu gauti su rinkodara susijusius pranešimus"
+            />
+          </Grid>
+        </Grid>
+      </Box>
+    </AuthForm>
   );
 };
 

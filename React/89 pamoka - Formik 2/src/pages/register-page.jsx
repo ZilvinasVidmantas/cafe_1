@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import {
   TextField,
@@ -10,11 +11,29 @@ import { useFormik } from 'formik';
 import AuthForm from '../components/auth-form';
 import routes from '../routing/routes';
 
+/*
+  iki 19:02 - pertrauka
+  iki 19:17 -> uzduotis:
+    Sukurkite įvesties laukų validaciją, naudodami yup biblioteką
+*/
+
+
+
+const initialValues = {
+  name: '',
+  surname: '',
+  email: '',
+  password: '',
+  repeatPassword: '',
+  subscribed: false,
+};
+
 const RegisterPage = () => {
   const {
     values, touched, errors, isValid, dirty,
+    handleChange,
   } = useFormik({
-
+    initialValues,
   });
 
   return (
@@ -45,6 +64,8 @@ const RegisterPage = () => {
                   label="Vardas"
                   // Props provided by Formik
                   name="name"
+                  onChange={handleChange}
+                  value={values.name}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -54,6 +75,8 @@ const RegisterPage = () => {
                   label="Pavardė"
                    // Props provided by Formik
                   name="surname"
+                  onChange={handleChange}
+                  value={values.surname}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -63,6 +86,8 @@ const RegisterPage = () => {
                   label="El. paštas"
                    // Props provided by Formik
                   name="email"
+                  onChange={handleChange}
+                  value={values.email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -73,6 +98,8 @@ const RegisterPage = () => {
                   type="password"
                   // Props provided by Formik
                   name="password"
+                  onChange={handleChange}
+                  value={values.password}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -83,6 +110,8 @@ const RegisterPage = () => {
                   type="password"
                   // Props provided by Formik
                   name="repeatPassword"
+                  onChange={handleChange}
+                  value={values.repeatPassword}
                 />
               </Grid>
               <Grid item sx={{ mb: 2 }} xs={12}>
@@ -92,6 +121,8 @@ const RegisterPage = () => {
                       color="primary"
                        // Props provided by Formik
                       name="subscribed"
+                      checked={values.subscribed}
+                      onChange={handleChange}
                     />
                   )}
                   label="Noriu gauti su rinkodara susijusius pranešimus"

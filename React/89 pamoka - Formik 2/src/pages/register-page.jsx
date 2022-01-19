@@ -8,15 +8,42 @@ import {
   Box,
 } from '@mui/material';
 import { useFormik } from 'formik';
+import * as yup from 'yup';
 import AuthForm from '../components/auth-form';
 import routes from '../routing/routes';
 
-/*
-  iki 19:02 - pertrauka
-  iki 19:17 -> uzduotis:
-    Sukurkite įvesties laukų validaciją, naudodami yup biblioteką
-*/
-
+const validationSchema = yup.object({
+  name: yup
+    .string()
+    .required('Is required')
+    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters')
+    .min(2, 'At least 2 letters')
+    .max(16, '16 letters maximum'),
+  surname: yup
+    .string()
+    .required('Is required')
+    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters')
+    .min(2, 'At least 2 letters')
+    .max(16, '16 letters maximum'),
+  email: yup
+    .string()
+    .required('Is required')
+    .email('Is not valid email'),
+  password: yup
+    .string()
+    .required('Is required')
+    .min(8, 'At least 8 letters')
+    .max(32, '32 letters maximum')
+    .matches(/^.*[A-ZĄČĘĖĮŠŲŪŽ]+.*$/, 'Should contain Capital letter')
+    .matches(/^.*[0-9]+.*$/, 'Should contain number'),
+  repeatPassword: yup
+    .string()
+    .required('Is required')
+    .oneOf([yup.ref('password')], 'Passwords do not match'),
+  subscribed: yup 
+    .boolean()
+    .required('Is required')
+});
 
 
 const initialValues = {
@@ -34,6 +61,7 @@ const RegisterPage = () => {
     handleChange,
   } = useFormik({
     initialValues,
+    validationSchema
   });
 
   return (

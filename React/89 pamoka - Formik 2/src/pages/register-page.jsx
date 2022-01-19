@@ -1,14 +1,20 @@
 /* eslint-disable */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   TextField,
   FormControlLabel,
   Checkbox,
   Grid,
   Box,
+  InputAdornment,
+  CircularProgress,
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+import apiService from '../services/api-service';
 import AuthForm from '../components/auth-form';
 import routes from '../routing/routes';
 
@@ -16,19 +22,27 @@ const validationSchema = yup.object({
   name: yup
     .string()
     .required('Is required')
-    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters')
     .min(2, 'At least 2 letters')
-    .max(16, '16 letters maximum'),
+    .max(16, '16 letters maximum')
+    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters'),
   surname: yup
     .string()
     .required('Is required')
-    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters')
     .min(2, 'At least 2 letters')
-    .max(16, '16 letters maximum'),
+    .max(16, '16 letters maximum')
+    .matches(/^[a-zA-ZąčęėįšųūžĄČĘĖĮŠŲŪŽ]+$/, 'Should only contain letters'),
   email: yup
     .string()
     .required('Is required')
-    .email('Is not valid email'),
+    .email('Is not valid email')
+    .test(
+      'emailAvailableTest',
+      'Email is taken. Choose another',
+      (email, { parent: { emailAvailable, emailChecked } }) => {
+        if(!emailChecked) return true;
+        return emailAvailable;
+      },
+    ),
   password: yup
     .string()
     .required('Is required')
@@ -52,17 +66,53 @@ const initialValues = {
   email: '',
   password: '',
   repeatPassword: '',
-  subscribed: false,
+  subscribed: true,
+  emailChecked: false,
+  emailAvailable: false,
 };
 
+// 20:45 pertraukos pabaiga
+// 20:55 kodo peržiūros pabaiga
+
 const RegisterPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     values, touched, errors, isValid, dirty,
-    handleChange,
+    handleChange, handleBlur, setFieldValue
   } = useFormik({
     initialValues,
     validationSchema
   });
+
+  const handleEmailChange = (e) => {
+    handleChange(e);
+    if(values.emailChecked){
+      setFieldValue('emailChecked', false);
+      setFieldValue('emailAvailable', false);
+    }
+  }
+
+  const handleEmailBlur = (e) => {
+    handleBlur(e);
+    if(!errors.email){
+      setIsLoading(true);
+      (async() => {
+        const emailAvailable = await apiService.checkEmail(values.email);
+        setFieldValue('emailChecked', true);
+        setFieldValue('emailAvailable', emailAvailable);
+        setIsLoading(false);
+      })();
+    }
+  }
+
+  const emailEndAdornment = isLoading
+    ? <InputAdornment position="end"><CircularProgress size={24}/></InputAdornment>
+    : values.emailChecked
+      ? values.emailAvailable
+        ? <InputAdornment position="end"><CheckCircleIcon color="success" /></InputAdornment>
+        : <InputAdornment position="end"><ErrorIcon color="error" /></InputAdornment>
+      : undefined;
 
   return (
     <>
@@ -93,7 +143,10 @@ const RegisterPage = () => {
                   // Props provided by Formik
                   name="name"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.name}
+                  error={touched.name && Boolean(errors.name)}
+                  helperText={touched.name && errors.name}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -104,7 +157,10 @@ const RegisterPage = () => {
                    // Props provided by Formik
                   name="surname"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.surname}
+                  error={touched.surname && Boolean(errors.surname)}
+                  helperText={touched.surname && errors.surname}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -112,10 +168,16 @@ const RegisterPage = () => {
                   variant="outlined"
                   fullWidth
                   label="El. paštas"
+                  InputProps={{
+                    endAdornment: emailEndAdornment
+                  }}
                    // Props provided by Formik
                   name="email"
-                  onChange={handleChange}
+                  onChange={handleEmailChange}
+                  onBlur={handleEmailBlur}
                   value={values.email}
+                  error={touched.email && Boolean(errors.email)}
+                  helperText={touched.email && errors.email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -127,7 +189,10 @@ const RegisterPage = () => {
                   // Props provided by Formik
                   name="password"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.password}
+                  error={touched.password && Boolean(errors.password)}
+                  helperText={touched.password && errors.password}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -139,7 +204,10 @@ const RegisterPage = () => {
                   // Props provided by Formik
                   name="repeatPassword"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.repeatPassword}
+                  error={touched.repeatPassword && Boolean(errors.repeatPassword)}
+                  helperText={touched.repeatPassword && errors.repeatPassword}
                 />
               </Grid>
               <Grid item sx={{ mb: 2 }} xs={12}>
@@ -149,8 +217,8 @@ const RegisterPage = () => {
                       color="primary"
                        // Props provided by Formik
                       name="subscribed"
-                      checked={values.subscribed}
                       onChange={handleChange}
+                      checked={values.subscribed}
                     />
                   )}
                   label="Noriu gauti su rinkodara susijusius pranešimus"

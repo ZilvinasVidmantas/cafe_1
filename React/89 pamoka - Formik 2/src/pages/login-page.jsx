@@ -96,6 +96,7 @@ const LoginPage = () => {
             fullWidth
             id="email"
             label="El. paštas"
+            autoFocus
             // Props provided by Formik
             name="email"
             value={values.email}

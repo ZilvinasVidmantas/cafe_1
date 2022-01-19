@@ -20,6 +20,22 @@ const login = async ({ email, password }) => {
   return response;
 };
 
+const checkEmail = (email) => new Promise(((success) => {
+  const existingEmails = ['admin@gmail.com', 'user1@gmail.com'];
+  setTimeout(() => {
+    const emailAvailable = !existingEmails.includes(email);
+    success(emailAvailable);
+  }, 1000);
+}));
+
+const register = () => new Promise(((success) => {
+  setTimeout(() => {
+    success(true);
+  }, 2000);
+}));
+
 export default {
   login,
+  checkEmail,
+  register,
 };

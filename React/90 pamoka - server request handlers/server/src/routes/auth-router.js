@@ -19,7 +19,7 @@ router.post('/login', (req, res) => {
   })
 });
 
-router.get('?????', (req, res) => {
+router.get('/', (req, res) => {
   // išsiųskite sėkmingą atsakymą su duomenimis: { available: true }
 })
 

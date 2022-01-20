@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import { config } from 'dotenv';
-import authRouter from './routes/auth-router';
+import authRouter from './routes/auth-router.js';
 import cors from 'cors';
 
 // Užkrauna duomenis iš .env failo

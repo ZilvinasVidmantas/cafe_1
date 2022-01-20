@@ -1,0 +1,13 @@
+{
+  "users": [{
+    "email": "user@gmail.com",
+    "name": "Serbis",
+    "surname": "Montis",
+    "role": "USER"
+  },{
+    "email": "admin@gmail.com",
+    "name": "Adminas",
+    "surname": "Gediminas",
+    "role": "ADMIN"
+  }]
+}

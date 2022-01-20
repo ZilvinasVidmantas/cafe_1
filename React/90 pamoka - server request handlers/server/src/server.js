@@ -27,21 +27,3 @@ server.use('/api/auth', authRouter);
 server.listen(SERVER_PORT, () => {
   console.log(`puslapis veikia ant http://localhost:${SERVER_PORT}/`);
 });
-
-
-/*
-  * Parsisiųskite https://www.postman.com/ - 10
-  * Perskaitykite server.js ir auth-router.js failus - 5
-  * Trumpai perskaitykite bibliotekų aprašymus kurios yra naudojamos - npmjs.com - 10
-  * Įsijungę Postman programą padarykite užklausas adresais: - 5
-    * /api/auth/register
-    * /api/auth/login
-  * Suformuokite dirbtinius JSON duomenis: - 5
-    * /api/auth/register -> { user: { email, role, name, surname }, token: 'skdhfkshdfk'}
-    * /api/auth/login -> { user: { email, role, name, surname }, token: 'skdhfkshdfk'}
-  * Sukurkite GET tipo užklausos aptarnavimą adresu '/api/auth/checkEmail' - 5
-    * grąžinkite JSON duomenis: { available: true|false } 
-*/
-
-// 19:00 - 19:10 Pertauka
-// 19:25, tęsime toliau kartu

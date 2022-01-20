@@ -36,9 +36,9 @@ server.listen(SERVER_PORT, () => {
   * Įsijungę Postman programą padarykite užklausas adresais: - 5
     * /api/auth/register
     * /api/auth/login
-  * Suformuokite dirbtinius JSON duomenis, kokius manote, kad turėtų grąžinti adresai: - 5
-    * /api/auth/register
-    * /api/auth/login
+  * Suformuokite dirbtinius JSON duomenis: - 5
+    * /api/auth/register -> { user: { email, role, name, surname }, token: 'skdhfkshdfk'}
+    * /api/auth/login -> { user: { email, role, name, surname }, token: 'skdhfkshdfk'}
   * Sukurkite GET tipo užklausos aptarnavimą adresu '/api/auth/checkEmail' - 5
     * grąžinkite JSON duomenis: { available: true|false } 
 */

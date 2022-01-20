@@ -19,6 +19,10 @@ router.post('/login', (req, res) => {
   })
 });
 
+router.get('?????', (req, res) => {
+  // išsiųskite sėkmingą atsakymą su duomenimis: { available: true }
+})
+
 // Išexportuojas router'is
 export default router;
 

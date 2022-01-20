@@ -1,7 +1,10 @@
-const express = require('express');
-const morgan = require('morgan');
-require('dotenv').config();
-const authRouter = require('./routes/auth-router');
+import express from 'express';
+import morgan from 'morgan';
+import { config } from 'dotenv';
+import authRouter from './routes/auth-router';
+import cors from 'cors';
+
+config();
 
 const server = express();
 const {
@@ -10,7 +13,7 @@ const {
 
 // Middlewares
 server.use(morgan('tiny'));
-server.use(express.static('public'));
+server.use(cors());
 server.use(express.json());
 
 // Response handlers

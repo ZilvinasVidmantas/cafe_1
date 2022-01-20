@@ -8,6 +8,6 @@ const file = join(__dirname, 'db.json');
 const adapter = new JSONFile(file);
 const database = new Low(adapter);
 
-await database.read()
+await database.read();
 
 export default database;

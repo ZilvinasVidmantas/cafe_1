@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import { config } from 'dotenv';
 import authRouter from './routes/auth-router.js';
 import cors from 'cors';
+import './database/index.js';
 
 // Užkrauna duomenis iš .env failo
 config();
@@ -25,5 +26,5 @@ server.use('/api/auth', authRouter);
 
 // Serveriui perduodamos užklausos, kurios bus gautos į šio kompiuterio 5000'inį port'ą
 server.listen(SERVER_PORT, () => {
-  console.log(`puslapis veikia ant http://localhost:${SERVER_PORT}/`);
+  console.log(`serveris veikia ant http://localhost:${SERVER_PORT}/`);
 });

@@ -1,4 +1,5 @@
 import database from '../database/index.js';
+import { v4 as createId } from 'uuid';
 
 export const login = (req, res) => {
   const { email, password } = req.body;
@@ -31,47 +32,38 @@ export const login = (req, res) => {
 
 export const register = (req, res) => {
   const { email, name, surname, password, repeatPassword } = req.body;
-  if (password !== password) {
+  if (password !== repeatPassword) {
     res.status(400).json({
       message: 'Slaptažodžiai nesutampa'
     });
     return;
   }
 
-  /*
-    įrašymo pvz.
-  */
-  database.data.users.push({ name: 'Klemensas' });
+  const userExists = database.data.users.find(x => x.email === email);
+
+  if (userExists) {
+    res.status(400).json({
+      message: 'Vartotojas su tokiu paštu jau egzistuoja'
+    });
+    return;
+  }
+
+  const user = {
+    id: createId(),
+    email,
+    name,
+    surname,
+    password,
+    role: 'USER'
+  };
+
+  database.data.users.push(user);
   database.write();
 
-  /*
-    1. Suformuoti Postman'e duomenis ir išsiųsti jog užklausa būtų aptarnauta šiu requestHandler'iu
-      * email
-      * name
-      * surname
-      * password
-      * repeatPassword
-    2. Ar vienodi Slaptažodiai?:
-      * taip ->  Ar tarp esančių vartotojų jau yra toks vartotojo paštas koks gautas užklausos metu?
-        * taip -> grąžinti klaidos pranešimą, kad toks vartotojas jau užsiregistravęs
-        * ne -> 
-          * Sukurti vartotoją su tokia struktūra:
-            * id -> sugeneruooti
-            * email
-            * name
-            * surname
-            * password
-            * role - USER
-          * išsiųsti atsakymą su sukurtu vartotoju ir  dirbitnį token'ą
-          
-      * ne(nesutampa slaptažodžiai) -> Siųsti klaidos pranešimą, jog slaptažodžiai nesutampa
-
-    iki 19: darbas savarankiškai
-    iki 19:10 pertrauka
-    19:10 - sufleriai | klausimai -> 19:20
-    iki 19:35 užduoties pabaigimas
-  */
-  res.status(200).json({ message: 'Užaugus būsiu registracija' });
+  res.status(200).json({
+    user,
+    token: 'sdfhgiosdfhgosfdob9viunfgboifg65+641+65'
+  });
 }
 
 export const checkEmail = (req, res) => {

@@ -30,6 +30,20 @@ export const login = (req, res) => {
 };
 
 export const register = (req, res) => {
+  const { email, name, surname, password, repeatPassword } = req.body;
+  if (password !== password) {
+    res.status(400).json({
+      message: 'Slaptažodžiai nesutampa'
+    });
+    return;
+  }
+
+  /*
+    įrašymo pvz.
+  */
+  database.data.users.push({ name: 'Klemensas' });
+  database.write();
+
   /*
     1. Suformuoti Postman'e duomenis ir išsiųsti jog užklausa būtų aptarnauta šiu requestHandler'iu
       * email
@@ -54,8 +68,8 @@ export const register = (req, res) => {
 
     iki 19: darbas savarankiškai
     iki 19:10 pertrauka
-    19:10 - sufleriai | klausimai -> 19:15
-    iki 19:30 užduoties pabaigimas
+    19:10 - sufleriai | klausimai -> 19:20
+    iki 19:35 užduoties pabaigimas
   */
   res.status(200).json({ message: 'Užaugus būsiu registracija' });
 }

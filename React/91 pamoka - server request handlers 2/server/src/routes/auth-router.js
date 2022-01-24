@@ -14,4 +14,3 @@ router.post('/login', login);
 router.get('/checkEmail', checkEmail);
 
 export default router;
-

@@ -21,7 +21,7 @@ export const login = (req, res) => {
     // Viskas gerai
     res.status(200).json({
       user,
-      token: createToken({ email }),
+      token: createToken({ email, role: foundUser.role }),
     });
     return;
   }
@@ -65,7 +65,7 @@ export const register = (req, res) => {
 
   res.status(200).json({
     user,
-    token: createToken({ email })
+    token: createToken({ email, role: user.role }),
   });
 }
 

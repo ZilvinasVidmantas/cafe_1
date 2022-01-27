@@ -1,20 +1,18 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as createId } from 'uuid';
 
 const initialState = {
-  collection: [
-    { id: '1', name: 'Kevinas', age: 12 },
-    { id: '2', name: 'Silensis', age: 19 },
-    { id: '3', name: 'Vakunda', age: 7 },
-    { id: '4', name: 'Majoris', age: 9 },
-    { id: '5', name: 'Bagnis', age: 98 },
-  ],
+  collection: [],
 };
 
 const userSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
+    loadUsers(state, { payload }) {
+      state.collection = payload.users;
+    },
     addUser(state, { payload }) {
       const newUser = {
         id: createId(),
@@ -35,7 +33,12 @@ const userSlice = createSlice({
   },
 });
 
-export const { addUser, deleteUser, updateUser } = userSlice.actions;
+export const {
+  addUser,
+  deleteUser,
+  updateUser,
+  loadUsers,
+} = userSlice.actions;
 
 export const selectUsers = (state) => state.users.collection;
 

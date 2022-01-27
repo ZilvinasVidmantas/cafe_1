@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   List, Box, Paper, Typography, Divider,
@@ -8,6 +8,7 @@ import * as yup from 'yup';
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
 import { selectUsers, addUser, updateUser } from '../../store/users';
+import adminService from '../../services/admin-service';
 
 const validationSchema = yup.object({
   name: yup
@@ -99,6 +100,10 @@ const UsersPanelPage = () => {
     }
   };
 
+  useEffect(() => {
+    adminService.getUsers();
+  }, []);
+
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <Paper sx={{ width: 500, p: 2 }} elevation={2}>
@@ -122,15 +127,6 @@ const UsersPanelPage = () => {
           ))}
         </List>
       </Paper>
-      <pre>
-        {JSON.stringify({
-          values: formik.values,
-          errors: formik.errors,
-          touched: formik.touched,
-          dirty: formik.dirty,
-          isValid: formik.isValid,
-        }, null, 4)}
-      </pre>
     </Box>
   );
 };

@@ -1,7 +1,7 @@
 const SessionStorage = new (class SessionStorage {
   constructor() {
-    this.storage = window.sessionStorage;
-    // this.storage = window.localStorage;
+    // this.storage = window.sessionStorage;
+    this.storage = window.localStorage;
   }
 
   set(name, value) {
@@ -19,5 +19,3 @@ const SessionStorage = new (class SessionStorage {
 })();
 
 export default SessionStorage;
-
-// 18:55

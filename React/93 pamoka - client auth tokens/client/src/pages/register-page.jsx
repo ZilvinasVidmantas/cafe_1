@@ -80,9 +80,10 @@ const initialValues = {
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async ({ emailChecked, emailAvailable, ...formData }) => {
-    const result = await authService.register(formData);
-    console.log('Registracija pavyko', result);
+  const onSubmit = async ({
+    emailChecked, emailAvailable, subscribed, ...formData
+  }) => {
+    await authService.register(formData);
   };
 
   const {

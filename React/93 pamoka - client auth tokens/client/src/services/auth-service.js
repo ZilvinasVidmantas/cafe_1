@@ -1,18 +1,18 @@
+import axios from 'axios';
 import store from '../store/index';
 import * as authSlice from '../store/auth';
 
+const requester = axios.create({
+  baseURL: 'http://localhost:5000/api/auth',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
 const login = async ({ email, password }, redirectTo) => {
-  const response = await fetch('http://localhost:5000/api/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  });
+  const { data, status } = await requester.post('/login', { email, password });
 
-  const data = await response.json();
-
-  if (response.status === 200) {
+  if (status === 200) {
     const { user, token } = data;
     const reduxAction = authSlice.login({ user, token, redirectTo });
     store.dispatch(reduxAction);
@@ -23,29 +23,15 @@ const login = async ({ email, password }, redirectTo) => {
 };
 
 const checkEmail = async (email) => {
-  const response = await fetch(`http://localhost:5000/api/auth/check-email?email=${email}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  const data = await response.json();
+  const { data } = await requester.get(`/check-email?email=${email}`);
+  console.log(data);
   return data.available;
 };
 
 const register = async (body) => {
-  const response = await fetch('http://localhost:5000/api/auth/register', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  });
+  const { data, status } = await requester.post('/register', body);
 
-  const data = await response.json();
-
-  if (response.status === 200) {
+  if (status === 200) {
     const { user, token } = data;
     const reduxAction = authSlice.login({ user, token });
     store.dispatch(reduxAction);

@@ -73,7 +73,7 @@ export const checkEmail = (req, res) => {
   const { email } = req.query;
   const emailIsTaken = Boolean(database.data.users.find(x => x.email === email));
   if (emailIsTaken) {
-    res.status(400).json({
+    res.status(200).json({
       available: false,
       message: 'Vartotojas su tokiu paštu jau egzistuoja'
     });

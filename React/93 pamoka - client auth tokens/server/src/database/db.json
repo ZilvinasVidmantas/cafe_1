@@ -31,6 +31,14 @@
       "surname": "Vidmantas",
       "password": "Vilnius123",
       "role": "USER"
+    },
+    {
+      "id": "667a2e15-a101-4bd5-813f-a6e4a7732bd5",
+      "email": "user4@gmail.com",
+      "name": "Mark",
+      "surname": "Vidmantas",
+      "password": "Vilnius123",
+      "role": "USER"
     }
   ]
 }

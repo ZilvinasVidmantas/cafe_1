@@ -16,11 +16,15 @@ const validationSchema = yup.object({
     .required('Is Required')
     .min(4, 'Min 4 letters')
     .max(16, 'Max 4 letters'),
-  age: yup
-    .number('Must be numeric')
-    .integer('Must be integed')
-    .required('Is required')
-    .positive('Must be positive'),
+  surname: yup
+    .string()
+    .required('Is Required')
+    .min(4, 'Min 4 letters')
+    .max(16, 'Max 4 letters'),
+  email: yup
+    .string()
+    .required('Is Required')
+    .email('Is not email'),
 });
 
 const formData = {
@@ -38,7 +42,8 @@ const formData = {
 
 let initialValues = {
   name: '',
-  age: '',
+  surname: '',
+  email: '',
 };
 
 const UsersPanelPage = () => {
@@ -47,16 +52,17 @@ const UsersPanelPage = () => {
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
 
-  const handleAddUser = ({ name, age }) => {
-    const addUserAction = addUser({ name, age });
+  const handleAddUser = ({ name, surname, email }) => {
+    const addUserAction = addUser({ name, surname, email });
     dispatch(addUserAction);
   };
 
-  const handleUpdateUser = ({ name, age }) => {
+  const handleUpdateUser = ({ name, surname, email }) => {
     const updateUserAction = updateUser({
       id: editedUserId,
       name,
-      age,
+      surname,
+      email,
     });
     dispatch(updateUserAction);
   };
@@ -80,13 +86,16 @@ const UsersPanelPage = () => {
     enableReinitialize: true, // Ar stebėti initialValues pasikeitimą
   });
 
-  const editUser = ({ id, name, age }) => {
+  const editUser = ({
+    id, name, surname, email,
+  }) => {
     if (id === editedUserId) {
       setEditedUserId(null);
       setFormType('add');
       initialValues = {
         name: '',
-        age: '',
+        surname: '',
+        email: '',
       };
       formik.setValues(initialValues);
     } else {
@@ -94,7 +103,8 @@ const UsersPanelPage = () => {
       setFormType('update');
       initialValues = {
         name,
-        age,
+        surname,
+        email,
       };
       formik.setValues(initialValues);
     }
@@ -115,12 +125,15 @@ const UsersPanelPage = () => {
         />
         <Divider />
         <List>
-          {users.map(({ id, name, age }) => (
+          {users.map(({
+            id, name, surname, email,
+          }) => (
             <ListItem
               key={id}
               id={id}
               name={name}
-              age={age}
+              surname={surname}
+              email={email}
               onEdit={editUser}
               edited={id === editedUserId}
             />

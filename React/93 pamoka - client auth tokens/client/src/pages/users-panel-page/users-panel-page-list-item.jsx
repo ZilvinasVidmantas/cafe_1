@@ -9,7 +9,7 @@ import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
 import { deleteUser } from '../../store/users';
 
 const UserPanelPageListItem = ({
-  id, name, age, onEdit, edited,
+  id, name, surname, email, onEdit, edited,
 }) => {
   const dispatch = useDispatch();
 
@@ -27,7 +27,12 @@ const UserPanelPageListItem = ({
       disableGutters
       secondaryAction={(
         <>
-          <IconButton color="warning" onClick={() => onEdit({ id, name, age })}>
+          <IconButton
+            color="warning"
+            onClick={() => onEdit({
+              id, name, surname, email,
+            })}
+          >
             {
               edited
                 ? <DoDisturbAltIcon />
@@ -40,7 +45,7 @@ const UserPanelPageListItem = ({
         </>
     )}
     >
-      <ListItemText primary={`${name} - ${age}`} />
+      <ListItemText primary={`${email} - ${name} ${surname}`} />
     </ListItem>
   );
 };

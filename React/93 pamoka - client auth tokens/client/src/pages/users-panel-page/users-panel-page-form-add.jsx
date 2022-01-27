@@ -20,7 +20,7 @@ const UserPanelPageFormAdd = ({
     <Box component="form" onSubmit={handleSubmit}>
       <Typography element="h2" variant="h6" sx={{ my: 1 }}>{title}</Typography>
       <Box sx={{
-        display: 'flex', gap: 1, pb: 2, alignItems: 'start',
+        display: 'flex', gap: 1, pb: 2, alignItems: 'center', flexDirection: 'column',
       }}
       >
         <TextField
@@ -29,6 +29,7 @@ const UserPanelPageFormAdd = ({
           variant="filled"
           size="small"
           name="name"
+          fullWidth
           // Props provided by Formik
           value={values.name}
           onChange={handleChange}
@@ -37,18 +38,32 @@ const UserPanelPageFormAdd = ({
           helperText={touched.name && errors.name}
         />
         <TextField
-          id="age"
-          label="Age"
+          id="surname"
+          label="Surname"
           variant="filled"
           size="small"
-          type="number"
-          name="age"
+          name="surname"
+          fullWidth
           // Props provided by Formik
-          value={values.age}
+          value={values.surname}
           onChange={handleChange}
           onBlur={handleBlur}
-          error={touched.age && Boolean(errors.age)}
-          helperText={touched.age && errors.age}
+          error={touched.surname && Boolean(errors.surname)}
+          helperText={touched.surname && errors.surname}
+        />
+        <TextField
+          id="email"
+          label="Email"
+          variant="filled"
+          size="small"
+          name="email"
+          fullWidth
+          // Props provided by Formik
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.email && Boolean(errors.email)}
+          helperText={touched.email && errors.email}
         />
         <Button
           variant="contained"

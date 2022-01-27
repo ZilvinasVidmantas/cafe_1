@@ -16,8 +16,7 @@ const userSlice = createSlice({
     addUser(state, { payload }) {
       const newUser = {
         id: createId(),
-        name: payload.name,
-        age: payload.age,
+        ...payload,
       };
       state.collection.push(newUser);
     },
@@ -27,8 +26,8 @@ const userSlice = createSlice({
     },
     updateUser(state, { payload }) {
       const userToUpdate = state.collection.find((u) => u.id === payload.id);
-      userToUpdate.age = payload.age;
-      userToUpdate.name = payload.name;
+      Object.entries(payload)
+        .forEach(([propName, propValue]) => { userToUpdate[propName] = propValue; });
     },
   },
 });

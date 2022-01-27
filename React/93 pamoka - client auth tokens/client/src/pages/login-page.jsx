@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import {
   TextField,
@@ -10,10 +9,8 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-
-import { loginSuccess } from '../store/auth';
 import AuthForm from '../components/auth-form';
-import ApiService from '../services/api-service';
+import AuthService from '../services/auth-service';
 import routes from '../routing/routes';
 
 const validationSchema = yup.object({
@@ -34,14 +31,11 @@ const initialValues = {
 const LoginPage = () => {
   const [searchParams] = useSearchParams();
   const [errorMsg, setErrorMsg] = useState(null);
-  const dispatch = useDispatch();
 
   const handleLogin = async ({ email, password }) => {
     try {
-      const { user, token } = await ApiService.login({ email, password });
       const redirectTo = searchParams.get('redirectTo');
-      const loginSuccessAction = loginSuccess({ user, token, redirectTo });
-      dispatch(loginSuccessAction);
+      await AuthService.login({ email, password }, redirectTo);
     } catch (error) {
       setErrorMsg(error.message);
     }

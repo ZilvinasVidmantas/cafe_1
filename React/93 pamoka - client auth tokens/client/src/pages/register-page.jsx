@@ -13,7 +13,7 @@ import * as yup from 'yup';
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-import apiService from '../services/api-service';
+import authService from '../services/auth-service';
 import AuthForm from '../components/auth-form';
 import routes from '../routing/routes';
 
@@ -81,7 +81,7 @@ const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async ({ emailChecked, emailAvailable, ...formData }) => {
-    const result = await apiService.register(formData);
+    const result = await authService.register(formData);
     console.log('Registracija pavyko', result);
   };
 
@@ -112,7 +112,7 @@ const RegisterPage = () => {
     if (!errors.email) {
       setIsLoading(true);
       (async () => {
-        const emailAvailable = await apiService.checkEmail(values.email);
+        const emailAvailable = await authService.checkEmail(values.email);
         setFieldValue('emailChecked', true);
         setFieldValue('emailAvailable', emailAvailable);
         setIsLoading(false);

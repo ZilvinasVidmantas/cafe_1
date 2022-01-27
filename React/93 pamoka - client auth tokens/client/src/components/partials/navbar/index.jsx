@@ -25,7 +25,7 @@ const Navbar = ({ sidebarIcon }) => {
           { sidebarIcon ?? null}
           <Link to={routes.HomePage}>Home</Link>
           {
-            user && user.role === 'admin'
+            user && user.role === 'ADMIN'
               ? <Link to={routes.UsersPanelPage}>Users panel</Link>
               : null
           }

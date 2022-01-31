@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../partials/navbar';
+import PageLayoutNavbar from './page-layout-navbar';
 
 const PageLayout = () => (
   <>
-    <Navbar />
+    <PageLayoutNavbar />
     <Container element="main" sx={{ py: 3 }}>
       <Outlet />
     </Container>

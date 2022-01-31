@@ -10,11 +10,14 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, selectAuth } from '../../../store/auth';
+import { logout, selectAuth } from '../../store/auth';
+import routes from '../../routing/routes';
 
 const NavbarMenu = () => {
+  const navigate = useNavigate();
   const { user } = useSelector(selectAuth);
   const iconButtonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +28,11 @@ const NavbarMenu = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+  };
+
+  const handleProfileLinkClick = () => {
     handleClose();
+    navigate(routes.ProfilePage);
   };
 
   return (
@@ -62,7 +69,7 @@ const NavbarMenu = () => {
         open={isOpen}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
+        <MenuItem onClick={handleProfileLinkClick} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
           <Typography textAlign="center">Profile</Typography>
           <PersonIcon />
         </MenuItem>

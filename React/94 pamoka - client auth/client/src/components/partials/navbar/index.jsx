@@ -1,17 +1,13 @@
 import React from 'react';
-import {
-  AppBar, Container, Box, Button,
-} from '@mui/material';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout, selectAuth } from '../../../store/auth';
+import { AppBar, Container, Box } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { selectAuth } from '../../../store/auth';
 import Link from './navbar-link';
 import routes from '../../../routing/routes';
+import NavbarMenu from './navbar-menu';
 
 const Navbar = ({ sidebarIcon }) => {
   const { loggedIn, user } = useSelector(selectAuth);
-  const dispatch = useDispatch();
-
-  const handleLogout = () => dispatch(logout());
 
   return (
     <AppBar position="sticky" sx={{ height: 56 }}>
@@ -33,7 +29,7 @@ const Navbar = ({ sidebarIcon }) => {
         </Box>
         {
           loggedIn
-            ? <Button color="secondary" variant="contained" sx={{ my: 1 }} onClick={handleLogout}>Logout</Button>
+            ? <NavbarMenu />
             : (
               <Box sx={{ display: 'flex' }}>
                 <Link to={routes.LoginPage}>Login</Link>

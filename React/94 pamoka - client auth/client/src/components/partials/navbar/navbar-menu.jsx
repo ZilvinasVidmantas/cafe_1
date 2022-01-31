@@ -8,6 +8,8 @@ import {
   Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import PersonIcon from '@mui/icons-material/Person';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectAuth } from '../../../store/auth';
@@ -60,15 +62,14 @@ const NavbarMenu = () => {
         open={isOpen}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} sx={{ width: 200 }}>
-          <Typography textAlign="center">Var 1</Typography>
-        </MenuItem>
-        <MenuItem onClick={handleClose} sx={{ width: 200 }}>
-          <Typography textAlign="center">Var 2</Typography>
+        <MenuItem onClick={handleClose} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
+          <Typography textAlign="center">Profile</Typography>
+          <PersonIcon />
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleLogout} sx={{ width: 200 }}>
+        <MenuItem onClick={handleLogout} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
           <Typography textAlign="center">Logout</Typography>
+          <PowerSettingsNewIcon />
         </MenuItem>
       </Menu>
     </Box>

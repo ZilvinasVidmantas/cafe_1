@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  useMediaQuery,
 } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -21,24 +22,27 @@ import closedMixin from './mixins/closed-mixin';
 import DrawerHeader from './dashboard-layout-drawer-header';
 import routes from '../../../routing/routes';
 
-const notForwardableProps = ['open', 'drawerWidth'];
+const notForwardableProps = ['drawerWidth'];
 
 const StyledDrawer = styled(Drawer, {
   shouldForwardProp: (propName) => !notForwardableProps.includes(propName),
 })(
   ({ theme, open, drawerWidth }) => ({
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
-    ...(open && {
-      ...openedMixin(theme, drawerWidth),
-      '& .MuiDrawer-paper': openedMixin(theme, drawerWidth),
-    }),
-    ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
-    }),
+    '& .MuiDrawer-paper': {
+      width: drawerWidth,
+    },
+    [theme.breakpoints.up('md')]: {
+      whiteSpace: 'nowrap',
+      flexShrink: 0,
+      ...(open && {
+        ...openedMixin(theme, drawerWidth),
+        '& .MuiDrawer-paper': openedMixin(theme, drawerWidth),
+      }),
+      ...(!open && {
+        ...closedMixin(theme),
+        '& .MuiDrawer-paper': closedMixin(theme),
+      }),
+    },
   }),
 );
 
@@ -50,9 +54,15 @@ const DashboardLayoutDrawer = ({
 }) => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const isSmallScreen = useMediaQuery((muiTheme) => muiTheme.breakpoints.down('md'));
 
   return (
-    <StyledDrawer variant="permanent" open={open} drawerWidth={drawerWidth}>
+    <StyledDrawer
+      variant={isSmallScreen ? 'temporary' : 'permanent'}
+      open={open}
+      drawerWidth={drawerWidth}
+      onClose={handleDrawerClose}
+    >
       <DrawerHeader>
         <IconButton onClick={handleDrawerClose}>
           {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

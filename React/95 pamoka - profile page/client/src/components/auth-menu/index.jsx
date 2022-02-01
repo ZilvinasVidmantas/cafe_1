@@ -7,7 +7,7 @@ import {
   Typography,
   Divider,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PersonIcon from '@mui/icons-material/Person';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { useNavigate } from 'react-router-dom';
@@ -52,8 +52,9 @@ const NavbarMenu = () => {
         onClick={handleOpen}
         color="inherit"
         ref={iconButtonRef}
+        sx={{ pr: 0 }}
       >
-        <MenuIcon />
+        <AccountCircleIcon />
       </IconButton>
       <Menu
         anchorEl={iconButtonRef.current}

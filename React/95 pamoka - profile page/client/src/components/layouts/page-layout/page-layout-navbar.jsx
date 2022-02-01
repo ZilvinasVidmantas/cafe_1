@@ -8,13 +8,15 @@ import NavbarLink from '../../navbar-link';
 import routes from '../../../routing/routes';
 import AuthMenu from '../../auth-menu';
 
-const PageLayoutNavbar = ({ sidebarIcon }) => {
+const PageLayoutNavbar = () => {
   const { loggedIn } = useSelector(selectAuth);
 
   return (
     <AppBar
       position="sticky"
-      sx={(theme) => ({ height: theme.mixins.toolbar.minHeight })}
+      sx={(theme) => ({
+        height: theme.mixins.toolbar.minHeight,
+      })}
     >
       <Container sx={{
         height: '100%',
@@ -23,7 +25,6 @@ const PageLayoutNavbar = ({ sidebarIcon }) => {
       }}
       >
         <Box sx={{ display: 'flex' }}>
-          { sidebarIcon ?? null}
           <NavbarLink to={routes.HomePage}>Home</NavbarLink>
         </Box>
         {

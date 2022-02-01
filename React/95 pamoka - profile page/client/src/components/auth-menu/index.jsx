@@ -52,7 +52,6 @@ const NavbarMenu = () => {
         onClick={handleOpen}
         color="inherit"
         ref={iconButtonRef}
-        sx={{ pr: 0 }}
       >
         <AccountCircleIcon />
       </IconButton>

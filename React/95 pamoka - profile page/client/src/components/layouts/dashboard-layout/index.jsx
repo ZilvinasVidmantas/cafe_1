@@ -1,8 +1,10 @@
-import * as React from 'react';
-import { Box } from '@mui/material';
-import { Outlet, Navigate } from 'react-router-dom';
-
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Outlet, Navigate } from 'react-router-dom';
+import { Box, Fab } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+
 import { selectAuth } from '../../../store/auth';
 import DrawerHeader from './dashboard-layout-drawer-header';
 import Navbar from './dashboard-layout-navbar';
@@ -13,12 +15,13 @@ const drawerWidth = 240;
 
 const DashboardLayout = () => {
   const { user } = useSelector(selectAuth);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   if (!user) return <Navigate to={routes.HomePage} />;
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
+  const handleDrawerToggle = () => setOpen(!open);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -37,6 +40,19 @@ const DashboardLayout = () => {
         <DrawerHeader />
         <Outlet />
       </Box>
+
+      <Fab
+        color="primary"
+        sx={{
+          position: 'fixed',
+          bottom: 20,
+          right: 20,
+          display: { xs: 'inline-flex', md: 'none' },
+        }}
+        onClick={handleDrawerToggle}
+      >
+        { open ? <CloseIcon /> : <MenuIcon />}
+      </Fab>
     </Box>
   );
 };

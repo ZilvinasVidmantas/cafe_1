@@ -2,7 +2,6 @@ import React from 'react';
 import {
   styled,
   AppBar,
-  Container,
   Box,
   IconButton,
 } from '@mui/material';
@@ -33,12 +32,13 @@ const StyledDashboardLayoutNavbar = styled(AppBar, {
 
 const DashboardLayoutNavbar = ({ open, drawerWidth, handleDrawerOpen }) => (
   <StyledDashboardLayoutNavbar position="fixed" open={open} drawerWidth={drawerWidth}>
-    <Container
+    <Box
       maxWidth="xxl"
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
         height: 1 / 1,
+        pl: { md: 3 },
       }}
     >
       <Box sx={{ display: 'flex' }}>
@@ -49,7 +49,10 @@ const DashboardLayoutNavbar = ({ open, drawerWidth, handleDrawerOpen }) => (
           edge="start"
           sx={{
             marginRight: '36px',
-            display: open ? 'none' : 'inline-flex',
+            display: {
+              xs: 'none',
+              md: open ? 'none' : 'inline-flex',
+            },
           }}
         >
           <MenuIcon />
@@ -57,7 +60,7 @@ const DashboardLayoutNavbar = ({ open, drawerWidth, handleDrawerOpen }) => (
         <NavbarLink to={routes.HomePage}>Home</NavbarLink>
       </Box>
       <AuthMenu />
-    </Container>
+    </Box>
   </StyledDashboardLayoutNavbar>
 );
 

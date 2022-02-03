@@ -68,7 +68,7 @@ const DashboardLayoutDrawer = ({
       </DrawerHeader>
       <Divider />
       <List
-        sx={({ mixins }) => ({ pt: `${mixins.toolbar.minHeight}px` })}
+        sx={({ mixins }) => ({ pt: { lg: `${mixins.toolbar.minHeight}px` } })}
       >
         <ListItem button onClick={() => navigate(routes.ProfilePage)}>
           <ListItemIcon>

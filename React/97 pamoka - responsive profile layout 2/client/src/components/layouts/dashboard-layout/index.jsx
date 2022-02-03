@@ -35,7 +35,9 @@ const DashboardLayout = () => {
       />
       <Box component="main" sx={{ flexGrow: 1, p: 3, pt: 0 }}>
         <DrawerHeader />
-        <Outlet />
+        <Box sx={{ pt: 3 }}>
+          <Outlet />
+        </Box>
       </Box>
 
       <Fab

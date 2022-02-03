@@ -25,14 +25,18 @@ const buildRouteRecursive = ({
 }) => {
   const Page = routePageEnum[pageName];
   if (children) {
+    const layout = addRouteProtection[auth]
+      ? addRouteProtection[auth](Page)
+      : <Page />;
+
     return (
-      <Route key={pageName} path={path} element={<Page />}>
+      <Route key={pageName} path={path} element={layout}>
         {children.map(buildRouteRecursive)}
       </Route>
     );
   }
 
-  const element = addRouteProtection[auth]
+  const page = addRouteProtection[auth]
     ? addRouteProtection[auth](Page)
     : <Page />;
 
@@ -41,7 +45,7 @@ const buildRouteRecursive = ({
       key={pageName}
       path={path ?? undefined}
       index={path === null}
-      element={element}
+      element={page}
     />
   );
 };

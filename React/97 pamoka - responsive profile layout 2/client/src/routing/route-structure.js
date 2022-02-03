@@ -4,7 +4,9 @@ export default [
   {
     path: '/dashboard',
     pageName: 'DashboardLayout',
+    auth: LOGGED_IN,
     children: [
+      // TODO: sukurti index puslapį
       {
         path: 'profile',
         pageName: 'ProfilePage',

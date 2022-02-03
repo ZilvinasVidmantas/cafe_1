@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Outlet, Navigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Box, Fab, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,14 +9,11 @@ import { selectAuth } from '../../../store/auth';
 import DrawerHeader from './dashboard-layout-drawer-header';
 import Navbar from './dashboard-layout-navbar';
 import Drawer from './dashboard-layout-drawer';
-import routes from '../../../routing/routes';
 
 const DashboardLayout = () => {
   const isLargeScreen = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const { user } = useSelector(selectAuth);
   const [open, setOpen] = useState(false);
-
-  if (!user) return <Navigate to={routes.HomePage} />;
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);

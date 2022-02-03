@@ -8,7 +8,7 @@ const RequireVisitor = ({ children }) => {
   const { loggedIn, redirectTo } = useSelector(selectAuth);
 
   if (loggedIn) {
-    return <Navigate to={redirectTo ?? routes.HomePage} />;
+    return <Navigate to={redirectTo ?? routes.ProfilePage} />;
   }
 
   return children;

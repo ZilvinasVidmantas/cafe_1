@@ -12,28 +12,32 @@ import NavbarLink from '../../navbar-link';
 import routes from '../../../routing/routes';
 
 const StyledDashboardLayoutNavbar = styled(AppBar, {
-  shouldForwardProp: (prop) => !['open', 'drawerWidth'].includes(prop),
-})(({ theme, open, drawerWidth }) => ({
-  height: theme.mixins.toolbar.minHeight,
-  [theme.breakpoints.up('md')]: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    ...(open && {
-      marginLeft: drawerWidth,
-      width: `calc(100% - ${drawerWidth}px)`,
-      transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    }),
-  },
-}));
+  shouldForwardProp: (prop) => !['open'].includes(prop),
+})(({ theme, open }) => {
+  const drawerWidth = theme.mixins.drawer.width;
+  const { create, easing, duration } = theme.transitions;
 
-const DashboardLayoutNavbar = ({ open, drawerWidth, handleDrawerOpen }) => (
-  <StyledDashboardLayoutNavbar position="fixed" open={open} drawerWidth={drawerWidth}>
+  const transition = create(['width', 'margin'], {
+    easing: easing.sharp,
+    duration: duration.shorter,
+  });
+
+  return {
+    height: theme.mixins.toolbar.minHeight,
+    [theme.breakpoints.up('md')]: {
+      zIndex: theme.zIndex.drawer + 1,
+      transition,
+      ...(open && {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition,
+      }),
+    },
+  };
+});
+
+const DashboardLayoutNavbar = ({ open, handleDrawerOpen }) => (
+  <StyledDashboardLayoutNavbar position="fixed" open={open}>
     <Box
       maxWidth="xxl"
       sx={{

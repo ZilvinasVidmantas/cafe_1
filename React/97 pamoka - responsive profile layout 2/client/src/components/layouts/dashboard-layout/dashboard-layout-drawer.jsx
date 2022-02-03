@@ -22,35 +22,33 @@ import closedMixin from './mixins/closed-mixin';
 import DrawerHeader from './dashboard-layout-drawer-header';
 import routes from '../../../routing/routes';
 
-const notForwardableProps = ['drawerWidth'];
-
-const StyledDrawer = styled(Drawer, {
-  shouldForwardProp: (propName) => !notForwardableProps.includes(propName),
-})(
-  ({ theme, open, drawerWidth }) => ({
-    '& .MuiDrawer-paper': {
-      width: drawerWidth,
-    },
-    [theme.breakpoints.up('md')]: {
-      whiteSpace: 'nowrap',
-      flexShrink: 0,
-      ...(open && {
-        ...openedMixin(theme, drawerWidth),
-        '& .MuiDrawer-paper': openedMixin(theme, drawerWidth),
-      }),
-      ...(!open && {
-        ...closedMixin(theme),
-        '& .MuiDrawer-paper': closedMixin(theme),
-      }),
-    },
-  }),
+const StyledDrawer = styled(Drawer)(
+  ({ theme, open }) => {
+    const drawerWidth = theme.mixins.drawer.width;
+    return {
+      '& .MuiDrawer-paper': {
+        width: drawerWidth,
+      },
+      [theme.breakpoints.up('md')]: {
+        whiteSpace: 'nowrap',
+        flexShrink: 0,
+        ...(open && {
+          ...openedMixin(theme, drawerWidth),
+          '& .MuiDrawer-paper': openedMixin(theme, drawerWidth),
+        }),
+        ...(!open && {
+          ...closedMixin(theme),
+          '& .MuiDrawer-paper': closedMixin(theme),
+        }),
+      },
+    };
+  },
 );
 
 const DashboardLayoutDrawer = ({
   open,
   user,
   handleDrawerClose,
-  drawerWidth,
 }) => {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -60,7 +58,6 @@ const DashboardLayoutDrawer = ({
     <StyledDrawer
       variant={isSmallScreen ? 'temporary' : 'permanent'}
       open={open}
-      drawerWidth={drawerWidth}
       onClose={handleDrawerClose}
     >
       <DrawerHeader>

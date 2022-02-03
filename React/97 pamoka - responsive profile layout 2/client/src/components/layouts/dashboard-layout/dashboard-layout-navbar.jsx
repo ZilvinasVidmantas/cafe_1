@@ -33,6 +33,10 @@ const StyledDashboardLayoutNavbar = styled(AppBar, {
         transition,
       }),
     },
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: 0,
+      width: '100%',
+    },
   };
 });
 

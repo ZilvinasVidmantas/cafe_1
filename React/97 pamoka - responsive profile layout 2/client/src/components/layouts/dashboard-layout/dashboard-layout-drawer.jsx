@@ -25,6 +25,7 @@ import routes from '../../../routing/routes';
 const StyledDrawer = styled(Drawer)(
   ({ theme, open }) => {
     const drawerWidth = theme.mixins.drawer.width;
+
     return {
       '& .MuiDrawer-paper': {
         width: drawerWidth,
@@ -60,13 +61,15 @@ const DashboardLayoutDrawer = ({
       open={open}
       onClose={handleDrawerClose}
     >
-      <DrawerHeader>
+      <DrawerHeader sx={{ display: { xs: 'inline-flex', lg: 'none' } }}>
         <IconButton onClick={handleDrawerClose}>
           {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
       </DrawerHeader>
       <Divider />
-      <List>
+      <List
+        sx={({ mixins }) => ({ pt: `${mixins.toolbar.minHeight}px` })}
+      >
         <ListItem button onClick={() => navigate(routes.ProfilePage)}>
           <ListItemIcon>
             <PersonIcon />

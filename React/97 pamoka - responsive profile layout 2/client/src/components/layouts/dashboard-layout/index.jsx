@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet, Navigate } from 'react-router-dom';
-import { Box, Fab } from '@mui/material';
+import { Box, Fab, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -12,6 +12,7 @@ import Drawer from './dashboard-layout-drawer';
 import routes from '../../../routing/routes';
 
 const DashboardLayout = () => {
+  const isLargeScreen = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const { user } = useSelector(selectAuth);
   const [open, setOpen] = useState(false);
 
@@ -24,15 +25,15 @@ const DashboardLayout = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <Navbar
-        open={open}
+        open={isLargeScreen || open}
         handleDrawerOpen={handleDrawerOpen}
       />
       <Drawer
-        open={open}
+        open={isLargeScreen || open}
         user={user}
         handleDrawerClose={handleDrawerClose}
       />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, pt: 0 }}>
         <DrawerHeader />
         <Outlet />
       </Box>

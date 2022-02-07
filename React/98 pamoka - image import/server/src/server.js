@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import { config } from 'dotenv';
 import authRouter from './routes/auth-router.js';
 import usersRouter from './routes/users-router.js';
+import profileRouter from './routes/profile-router.js';
 import cors from 'cors';
 import './database/index.js';
 
@@ -25,6 +26,7 @@ server.use(express.json());
 // Visas užklasas kurios prasideda  adresu '/api/auth' serveris nukreips į authRouter
 server.use('/api/auth', authRouter);
 server.use('/api/users', usersRouter);
+server.use('/api/profile', profileRouter);
 
 // Serveriui perduodamos užklausos, kurios bus gautos į šio kompiuterio 5000'inį port'ą
 server.listen(SERVER_PORT, () => {

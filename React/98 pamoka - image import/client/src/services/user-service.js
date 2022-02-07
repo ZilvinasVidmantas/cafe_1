@@ -1,6 +1,5 @@
 import axios from 'axios';
 import store from '../store/index';
-import * as usersSlice from '../store/users';
 
 const requester = axios.create({
   baseURL: 'http://localhost:5000/api/',
@@ -9,18 +8,19 @@ const requester = axios.create({
   },
 });
 
-const getUsers = async () => {
+const uploadImage = async (img) => {
+  console.log('Img', img);
   const { token } = store.getState().auth;
-  const { data: users } = await requester.get('/users', {
+  const response = await requester.put('/profile/img', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-
-  const action = usersSlice.loadUsers({ users });
-  store.dispatch(action);
+  console.log(response);
 };
 
-export default {
-  getUsers,
+const UserService = {
+  uploadImage,
 };
+
+export default UserService;

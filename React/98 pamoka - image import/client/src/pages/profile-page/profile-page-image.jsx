@@ -5,6 +5,7 @@ import {
   Fab,
 } from '@mui/material';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import UserService from '../../services/user-service';
 
 const mdFixedPortion = 200;
 
@@ -50,7 +51,18 @@ const calcOffset = (image, imgIcon) => {
 const ProfilePageImage = ({ imgSrc }) => {
   const imageRef = useRef(null);
   const imgIconRef = useRef(null);
-  const handleChangePhoto = () => console.log('Nuotraukos įkėlimas');
+  const imgUploadRef = useRef(null);
+
+  const handleUploadImgClick = () => {
+    const imgUpload = imgUploadRef.current;
+    imgUpload.click();
+  };
+
+  const handleUploadImgLoaded = async () => {
+    const imgUpload = imgUploadRef.current;
+    const [img] = imgUpload.files;
+    await UserService.uploadImage(img);
+  };
 
   useEffect(() => {
     const adjustImgIconOffset = () => {
@@ -76,7 +88,7 @@ const ProfilePageImage = ({ imgSrc }) => {
         color="primary"
         size="small"
         ref={imgIconRef}
-        onClick={handleChangePhoto}
+        onClick={handleUploadImgClick}
         sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -85,6 +97,7 @@ const ProfilePageImage = ({ imgSrc }) => {
       >
         <AddAPhotoIcon fontSize="small" />
       </Fab>
+      <input type="file" accept=".png, .jpg, .jpeg" hidden ref={imgUploadRef} onChange={handleUploadImgLoaded} />
     </ImgContainer>
   );
 };

@@ -7,7 +7,6 @@ import routes from './routes';
 const RequireLoggedIn = ({ children }) => {
   const { pathname } = useLocation();
   const { loggedIn } = useSelector(selectAuth);
-  console.log('RequireLoggedIn');
 
   if (!loggedIn) {
     return <Navigate to={`${routes.LoginPage}?redirectTo=${pathname}`} />;

@@ -3,17 +3,16 @@ import store from '../store/index';
 
 const requester = axios.create({
   baseURL: 'http://localhost:5000/api/',
-  headers: {
-    'Content-Type': 'application/json',
-  },
 });
 
 const uploadImage = async (img) => {
-  console.log('Img', img);
   const { token } = store.getState().auth;
-  const response = await requester.put('/profile/img', {
+  const formData = new FormData();
+  formData.append('img', img);
+  const response = await requester.put('/profile/img', formData, {
     headers: {
       Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
     },
   });
   console.log(response);

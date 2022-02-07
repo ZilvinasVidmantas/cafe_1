@@ -7,7 +7,7 @@
       "name": "Adminas",
       "surname": "Gediminas",
       "role": "ADMIN",
-      "imgSrc": "http://localhost:5000/images/img-1644259447588.png"
+      "imgSrc": "/images/img-1644260953289.png"
     },
     {
       "id": "2ac817ad-f7b6-4d0e-a911-3f4f639c78f1",
@@ -16,7 +16,7 @@
       "surname": "Pilinskas",
       "password": "Vilnius123",
       "role": "USER",
-      "imgSrc": "http://localhost:5000/images/img-1644259700221.jpg"
+      "imgSrc": "/images/img-1644260861085.jpg"
     },
     {
       "id": "cb6d106f-7698-410c-9d45-7f129e0f62eb",

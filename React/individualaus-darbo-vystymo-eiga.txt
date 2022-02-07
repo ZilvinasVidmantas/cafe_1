@@ -301,5 +301,3 @@ Pagal šios lentelės duomenis turėtumėte suprasti, kad:
   * Vartotojo duomenis, adresu '/api/profile', gali gauti, vartotojas ir adminas papildomai perdavęs vartotojoId
 
 Tokių Pilnai sudarytų užklausų jūsų aplikacijoje turi būti apie 15-30
-
-18:30

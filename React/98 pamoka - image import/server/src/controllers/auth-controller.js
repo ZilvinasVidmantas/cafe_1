@@ -62,7 +62,7 @@ export const register = (req, res) => {
   database.write();
 
   res.status(200).json({
-    user: new UserViewModel(),
+    user: new UserViewModel(user),
     token: createToken({ email, role: user.role }),
   });
 }

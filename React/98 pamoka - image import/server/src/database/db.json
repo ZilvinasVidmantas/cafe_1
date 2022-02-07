@@ -19,28 +19,13 @@
       "imgSrc": "/images/img-1644260861085.jpg"
     },
     {
-      "id": "cb6d106f-7698-410c-9d45-7f129e0f62eb",
+      "id": "fd8dc01a-d32d-4338-bc7a-74ccf3460815",
       "email": "user2@gmail.com",
-      "name": "Bilys",
-      "surname": "Lampanas",
+      "name": "Kibiras",
+      "surname": "Gaida",
       "password": "Vilnius123",
-      "role": "USER"
-    },
-    {
-      "id": "64f35d97-0eff-4569-ad0f-386b7000df9d",
-      "email": "user3@gmail.com",
-      "name": "Mark",
-      "surname": "Vidmantas",
-      "password": "Vilnius123",
-      "role": "USER"
-    },
-    {
-      "id": "667a2e15-a101-4bd5-813f-a6e4a7732bd5",
-      "email": "user4@gmail.com",
-      "name": "Mark",
-      "surname": "Vidmantas",
-      "password": "Vilnius123",
-      "role": "USER"
+      "role": "USER",
+      "imgSrc": "/images/img-1644261114129.jpg"
     }
   ]
 }

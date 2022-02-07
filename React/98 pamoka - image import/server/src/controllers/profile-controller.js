@@ -1,4 +1,5 @@
 import database from '../database/index.js';
+import UserViewModel from '../view-models/user-view-model.js';
 import { removeFile } from '../helpers/file-helpers.js';
 
 export const updateImage = (req, res) => {
@@ -13,6 +14,6 @@ export const updateImage = (req, res) => {
 
   res.status(200).json({
     message: 'Image uploaded',
-    imgSrc: `${SERVER_DOMAIN}:${SERVER_PORT}/${imgSrc}`
+    user: new UserViewModel(user),
   });
 }

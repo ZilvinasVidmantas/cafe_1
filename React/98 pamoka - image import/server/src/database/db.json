@@ -16,7 +16,7 @@
       "surname": "Pilinskas",
       "password": "Vilnius123",
       "role": "USER",
-      "imgSrc": "/images/img-1644260861085.jpg"
+      "imgSrc": "/images/img-1644261573887.jpg"
     },
     {
       "id": "fd8dc01a-d32d-4338-bc7a-74ccf3460815",
@@ -25,7 +25,7 @@
       "surname": "Gaida",
       "password": "Vilnius123",
       "role": "USER",
-      "imgSrc": "/images/img-1644261114129.jpg"
+      "imgSrc": "/images/img-1644261529335.jpg"
     }
   ]
 }

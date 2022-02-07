@@ -27,13 +27,14 @@ const authSlice = createSlice({
       state.redirectTo = null;
       SessionStorage.clear('auth');
     },
-    updateImage(state, { payload }) {
-      state.user.imgSrc = payload.imgSrc;
+    updateAuthUser(state, { payload }) {
+      state.user = payload.user;
+      SessionStorage.set('auth', state);
     },
   },
 });
 
-export const { login, logout, updateImage } = authSlice.actions;
+export const { login, logout, updateAuthUser } = authSlice.actions;
 
 export const selectAuth = (state) => state.auth;
 

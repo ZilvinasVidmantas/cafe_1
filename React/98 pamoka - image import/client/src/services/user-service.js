@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from '../store/index';
-import { updateImage } from '../store/auth';
+import { updateAuthUser } from '../store/auth';
 
 const requester = axios.create({
   baseURL: 'http://localhost:5000/api/',
@@ -16,7 +16,7 @@ const uploadImage = async (img) => {
       'Content-Type': 'multipart/form-data',
     },
   });
-  const action = updateImage({ imgSrc: data.imgSrc });
+  const action = updateAuthUser({ user: data.user });
   store.dispatch(action);
 };
 

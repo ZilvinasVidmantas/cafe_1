@@ -21,6 +21,7 @@ server.use(morgan('tiny'));
 server.use(cors());
 // Gavus JSON tipo duomenis, įdeda į request handlerio už-klausos parametrą -> req.body
 server.use(express.json());
+server.use(express.static('public'));
 
 // Response handlers
 // Visas užklasas kurios prasideda  adresu '/api/auth' serveris nukreips į authRouter

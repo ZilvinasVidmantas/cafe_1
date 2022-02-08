@@ -1,7 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-// import * as yup from 'yup';
-
+import * as yup from 'yup';
 import {
   Box,
   TextField,
@@ -18,12 +17,30 @@ const Form = styled('form')(({ theme }) => ({
   },
 }));
 
+const validationSchema = yup.object({
+  name: yup
+    .string()
+    .min(2, 'At least 2 symbols')
+    .max(32, 'Maximum 32 symbols')
+    .required('Is required'),
+  surname: yup
+    .string()
+    .min(2, 'At least 2 symbols')
+    .max(32, 'Maximum 32 symbols')
+    .required('Is required'),
+  email: yup
+    .string()
+    .email('Is not valid email')
+    .required('Is required'),
+});
+
 const ProfilePageForm = ({ name, surname, email }) => {
   const {
     values,
     touched,
     errors,
     dirty,
+    isValid,
     handleChange,
   } = useFormik({
     initialValues: {
@@ -31,7 +48,9 @@ const ProfilePageForm = ({ name, surname, email }) => {
       surname,
       email,
     },
+    validationSchema,
   });
+
   return (
     <Form>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
@@ -41,6 +60,8 @@ const ProfilePageForm = ({ name, surname, email }) => {
           name="name"
           value={values.name}
           onChange={handleChange}
+          error={Boolean(errors.name)}
+          helperText={errors.name}
         />
         <TextField
           label="Pavardė"
@@ -48,6 +69,8 @@ const ProfilePageForm = ({ name, surname, email }) => {
           name="surname"
           value={values.surname}
           onChange={handleChange}
+          error={Boolean(errors.surname)}
+          helperText={errors.surname}
         />
         <TextField
           label="Paštas"
@@ -55,16 +78,26 @@ const ProfilePageForm = ({ name, surname, email }) => {
           name="email"
           value={values.email}
           onChange={handleChange}
+          error={Boolean(errors.email)}
+          helperText={errors.email}
         />
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', pt: 2 }}>
-        <Button variant="contained" color="primary" disabled={!dirty}>Redaguoti</Button>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={!dirty || !isValid}
+        >
+          Redaguoti
+        </Button>
       </Box>
       <pre style={{ position: 'fixed', top: 150, right: 150 }}>
         { JSON.stringify({
           values,
           touched,
           errors,
+          isValid,
+          dirty,
         }, null, 2)}
       </pre>
     </Form>

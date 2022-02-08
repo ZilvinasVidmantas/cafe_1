@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import {
   Box,
   TextField,
   Button,
+  CircularProgress,
+  InputAdornment,
   styled,
 } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import AuthService from '../../services/auth-service';
 
 const Form = styled('form')(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
@@ -35,9 +40,11 @@ const validationSchema = yup.object({
 });
 
 const ProfilePageForm = ({ name, surname, email }) => {
+  const [emailBeingChecked, setEmailBeingChecked] = useState(false);
+  const [emailAvailable, setEmailAvailable] = useState(true);
+
   const {
     values,
-    touched,
     errors,
     dirty,
     isValid,
@@ -47,9 +54,35 @@ const ProfilePageForm = ({ name, surname, email }) => {
       name,
       surname,
       email,
+      emailAvailable: true,
     },
     validationSchema,
   });
+
+  const emailIsInitial = values.email === email;
+
+  const handleEmailChange = (event) => {
+    handleChange(event);
+    if (event.target.value !== email && !errors.email) {
+      (async () => {
+        setEmailBeingChecked(true);
+        const fetchedEmailAvailable = await AuthService.checkEmail(event.target.value);
+        setEmailBeingChecked(false);
+        setEmailAvailable(fetchedEmailAvailable);
+      })();
+    }
+  };
+
+  let emailAdornment;
+  if (!emailIsInitial && !errors.email) {
+    if (emailBeingChecked) {
+      emailAdornment = <InputAdornment position="end"><CircularProgress size={24} /></InputAdornment>;
+    } else {
+      emailAdornment = emailAvailable
+        ? <InputAdornment position="end"><CheckCircleIcon color="success" /></InputAdornment>
+        : <InputAdornment position="end"><ErrorIcon color="error" /></InputAdornment>;
+    }
+  }
 
   return (
     <Form>
@@ -77,9 +110,10 @@ const ProfilePageForm = ({ name, surname, email }) => {
           size="small"
           name="email"
           value={values.email}
-          onChange={handleChange}
-          error={Boolean(errors.email)}
-          helperText={errors.email}
+          onChange={handleEmailChange}
+          error={Boolean(errors.email) || !emailAvailable}
+          helperText={errors.email ?? (emailAvailable ? undefined : 'paštas jau užimtas')}
+          InputProps={{ endAdornment: emailAdornment }}
         />
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', pt: 2 }}>
@@ -91,15 +125,6 @@ const ProfilePageForm = ({ name, surname, email }) => {
           Redaguoti
         </Button>
       </Box>
-      <pre style={{ position: 'fixed', top: 150, right: 150 }}>
-        { JSON.stringify({
-          values,
-          touched,
-          errors,
-          isValid,
-          dirty,
-        }, null, 2)}
-      </pre>
     </Form>
   );
 };

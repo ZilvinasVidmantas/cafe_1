@@ -29,6 +29,9 @@ const authSlice = createSlice({
     },
     updateAuthUser(state, { payload }) {
       state.user = payload.user;
+      if (payload.token) {
+        state.token = payload.token;
+      }
       SessionStorage.set('auth', state);
     },
   },

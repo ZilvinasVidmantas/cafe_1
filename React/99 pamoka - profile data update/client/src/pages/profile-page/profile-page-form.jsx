@@ -45,8 +45,7 @@ const ProfilePageForm = ({ name, surname, email }) => {
   const [emailAvailable, setEmailAvailable] = useState(true);
 
   const onSubmit = async (values) => {
-    const response = await UserService.updateProfile(values);
-    console.log(response);
+    await UserService.updateProfile(values);
   };
 
   const {
@@ -65,6 +64,7 @@ const ProfilePageForm = ({ name, surname, email }) => {
     },
     validationSchema,
     onSubmit,
+    enableReinitialize: true,
   });
 
   const emailIsInitial = values.email === email;

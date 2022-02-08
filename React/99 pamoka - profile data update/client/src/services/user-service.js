@@ -29,9 +29,10 @@ const updateProfile = async (formData) => {
     },
   });
 
-  return data;
-  // const action = updateAuthUser({ user: data.user });
-  // store.dispatch(action);
+  const action = updateAuthUser({ user: data.user, token: data.token });
+  store.dispatch(action);
+
+  return true;
 };
 
 const UserService = {

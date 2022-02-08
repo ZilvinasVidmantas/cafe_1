@@ -1,6 +1,7 @@
 import database from '../database/index.js';
 import UserViewModel from '../view-models/user-view-model.js';
 import { removeFile } from '../helpers/file-helpers.js';
+import { createToken } from '../helpers/token-helpers.js';
 
 export const updateImage = (req, res) => {
   const user = database.data.users.find(x => x.email === req.user.email);
@@ -23,14 +24,21 @@ export const updateProfile = (req, res) => {
 
   const foundUser = database.data.users.find(x => x.email === req.user.email);
 
-  if (name) foundUser.name = name;
-  if (surname) foundUser.surname = surname;
-  if (email) foundUser.email = email;
-
+  let token;
+  if (name && name !== foundUser.name) foundUser.name = name;
+  if (surname && surname !== foundUser.surname) foundUser.surname = surname;
+  if (email && email !== foundUser.email) {
+    foundUser.email = email;
+    token = createToken({ email, role: foundUser.role })
+  }
   database.write();
 
-  res.status(200).json({
+  const responseJson = {
     message: 'Profile updated',
     user: new UserViewModel(foundUser),
-  });
+  }
+
+  if (token) responseJson.token = token;
+
+  res.status(200).json(responseJson);
 }

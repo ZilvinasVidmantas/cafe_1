@@ -1,4 +1,4 @@
-1. Pa'submit'inus  profilio keitimo formą, turi būti išmetamas modalas vidurį ekrano, kuriame reikia įvesti slaptažodį :18:40
+1. Pa'submit'inus  profilio keitimo formą, turi būti išmetamas modalas vidurį ekrano, kuriame reikia įvesti slaptažodį :18:55
 2. Įvedus slaptažodį, modal'e slaptažodis siunčiamas į serverį kartu su formos duomenimis
   2.1 jeigu Slaptažodis teisingas, atnaujinamas profilis
     2.1.1 Kliento pusėje, išjungiamas modalas ir atsinaujina duomenys

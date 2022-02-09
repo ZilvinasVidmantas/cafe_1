@@ -12,7 +12,8 @@ import {
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AuthService from '../../services/auth-service';
-import UserService from '../../services/user-service';
+// import UserService from '../../services/user-service';
+import ConfirmationModal from './profile-page-confirmation-modal';
 
 const Form = styled('form')(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
@@ -43,9 +44,11 @@ const validationSchema = yup.object({
 const ProfilePageForm = ({ name, surname, email }) => {
   const [emailBeingChecked, setEmailBeingChecked] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(true);
+  const [open, setOpen] = useState(false);
 
-  const onSubmit = async (values) => {
-    await UserService.updateProfile(values);
+  const onSubmit = async () => {
+    setOpen(true);
+    // await UserService.updateProfile(values);
   };
 
   const {
@@ -93,52 +96,55 @@ const ProfilePageForm = ({ name, surname, email }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-        <TextField
-          label="Vardas"
-          size="small"
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-          error={Boolean(errors.name)}
-          helperText={errors.name}
-          disabled={isSubmitting}
-        />
-        <TextField
-          label="Pavardė"
-          size="small"
-          name="surname"
-          value={values.surname}
-          onChange={handleChange}
-          error={Boolean(errors.surname)}
-          helperText={errors.surname}
-          disabled={isSubmitting}
-        />
-        <TextField
-          label="Paštas"
-          size="small"
-          name="email"
-          value={values.email}
-          onChange={handleEmailChange}
-          error={Boolean(errors.email) || !emailAvailable}
-          helperText={errors.email ?? (emailAvailable ? undefined : 'paštas jau užimtas')}
-          InputProps={{ endAdornment: emailAdornment }}
-          disabled={isSubmitting}
-        />
-      </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', pt: 2 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          disabled={!dirty || !isValid}
-          sx={{ width: 120 }}
-        >
-          {isSubmitting ? <CircularProgress color="inherit" size={24} /> : 'Redaguoti'}
-        </Button>
-      </Box>
-    </Form>
+    <>
+      <ConfirmationModal handleClose={() => setOpen(false)} open={open} />
+      <Form onSubmit={handleSubmit}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <TextField
+            label="Vardas"
+            size="small"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+            error={Boolean(errors.name)}
+            helperText={errors.name}
+            disabled={isSubmitting}
+          />
+          <TextField
+            label="Pavardė"
+            size="small"
+            name="surname"
+            value={values.surname}
+            onChange={handleChange}
+            error={Boolean(errors.surname)}
+            helperText={errors.surname}
+            disabled={isSubmitting}
+          />
+          <TextField
+            label="Paštas"
+            size="small"
+            name="email"
+            value={values.email}
+            onChange={handleEmailChange}
+            error={Boolean(errors.email) || !emailAvailable}
+            helperText={errors.email ?? (emailAvailable ? undefined : 'paštas jau užimtas')}
+            InputProps={{ endAdornment: emailAdornment }}
+            disabled={isSubmitting}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'center', pt: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            disabled={!dirty || !isValid}
+            sx={{ width: 120 }}
+          >
+            {isSubmitting ? <CircularProgress color="inherit" size={24} /> : 'Redaguoti'}
+          </Button>
+        </Box>
+      </Form>
+    </>
   );
 };
 

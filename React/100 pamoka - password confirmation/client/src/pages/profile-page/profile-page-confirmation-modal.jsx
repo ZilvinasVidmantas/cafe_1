@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import {
   Paper,
   Modal,
@@ -21,20 +21,27 @@ const Form = styled(Paper)(({ theme }) => ({
 }));
 
 const ProfilePageConfimationModal = ({ open, handleClose, formData }) => {
-  const passwordInputRef = useRef(null);
+  const [error, setError] = useState(undefined);
+  const [password, setPassword] = useState('');
+
+  const handlePasswordChange = (event) => {
+    const { value } = event.target;
+    if (error) setError(undefined);
+    setPassword(value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const password = passwordInputRef.current.value;
+
     const result = await UserService.updateProfile({
       ...formData,
       password,
     });
     if (result) {
       handleClose();
+      setPassword('');
     } else {
-      // KLAIDOS RODYMAS
-      // Parašykite po slaptažodžio lauku, klaidą
+      setError('Spaltažodis neteisingas');
     }
   };
 
@@ -59,8 +66,11 @@ const ProfilePageConfimationModal = ({ open, handleClose, formData }) => {
           type="password"
           label="Slaptažodis"
           variant="outlined"
-          inputRef={passwordInputRef}
+          value={password}
+          onChange={handlePasswordChange}
           fullWidth
+          error={Boolean(error)}
+          helperText={error && error}
         />
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <Button variant="contained" type="submit" size="large">Submit</Button>

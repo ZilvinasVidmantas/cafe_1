@@ -22,17 +22,20 @@ const uploadImage = async (img) => {
 
 const updateProfile = async (formData) => {
   const { token } = store.getState().auth;
-  const { data } = await requester.patch('/', formData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  });
+  try {
+    const { data } = await requester.patch('/', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
 
-  const action = updateAuthUser({ user: data.user, token: data.token });
-  store.dispatch(action);
-
-  return true;
+    const action = updateAuthUser({ user: data.user, token: data.token });
+    store.dispatch(action);
+    return data.passwordCorrect;
+  } catch (error) {
+    return false;
+  }
 };
 
 const UserService = {

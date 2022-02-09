@@ -12,7 +12,6 @@ import {
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AuthService from '../../services/auth-service';
-// import UserService from '../../services/user-service';
 import ConfirmationModal from './profile-page-confirmation-modal';
 
 const Form = styled('form')(({ theme }) => ({
@@ -46,9 +45,8 @@ const ProfilePageForm = ({ name, surname, email }) => {
   const [emailAvailable, setEmailAvailable] = useState(true);
   const [open, setOpen] = useState(false);
 
-  const onSubmit = async () => {
+  const onSubmit = () => {
     setOpen(true);
-    // await UserService.updateProfile(values);
   };
 
   const {
@@ -97,7 +95,7 @@ const ProfilePageForm = ({ name, surname, email }) => {
 
   return (
     <>
-      <ConfirmationModal handleClose={() => setOpen(false)} open={open} />
+      <ConfirmationModal handleClose={() => setOpen(false)} open={open} formData={values} />
       <Form onSubmit={handleSubmit}>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
           <TextField

@@ -26,7 +26,7 @@ const categories = [
 const HomePageHeader = () => (
   <Paper sx={{ display: 'flex', justifyContent: 'space-between', p: 1 }}>
     { categories.map(({ title, Icon }, i) => (
-      <>
+      <React.Fragment key={title}>
         <Button
           variant="text"
           sx={{
@@ -41,7 +41,7 @@ const HomePageHeader = () => (
           <Icon />
         </Button>
         { (i !== categories.length - 1) && <Divider orientation="vertical" flexItem />}
-      </>
+      </React.Fragment>
     ))}
   </Paper>
 );

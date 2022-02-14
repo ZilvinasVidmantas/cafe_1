@@ -41,6 +41,8 @@ const HomePageProductsHeader = () => {
     closeSortMenu();
   };
 
+  // 19:20
+
   const handlePaginationChange = (_, pageClicked) => {
     console.log(pageClicked);
   };
@@ -54,7 +56,7 @@ const HomePageProductsHeader = () => {
           variant="outlined"
           shape="rounded"
           onChange={handlePaginationChange}
-          color="primary"
+          color="secondary"
         />
         <Divider orientation="vertical" sx={{ mx: 1 }} />
         <Button

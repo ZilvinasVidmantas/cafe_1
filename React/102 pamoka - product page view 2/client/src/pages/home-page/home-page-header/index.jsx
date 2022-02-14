@@ -35,7 +35,7 @@ const HomePageHeader = () => (
             gap: 1,
             textTransform: 'Capitalize',
           }}
-          color="inherit"
+          color={i === 0 ? 'secondary' : 'inherit'}
         >
           <Typography>{title}</Typography>
           <Icon />

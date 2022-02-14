@@ -14,6 +14,12 @@ const theme = createTheme({
       light: '#353535',
       contrastText: '#fafafa',
     },
+    secondary: {
+      main: '#ff6f00',
+      light: '#ff8221',
+      dark: '#e36300',
+      contrastText: '#fafafa',
+    },
   },
   mixins: {
     drawer: {

@@ -34,6 +34,14 @@ const RangeFilter = ({ name, min, max }) => (
         valueLabelDisplay="auto"
         min={min}
         max={max}
+        sx={(theme) => ({
+          '& .MuiSlider-thumb': {
+            borderRadius: 0,
+            backgroundColor: theme.palette.secondary.main,
+            height: 16,
+            width: 16,
+          },
+        })}
       />
     </Box>
   </FilterContainer>

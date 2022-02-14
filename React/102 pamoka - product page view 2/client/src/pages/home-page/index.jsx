@@ -7,9 +7,9 @@ import Filters from './home-page-filters';
 import Prodcuts from './home-page-products';
 
 const HomePage = () => (
-  <Box sx={{ pt: 2 }}>
+  <Box>
     <Header />
-    <Box sx={{ display: 'flex', gap: 4, mt: 4 }}>
+    <Box sx={{ display: 'flex', gap: 3, mt: 3 }}>
       <Filters />
       <Prodcuts />
     </Box>

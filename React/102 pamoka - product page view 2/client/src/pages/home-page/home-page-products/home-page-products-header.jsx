@@ -36,12 +36,10 @@ const HomePageProductsHeader = () => {
 
   const handleSortSelect = (id) => {
     const newOption = sortOptions.find((x) => x.id === id);
-    // Rikiuojami relementai
+    // Rikiuojami relementai...
     setSortOption(newOption);
     closeSortMenu();
   };
-
-  // 19:20
 
   const handlePaginationChange = (_, pageClicked) => {
     console.log(pageClicked);
@@ -61,7 +59,7 @@ const HomePageProductsHeader = () => {
         <Divider orientation="vertical" sx={{ mx: 1 }} />
         <Button
           variant="outlined"
-          color="primary"
+          color="secondary"
           size="small"
           ref={sortButtonRef}
           onClick={openSortMenu}

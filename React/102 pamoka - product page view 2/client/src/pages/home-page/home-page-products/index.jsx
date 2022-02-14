@@ -10,7 +10,7 @@ const HomePageProducts = () => (
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'column',
-    gap: 4,
+    gap: 3,
   }}
   >
     <Header />

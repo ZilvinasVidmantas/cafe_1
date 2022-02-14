@@ -58,7 +58,7 @@ const filterData = [
 ];
 
 const HomePageFilters = () => (
-  <Paper sx={{ width: 250, p: 3 }} elevation={3}>
+  <Paper sx={{ flexBasis: 240, flexShrink: 0, p: 2 }} elevation={3}>
     <Typography variant="h5">Filters</Typography>
     {
       filterData.map(({ type, id, ...props }) => {

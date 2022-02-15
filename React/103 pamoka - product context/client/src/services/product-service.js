@@ -25,19 +25,9 @@ const fetchCategories = async () => {
   }
 };
 
-const fetchFilters = async () => {
-  try {
-    const { data } = await requester.get('/filters');
-    return data.filters;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
 const ProductService = {
   fetchProducts,
   fetchCategories,
-  fetchFilters,
 };
 
 export default ProductService;

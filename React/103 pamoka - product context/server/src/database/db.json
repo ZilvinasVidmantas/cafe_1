@@ -27,5 +27,186 @@
       "role": "USER",
       "imgSrc": "/images/img-1644261529335.jpg"
     }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "price": 39.99,
+      "category": "1",
+      "brand": "1",
+      "type": "1",
+      "size": "1",
+      "images": [
+        "http://localhost:5000/images/s-l300.jpg"
+      ]
+    },
+    {
+      "id": "1",
+      "price": 149.99,
+      "category": "1",
+      "brand": "1",
+      "type": "1",
+      "size": "5",
+      "images": [
+        "http://localhost:5000/images/MO029AO_241431.jpg",
+        "http://localhost:5000/images/asdasdasd.jpg",
+        "http://localhost:5000/images/asad.jpg"
+      ]
+    },
+    {
+      "id": "1",
+      "price": 499.99,
+      "category": "1",
+      "brand": "2",
+      "type": "3",
+      "size": "9",
+      "images": [
+        "http://localhost:5000/images/sam-1.jpg",
+        "http://localhost:5000/images/sam-2.jpg",
+        "http://localhost:5000/images/sam-3.jpg"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "title": "Monitoriai",
+      "icon": "MonitorIcon",
+      "filters": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Vaizdo Plokštės",
+      "icon": "DeveloperBoardIcon"
+    },
+    {
+      "id": "3",
+      "title": "Motininės plokštės",
+      "icon": "DashboardIcon"
+    },
+    {
+      "id": "4",
+      "title": "Laptopai",
+      "icon": "LaptopMacIcon"
+    },
+    {
+      "id": "5",
+      "title": "Išoriniai įrenginiai",
+      "icon": "AccountTreeIcon"
+    },
+    {
+      "id": "6",
+      "title": "Operatyvi atmintis (RAM)",
+      "icon": "MemoryIcon"
+    },
+    {
+      "id": "7",
+      "title": "Diskai",
+      "icon": "StorageIcon"
+    }
+  ],
+  "filters": [
+    {
+      "id": "1",
+      "name": "brand",
+      "type": "autocomplete",
+      "collection": "brands",
+      "property": "brand"
+    },
+    {
+      "id": "3",
+      "name": "price",
+      "type": "range",
+      "property": "price"
+    },
+    {
+      "id": "4",
+      "name": "type",
+      "type": "options",
+      "collection": "monitorScreenTypes",
+      "property": "type"
+    },
+    {
+      "id": "2",
+      "name": "size",
+      "type": "options",
+      "collection": "monitorScreenSizes",
+      "property": "size"
+    }
+  ],
+  "brands": [
+    {
+      "id": "1",
+      "title": "LOC"
+    },
+    {
+      "id": "2",
+      "title": "Samsung"
+    },
+    {
+      "id": "3",
+      "title": "LG"
+    },
+    {
+      "id": "4",
+      "title": "Xiaomi"
+    }
+  ],
+  "monitorScreenTypes": [
+    {
+      "id": "1",
+      "name": "widescreen"
+    },
+    {
+      "id": "2",
+      "name": "super-widescreen"
+    },
+    {
+      "id": "3",
+      "name": "curved"
+    }
+  ],
+  "monitorScreenSizes": [
+    {
+      "id": "1",
+      "name": "21"
+    },
+    {
+      "id": "2",
+      "name": "22"
+    },
+    {
+      "id": "3",
+      "name": "23"
+    },
+    {
+      "id": "4",
+      "name": "24"
+    },
+    {
+      "id": "5",
+      "name": "25"
+    },
+    {
+      "id": "6",
+      "name": "26"
+    },
+    {
+      "id": "7",
+      "name": "27"
+    },
+    {
+      "id": "8",
+      "name": "28"
+    },
+    {
+      "id": "9",
+      "name": "29"
+    }
   ]
 }

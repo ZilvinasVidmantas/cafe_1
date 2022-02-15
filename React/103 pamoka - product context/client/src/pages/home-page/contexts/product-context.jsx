@@ -15,9 +15,9 @@ const ProductProvider = ({ children }) => {
       const fetchedCategories = await ProductService.fetchCategories();
       const fetchedFilters = await ProductService.fetchFilters();
       const fetchedProducts = await ProductService.fetchProducts();
-      setProducts(fetchedCategories);
-      setCategories(fetchedFilters);
-      setFilters(fetchedProducts);
+      setCategories(fetchedCategories);
+      setFilters(fetchedFilters);
+      setProducts(fetchedProducts);
     })();
   }, []);
 

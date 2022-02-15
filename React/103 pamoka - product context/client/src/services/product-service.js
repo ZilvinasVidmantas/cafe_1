@@ -10,7 +10,7 @@ const requester = axios.create({
 const fetchProducts = async () => {
   try {
     const { data } = await requester.get('/products');
-    return data.products;
+    return data;
   } catch (error) {
     throw new Error(error.message);
   }
@@ -19,7 +19,7 @@ const fetchProducts = async () => {
 const fetchCategories = async () => {
   try {
     const { data } = await requester.get('/categories');
-    return data.categories;
+    return data;
   } catch (error) {
     throw new Error(error.message);
   }

@@ -5,21 +5,24 @@ import {
 import Header from './home-page-header';
 import Filters from './home-page-filters';
 import Prodcuts from './home-page-products';
+import ProductProvider from './contexts/product-context';
 
 const HomePage = () => (
-  <Box>
-    <Header />
-    <Box sx={{
-      display: 'flex',
-      alignItems: 'flex-start',
-      gap: 3,
-      mt: 3,
-    }}
-    >
-      <Filters />
-      <Prodcuts />
+  <ProductProvider>
+    <Box>
+      <Header />
+      <Box sx={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: 3,
+        mt: 3,
+      }}
+      >
+        <Filters />
+        <Prodcuts />
+      </Box>
     </Box>
-  </Box>
+  </ProductProvider>
 );
 
 export default HomePage;

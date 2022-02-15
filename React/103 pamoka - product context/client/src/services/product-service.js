@@ -25,14 +25,11 @@ const fetchCategories = async () => {
   }
 };
 
-const fetchFilters = async (filterIds) => {
-  // 1, 2, 3, 4
-  // ?id=1&id=2&id=4&id=3
+const fetchFilters = async (categoryId) => {
   let queryParams = '';
-  if (filterIds instanceof Array && filterIds.length > 0) {
-    queryParams = `?${filterIds.map((id) => `id=${id}`).join('&')}`;
+  if (categoryId) {
+    queryParams = `?category=${categoryId}`;
   }
-  console.log({ filterIds, queryParams });
 
   try {
     const { data } = await requester.get(`/filters${queryParams}`);

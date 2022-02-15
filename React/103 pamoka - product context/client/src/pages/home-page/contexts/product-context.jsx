@@ -37,8 +37,9 @@ const ProductProvider = ({ children }) => {
       setSelectedCategory(category.id);
       setCategories(fetchedCategories);
       // FILTRAI
-      const filtersData = await ProductService.fetchFilters(category.filters);
-      console.log(filtersData);
+      const filtersData = await ProductService.fetchFilters(category.id);
+      // REIK PATURBINT
+      setFilters(filtersData);
 
       // const fetchedFilters = await ProductService.fetchFilters();
       // const fetchedProducts = await ProductService.fetchProducts();

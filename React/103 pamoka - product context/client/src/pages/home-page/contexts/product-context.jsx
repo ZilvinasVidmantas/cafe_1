@@ -30,12 +30,15 @@ const ProductProvider = ({ children }) => {
 
       const categoryParam = searchParams.get('category');
       const foundCategory = fetchedCategories.find((x) => x.id === categoryParam);
-      const categoryId = foundCategory ? foundCategory.id : fetchedCategories[0].id;
+      const category = foundCategory ?? fetchedCategories[0];
       if (!foundCategory) {
-        setSearchParams({ category: categoryId });
+        setSearchParams({ category: category.id });
       }
-      setSelectedCategory(categoryId);
+      setSelectedCategory(category.id);
       setCategories(fetchedCategories);
+      // FILTRAI
+      const filtersData = await ProductService.fetchFilters(category.filters);
+      console.log(filtersData);
 
       // const fetchedFilters = await ProductService.fetchFilters();
       // const fetchedProducts = await ProductService.fetchProducts();

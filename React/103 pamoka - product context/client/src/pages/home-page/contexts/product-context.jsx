@@ -54,7 +54,7 @@ const ProductProvider = ({ children }) => {
     categories,
     selectedCategory,
     changeCategory,
-  }), [categories, selectedCategory]);
+  }), [categories, selectedCategory, filters]);
 
   return (
     <ProductContext.Provider value={contextValue}>

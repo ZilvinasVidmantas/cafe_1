@@ -7,9 +7,11 @@ import {
   Button,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Image = styled('img')({
-  height: 150,
+  height: 200,
   width: '100%',
   objectFit: 'cover',
 });
@@ -24,10 +26,13 @@ const HomePageProductsCard = () => {
     console.log('Pridedma į Krepšelį');
   };
 
+  const HeartIcon = Math.random() > 0.5 ? FavoriteIcon : FavoriteBorderIcon;
+
   return (
     <Paper
       sx={(theme) => ({
         display: 'flex',
+        position: 'relative',
         flexDirection: 'column',
         cursor: 'pointer',
         ':hover': {
@@ -36,10 +41,15 @@ const HomePageProductsCard = () => {
       })}
       onClick={navigate}
     >
-      <Image src="https://unsplash.it/200/200" />
+      <HeartIcon
+        className="favorite"
+        color="secondary"
+        sx={{ position: 'absolute', top: 4, right: 4 }}
+      />
+      <Image src={`https://unsplash.it/200/${200 + Math.floor(Math.random() * 20)}`} />
       <Box sx={{ p: 2 }}>
         <Box sx={{
-          display: 'flex', justifyContent: 'space-between', gap: 1, mb: 1,
+          display: 'flex', justifyContent: 'space-between', gap: 1, mb: 1, alignItems: 'center',
         }}
         >
           <Typography

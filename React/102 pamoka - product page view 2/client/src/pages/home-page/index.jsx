@@ -9,7 +9,13 @@ import Prodcuts from './home-page-products';
 const HomePage = () => (
   <Box>
     <Header />
-    <Box sx={{ display: 'flex', gap: 3, mt: 3 }}>
+    <Box sx={{
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: 3,
+      mt: 3,
+    }}
+    >
       <Filters />
       <Prodcuts />
     </Box>

@@ -41,7 +41,7 @@
       ]
     },
     {
-      "id": "1",
+      "id": "2",
       "price": 149.99,
       "category": "1",
       "brand": "1",
@@ -54,16 +54,28 @@
       ]
     },
     {
-      "id": "1",
+      "id": "2",
       "price": 499.99,
       "category": "1",
-      "brand": "2",
+      "brand": "1",
       "type": "3",
       "size": "9",
       "images": [
         "http://localhost:5000/images/sam-1.jpg",
         "http://localhost:5000/images/sam-2.jpg",
         "http://localhost:5000/images/sam-3.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "price": 1899.99,
+      "category": "2",
+      "images": [
+        "http://localhost:5000/images/nvd1.jpg",
+        "http://localhost:5000/images/nvd2.jpg",
+        "http://localhost:5000/images/nvd3.jpg",
+        "http://localhost:5000/images/nvd4.jpg",
+        "http://localhost:5000/images/nvd5.jpg"
       ]
     }
   ],
@@ -115,7 +127,7 @@
       "id": "1",
       "name": "brand",
       "type": "autocomplete",
-      "collection": "brands",
+      "collection": "monitorBrands",
       "property": "brand"
     },
     {
@@ -139,7 +151,7 @@
       "property": "size"
     }
   ],
-  "brands": [
+  "monitorBrands": [
     {
       "id": "1",
       "title": "LOC"

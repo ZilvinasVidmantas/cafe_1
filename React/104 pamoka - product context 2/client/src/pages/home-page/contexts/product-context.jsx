@@ -7,6 +7,18 @@ import iconMap from './icon-map';
 
 export const ProductContext = createContext();
 
+const searchParamsToObject = (searchParams) => {
+  const paramsObject = {};
+  searchParams.forEach((value, key) => {
+    if (paramsObject[key]) {
+      paramsObject[key].push(value);
+    } else {
+      paramsObject[key] = [value];
+    }
+  });
+  return paramsObject;
+};
+
 const ProductProvider = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   // eslint-disable-next-line no-unused-vars
@@ -20,10 +32,26 @@ const ProductProvider = ({ children }) => {
     setSelectedCategory(id);
   };
 
-  const changeRangeFilter = (filter, { min, max }) => {
-    console.log({ min, max });
-
-    return filter;
+  const syncFiltersWithUrlParams = (newFilters) => {
+    const urlParams = searchParamsToObject(searchParams);
+    newFilters.forEach((filter) => {
+      switch (filter.type) {
+        case 'autocomplete':
+          urlParams[filter.name] = filter.options
+            .filter((x) => x.selected)
+            .map((x) => x.id);
+          break;
+        case 'range':
+          // Range tipo filtro kovertavimas į parametrus
+          break;
+        case 'options':
+          // Options tipo filtro kovertavimas į parametrus
+          break;
+        default:
+          break;
+      }
+    });
+    setSearchParams(urlParams);
   };
 
   const changeAutocompleteFilter = (filter, { action, option }) => {
@@ -44,23 +72,30 @@ const ProductProvider = ({ children }) => {
     return newFilter;
   };
 
+  const changeRangeFilter = (filter, { min, max }) => {
+    console.log({ min, max });
+
+    return filter;
+  };
+
   const changeOptionsFilter = (filter, { option }) => {
     console.log({ option });
 
     return filter;
   };
 
-  const changeFilterSelect = {
-    range: changeRangeFilter,
+  const changeFilterMap = {
     autocomplete: changeAutocompleteFilter,
+    range: changeRangeFilter,
     options: changeOptionsFilter,
   };
 
   const changeFilter = (id, type, props) => {
     const updatedFilters = filters.map((filter) => (filter.id === id
-      ? changeFilterSelect[type](filter, props)
+      ? changeFilterMap[type](filter, props)
       : filter));
     setFilters(updatedFilters);
+    syncFiltersWithUrlParams(updatedFilters);
   };
 
   useEffect(() => {
@@ -101,12 +136,9 @@ const ProductProvider = ({ children }) => {
 
         return configuredFilter;
       });
-      setFilters(configuredFilters);
+      // TODO: Nuskaityti Url parametrus ir susinchronizuoti juos su filtrais
 
-      // const fetchedFilters = await ProductService.fetchFilters();
-      // const fetchedProducts = await ProductService.fetchProducts();
-      // setFilters(fetchedFilters);
-      // setProducts(fetchedProducts);
+      setFilters(configuredFilters);
     })();
   }, []);
 

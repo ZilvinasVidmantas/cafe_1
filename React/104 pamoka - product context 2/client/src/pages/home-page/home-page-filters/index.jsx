@@ -9,7 +9,7 @@ import RangeFilter from './range-filter';
 import AutocompleteFilter from './autocomplete-filter';
 import { ProductContext } from '../contexts/product-context';
 
-const FilterMap = {
+const FilterComponentMap = {
   autocomplete: AutocompleteFilter,
   range: RangeFilter,
   options: OptionFilter,
@@ -23,7 +23,7 @@ const HomePageFilters = () => {
       <Typography variant="h5">Filters</Typography>
       {
       filters.map(({ type, id, ...props }) => {
-        const Filter = FilterMap[type];
+        const Filter = FilterComponentMap[type];
         return (
           <React.Fragment key={id}>
             <Divider sx={{ my: 2 }} />

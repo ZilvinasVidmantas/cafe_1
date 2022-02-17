@@ -16,7 +16,8 @@ const FilterMap = {
 };
 
 const HomePageFilters = () => {
-  const { filters } = useContext(ProductContext);
+  const { filters, changeFilter } = useContext(ProductContext);
+
   return (
     <Paper sx={{ flexBasis: 240, flexShrink: 0, p: 2 }} elevation={3}>
       <Typography variant="h5">Filters</Typography>
@@ -26,7 +27,7 @@ const HomePageFilters = () => {
         return (
           <React.Fragment key={id}>
             <Divider sx={{ my: 2 }} />
-            <Filter {...props} />
+            <Filter {...props} changeFilter={(newProps) => changeFilter(id, type, newProps)} />
           </React.Fragment>
         );
       })

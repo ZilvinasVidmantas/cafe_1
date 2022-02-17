@@ -20,6 +20,49 @@ const ProductProvider = ({ children }) => {
     setSelectedCategory(id);
   };
 
+  const changeRangeFilter = (filter, { min, max }) => {
+    console.log({ min, max });
+
+    return filter;
+  };
+
+  const changeAutocompleteFilter = (filter, { action, option }) => {
+    const newFilter = { ...filter };
+
+    switch (action) {
+      case 'add':
+        newFilter.options.find((x) => x.id === option.id)
+          .selected = true;
+        break;
+      case 'remove':
+        newFilter.options.find((x) => x.id === option.id)
+          .selected = false;
+        break;
+      default: break;
+    }
+
+    return newFilter;
+  };
+
+  const changeOptionsFilter = (filter, { option }) => {
+    console.log({ option });
+
+    return filter;
+  };
+
+  const changeFilterSelect = {
+    range: changeRangeFilter,
+    autocomplete: changeAutocompleteFilter,
+    options: changeOptionsFilter,
+  };
+
+  const changeFilter = (id, type, props) => {
+    const updatedFilters = filters.map((filter) => (filter.id === id
+      ? changeFilterSelect[type](filter, props)
+      : filter));
+    setFilters(updatedFilters);
+  };
+
   useEffect(() => {
     (async () => {
       const categoryData = await ProductService.fetchCategories();
@@ -73,6 +116,7 @@ const ProductProvider = ({ children }) => {
     categories,
     selectedCategory,
     changeCategory,
+    changeFilter,
   }), [categories, selectedCategory, filters]);
 
   return (

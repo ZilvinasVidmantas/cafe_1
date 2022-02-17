@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, {
   createContext, useState, useEffect, useMemo,
 } from 'react';
@@ -10,6 +9,7 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+  // eslint-disable-next-line no-unused-vars
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -38,8 +38,27 @@ const ProductProvider = ({ children }) => {
       setCategories(fetchedCategories);
       // FILTRAI
       const filtersData = await ProductService.fetchFilters(category.id);
-      // REIK PATURBINT
-      setFilters(filtersData);
+
+      const configuredFilters = filtersData.map((filter) => {
+        const configuredFilter = { ...filter };
+        switch (filter.type) {
+          case 'autocomplete':
+            configuredFilter.options = filter.options.map((x) => ({ ...x, selected: false }));
+            break;
+          case 'range':
+            configuredFilter.currMin = configuredFilter.min;
+            configuredFilter.currMax = configuredFilter.max;
+            break;
+          case 'options':
+            configuredFilter.options = filter.options.map((x) => ({ ...x, checked: false }));
+            break;
+          default:
+            break;
+        }
+
+        return configuredFilter;
+      });
+      setFilters(configuredFilters);
 
       // const fetchedFilters = await ProductService.fetchFilters();
       // const fetchedProducts = await ProductService.fetchProducts();

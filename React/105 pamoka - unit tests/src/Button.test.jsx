@@ -73,11 +73,11 @@ test("Button backgroundColor prioritizes color prop vs style prop", () => {
   const buttonText = 'O.K.';
   const style = {
     backgroundColor: 'rgb(0, 0, 255)',
+    padding: '16px'
   };
   const color = 'rgb(255, 255, 255)';
   render(
     <Button
-
       color={color}
       style={style}
     >
@@ -90,4 +90,5 @@ test("Button backgroundColor prioritizes color prop vs style prop", () => {
 
   // Rezultato tikrinimas
   expect(button).toHaveStyle(`backgroundColor: ${color}`);
+  expect(button).toHaveStyle(`padding: ${style.padding}`);
 });

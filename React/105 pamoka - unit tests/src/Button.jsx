@@ -1,10 +1,14 @@
 import React from 'react'
 
-const Button = ({ children, onClick, color, ...props }) => {
+const Button = ({ children, onClick, color, style = {}, ...props }) => {
+
+  if (color) {
+    style.backgroundColor = color;
+  }
   return (
     <button
       onClick={onClick}
-      style={{ backgroundColor: color }}
+      style={style}
       {...props}
     >
       {children}

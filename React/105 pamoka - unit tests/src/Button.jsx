@@ -1,8 +1,14 @@
 import React from 'react'
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick, color, ...props }) => {
   return (
-    <button>{children}</button>
+    <button
+      onClick={onClick}
+      style={{ backgroundColor: color }}
+      {...props}
+    >
+      {children}
+    </button>
   );
 };
 

@@ -45,7 +45,9 @@ const ProductProvider = ({ children }) => {
           // Range tipo filtro kovertavimas į parametrus
           break;
         case 'options':
-          // Options tipo filtro kovertavimas į parametrus
+          urlParams[filter.name] = filter.options
+            .filter((x) => x.checked)
+            .map((x) => x.id);
           break;
         default:
           break;
@@ -78,8 +80,9 @@ const ProductProvider = ({ children }) => {
     return filter;
   };
 
-  const changeOptionsFilter = (filter, { option }) => {
-    console.log({ option });
+  const changeOptionsFilter = (filter, { id, checked }) => {
+    const option = filter.options.find((x) => x.id === id);
+    option.checked = checked;
 
     return filter;
   };
@@ -148,6 +151,12 @@ const ProductProvider = ({ children }) => {
           case 'range':
             break;
           case 'options':
+            urlOptions.forEach((id) => {
+              const option = filter.options.find((x) => x.id === id);
+              if (option) {
+                option.checked = true;
+              }
+            });
             break;
 
           default:

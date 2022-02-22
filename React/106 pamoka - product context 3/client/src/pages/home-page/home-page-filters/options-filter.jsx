@@ -6,15 +6,16 @@ import {
 } from '@mui/material';
 import FilterContainer from './filter-container';
 
-const OptionFilter = ({ options, name }) => (
+const OptionsFilter = ({ options, name, changeFilter }) => (
   <FilterContainer name={name}>
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       {
         options.map((x) => (
           <FormControlLabel
             key={x.id}
-            control={<Checkbox defaultChecked size="small" />}
+            control={<Checkbox size="small" checked={x.checked} />}
             label={x.name}
+            onChange={(_, checked) => changeFilter({ id: x.id, checked })}
           />
         ))
       }
@@ -22,4 +23,4 @@ const OptionFilter = ({ options, name }) => (
   </FilterContainer>
 );
 
-export default OptionFilter;
+export default OptionsFilter;

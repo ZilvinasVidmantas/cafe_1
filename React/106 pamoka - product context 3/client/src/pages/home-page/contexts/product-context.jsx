@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductService from '../../../services/product-service';
-import iconMap from './icon-map';
+import useCategories from './use-categories';
 
 export const ProductContext = createContext();
 
@@ -21,16 +21,10 @@ const searchParamsToObject = (searchParams) => {
 
 const ProductProvider = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { categories, selectedCategory, changeCategory } = useCategories();
   // eslint-disable-next-line no-unused-vars
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
   const [filters, setFilters] = useState([]);
-
-  const changeCategory = (id) => {
-    setSearchParams({ category: id });
-    setSelectedCategory(id);
-  };
 
   const syncFiltersWithUrlParams = (newFilters) => {
     const urlParams = searchParamsToObject(searchParams);
@@ -110,17 +104,6 @@ const ProductProvider = ({ children }) => {
     syncFiltersWithUrlParams(updatedFilters);
   };
 
-  const setCategoryFromUrl = (fetchedCategories) => {
-    const categoryParam = searchParams.get('category');
-    const foundCategory = fetchedCategories.find((x) => x.id === categoryParam);
-    const category = foundCategory ?? fetchedCategories[0];
-    if (!foundCategory) {
-      setSearchParams({ category: category.id });
-    }
-    setSelectedCategory(category.id);
-    setCategories(fetchedCategories);
-  };
-
   const setFilterByCategorySettings = async (categoryId) => {
     const filtersData = await ProductService.fetchFilters(categoryId);
     const configuredFilters = filtersData.map((filter) => {
@@ -184,17 +167,6 @@ const ProductProvider = ({ children }) => {
 
     return configuredFilters;
   };
-
-  useEffect(() => {
-    (async () => {
-      const categoryData = await ProductService.fetchCategories();
-      const fetchedCategories = categoryData.map(({ icon, ...x }) => ({
-        ...x,
-        Icon: iconMap[icon],
-      }));
-      setCategoryFromUrl(fetchedCategories);
-    })();
-  }, []);
 
   useEffect(() => {
     if (selectedCategory) {

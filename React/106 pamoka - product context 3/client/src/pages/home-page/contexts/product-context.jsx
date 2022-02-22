@@ -119,8 +119,6 @@ const ProductProvider = ({ children }) => {
     }
     setSelectedCategory(category.id);
     setCategories(fetchedCategories);
-
-    return category.id;
   };
 
   const setFilterByCategorySettings = async (categoryId) => {
@@ -194,12 +192,19 @@ const ProductProvider = ({ children }) => {
         ...x,
         Icon: iconMap[icon],
       }));
-      const categoryId = setCategoryFromUrl(fetchedCategories);
-      const configuredFilters = await setFilterByCategorySettings(categoryId);
-
-      setFilters(configuredFilters);
+      setCategoryFromUrl(fetchedCategories);
     })();
   }, []);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      (async () => {
+        const configuredFilters = await setFilterByCategorySettings(selectedCategory);
+
+        setFilters(configuredFilters);
+      })();
+    }
+  }, [selectedCategory]);
 
   const contextValue = useMemo(() => ({
     products,

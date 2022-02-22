@@ -42,7 +42,16 @@ const ProductProvider = ({ children }) => {
             .map((x) => x.id);
           break;
         case 'range':
-          // Range tipo filtro kovertavimas į parametrus
+          if (filter.currMin > filter.min) {
+            urlParams[`${filter.name}_min`] = filter.currMin;
+          } else {
+            delete urlParams[`${filter.name}_min`];
+          }
+          if (filter.currMax < filter.max) {
+            urlParams[`${filter.name}_max`] = filter.currMax;
+          } else {
+            delete urlParams[`${filter.name}_max`];
+          }
           break;
         case 'options':
           urlParams[filter.name] = filter.options
@@ -137,8 +146,12 @@ const ProductProvider = ({ children }) => {
     });
 
     configuredFilters.forEach((filter) => {
+      const filterRef = filter;
       const urlOptions = searchParams.getAll(filter.name);
-      if (urlOptions.length > 0) {
+      const minUrlOption = searchParams.get(`${filter.name}_min`);
+      const maxUrlOption = searchParams.get(`${filter.name}_max`);
+
+      if ([...urlOptions, minUrlOption, maxUrlOption].length > 0) {
         switch (filter.type) {
           case 'autocomplete':
             urlOptions.forEach((id) => {
@@ -149,6 +162,12 @@ const ProductProvider = ({ children }) => {
             });
             break;
           case 'range':
+            if (minUrlOption) {
+              filterRef.currMin = Number(minUrlOption);
+            }
+            if (maxUrlOption) {
+              filterRef.currMax = Number(maxUrlOption);
+            }
             break;
           case 'options':
             urlOptions.forEach((id) => {

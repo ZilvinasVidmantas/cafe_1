@@ -18,7 +18,7 @@ const useFilters = (selectedCategory) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState([]);
 
-  const syncFiltersWithUrlParams = (newFilters) => {
+  const syncToUrlParams = (newFilters) => {
     const urlParams = searchParamsToObject(searchParams);
     newFilters.forEach((filter) => {
       switch (filter.type) {
@@ -89,35 +89,35 @@ const useFilters = (selectedCategory) => {
   };
 
   const changeFilter = (id, type, props) => {
-    const updatedFilters = filters.map((filter) => (filter.id === id
-      ? changeFilterMap[type](filter, props)
-      : filter));
+    const updatedFilters = filters.map((filter) => (
+      filter.id === id
+        ? changeFilterMap[type](filter, props)
+        : filter));
     setFilters(updatedFilters);
-    syncFiltersWithUrlParams(updatedFilters);
+    syncToUrlParams(updatedFilters);
   };
 
-  const setFilterByCategorySettings = async (categoryId) => {
-    const filtersData = await ProductService.fetchFilters(categoryId);
-    const configuredFilters = filtersData.map((filter) => {
-      const configuredFilter = { ...filter };
-      switch (filter.type) {
-        case 'autocomplete':
-          configuredFilter.options = filter.options.map((x) => ({ ...x, selected: false }));
-          break;
-        case 'range':
-          configuredFilter.currMin = configuredFilter.min;
-          configuredFilter.currMax = configuredFilter.max;
-          break;
-        case 'options':
-          configuredFilter.options = filter.options.map((x) => ({ ...x, checked: false }));
-          break;
-        default:
-          break;
-      }
+  const configureFilters = (filtersData) => filtersData.map((filter) => {
+    const configuredFilter = { ...filter };
+    switch (filter.type) {
+      case 'autocomplete':
+        configuredFilter.options = filter.options.map((x) => ({ ...x, selected: false }));
+        break;
+      case 'range':
+        configuredFilter.currMin = configuredFilter.min;
+        configuredFilter.currMax = configuredFilter.max;
+        break;
+      case 'options':
+        configuredFilter.options = filter.options.map((x) => ({ ...x, checked: false }));
+        break;
+      default:
+        break;
+    }
 
-      return configuredFilter;
-    });
+    return configuredFilter;
+  });
 
+  const syncFromUrlParams = (configuredFilters) => {
     configuredFilters.forEach((filter) => {
       const filterRef = filter;
       const urlOptions = searchParams.getAll(filter.name);
@@ -160,10 +160,19 @@ const useFilters = (selectedCategory) => {
     return configuredFilters;
   };
 
+  const getFiltersByCategory = async (categoryId) => {
+    const filtersData = await ProductService.fetchFilters(categoryId);
+    const configuredFilters = configureFilters(filtersData);
+
+    const syncedFilters = syncFromUrlParams(configuredFilters);
+
+    return syncedFilters;
+  };
+
   useEffect(() => {
     if (selectedCategory) {
       (async () => {
-        const configuredFilters = await setFilterByCategorySettings(selectedCategory);
+        const configuredFilters = await getFiltersByCategory(selectedCategory);
 
         setFilters(configuredFilters);
       })();

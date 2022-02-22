@@ -37,7 +37,6 @@ const AutocompleteFilter = ({ name, options, changeFilter }) => {
           }
 
           const sx = option.selected ? {
-            background: '#bdbdbd',
             userSelect: 'none',
             cursor: 'not-allowed',
           } : {};
@@ -83,7 +82,7 @@ const AutocompleteFilter = ({ name, options, changeFilter }) => {
             &#10005;
           </Button>
         </Box>
-      )) }
+      ))}
     </FilterContainer>
   );
 };

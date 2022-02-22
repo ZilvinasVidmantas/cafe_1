@@ -98,6 +98,67 @@ const ProductProvider = ({ children }) => {
     syncFiltersWithUrlParams(updatedFilters);
   };
 
+  const setCategoryFromUrl = (fetchedCategories) => {
+    const categoryParam = searchParams.get('category');
+    const foundCategory = fetchedCategories.find((x) => x.id === categoryParam);
+    const category = foundCategory ?? fetchedCategories[0];
+    if (!foundCategory) {
+      setSearchParams({ category: category.id });
+    }
+    setSelectedCategory(category.id);
+    setCategories(fetchedCategories);
+
+    return category.id;
+  };
+
+  const setFilterByCategorySettings = async (categoryId) => {
+    const filtersData = await ProductService.fetchFilters(categoryId);
+    const configuredFilters = filtersData.map((filter) => {
+      const configuredFilter = { ...filter };
+      switch (filter.type) {
+        case 'autocomplete':
+          configuredFilter.options = filter.options.map((x) => ({ ...x, selected: false }));
+          break;
+        case 'range':
+          configuredFilter.currMin = configuredFilter.min;
+          configuredFilter.currMax = configuredFilter.max;
+          break;
+        case 'options':
+          configuredFilter.options = filter.options.map((x) => ({ ...x, checked: false }));
+          break;
+        default:
+          break;
+      }
+
+      return configuredFilter;
+    });
+
+    configuredFilters.forEach((filter) => {
+      const urlOptions = searchParams.getAll(filter.name);
+      if (urlOptions.length > 0) {
+        switch (filter.type) {
+          case 'autocomplete':
+            urlOptions.forEach((id) => {
+              const option = filter.options.find((x) => x.id === id);
+              if (option) {
+                option.selected = true;
+              }
+            });
+            break;
+          case 'range':
+            break;
+          case 'options':
+            break;
+
+          default:
+            break;
+        }
+      }
+    });
+
+    return configuredFilters;
+  };
+
   useEffect(() => {
     (async () => {
       const categoryData = await ProductService.fetchCategories();
@@ -105,38 +166,8 @@ const ProductProvider = ({ children }) => {
         ...x,
         Icon: iconMap[icon],
       }));
-
-      const categoryParam = searchParams.get('category');
-      const foundCategory = fetchedCategories.find((x) => x.id === categoryParam);
-      const category = foundCategory ?? fetchedCategories[0];
-      if (!foundCategory) {
-        setSearchParams({ category: category.id });
-      }
-      setSelectedCategory(category.id);
-      setCategories(fetchedCategories);
-      // FILTRAI
-      const filtersData = await ProductService.fetchFilters(category.id);
-
-      const configuredFilters = filtersData.map((filter) => {
-        const configuredFilter = { ...filter };
-        switch (filter.type) {
-          case 'autocomplete':
-            configuredFilter.options = filter.options.map((x) => ({ ...x, selected: false }));
-            break;
-          case 'range':
-            configuredFilter.currMin = configuredFilter.min;
-            configuredFilter.currMax = configuredFilter.max;
-            break;
-          case 'options':
-            configuredFilter.options = filter.options.map((x) => ({ ...x, checked: false }));
-            break;
-          default:
-            break;
-        }
-
-        return configuredFilter;
-      });
-      // TODO: Nuskaityti Url parametrus ir susinchronizuoti juos su filtrais
+      const categoryId = setCategoryFromUrl(fetchedCategories);
+      const configuredFilters = await setFilterByCategorySettings(categoryId);
 
       setFilters(configuredFilters);
     })();

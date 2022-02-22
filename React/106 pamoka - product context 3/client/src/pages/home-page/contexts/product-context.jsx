@@ -74,11 +74,11 @@ const ProductProvider = ({ children }) => {
     return newFilter;
   };
 
-  const changeRangeFilter = (filter, { min, max }) => {
-    console.log({ min, max });
-
-    return filter;
-  };
+  const changeRangeFilter = (filter, [min, max]) => ({
+    ...filter,
+    currMin: min,
+    currMax: max,
+  });
 
   const changeOptionsFilter = (filter, { id, checked }) => {
     const option = filter.options.find((x) => x.id === id);

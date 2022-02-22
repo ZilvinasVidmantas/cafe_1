@@ -54,7 +54,7 @@
       ]
     },
     {
-      "id": "2",
+      "id": "3",
       "price": 499.99,
       "category": "1",
       "brand": "1",
@@ -67,8 +67,20 @@
       ]
     },
     {
-      "id": "2",
+      "id": "4",
       "price": 1899.99,
+      "category": "2",
+      "images": [
+        "http://localhost:5000/images/nvd1.jpg",
+        "http://localhost:5000/images/nvd2.jpg",
+        "http://localhost:5000/images/nvd3.jpg",
+        "http://localhost:5000/images/nvd4.jpg",
+        "http://localhost:5000/images/nvd5.jpg"
+      ]
+    },
+    {
+      "id": "5",
+      "price": 1199.99,
       "category": "2",
       "images": [
         "http://localhost:5000/images/nvd1.jpg",
@@ -94,32 +106,50 @@
     {
       "id": "2",
       "title": "Vaizdo Plokštės",
-      "icon": "DeveloperBoardIcon"
+      "icon": "DeveloperBoardIcon",
+      "filters": [
+        "3"
+      ]
     },
     {
       "id": "3",
       "title": "Motininės plokštės",
-      "icon": "DashboardIcon"
+      "icon": "DashboardIcon",
+      "filters": [
+        "3"
+      ]
     },
     {
       "id": "4",
       "title": "Laptopai",
-      "icon": "LaptopMacIcon"
+      "icon": "LaptopMacIcon",
+      "filters": [
+        "3"
+      ]
     },
     {
       "id": "5",
       "title": "Išoriniai įrenginiai",
-      "icon": "AccountTreeIcon"
+      "icon": "AccountTreeIcon",
+      "filters": [
+        "3"
+      ]
     },
     {
       "id": "6",
       "title": "Operatyvi atmintis (RAM)",
-      "icon": "MemoryIcon"
+      "icon": "MemoryIcon",
+      "filters": [
+        "3"
+      ]
     },
     {
       "id": "7",
       "title": "Diskai",
-      "icon": "StorageIcon"
+      "icon": "StorageIcon",
+      "filters": [
+        "3"
+      ]
     }
   ],
   "filters": [

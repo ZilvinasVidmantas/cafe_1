@@ -14,7 +14,7 @@ const OptionsFilter = ({ options, name, changeFilter }) => (
           <FormControlLabel
             key={x.id}
             control={<Checkbox size="small" checked={x.checked} />}
-            label={x.name}
+            label={x.title}
             onChange={(_, checked) => changeFilter({ id: x.id, checked })}
           />
         ))

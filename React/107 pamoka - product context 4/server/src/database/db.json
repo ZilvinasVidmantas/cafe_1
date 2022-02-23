@@ -202,53 +202,53 @@
   "monitorScreenTypes": [
     {
       "id": "1",
-      "name": "widescreen"
+      "title": "widescreen"
     },
     {
       "id": "2",
-      "name": "super-widescreen"
+      "title": "super-widescreen"
     },
     {
       "id": "3",
-      "name": "curved"
+      "title": "curved"
     }
   ],
   "monitorScreenSizes": [
     {
       "id": "1",
-      "name": "21"
+      "title": "21"
     },
     {
       "id": "2",
-      "name": "22"
+      "title": "22"
     },
     {
       "id": "3",
-      "name": "23"
+      "title": "23"
     },
     {
       "id": "4",
-      "name": "24"
+      "title": "24"
     },
     {
       "id": "5",
-      "name": "25"
+      "title": "25"
     },
     {
       "id": "6",
-      "name": "26"
+      "title": "26"
     },
     {
       "id": "7",
-      "name": "27"
+      "title": "27"
     },
     {
       "id": "8",
-      "name": "28"
+      "title": "28"
     },
     {
       "id": "9",
-      "name": "29"
+      "title": "29"
     }
   ]
 }

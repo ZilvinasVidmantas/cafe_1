@@ -35,12 +35,16 @@ export const getProducts = (req, res) => {
     ...queryParams
   } = req.query;
 
-  let selectedProducts = products.filter(x => x.category === categoryId);
+  let selectedProducts = products
+    .filter(x => x.category === categoryId)
+    .map(({ category, ...product }) => product);
   const category = categories.find(x => x.id === categoryId);
   const categoryFilters = category.filters.map(filterId => filters.find(x => x.id === filterId));
 
   categoryFilters.forEach(filter => {
     selectedProducts = filterFuctionMap[filter.type](selectedProducts, filter, queryParams);
+    if (filter !== 'range') {
+    }
   });
 
   res.status(200).json(selectedProducts);

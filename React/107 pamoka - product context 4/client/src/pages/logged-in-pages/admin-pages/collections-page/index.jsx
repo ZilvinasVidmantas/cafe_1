@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import CollectionService from './services/collections-service';
 
 const CollectionsPage = () => {
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://localhost:5000/api/collections');
-      const fetchedCollections = await response.json();
+      const fetchedCollections = await CollectionService.getUsers();
       setCollections(fetchedCollections);
-
-      console.log(fetchedCollections);
     })();
   }, []);
 

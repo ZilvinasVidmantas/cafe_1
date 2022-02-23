@@ -7,8 +7,8 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import FormAdd from './users-panel-page-form-add';
 import ListItem from './users-panel-page-list-item';
-import { selectUsers, addUser, updateUser } from '../../store/users';
-import adminService from '../../services/admin-service';
+import { selectUsers, addUser, updateUser } from '../../../../store/users';
+import adminService from '../../../../services/admin-service';
 
 const validationSchema = yup.object({
   name: yup

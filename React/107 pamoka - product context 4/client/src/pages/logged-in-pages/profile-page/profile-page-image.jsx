@@ -5,7 +5,7 @@ import {
   Fab,
 } from '@mui/material';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import UserService from '../../services/user-service';
+import UserService from '../../../services/user-service';
 
 const mdFixedPortion = 200;
 

@@ -1,19 +1,29 @@
+// Layouts
 import PageLayout from '../components/layouts/page-layout';
-import HomePage from '../pages/home-page';
-import LoginPage from '../pages/login-page';
-import RegisterPage from '../pages/register-page';
-import ErrorPage from '../pages/error-page';
 import DashboardLayout from '../components/layouts/dashboard-layout';
-import ProfilePage from '../pages/profile-page';
-import UsersPanelPage from '../pages/users-panel-page';
+// Public pages
+import HomePage from '../pages/public-pages/home-page';
+import ErrorPage from '../pages/public-pages/error-page';
+// Visitor pages
+import LoginPage from '../pages/visitor-pages/login-page';
+import RegisterPage from '../pages/visitor-pages/register-page';
+// Logged in pages
+import ProfilePage from '../pages/logged-in-pages/profile-page';
+// Admin pages
+import UsersPanelPage from '../pages/logged-in-pages/admin-pages/user-panel-page';
 
 export default {
+  // Layouts
   PageLayout,
+  DashboardLayout,
+  // Public pages
   HomePage,
+  ErrorPage,
+  // Visitor pages
   LoginPage,
   RegisterPage,
-  ErrorPage,
-  DashboardLayout,
+  // Logged in pages
   ProfilePage,
+  // Admin pages
   UsersPanelPage,
 };

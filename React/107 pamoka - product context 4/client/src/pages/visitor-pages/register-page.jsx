@@ -13,9 +13,9 @@ import * as yup from 'yup';
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-import authService from '../services/auth-service';
-import AuthForm from '../components/auth-form';
-import routes from '../routing/routes';
+import authService from '../../services/auth-service';
+import AuthForm from '../../components/auth-form';
+import routes from '../../routing/routes';
 
 const validationSchema = yup.object({
   name: yup
@@ -232,7 +232,7 @@ const RegisterPage = () => {
                   checked={values.subscribed}
                   disabled={isSubmitting}
                 />
-                  )}
+              )}
               label="Noriu gauti su rinkodara susijusius pranešimus"
             />
           </Grid>

@@ -8,7 +8,7 @@ export default [
     children: [
       // TODO: sukurti index puslapį
       {
-        path: 'profile',
+        path: null,
         pageName: 'ProfilePage',
         auth: LOGGED_IN,
       },

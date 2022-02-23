@@ -9,7 +9,7 @@ import {
   styled,
 } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
-import UserService from '../../services/user-service';
+import UserService from '../../../services/user-service';
 
 const Form = styled(Paper)(({ theme }) => ({
   position: 'absolute',

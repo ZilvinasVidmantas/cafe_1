@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import AuthService from '../../services/auth-service';
+import AuthService from '../../../services/auth-service';
 import ConfirmationModal from './profile-page-confirmation-modal';
 
 const Form = styled('form')(({ theme }) => ({

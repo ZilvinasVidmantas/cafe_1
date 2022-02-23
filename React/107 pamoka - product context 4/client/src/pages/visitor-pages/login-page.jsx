@@ -9,9 +9,9 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import AuthForm from '../components/auth-form';
-import AuthService from '../services/auth-service';
-import routes from '../routing/routes';
+import AuthForm from '../../components/auth-form';
+import AuthService from '../../services/auth-service';
+import routes from '../../routing/routes';
 
 const validationSchema = yup.object({
   email: yup
@@ -75,7 +75,7 @@ const LoginPage = () => {
                     >
                       <CloseIcon fontSize="inherit" />
                     </IconButton>
-                )}
+                  )}
 
                 >
                   {errorMsg}

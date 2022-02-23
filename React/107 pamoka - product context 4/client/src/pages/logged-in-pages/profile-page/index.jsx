@@ -6,7 +6,7 @@ import {
   useTheme,
 } from '@mui/material';
 
-import { selectAuth } from '../../store/auth';
+import { selectAuth } from '../../../store/auth';
 import ProfilePageImage from './profile-page-image';
 import ProfilePageForm from './profile-page-form';
 

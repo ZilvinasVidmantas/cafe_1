@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import DoDisturbAltIcon from '@mui/icons-material/DoDisturbAlt';
-import { deleteUser } from '../../store/users';
+import { deleteUser } from '../../../../store/users';
 
 const UserPanelPageListItem = ({
   id, name, surname, email, onEdit, edited,
@@ -43,7 +43,7 @@ const UserPanelPageListItem = ({
             <DeleteForeverIcon />
           </IconButton>
         </>
-    )}
+      )}
     >
       <ListItemText primary={`${email} - ${name} ${surname}`} />
     </ListItem>

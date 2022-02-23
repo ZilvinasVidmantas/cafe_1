@@ -11,6 +11,7 @@ import RegisterPage from '../pages/visitor-pages/register-page';
 import ProfilePage from '../pages/logged-in-pages/profile-page';
 // Admin pages
 import UsersPanelPage from '../pages/logged-in-pages/admin-pages/user-panel-page';
+import CollectionsPage from '../pages/logged-in-pages/admin-pages/collections-page';
 
 export default {
   // Layouts
@@ -26,4 +27,5 @@ export default {
   ProfilePage,
   // Admin pages
   UsersPanelPage,
+  CollectionsPage,
 };

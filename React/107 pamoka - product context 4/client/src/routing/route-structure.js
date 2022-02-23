@@ -17,6 +17,11 @@ export default [
         pageName: 'UsersPanelPage',
         auth: ADMIN,
       },
+      {
+        path: 'collections',
+        pageName: 'CollectionsPage',
+        auth: ADMIN,
+      },
     ],
   },
   {

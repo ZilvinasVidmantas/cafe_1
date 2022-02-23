@@ -15,6 +15,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
+import StorageIcon from '@mui/icons-material/Storage';
 import { useNavigate } from 'react-router-dom';
 
 import openedMixin from './mixins/opened-mixin';
@@ -76,7 +77,7 @@ const DashboardLayoutDrawer = ({
           </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItem>
-        { user && user.role === 'ADMIN'
+        {user && user.role === 'ADMIN'
           ? (
             <>
               <Divider />
@@ -85,6 +86,12 @@ const DashboardLayoutDrawer = ({
                   <PeopleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Users panel" />
+              </ListItem>
+              <ListItem button onClick={() => navigate(routes.CollectionsPage)}>
+                <ListItemIcon>
+                  <StorageIcon />
+                </ListItemIcon>
+                <ListItemText primary="Collections" />
               </ListItem>
             </>
           ) : null}

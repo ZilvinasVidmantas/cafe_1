@@ -7,9 +7,9 @@ const requester = axios.create({
   },
 });
 
-const fetchProducts = async () => {
+const fetchProducts = async (searchParams) => {
   try {
-    const { data } = await requester.get('/products');
+    const { data } = await requester.get(`/products?${searchParams.toString()}`);
     return data;
   } catch (error) {
     throw new Error(error.message);

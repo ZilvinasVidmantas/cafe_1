@@ -8,7 +8,7 @@ export const ProductContext = createContext();
 const ProductProvider = ({ children }) => {
   const { categories, selectedCategory, changeCategory } = useCategories();
   const { filters, changeFilter } = useFilters(selectedCategory);
-  const products = useProducts();
+  const products = useProducts(selectedCategory);
 
   const contextValue = useMemo(() => ({
     products,
@@ -17,7 +17,7 @@ const ProductProvider = ({ children }) => {
     selectedCategory,
     changeCategory,
     changeFilter,
-  }), [categories, selectedCategory, filters]);
+  }), [categories, selectedCategory, filters, products]);
 
   return (
     <ProductContext.Provider value={contextValue}>

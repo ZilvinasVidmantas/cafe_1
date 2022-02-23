@@ -16,14 +16,16 @@ const Image = styled('img')({
   objectFit: 'cover',
 });
 
-const HomePageProductsCard = () => {
+const HomePageProductsCard = ({
+  id, images, price, ...props
+}) => {
   const navigate = () => {
-    console.log('Naviguojama');
+    console.log('Naviguojama i atskirą produkto puslapį:', id);
   };
 
   const addToCart = (event) => {
     event.stopPropagation();
-    console.log('Pridedma į Krepšelį');
+    console.log('Pridedma į Krepšelį productas su id', id);
   };
 
   const HeartIcon = Math.random() > 0.5 ? FavoriteIcon : FavoriteBorderIcon;
@@ -46,7 +48,7 @@ const HomePageProductsCard = () => {
         color="secondary"
         sx={{ position: 'absolute', top: 4, right: 4 }}
       />
-      <Image src={`https://unsplash.it/200/${200 + Math.floor(Math.random() * 20)}`} />
+      <Image src={images[0]} />
       <Box sx={{ p: 2 }}>
         <Box sx={{
           display: 'flex', justifyContent: 'space-between', gap: 1, mb: 1, alignItems: 'center',
@@ -56,7 +58,9 @@ const HomePageProductsCard = () => {
             color="secondary"
             variant="h6"
           >
-            249.49 €
+            {price}
+            {' '}
+            €
           </Typography>
           <Button variant="contained" size="small" color="secondary" onClick={addToCart}>
             <ShoppingCartIcon fontSize="small" />
@@ -64,17 +68,18 @@ const HomePageProductsCard = () => {
         </Box>
         <Box sx={{ fontSize: 15, display: 'flex', gap: 1 }}>
           <Box>
-            <Typography>Type:</Typography>
-            <Typography>Size:</Typography>
-            <Typography>Brand:</Typography>
+            {Object.keys(props).map((x) => (
+              <Typography key={x}>{`${x}: `}</Typography>
+            ))}
           </Box>
           <Box>
-            <Typography sx={{ fontWeight: 700 }}>Wide Screen</Typography>
-            <Typography sx={{ fontWeight: 700 }}>24</Typography>
-            <Typography sx={{ fontWeight: 700 }}>LOC</Typography>
+            {Object.values(props)
+              .map((v, i) => ({ id: i, value: v }))
+              .map((x) => (
+                <Typography key={x.id} sx={{ fontWeight: 700 }}>{x.value}</Typography>
+              ))}
           </Box>
         </Box>
-
       </Box>
     </Paper>
   );

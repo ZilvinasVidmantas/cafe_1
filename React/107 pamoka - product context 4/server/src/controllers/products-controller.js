@@ -28,6 +28,15 @@ const filterFuctionMap = {
   autocomplete: filterByOptionsOrAutocomplete,
 };
 
+const mapWithFilterCollection = (products, filter, collections) => {
+  const collection = collections[filter.collection];
+  products = products.map(product => ({
+    ...product,
+    [filter.property]: collection.find(x => x.id === product[filter.property]).title,
+  }));
+  return products
+}
+
 export const getProducts = (req, res) => {
   const { products, categories, filters } = database.data;
   const {
@@ -43,7 +52,8 @@ export const getProducts = (req, res) => {
 
   categoryFilters.forEach(filter => {
     selectedProducts = filterFuctionMap[filter.type](selectedProducts, filter, queryParams);
-    if (filter !== 'range') {
+    if (filter.collection) {
+      selectedProducts = mapWithFilterCollection(selectedProducts, filter, database.data);
     }
   });
 

@@ -1,0 +1,254 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "email": "admin@gmail.com",
+      "password": "Vilnius123",
+      "name": "Adminas",
+      "surname": "Gediminas",
+      "role": "ADMIN",
+      "imgSrc": "/images/img-1644867291375.png"
+    },
+    {
+      "id": "2ac817ad-f7b6-4d0e-a911-3f4f639c78f1",
+      "email": "user1@gmail.com",
+      "name": "Traktorius",
+      "surname": "Pilinskas",
+      "password": "Vilnius123",
+      "role": "USER",
+      "imgSrc": "/images/img-1644261573887.jpg"
+    },
+    {
+      "id": "fd8dc01a-d32d-4338-bc7a-74ccf3460815",
+      "email": "user2@gmail.com",
+      "name": "Kibiras",
+      "surname": "Gaida",
+      "password": "Vilnius123",
+      "role": "USER",
+      "imgSrc": "/images/img-1644261529335.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "price": 39.99,
+      "category": "1",
+      "brand": "1",
+      "type": "1",
+      "size": "1",
+      "images": [
+        "http://localhost:5000/images/s-l300.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "price": 149.99,
+      "category": "1",
+      "brand": "1",
+      "type": "1",
+      "size": "5",
+      "images": [
+        "http://localhost:5000/images/MO029AO_241431.jpg",
+        "http://localhost:5000/images/asdasdasd.jpg",
+        "http://localhost:5000/images/asad.jpg"
+      ]
+    },
+    {
+      "id": "3",
+      "price": 499.99,
+      "category": "1",
+      "brand": "1",
+      "type": "3",
+      "size": "9",
+      "images": [
+        "http://localhost:5000/images/sam-1.jpg",
+        "http://localhost:5000/images/sam-2.jpg",
+        "http://localhost:5000/images/sam-3.jpg"
+      ]
+    },
+    {
+      "id": "4",
+      "price": 1899.99,
+      "category": "2",
+      "images": [
+        "http://localhost:5000/images/nvd1.jpg",
+        "http://localhost:5000/images/nvd2.jpg",
+        "http://localhost:5000/images/nvd3.jpg",
+        "http://localhost:5000/images/nvd4.jpg",
+        "http://localhost:5000/images/nvd5.jpg"
+      ]
+    },
+    {
+      "id": "5",
+      "price": 1199.99,
+      "category": "2",
+      "images": [
+        "http://localhost:5000/images/nvd1.jpg",
+        "http://localhost:5000/images/nvd2.jpg",
+        "http://localhost:5000/images/nvd3.jpg",
+        "http://localhost:5000/images/nvd4.jpg",
+        "http://localhost:5000/images/nvd5.jpg"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "title": "Monitoriai",
+      "icon": "MonitorIcon",
+      "filters": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Vaizdo Plokštės",
+      "icon": "DeveloperBoardIcon",
+      "filters": [
+        "3"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Motininės plokštės",
+      "icon": "DashboardIcon",
+      "filters": [
+        "3"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Laptopai",
+      "icon": "LaptopMacIcon",
+      "filters": [
+        "3"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Išoriniai įrenginiai",
+      "icon": "AccountTreeIcon",
+      "filters": [
+        "3"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Operatyvi atmintis (RAM)",
+      "icon": "MemoryIcon",
+      "filters": [
+        "3"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Diskai",
+      "icon": "StorageIcon",
+      "filters": [
+        "3"
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "1",
+      "name": "brand",
+      "type": "autocomplete",
+      "collection": "monitorBrands",
+      "property": "brand"
+    },
+    {
+      "id": "3",
+      "name": "price",
+      "type": "range",
+      "property": "price"
+    },
+    {
+      "id": "4",
+      "name": "type",
+      "type": "options",
+      "collection": "monitorScreenTypes",
+      "property": "type"
+    },
+    {
+      "id": "2",
+      "name": "size",
+      "type": "options",
+      "collection": "monitorScreenSizes",
+      "property": "size"
+    }
+  ],
+  "monitorBrands": [
+    {
+      "id": "1",
+      "title": "LOC"
+    },
+    {
+      "id": "2",
+      "title": "Samsung"
+    },
+    {
+      "id": "3",
+      "title": "LG"
+    },
+    {
+      "id": "4",
+      "title": "Xiaomi"
+    }
+  ],
+  "monitorScreenTypes": [
+    {
+      "id": "1",
+      "name": "widescreen"
+    },
+    {
+      "id": "2",
+      "name": "super-widescreen"
+    },
+    {
+      "id": "3",
+      "name": "curved"
+    }
+  ],
+  "monitorScreenSizes": [
+    {
+      "id": "1",
+      "name": "21"
+    },
+    {
+      "id": "2",
+      "name": "22"
+    },
+    {
+      "id": "3",
+      "name": "23"
+    },
+    {
+      "id": "4",
+      "name": "24"
+    },
+    {
+      "id": "5",
+      "name": "25"
+    },
+    {
+      "id": "6",
+      "name": "26"
+    },
+    {
+      "id": "7",
+      "name": "27"
+    },
+    {
+      "id": "8",
+      "name": "28"
+    },
+    {
+      "id": "9",
+      "name": "29"
+    }
+  ]
+}

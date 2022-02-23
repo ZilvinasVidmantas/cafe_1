@@ -7,6 +7,7 @@ import profileRouter from './routes/profile-router.js';
 import categoriesRouter from './routes/categories-router.js';
 import productsRouter from './routes/products-router.js';
 import filtersRouter from './routes/filters-router.js';
+import collectionsRouter from './routes/collections-router.js';
 import cors from 'cors';
 import './database/index.js';
 
@@ -34,6 +35,7 @@ server.use('/api/profile', profileRouter);
 server.use('/api/categories', categoriesRouter);
 server.use('/api/products', productsRouter);
 server.use('/api/filters', filtersRouter);
+server.use('/api/collections', collectionsRouter);
 
 // Serveriui perduodamos užklausos, kurios bus gautos į šio kompiuterio 5000'inį port'ą
 server.listen(SERVER_PORT, () => {

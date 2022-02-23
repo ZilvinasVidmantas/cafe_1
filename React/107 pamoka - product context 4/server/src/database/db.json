@@ -250,5 +250,19 @@
       "id": "9",
       "title": "29"
     }
+  ],
+  "collections": [
+    {
+      "id": "1",
+      "title": "monitorBrands"
+    },
+    {
+      "id": "2",
+      "title": "monitorScreenTypes"
+    },
+    {
+      "id": "3",
+      "title": "monitorScreenSizes"
+    }
   ]
 }

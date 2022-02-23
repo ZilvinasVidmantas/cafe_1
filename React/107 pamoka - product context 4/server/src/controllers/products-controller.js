@@ -12,18 +12,23 @@ const filterByRange = (products, filter, queryParams) => {
   }
 
   return products;
-}
+};
 
-const filterByOptions = (products, filter, queryParams) => {
+const filterByOptionsOrAutocomplete = (products, filter, queryParams) => {
   const options = [].concat(queryParams[filter.name]).filter(x => x !== undefined);
   if (options.length > 0) {
     products = products.filter(x => options.includes(x[filter.property]));
   }
   return products;
-}
+};
+
+const filterFuctionMap = {
+  range: filterByRange,
+  options: filterByOptionsOrAutocomplete,
+  autocomplete: filterByOptionsOrAutocomplete,
+};
 
 export const getProducts = (req, res) => {
-  console.log('---------------------------------');
   const { products, categories, filters } = database.data;
   const {
     category: categoryId,
@@ -35,17 +40,7 @@ export const getProducts = (req, res) => {
   const categoryFilters = category.filters.map(filterId => filters.find(x => x.id === filterId));
 
   categoryFilters.forEach(filter => {
-    switch (filter.type) {
-      case 'range':
-        selectedProducts = filterByRange(selectedProducts, filter, queryParams);
-        break;
-      case 'options':
-        selectedProducts = filterByOptions(selectedProducts, filter, queryParams);
-        break;
-
-      default:
-        break;
-    }
+    selectedProducts = filterFuctionMap[filter.type](selectedProducts, filter, queryParams);
   });
 
   res.status(200).json(selectedProducts);

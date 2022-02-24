@@ -22,6 +22,11 @@ export default [
         pageName: 'CollectionsPage',
         auth: ADMIN,
       },
+      {
+        path: 'collections/:collectionTitle',
+        pageName: 'CollectionPanelPage',
+        auth: ADMIN,
+      },
     ],
   },
   {

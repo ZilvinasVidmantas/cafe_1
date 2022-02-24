@@ -5,17 +5,19 @@ import {
   Button,
 } from '@mui/material';
 
-const CollectionPanelPageForm = () => {
+const CollectionPanelPageForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
-  const onSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (title !== '') {
+      onSubmit(title);
       setTitle('');
     }
   };
 
   return (
-    <Paper element="form" sx={{ display: 'flex' }} onSubmit={onSubmit}>
+    <Paper component="form" sx={{ display: 'flex' }} onSubmit={handleSubmit}>
       <TextField
         label="title"
         size="small"
@@ -23,7 +25,7 @@ const CollectionPanelPageForm = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <Button variant="contained" color="primary">Add</Button>
+      <Button variant="contained" color="primary" type="submit">Add</Button>
     </Paper>
   );
 };

@@ -13,9 +13,21 @@ export const fetchCollections = createAsyncThunk(
     const { collections: { isFetched, collections } } = getState();
     if (!isFetched) {
       const fetchedCollections = await CollectionService.getCollections();
-      return fetchedCollections;
+      return { collections: fetchedCollections };
     }
-    return collections;
+    return { collections };
+  },
+);
+
+export const createItem = createAsyncThunk(
+  'auth/createItem',
+  async ({ collectionId, title }) => {
+    const newItem = await CollectionService.createCollectionItem({
+      collectionId,
+      title,
+    });
+
+    return { newItem };
   },
 );
 
@@ -25,9 +37,12 @@ const authSlice = createSlice({
   reducers: {
   },
   extraReducers: {
-    [fetchCollections.fulfilled]: (state, action) => {
-      state.collections = action.payload;
+    [fetchCollections.fulfilled]: (state, { payload }) => {
+      state.collections = payload.collections;
       state.isFetched = true;
+    },
+    [createItem.fulfilled]: (state, { payload }) => {
+      state.collections.push(payload.newItem);
     },
   },
 });

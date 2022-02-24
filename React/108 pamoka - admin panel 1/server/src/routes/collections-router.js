@@ -1,10 +1,12 @@
 import { Router } from 'express';
-import { getCollections } from '../controllers/collections-controller.js';
+import { getCollections, createCollectionItem } from '../controllers/collections-controller.js';
 import authMiddleware from '../middlewares/auth-middleware.js';
 import adminMiddleware from '../middlewares/admin-middleware.js';
 
 const router = Router();
 
 router.get('/', authMiddleware, adminMiddleware, getCollections);
+
+router.post('/:collectionId', authMiddleware, adminMiddleware, createCollectionItem)
 
 export default router;

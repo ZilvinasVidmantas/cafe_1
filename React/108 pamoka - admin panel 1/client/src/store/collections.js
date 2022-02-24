@@ -27,7 +27,7 @@ export const createItem = createAsyncThunk(
       title,
     });
 
-    return { newItem };
+    return { newItem, collectionId };
   },
 );
 
@@ -42,7 +42,9 @@ const authSlice = createSlice({
       state.isFetched = true;
     },
     [createItem.fulfilled]: (state, { payload }) => {
-      state.collections.push(payload.newItem);
+      const { newItem, collectionId } = payload;
+      const collection = state.collections.find((x) => x.id === collectionId);
+      collection.data.push(newItem);
     },
   },
 });

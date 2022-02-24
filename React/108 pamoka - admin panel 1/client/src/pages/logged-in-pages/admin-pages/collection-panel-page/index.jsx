@@ -40,10 +40,7 @@ const CollectionPanelPage = () => {
         {title}
 
       </Typography>
-      <Box sx={{
-        width: 400, display: 'flex', flexDirection: 'column', gap: 2,
-      }}
-      >
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         <CollectionPanelPageForm onSubmit={addItem} />
         <CollectionPanelPageGrid data={data} />
       </Box>

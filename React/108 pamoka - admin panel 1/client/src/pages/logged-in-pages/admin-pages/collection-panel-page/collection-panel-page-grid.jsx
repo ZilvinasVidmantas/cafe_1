@@ -15,10 +15,10 @@ const CollectionPanelPageGrid = ({ data }) => (
       container
       sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', height: 40 }}
     >
-      <Grid item xs={2} sx={{ display: 'flex', alignItems: 'center' }}>
+      <Grid item xs={5} sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography sx={{ ml: 1 }}>ID</Typography>
       </Grid>
-      <Grid item xs={7} sx={{ display: 'flex', alignItems: 'center' }}>
+      <Grid item xs={4} sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography>Title</Typography>
       </Grid>
       <Grid
@@ -39,10 +39,10 @@ const CollectionPanelPageGrid = ({ data }) => (
           sx={{ bgcolor: i % 2 === 1 ? 'grey.100' : 'none' }}
 
         >
-          <Grid item xs={2} sx={{ display: 'flex', alignItems: 'center' }}>
+          <Grid item xs={5} sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography sx={{ ml: 1 }}>{id}</Typography>
           </Grid>
-          <Grid item xs={7} sx={{ display: 'flex', alignItems: 'center' }}>
+          <Grid item xs={4} sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography>{title}</Typography>
           </Grid>
           <Grid

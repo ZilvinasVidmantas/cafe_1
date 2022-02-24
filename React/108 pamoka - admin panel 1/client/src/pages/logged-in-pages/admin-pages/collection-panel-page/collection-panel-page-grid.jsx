@@ -10,7 +10,7 @@ import UpgradeIcon from '@mui/icons-material/Upgrade';
 
 const CollectionPanelPageGrid = ({ data }) => (
 
-  <Paper sx={{ width: 400 }}>
+  <Paper sx={{ width: '100%' }}>
     <Grid
       container
       sx={{ bgcolor: 'primary.main', color: 'primary.contrastText', height: 40 }}

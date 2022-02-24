@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import CollectionPanelPageGrid from './collection-panel-page-grid';
+import CollectionPanelPageForm from './collection-panel-page-form';
 
 const CollectionPanelPage = () => {
   const { state: { id, title, data } } = useLocation();
@@ -30,7 +31,13 @@ const CollectionPanelPage = () => {
         {title}
 
       </Typography>
-      <CollectionPanelPageGrid data={data} />
+      <Box sx={{
+        width: 400, display: 'flex', flexDirection: 'column', gap: 2,
+      }}
+      >
+        <CollectionPanelPageForm />
+        <CollectionPanelPageGrid data={data} />
+      </Box>
     </Box>
   );
 };

@@ -33,5 +33,7 @@ const authSlice = createSlice({
 });
 
 export const collectionsSelector = (state) => state.collections.collections;
+export const collectionSelector = (id) => (state) => state.collections
+  .collections.find((x) => x.id === id);
 
 export default authSlice.reducer;

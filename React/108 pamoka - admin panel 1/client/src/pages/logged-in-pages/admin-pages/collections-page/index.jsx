@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Typography, Box, Grid } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import { Typography, Box, Grid } from '@mui/material';
 import { collectionsSelector, fetchCollections } from '../../../../store/collections';
 import CollectionsPageCollection from './collections-page-collection';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Typography,
@@ -9,9 +10,11 @@ import {
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import CollectionPanelPageGrid from './collection-panel-page-grid';
 import CollectionPanelPageForm from './collection-panel-page-form';
+import { collectionSelector } from '../../../../store/collections';
 
 const CollectionPanelPage = () => {
-  const { state: { id, title, data } } = useLocation();
+  const { state: { id } } = useLocation();
+  const { title, data } = useSelector(collectionSelector(id));
   const navigate = useNavigate();
 
   return (

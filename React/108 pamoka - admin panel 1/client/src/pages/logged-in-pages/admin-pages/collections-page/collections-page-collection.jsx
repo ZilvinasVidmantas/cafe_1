@@ -17,16 +17,7 @@ const CollectionsPageCollection = ({ id, title, data }) => {
   const navigate = useNavigate();
 
   const goToCollectionPage = () => {
-    navigate(
-      `/dashboard/collections/${title}`,
-      {
-        state: {
-          id,
-          title,
-          data,
-        },
-      },
-    );
+    navigate(`/dashboard/collections/${title}`, { state: { id } });
   };
 
   return (

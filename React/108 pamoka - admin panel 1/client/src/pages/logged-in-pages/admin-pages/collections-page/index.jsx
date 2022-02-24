@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Typography, Box, Grid } from '@mui/material';
-import CollectionService from './services/collections-service';
+import { useSelector, useDispatch } from 'react-redux';
+import { collectionsSelector, fetchCollections } from '../../../../store/collections';
 import CollectionsPageCollection from './collections-page-collection';
 
 const CollectionsPage = () => {
-  const [collections, setCollections] = useState([]);
+  const dispatch = useDispatch();
+  const collections = useSelector(collectionsSelector);
 
   useEffect(() => {
-    (async () => {
-      const fetchedCollections = await CollectionService.getUsers();
-      setCollections(fetchedCollections);
-    })();
+    dispatch(fetchCollections());
   }, []);
 
   return (

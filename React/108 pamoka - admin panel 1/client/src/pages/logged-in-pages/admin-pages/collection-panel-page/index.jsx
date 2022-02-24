@@ -14,8 +14,6 @@ const CollectionPanelPage = () => {
   const { state: { id, title, data } } = useLocation();
   const navigate = useNavigate();
 
-  console.log(id);
-
   return (
     <Box>
       <Button onClick={() => navigate(-1)}>
@@ -35,7 +33,7 @@ const CollectionPanelPage = () => {
         width: 400, display: 'flex', flexDirection: 'column', gap: 2,
       }}
       >
-        <CollectionPanelPageForm />
+        <CollectionPanelPageForm collectionId={id} />
         <CollectionPanelPageGrid data={data} />
       </Box>
     </Box>

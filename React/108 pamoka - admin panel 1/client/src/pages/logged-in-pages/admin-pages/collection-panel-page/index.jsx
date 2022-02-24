@@ -7,20 +7,13 @@ import {
   Divider,
 } from '@mui/material';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import CollectionPanelPageGrid from './collection-panel-page-grid';
 
 const CollectionPanelPage = () => {
-  const {
-    state: {
-      id,
-      title,
-      data,
-    },
-    ...rest
-  } = useLocation();
-
+  const { state: { id, title, data } } = useLocation();
   const navigate = useNavigate();
+
   console.log(id);
-  console.log(rest);
 
   return (
     <Box>
@@ -37,9 +30,7 @@ const CollectionPanelPage = () => {
         {title}
 
       </Typography>
-      <pre>
-        {JSON.stringify(data, null, 4)}
-      </pre>
+      <CollectionPanelPageGrid data={data} />
     </Box>
   );
 };

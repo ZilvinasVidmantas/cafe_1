@@ -38,7 +38,9 @@ const mapWithFilterCollection = (products, filter, collections) => {
 }
 
 export const getProducts = (req, res) => {
-  const { products, categories, filters } = database.data;
+  const DB = JSON.parse(JSON.stringify(database.data));
+
+  const { products, categories, filters } = DB;
   const {
     category: categoryId,
     ...queryParams
@@ -53,7 +55,7 @@ export const getProducts = (req, res) => {
   categoryFilters.forEach(filter => {
     selectedProducts = filterFuctionMap[filter.type](selectedProducts, filter, queryParams);
     if (filter.collection) {
-      selectedProducts = mapWithFilterCollection(selectedProducts, filter, database.data);
+      selectedProducts = mapWithFilterCollection(selectedProducts, filter, DB);
     }
   });
 

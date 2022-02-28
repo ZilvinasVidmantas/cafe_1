@@ -1,4 +1,4 @@
-import { join, dirname  } from 'path';
+import { join, dirname } from 'path';
 import { Low, JSONFile } from 'lowdb';
 import { fileURLToPath } from 'url';
 

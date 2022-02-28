@@ -5,7 +5,7 @@ import UserViewModel from '../view-models/user-view-model.js';
 
 export const login = (req, res) => {
   const { email, password } = req.body;
-  const { users } = database.data;
+  const { users } = JSON.parse(JSON.stringify(database.data));
 
   const foundUser = users.find(x => x.email === email);
 
@@ -69,7 +69,8 @@ export const register = (req, res) => {
 
 export const checkEmail = (req, res) => {
   const { email } = req.query;
-  const emailIsTaken = Boolean(database.data.users.find(x => x.email === email));
+  const database = JSON.parse(JSON.stringify(database.data));
+  const emailIsTaken = Boolean(database.users.find(x => x.email === email));
   if (emailIsTaken) {
     res.status(200).json({
       available: false,

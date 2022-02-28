@@ -1,8 +1,10 @@
 import database from '../database/index.js';
 
 export const getFilters = (req, res) => {
-  let filters = database.data.filters;
-  const category = database.data.categories.find(x => x.id === req.query.category);
+  const DB = JSON.parse(JSON.stringify(database.data));
+
+  let { filters } = DB;
+  const category = DB.categories.find(x => x.id === req.query.category);
 
   if (!category) {
     res.status(200).json(filters);
@@ -16,10 +18,10 @@ export const getFilters = (req, res) => {
         switch (filter.type) {
           case 'autocomplete':
           case 'options':
-            filter.options = database.data[filter.collection];
+            filter.options = DB[filter.collection];
             break;
           case 'range':
-            let products = database.data.products;
+            let products = DB.products;
             if (category && category.id) products = products.filter(x => x.category === category.id);
             filter.min = 0;
             filter.max = 0;

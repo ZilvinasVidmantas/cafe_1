@@ -4,7 +4,7 @@
       "id": "2",
       "email": "admin@gmail.com",
       "password": "Vilnius123",
-      "name": "Adminas",
+      "name": "Adminasss",
       "surname": "Gediminas",
       "role": "ADMIN",
       "imgSrc": "/images/img-1644867291375.png"
@@ -158,111 +158,27 @@
       "name": "brand",
       "type": "autocomplete",
       "collection": "monitorBrands",
-      "property": "brand",
-      "options": [
-        {
-          "id": "1",
-          "title": "LOC"
-        },
-        {
-          "id": "2",
-          "title": "Samsung"
-        },
-        {
-          "id": "3",
-          "title": "LG"
-        },
-        {
-          "id": "4",
-          "title": "Xiaomi"
-        },
-        {
-          "id": "4a3fa06b-395c-4929-89dc-3e50fff3ab53",
-          "title": "Apple"
-        }
-      ]
+      "property": "brand"
     },
     {
       "id": "3",
       "name": "price",
       "type": "range",
-      "property": "price",
-      "min": 39,
-      "max": 500
+      "property": "price"
     },
     {
       "id": "4",
       "name": "type",
       "type": "options",
       "collection": "monitorScreenTypes",
-      "property": "type",
-      "options": [
-        {
-          "id": "1",
-          "title": "widescreen"
-        },
-        {
-          "id": "2",
-          "title": "super-widescreen"
-        },
-        {
-          "id": "3",
-          "title": "curved"
-        },
-        {
-          "id": "9134cab6-7239-43eb-b3bf-f3325174a070",
-          "title": "square"
-        }
-      ]
+      "property": "type"
     },
     {
       "id": "2",
       "name": "size",
       "type": "options",
       "collection": "monitorScreenSizes",
-      "property": "size",
-      "options": [
-        {
-          "id": "1",
-          "title": "21"
-        },
-        {
-          "id": "2",
-          "title": "22"
-        },
-        {
-          "id": "3",
-          "title": "23"
-        },
-        {
-          "id": "4",
-          "title": "24"
-        },
-        {
-          "id": "5",
-          "title": "25"
-        },
-        {
-          "id": "6",
-          "title": "26"
-        },
-        {
-          "id": "7",
-          "title": "27"
-        },
-        {
-          "id": "8",
-          "title": "28"
-        },
-        {
-          "id": "9",
-          "title": "29"
-        },
-        {
-          "id": "73f755f2-3291-48ef-ab69-712098f9646a",
-          "title": "15"
-        }
-      ]
+      "property": "size"
     }
   ],
   "monitorBrands": [
@@ -333,10 +249,6 @@
     {
       "id": "9",
       "title": "29"
-    },
-    {
-      "id": "73f755f2-3291-48ef-ab69-712098f9646a",
-      "title": "15"
     }
   ],
   "collections": [

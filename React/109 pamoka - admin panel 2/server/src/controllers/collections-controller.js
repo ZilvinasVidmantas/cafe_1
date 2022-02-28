@@ -2,7 +2,8 @@ import database from '../database/index.js';
 import { v4 as createId } from 'uuid';
 
 export const getCollections = (req, res) => {
-  const collections = database.data.collections.map(collection => ({
+  const DB = JSON.parse(JSON.stringify(database.data));
+  const collections = DB.collections.map(collection => ({
     ...collection,
     data: database.data[collection.title],
   }));
@@ -10,8 +11,10 @@ export const getCollections = (req, res) => {
 }
 
 export const getCollection = (req, res) => {
+  const DB = JSON.parse(JSON.stringify(database.data));
+
   const { collectionId } = req.params
-  const collectionRef = database.data.collections.find(x => x.id === collectionId);
+  const collectionRef = DB.collections.find(x => x.id === collectionId);
   const collectionTitle = collectionRef.title;
   const collection = {
     id: collectionId,
@@ -44,6 +47,15 @@ export const deleteCollectionItem = (req, res) => {
 
   const collectionRef = database.data.collections.find(x => x.id === collectionId);
   const collection = database.data[collectionRef.title];
+  // Turime patikrinti, ar nera produktų, kurie naudoją šią savybę
+  const collectionName = collectionRef.title;
+
+  const dependentFilters = database.data.filters.filter(x => x.collection === collectionName);
+  console.table(dependentFilters);
+
+
+  // Turime patikrinti, ar nera produktų, kurie naudoją šią savybę
+
   database.data[collectionRef.title] = collection.filter(x => x.id !== itemId);
   database.write();
 

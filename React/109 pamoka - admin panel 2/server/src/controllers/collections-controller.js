@@ -9,6 +9,19 @@ export const getCollections = (req, res) => {
   res.status(200).json(collections);
 }
 
+export const getCollection = (req, res) => {
+  const { collectionId } = req.params
+  const collectionRef = database.data.collections.find(x => x.id === collectionId);
+  const collectionTitle = collectionRef.title;
+  const collection = {
+    id: collectionId,
+    title: collectionTitle,
+    data: database.data[collectionTitle],
+  };
+
+  res.status(200).json(collection);
+}
+
 export const createCollectionItem = (req, res) => {
   const { collectionId } = req.params;
   const { title } = req.body;

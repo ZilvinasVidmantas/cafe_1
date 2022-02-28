@@ -19,6 +19,17 @@ const getCollections = async () => {
   return data;
 };
 
+const getCollection = async (id) => {
+  const { token } = store.getState().auth;
+  const { data } = await requester.get(`/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return data;
+};
+
 const createCollectionItem = async ({ collectionId, title }) => {
   const { token } = store.getState().auth;
   const { data } = await requester.post(
@@ -36,6 +47,7 @@ const createCollectionItem = async ({ collectionId, title }) => {
 
 const CollectionService = {
   getCollections,
+  getCollection,
   createCollectionItem,
 };
 

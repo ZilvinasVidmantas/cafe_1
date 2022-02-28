@@ -7,6 +7,14 @@ const initialState = {
   collections: [],
 };
 
+export const fetchCollection = createAsyncThunk(
+  'auth/fetchCollection',
+  async (id) => {
+    const fetchedCollection = await CollectionService.getCollection(id);
+    return { collection: fetchedCollection };
+  },
+);
+
 export const fetchCollections = createAsyncThunk(
   'auth/fetchCollections',
   async (_, { getState }) => {
@@ -40,6 +48,9 @@ const authSlice = createSlice({
     [fetchCollections.fulfilled]: (state, { payload }) => {
       state.collections = payload.collections;
       state.isFetched = true;
+    },
+    [fetchCollection.fulfilled]: (state, { payload }) => {
+      state.collections.push(payload.collection);
     },
     [createItem.fulfilled]: (state, { payload }) => {
       const { newItem, collectionId } = payload;

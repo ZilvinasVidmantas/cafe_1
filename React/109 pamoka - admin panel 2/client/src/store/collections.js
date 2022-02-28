@@ -21,7 +21,10 @@ export const fetchCollections = createAsyncThunk(
 
 export const fetchCollection = createAsyncThunk(
   'collections/fetchCollection',
-  async (id) => {
+  async (id, { getState }) => {
+    const { collections: { collections } } = getState();
+    const existingCollection = collections.find((x) => x.id === id);
+    if (existingCollection) throw new Error('collection already fetched');
     const fetchedCollection = await CollectionService.getCollection(id);
     return { collection: fetchedCollection };
   },

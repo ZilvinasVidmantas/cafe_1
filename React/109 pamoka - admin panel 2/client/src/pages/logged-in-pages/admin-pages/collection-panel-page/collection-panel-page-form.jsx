@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Paper,
   TextField,
   Button,
 } from '@mui/material';
 
-const CollectionPanelPageForm = ({ onSubmit }) => {
-  const [title, setTitle] = useState('');
-
+const CollectionPanelPageForm = React.forwardRef(({
+  title,
+  editMode,
+  setTitle,
+  onSubmit,
+}, ref) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title !== '') {
@@ -24,10 +27,14 @@ const CollectionPanelPageForm = ({ onSubmit }) => {
         sx={{ flexGrow: 1 }}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        color={editMode ? 'secondary' : 'primary'}
+        inputRef={ref}
       />
-      <Button variant="contained" color="primary" type="submit">Add</Button>
+      <Button variant="contained" color={editMode ? 'secondary' : 'primary'} type="submit">
+        {editMode ? 'Update' : 'Add'}
+      </Button>
     </Paper>
   );
-};
+});
 
 export default CollectionPanelPageForm;

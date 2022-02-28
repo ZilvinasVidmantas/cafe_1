@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
@@ -19,7 +19,9 @@ import {
 } from '../../../../store/collections';
 
 const CollectionPanelPage = () => {
+  const titleInputRef = useRef(null);
   const [editedItemId, setEditedItemId] = useState(null);
+  const [titleField, setTitleField] = useState('');
   const { state: { id } } = useLocation();
   const { data, title } = useSelector(collectionSelector(id)) ?? {};
   const navigate = useNavigate();
@@ -42,8 +44,12 @@ const CollectionPanelPage = () => {
   const editItem = (itemId) => {
     if (itemId === editedItemId) {
       setEditedItemId(null);
+      setTitleField('');
     } else {
       setEditedItemId(itemId);
+      const editedItem = data.find((x) => x.id === itemId);
+      setTitleField(editedItem.title);
+      titleInputRef.current.focus();
     }
   };
 
@@ -74,7 +80,13 @@ const CollectionPanelPage = () => {
               {title}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <CollectionPanelPageForm onSubmit={addItem} />
+              <CollectionPanelPageForm
+                title={titleField}
+                editMode={Boolean(editedItemId)}
+                setTitle={setTitleField}
+                onSubmit={addItem}
+                ref={titleInputRef}
+              />
               <CollectionPanelPageGrid
                 data={data.map((x) => ({ ...x, edited: x.id === editedItemId }))}
                 deleteItem={deleteItem}

@@ -22,9 +22,8 @@ const CollectionsPage = () => {
               key={props.id}
               item
               xs={12}
-              sm={6}
-              lg={4}
-              xl={3}
+              md={6}
+              xl={4}
             >
               <CollectionsPageCollection {...props} />
             </Grid>

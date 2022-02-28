@@ -62,14 +62,20 @@ const updateCollectionItem = async ({ collectionId, itemId, title }) => {
 
 const deleteCollectionItem = async ({ collectionId, itemId }) => {
   const { token } = store.getState().auth;
-  await requester.delete(
-    `/${collectionId}/${itemId}`, // url
-    { // headeriai - užklausos nustatymai
-      headers: {
-        Authorization: `Bearer ${token}`,
+  try {
+    await requester.delete(
+      `/${collectionId}/${itemId}`, // url
+      { // headeriai - užklausos nustatymai
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    },
-  );
+    );
+
+    return true;
+  } catch (error) {
+    return error.response.data.message;
+  }
 };
 
 const CollectionService = {

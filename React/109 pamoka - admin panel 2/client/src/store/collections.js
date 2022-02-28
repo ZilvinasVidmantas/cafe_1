@@ -58,7 +58,11 @@ export const updateCollectionItem = createAsyncThunk(
 export const deleteCollectionItem = createAsyncThunk(
   'collections/deleteCollectionItem',
   async ({ collectionId, itemId }) => {
-    await CollectionService.deleteCollectionItem({ collectionId, itemId });
+    const result = await CollectionService.deleteCollectionItem({ collectionId, itemId });
+
+    if (typeof result === 'string') {
+      throw Error(result);
+    }
     return { collectionId, itemId };
   },
 );
@@ -67,6 +71,9 @@ const authSlice = createSlice({
   name: 'collections',
   initialState,
   reducers: {
+    deleteError: (state) => {
+      state.error = undefined;
+    },
   },
   extraReducers: {
     [fetchCollections.fulfilled]: (state, { payload }) => {
@@ -96,9 +103,16 @@ const authSlice = createSlice({
       const collection = state.collections.find((x) => x.id === collectionId);
       collection.data = collection.data.filter((x) => x.id !== itemId);
     },
+
+    [deleteCollectionItem.rejected]: (state, { error }) => {
+      state.error = error.message;
+    },
   },
 });
 
+export const { deleteError } = authSlice.actions;
+
+export const collectionErrorSelector = (state) => state.collections.error;
 export const collectionsSelector = (state) => state.collections.collections;
 export const collectionSelector = (id) => (state) => state.collections
   .collections.find((x) => x.id === id);

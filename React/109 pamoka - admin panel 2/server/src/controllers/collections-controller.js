@@ -47,14 +47,34 @@ export const deleteCollectionItem = (req, res) => {
 
   const collectionRef = database.data.collections.find(x => x.id === collectionId);
   const collection = database.data[collectionRef.title];
-  // Turime patikrinti, ar nera produktų, kurie naudoją šią savybę
+
   const collectionName = collectionRef.title;
+  const propsDependentOnCollection = [... new Set(database.data.filters
+    .filter(x => x.collection === collectionName)
+    .map(x => x.property))];
 
-  const dependentFilters = database.data.filters.filter(x => x.collection === collectionName);
-  console.table(dependentFilters);
+  let dependentProductIds = [];
 
+  propsDependentOnCollection.forEach(prop => {
+    const productIdsDependentOnProp = database.data.products
+      .filter(x => x[prop] === itemId)
+      .map(x => x.id);
+    dependentProductIds = [...dependentProductIds, ...productIdsDependentOnProp];
+  })
 
-  // Turime patikrinti, ar nera produktų, kurie naudoją šią savybę
+  dependentProductIds = [... new Set(dependentProductIds)];
+
+  if (dependentProductIds.length > 0) {
+    const productIdsString = dependentProductIds.length > 5
+      ? dependentProductIds.slice(0, 5).map(x => `'${x}'`).join(', ')
+      : dependentProductIds.map(x => `'${x}'`).join(', ');
+
+    res.status(424).json({
+      message: `Collection has product relations. Products id's: ${productIdsString}`
+    });
+
+    return;
+  }
 
   database.data[collectionRef.title] = collection.filter(x => x.id !== itemId);
   database.write();

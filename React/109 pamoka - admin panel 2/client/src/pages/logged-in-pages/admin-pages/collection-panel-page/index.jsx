@@ -7,16 +7,19 @@ import {
   Button,
   Divider,
   CircularProgress,
+  Alert,
 } from '@mui/material';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import CollectionPanelPageGrid from './collection-panel-page-grid';
 import CollectionPanelPageForm from './collection-panel-page-form';
 import {
+  collectionErrorSelector,
   collectionSelector,
   fetchCollection,
   createCollectionItem,
   updateCollectionItem,
   deleteCollectionItem,
+  deleteError,
 } from '../../../../store/collections';
 
 const CollectionPanelPage = () => {
@@ -25,6 +28,7 @@ const CollectionPanelPage = () => {
   const [titleField, setTitleField] = useState('');
   const { state: { id } } = useLocation();
   const { data, title } = useSelector(collectionSelector(id)) ?? {};
+  const error = useSelector(collectionErrorSelector);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -67,6 +71,11 @@ const CollectionPanelPage = () => {
     dispatch(fetchCollection(id));
   }, [id]);
 
+  useEffect(() => () => {
+    // ComponentWillUnmount
+    dispatch(deleteError());
+  }, []);
+
   return (
     <Box>
       <Button onClick={() => navigate(-1)}>
@@ -89,6 +98,16 @@ const CollectionPanelPage = () => {
             >
               {title}
             </Typography>
+
+            {error && (
+              <Alert
+                onClose={() => dispatch(deleteError())}
+                color="error"
+                sx={{ my: 2 }}
+              >
+                {error}
+              </Alert>
+            )}
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <CollectionPanelPageForm
                 title={titleField}

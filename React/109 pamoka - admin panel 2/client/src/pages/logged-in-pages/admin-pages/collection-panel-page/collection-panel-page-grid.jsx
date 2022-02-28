@@ -4,12 +4,13 @@ import {
   Paper,
   Typography,
   IconButton,
+  alpha,
 } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import UpgradeIcon from '@mui/icons-material/Upgrade';
+import CachedIcon from '@mui/icons-material/Cached';
+import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
 
-const CollectionPanelPageGrid = ({ data }) => (
-
+const CollectionPanelPageGrid = ({ data, deleteItem, editItem }) => (
   <Paper sx={{ width: '100%' }}>
     <Grid
       container
@@ -32,12 +33,16 @@ const CollectionPanelPageGrid = ({ data }) => (
       </Grid>
     </Grid>
     {
-      data.map(({ id, title }, i) => (
+      data.map(({ id, title, edited }) => (
         <Grid
           key={id}
           container
-          sx={{ bgcolor: i % 2 === 1 ? 'grey.100' : 'none' }}
-
+          sx={(theme) => ({
+            '&:nth-of-type(2n)': {
+              bgcolor: 'grey.100',
+            },
+            bgcolor: edited && `${alpha(theme.palette.secondary.main, 0.2)} !important`,
+          })}
         >
           <Grid item xs={5} sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography sx={{ ml: 1 }}>{id}</Typography>
@@ -52,10 +57,10 @@ const CollectionPanelPageGrid = ({ data }) => (
               display: 'flex', justifyContent: 'flex-end', alignItems: 'center', pr: 1,
             }}
           >
-            <IconButton color="secondary" onClick={() => console.log('update', id)}>
-              <UpgradeIcon />
+            <IconButton color="secondary" onClick={() => editItem(id)}>
+              {edited ? <DoNotDisturbAltIcon /> : <CachedIcon />}
             </IconButton>
-            <IconButton color="error" onClick={() => console.log('delete', id)}>
+            <IconButton color="error" onClick={() => deleteItem(id)}>
               <DeleteForeverIcon />
             </IconButton>
           </Grid>

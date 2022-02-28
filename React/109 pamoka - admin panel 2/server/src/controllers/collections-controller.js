@@ -38,3 +38,14 @@ export const createCollectionItem = (req, res) => {
 
   res.status(201).json(newItem);
 }
+
+export const deleteCollectionItem = (req, res) => {
+  const { collectionId, itemId } = req.params;
+
+  const collectionRef = database.data.collections.find(x => x.id === collectionId);
+  let collection = database.data[collectionRef.title];
+  database.data[collectionRef.title] = collection.filter(x => x.id !== itemId);
+  database.write();
+
+  res.status(200).send();
+}

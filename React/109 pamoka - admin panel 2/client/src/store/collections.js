@@ -7,16 +7,8 @@ const initialState = {
   collections: [],
 };
 
-export const fetchCollection = createAsyncThunk(
-  'auth/fetchCollection',
-  async (id) => {
-    const fetchedCollection = await CollectionService.getCollection(id);
-    return { collection: fetchedCollection };
-  },
-);
-
 export const fetchCollections = createAsyncThunk(
-  'auth/fetchCollections',
+  'collections/fetchCollections',
   async (_, { getState }) => {
     const { collections: { isFetched, collections } } = getState();
     if (!isFetched) {
@@ -27,8 +19,16 @@ export const fetchCollections = createAsyncThunk(
   },
 );
 
-export const createItem = createAsyncThunk(
-  'auth/createItem',
+export const fetchCollection = createAsyncThunk(
+  'collections/fetchCollection',
+  async (id) => {
+    const fetchedCollection = await CollectionService.getCollection(id);
+    return { collection: fetchedCollection };
+  },
+);
+
+export const createCollectionItem = createAsyncThunk(
+  'collections/createItem',
   async ({ collectionId, title }) => {
     const newItem = await CollectionService.createCollectionItem({
       collectionId,
@@ -39,8 +39,16 @@ export const createItem = createAsyncThunk(
   },
 );
 
+export const deleteCollectionItem = createAsyncThunk(
+  'collections/fetchCollections',
+  async ({ collectionId, itemId }) => {
+    await CollectionService.deleteCollectionItem({ collectionId, itemId });
+    return { collectionId, itemId };
+  },
+);
+
 const authSlice = createSlice({
-  name: 'auth',
+  name: 'collections',
   initialState,
   reducers: {
   },
@@ -49,13 +57,21 @@ const authSlice = createSlice({
       state.collections = payload.collections;
       state.isFetched = true;
     },
+
     [fetchCollection.fulfilled]: (state, { payload }) => {
       state.collections.push(payload.collection);
     },
-    [createItem.fulfilled]: (state, { payload }) => {
+
+    [createCollectionItem.fulfilled]: (state, { payload }) => {
       const { newItem, collectionId } = payload;
       const collection = state.collections.find((x) => x.id === collectionId);
       collection.data.push(newItem);
+    },
+
+    [deleteCollectionItem.fulfilled]: (state, { payload }) => {
+      const { itemId, collectionId } = payload;
+      const collection = state.collections.find((x) => x.id === collectionId);
+      collection.data = collection.data.filter((x) => x.id !== itemId);
     },
   },
 });

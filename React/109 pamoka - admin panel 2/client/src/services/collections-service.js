@@ -45,10 +45,23 @@ const createCollectionItem = async ({ collectionId, title }) => {
   return data;
 };
 
+const deleteCollectionItem = async ({ collectionId, itemId }) => {
+  const { token } = store.getState().auth;
+  await requester.delete(
+    `/${collectionId}/${itemId}`, // url
+    { // headeriai - užklausos nustatymai
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+};
+
 const CollectionService = {
   getCollections,
   getCollection,
   createCollectionItem,
+  deleteCollectionItem,
 };
 
 export default CollectionService;

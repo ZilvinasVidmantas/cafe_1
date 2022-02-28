@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
@@ -11,19 +11,40 @@ import {
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import CollectionPanelPageGrid from './collection-panel-page-grid';
 import CollectionPanelPageForm from './collection-panel-page-form';
-import { collectionSelector, createItem, fetchCollection } from '../../../../store/collections';
+import {
+  collectionSelector,
+  fetchCollection,
+  createCollectionItem,
+  deleteCollectionItem,
+} from '../../../../store/collections';
 
 const CollectionPanelPage = () => {
+  const [editedItemId, setEditedItemId] = useState(null);
   const { state: { id } } = useLocation();
   const { data, title } = useSelector(collectionSelector(id)) ?? {};
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const addItem = (newTitle) => {
-    dispatch(createItem({
+    dispatch(createCollectionItem({
       collectionId: id,
       title: newTitle,
     }));
+  };
+
+  const deleteItem = (itemId) => {
+    dispatch(deleteCollectionItem({
+      collectionId: id,
+      itemId,
+    }));
+  };
+
+  const editItem = (itemId) => {
+    if (itemId === editedItemId) {
+      setEditedItemId(null);
+    } else {
+      setEditedItemId(itemId);
+    }
   };
 
   useEffect(() => {
@@ -54,7 +75,11 @@ const CollectionPanelPage = () => {
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <CollectionPanelPageForm onSubmit={addItem} />
-              <CollectionPanelPageGrid data={data} />
+              <CollectionPanelPageGrid
+                data={data.map((x) => ({ ...x, edited: x.id === editedItemId }))}
+                deleteItem={deleteItem}
+                editItem={editItem}
+              />
             </Box>
           </>
         )}

@@ -28,7 +28,7 @@ export const fetchCollection = createAsyncThunk(
 );
 
 export const createCollectionItem = createAsyncThunk(
-  'collections/createItem',
+  'collections/createCollectionItem',
   async ({ collectionId, title }) => {
     const newItem = await CollectionService.createCollectionItem({
       collectionId,
@@ -39,8 +39,21 @@ export const createCollectionItem = createAsyncThunk(
   },
 );
 
+export const updateCollectionItem = createAsyncThunk(
+  'collections/updateCollectionItem',
+  async ({ collectionId, title, itemId }) => {
+    const updatedItem = await CollectionService.updateCollectionItem({
+      collectionId,
+      title,
+      itemId,
+    });
+
+    return { updatedItem, collectionId };
+  },
+);
+
 export const deleteCollectionItem = createAsyncThunk(
-  'collections/fetchCollections',
+  'collections/deleteCollectionItem',
   async ({ collectionId, itemId }) => {
     await CollectionService.deleteCollectionItem({ collectionId, itemId });
     return { collectionId, itemId };
@@ -66,6 +79,13 @@ const authSlice = createSlice({
       const { newItem, collectionId } = payload;
       const collection = state.collections.find((x) => x.id === collectionId);
       collection.data.push(newItem);
+    },
+
+    [updateCollectionItem.fulfilled]: (state, { payload }) => {
+      const { updatedItem, collectionId } = payload;
+      const collection = state.collections.find((x) => x.id === collectionId);
+      collection.data = collection.data
+        .map((x) => (x.id === updatedItem.id ? updatedItem : x));
     },
 
     [deleteCollectionItem.fulfilled]: (state, { payload }) => {

@@ -313,6 +313,10 @@
     {
       "id": "4",
       "title": "Xiaomi"
+    },
+    {
+      "id": "4a3fa06b-395c-4929-89dc-3e50fff3ab53",
+      "title": "Apple"
     }
   ],
   "monitorScreenTypes": [
@@ -330,7 +334,7 @@
     },
     {
       "id": "9134cab6-7239-43eb-b3bf-f3325174a070",
-      "title": "yyyyyyy"
+      "title": "square"
     }
   ],
   "monitorScreenSizes": [

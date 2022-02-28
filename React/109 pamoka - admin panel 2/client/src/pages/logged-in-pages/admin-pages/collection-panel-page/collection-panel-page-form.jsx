@@ -14,7 +14,7 @@ const CollectionPanelPageForm = React.forwardRef(({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title !== '') {
-      onSubmit(title);
+      onSubmit();
       setTitle('');
     }
   };

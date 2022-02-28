@@ -3,6 +3,7 @@ import {
   getCollections,
   getCollection,
   createCollectionItem,
+  updateCollectionItem,
   deleteCollectionItem,
 } from '../controllers/collections-controller.js';
 import authMiddleware from '../middlewares/auth-middleware.js';
@@ -17,6 +18,8 @@ router.get('/', getCollections);
 router.get('/:collectionId', getCollection);
 
 router.post('/:collectionId', createCollectionItem);
+
+router.patch('/:collectionId/:itemId', updateCollectionItem);
 
 router.delete('/:collectionId/:itemId', deleteCollectionItem);
 

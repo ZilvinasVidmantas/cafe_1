@@ -15,6 +15,7 @@ import {
   collectionSelector,
   fetchCollection,
   createCollectionItem,
+  updateCollectionItem,
   deleteCollectionItem,
 } from '../../../../store/collections';
 
@@ -27,11 +28,20 @@ const CollectionPanelPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const addItem = (newTitle) => {
+  const addItem = () => {
     dispatch(createCollectionItem({
       collectionId: id,
-      title: newTitle,
+      title: titleField,
     }));
+  };
+
+  const updateItem = () => {
+    dispatch(updateCollectionItem({
+      collectionId: id,
+      itemId: editedItemId,
+      title: titleField,
+    }));
+    setEditedItemId(null);
   };
 
   const deleteItem = (itemId) => {
@@ -84,7 +94,7 @@ const CollectionPanelPage = () => {
                 title={titleField}
                 editMode={Boolean(editedItemId)}
                 setTitle={setTitleField}
-                onSubmit={addItem}
+                onSubmit={editedItemId ? updateItem : addItem}
                 ref={titleInputRef}
               />
               <CollectionPanelPageGrid

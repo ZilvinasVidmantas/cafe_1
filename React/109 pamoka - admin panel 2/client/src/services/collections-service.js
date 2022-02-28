@@ -45,6 +45,21 @@ const createCollectionItem = async ({ collectionId, title }) => {
   return data;
 };
 
+const updateCollectionItem = async ({ collectionId, itemId, title }) => {
+  const { token } = store.getState().auth;
+  const { data } = await requester.patch(
+    `/${collectionId}/${itemId}`, // url
+    { title },
+    { // headeriai - užklausos nustatymai
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+
+  return data;
+};
+
 const deleteCollectionItem = async ({ collectionId, itemId }) => {
   const { token } = store.getState().auth;
   await requester.delete(
@@ -61,6 +76,7 @@ const CollectionService = {
   getCollections,
   getCollection,
   createCollectionItem,
+  updateCollectionItem,
   deleteCollectionItem,
 };
 

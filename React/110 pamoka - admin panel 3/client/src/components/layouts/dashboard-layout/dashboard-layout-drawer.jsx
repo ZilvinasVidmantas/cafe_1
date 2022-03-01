@@ -15,6 +15,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import PersonIcon from '@mui/icons-material/Person';
 import StorageIcon from '@mui/icons-material/Storage';
+import CategoryIcon from '@mui/icons-material/Category';
 import { useNavigate } from 'react-router-dom';
 
 import openedMixin from './mixins/opened-mixin';
@@ -85,6 +86,12 @@ const DashboardLayoutDrawer = ({
                   <StorageIcon />
                 </ListItemIcon>
                 <ListItemText primary="Collections" />
+              </ListItem>
+              <ListItem button onClick={() => navigate(routes.CategoryPanelPage)}>
+                <ListItemIcon>
+                  <CategoryIcon />
+                </ListItemIcon>
+                <ListItemText primary="Categories" />
               </ListItem>
             </>
           ) : null}

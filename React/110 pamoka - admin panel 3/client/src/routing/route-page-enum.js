@@ -12,6 +12,7 @@ import ProfilePage from '../pages/logged-in-pages/profile-page';
 // Admin pages
 import CollectionsPage from '../pages/logged-in-pages/admin-pages/collections-page';
 import CollectionPanelPage from '../pages/logged-in-pages/admin-pages/collection-panel-page';
+import CategoryPanelPage from '../pages/logged-in-pages/admin-pages/category-panel-page';
 
 export default {
   // Layouts
@@ -28,4 +29,5 @@ export default {
   // Admin pages
   CollectionsPage,
   CollectionPanelPage,
+  CategoryPanelPage,
 };

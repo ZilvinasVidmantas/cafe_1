@@ -21,6 +21,11 @@ export default [
         pageName: 'CollectionPanelPage',
         auth: ADMIN,
       },
+      {
+        path: 'categories',
+        pageName: 'CategoryPanelPage',
+        auth: ADMIN,
+      },
     ],
   },
   {

@@ -81,7 +81,7 @@ const deleteCollectionItem = async ({ collectionId, itemId }) => {
 
     return true;
   } catch (error) {
-    return new Error(error.response.data.message);
+    throw new Error(error.response.data.message);
   }
 };
 

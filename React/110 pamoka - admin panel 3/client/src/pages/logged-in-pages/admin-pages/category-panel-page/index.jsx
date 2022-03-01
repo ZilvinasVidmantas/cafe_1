@@ -1,30 +1,29 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Typography,
   Box,
+  Button,
+  Divider,
+  // CircularProgress,
+  // Alert,
 } from '@mui/material';
-import {
-  categoriesSelector,
-  fetchCategories,
-} from '../../../../store/categories';
-import CategoryPanelPageTable from './category-panel-page-table';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 const CategoryPanelPage = () => {
-  const dispatch = useDispatch();
-  const categories = useSelector(categoriesSelector);
-
-  useEffect(() => {
-    if (categories.length === 0) {
-      dispatch(fetchCategories());
-    }
-  }, []);
+  const navigate = useNavigate();
+  const { state: { id } } = useLocation();
 
   return (
     <Box>
-      <Typography element="h1" variant="h2" sx={{ mb: 3 }}>Category panel</Typography>
-      <CategoryPanelPageTable data={categories} />
+      <Button onClick={() => navigate(-1)}>
+        <ArrowCircleLeftIcon />
+        <Typography sx={{ ml: 2 }}>Back</Typography>
+      </Button>
+      <Divider sx={{ mt: 2, mb: 1 }} />
+      {id}
     </Box>
   );
 };
+
 export default CategoryPanelPage;

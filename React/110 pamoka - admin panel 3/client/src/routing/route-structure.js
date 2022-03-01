@@ -23,6 +23,11 @@ export default [
       },
       {
         path: 'categories',
+        pageName: 'CategoriesPanelPage',
+        auth: ADMIN,
+      },
+      {
+        path: 'categories/:categoryTitle',
         pageName: 'CategoryPanelPage',
         auth: ADMIN,
       },

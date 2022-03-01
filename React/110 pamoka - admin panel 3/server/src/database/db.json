@@ -152,13 +152,18 @@
       ]
     }
   ],
+  "filterTypes": [
+    "autocomplete",
+    "range",
+    "options"
+  ],
   "filters": [
     {
       "id": "1",
       "name": "brand",
       "type": "autocomplete",
-      "collection": "monitorBrands",
-      "property": "brand"
+      "property": "brand",
+      "collection": "monitorBrands"
     },
     {
       "id": "3",
@@ -170,15 +175,15 @@
       "id": "4",
       "name": "type",
       "type": "options",
-      "collection": "monitorScreenTypes",
-      "property": "type"
+      "property": "type",
+      "collection": "monitorScreenTypes"
     },
     {
       "id": "2",
       "name": "size",
       "type": "options",
-      "collection": "monitorScreenSizes",
-      "property": "size"
+      "property": "size",
+      "collection": "monitorScreenSizes"
     }
   ],
   "monitorBrands": [

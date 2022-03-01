@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import iconMap from './icon-map';
+import iconMap from '../../../../data/icon-map';
 import ProductService from '../../../../services/product-service';
 
 const useCategories = () => {

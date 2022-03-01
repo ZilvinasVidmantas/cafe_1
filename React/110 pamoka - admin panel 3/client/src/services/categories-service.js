@@ -19,8 +19,20 @@ const getCategories = async () => {
   return data;
 };
 
+const getCategory = async (id) => {
+  const { token } = store.getState().auth;
+  const { data } = await requester.get(`/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return data;
+};
+
 const CategoriesService = {
   getCategories,
+  getCategory,
 };
 
 export default CategoriesService;

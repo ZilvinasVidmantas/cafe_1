@@ -15,9 +15,7 @@ const CategoryPanelPage = () => {
   const categories = useSelector(categoriesSelector);
 
   useEffect(() => {
-    if (categories.length === 0) {
-      dispatch(fetchCategories());
-    }
+    dispatch(fetchCategories());
   }, []);
 
   return (

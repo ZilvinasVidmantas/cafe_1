@@ -32,6 +32,12 @@ export const createCollectionItem = (req, res) => {
   const collectionRef = database.data.collections.find(x => x.id === collectionId);
   const collection = database.data[collectionRef.title];
 
+  const itemExists = collection.find(x => x.title === title);
+  if (itemExists) {
+    res.status(422).json({ message: `item with title '${title}' already exists` });
+    return;
+  }
+
   const newItem = {
     id: createId(),
     title,
@@ -88,6 +94,12 @@ export const updateCollectionItem = (req, res) => {
 
   const collectionRef = database.data.collections.find(x => x.id === collectionId);
   const collection = database.data[collectionRef.title];
+
+  const itemExists = collection.find(x => x.title === title);
+  if (itemExists) {
+    res.status(422).json({ message: `item with title '${title}' already exists` });
+    return;
+  }
 
   const itemToUpdate = collection.find(x => x.id === itemId);
   itemToUpdate.title = title;

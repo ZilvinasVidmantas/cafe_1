@@ -32,32 +32,39 @@ const getCollection = async (id) => {
 
 const createCollectionItem = async ({ collectionId, title }) => {
   const { token } = store.getState().auth;
-  const { data } = await requester.post(
-    `/${collectionId}`, // url
-    { title }, // Duomenys
-    { // headeriai - užklausos nustatymai
-      headers: {
-        Authorization: `Bearer ${token}`,
+  try {
+    const { data } = await requester.post(
+      `/${collectionId}`, // url
+      { title }, // Duomenys
+      { // headeriai - užklausos nustatymai
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    },
-  );
-
-  return data;
+    );
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
 };
 
 const updateCollectionItem = async ({ collectionId, itemId, title }) => {
   const { token } = store.getState().auth;
-  const { data } = await requester.patch(
-    `/${collectionId}/${itemId}`, // url
-    { title },
-    { // headeriai - užklausos nustatymai
-      headers: {
-        Authorization: `Bearer ${token}`,
+  try {
+    const { data } = await requester.patch(
+      `/${collectionId}/${itemId}`, // url
+      { title },
+      { // headeriai - užklausos nustatymai
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    },
-  );
+    );
 
-  return data;
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
 };
 
 const deleteCollectionItem = async ({ collectionId, itemId }) => {
@@ -74,7 +81,7 @@ const deleteCollectionItem = async ({ collectionId, itemId }) => {
 
     return true;
   } catch (error) {
-    return error.response.data.message;
+    return new Error(error.response.data.message);
   }
 };
 

@@ -58,11 +58,8 @@ export const updateCollectionItem = createAsyncThunk(
 export const deleteCollectionItem = createAsyncThunk(
   'collections/deleteCollectionItem',
   async ({ collectionId, itemId }) => {
-    const result = await CollectionService.deleteCollectionItem({ collectionId, itemId });
+    await CollectionService.deleteCollectionItem({ collectionId, itemId });
 
-    if (typeof result === 'string') {
-      throw Error(result);
-    }
     return { collectionId, itemId };
   },
 );
@@ -90,6 +87,9 @@ const authSlice = createSlice({
       const collection = state.collections.find((x) => x.id === collectionId);
       collection.data.push(newItem);
     },
+    [createCollectionItem.rejected]: (state, { error }) => {
+      state.error = error.message;
+    },
 
     [updateCollectionItem.fulfilled]: (state, { payload }) => {
       const { updatedItem, collectionId } = payload;
@@ -97,13 +97,15 @@ const authSlice = createSlice({
       collection.data = collection.data
         .map((x) => (x.id === updatedItem.id ? updatedItem : x));
     },
+    [updateCollectionItem.rejected]: (state, { error }) => {
+      state.error = error.message;
+    },
 
     [deleteCollectionItem.fulfilled]: (state, { payload }) => {
       const { itemId, collectionId } = payload;
       const collection = state.collections.find((x) => x.id === collectionId);
       collection.data = collection.data.filter((x) => x.id !== itemId);
     },
-
     [deleteCollectionItem.rejected]: (state, { error }) => {
       state.error = error.message;
     },

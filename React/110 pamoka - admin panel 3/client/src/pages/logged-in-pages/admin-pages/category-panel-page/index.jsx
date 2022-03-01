@@ -6,32 +6,20 @@ import {
   Box,
   Button,
   Divider,
-  CircularProgress,
-  TextField,
-  Paper,
-  // Alert,
 } from '@mui/material';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import {
   categorySelector,
   fetchCategory,
 } from '../../../../store/categories';
-import CategoryPanelPageIconSelect from './category-panel-page-icon-select';
+import CategoryPanelPageMainForm from './category-panel-page-main-form';
+import CategoryPanelPagePropertyForm from './category-panel-page-property-form';
 
 const CategoryPanelPage = () => {
   const { state: { id } } = useLocation();
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
   const category = useSelector(categorySelector(id));
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const changeIcon = (_, { props: { value } }) => {
-    console.log(value);
-  };
 
   useEffect(() => {
     dispatch(fetchCategory(id));
@@ -44,71 +32,12 @@ const CategoryPanelPage = () => {
         <Typography sx={{ ml: 2 }}>Back</Typography>
       </Button>
       <Divider sx={{ mt: 2, mb: 1 }} />
-      {
-        !category
-          ? (
-            <Box>
-              <CircularProgress />
-            </Box>
-          )
-          : (
-            <Box sx={{ display: 'flex', gap: 4 }}>
-              <Paper
-                component="form"
-                sx={{ width: 400, p: 3, mt: 2 }}
-                onSubmit={onSubmit}
-              >
-                <Typography
-                  sx={{ fontSize: 22, mb: 3 }}
-                >
-                  Pagrindinė kategorijos informacija
-                </Typography>
-                <Box sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'stretch',
-                  gap: 3,
-                }}
-                >
-                  <TextField
-                    value={category.title}
-                    label="Pavadinimas"
-                    inputProps={{
-                      sx: { width: 350 },
-                    }}
-                  />
-                  <CategoryPanelPageIconSelect
-                    value={category.icon}
-                    onChange={changeIcon}
-                  />
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    sx={{ width: 250, alignSelf: 'center' }}
-                  >
-                    Išsaugoti pakitimus
-                  </Button>
-                </Box>
-              </Paper>
-              <Paper
-                sx={{ flexGrow: 1, p: 3, mt: 2 }}
-              >
-                <Typography
-                  sx={{ fontSize: 22, mb: 3 }}
-                >
-                  Savybės
-                </Typography>
-                <Box>
-                  Kategorijai kuriamos savybės, kurios gali būti susietos su kolekcijomis.
-                  Susijus savybes su kolekcijomis, automatiškai pritaikomi filtrai.
-                </Box>
-              </Paper>
-            </Box>
-          )
-      }
-
+      {category && (
+        <Box sx={{ display: 'flex', gap: 4 }}>
+          <CategoryPanelPageMainForm category={category} />
+          <CategoryPanelPagePropertyForm />
+        </Box>
+      )}
     </Box>
   );
 };

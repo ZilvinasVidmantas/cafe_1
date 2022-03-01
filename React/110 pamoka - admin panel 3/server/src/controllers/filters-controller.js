@@ -18,7 +18,7 @@ export const getFilters = (req, res) => {
         switch (filter.type) {
           case 'autocomplete':
           case 'options':
-            filter.options = DB[filter.collection];
+            filter.options = DB[filter.collection].sort((a, b) => a.title.localeCompare(b.title));
             break;
           case 'range':
             let products = DB.products;

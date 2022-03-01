@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
 import StorageIcon from '@mui/icons-material/Storage';
 import { useNavigate } from 'react-router-dom';
@@ -81,12 +80,6 @@ const DashboardLayoutDrawer = ({
           ? (
             <>
               <Divider />
-              <ListItem button onClick={() => navigate(routes.UsersPanelPage)}>
-                <ListItemIcon>
-                  <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Users panel" />
-              </ListItem>
               <ListItem button onClick={() => navigate(routes.CollectionsPage)}>
                 <ListItemIcon>
                   <StorageIcon />

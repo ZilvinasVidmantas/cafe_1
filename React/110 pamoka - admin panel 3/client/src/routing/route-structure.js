@@ -6,16 +6,10 @@ export default [
     pageName: 'DashboardLayout',
     auth: LOGGED_IN,
     children: [
-      // TODO: sukurti index puslapį
       {
         path: null,
         pageName: 'ProfilePage',
         auth: LOGGED_IN,
-      },
-      {
-        path: 'users-panel',
-        pageName: 'UsersPanelPage',
-        auth: ADMIN,
       },
       {
         path: 'collections',

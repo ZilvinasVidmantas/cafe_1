@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store/index';
 
 const requester = axios.create({
-  baseURL: 'http://localhost:5000/api/collections/',
+  baseURL: 'http://localhost:5000/api/collections',
   headers: {
     'Content-Type': 'application/json',
   },

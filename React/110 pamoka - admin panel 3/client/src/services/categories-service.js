@@ -1,0 +1,26 @@
+import axios from 'axios';
+import store from '../store/index';
+
+const requester = axios.create({
+  baseURL: 'http://localhost:5000/api/categories',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+const getCategories = async () => {
+  const { token } = store.getState().auth;
+  const { data } = await requester.get('/', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return data;
+};
+
+const CategoriesService = {
+  getCategories,
+};
+
+export default CategoriesService;

@@ -64,7 +64,7 @@ export const deleteCollectionItem = createAsyncThunk(
   },
 );
 
-const authSlice = createSlice({
+const collectionsSlice = createSlice({
   name: 'collections',
   initialState,
   reducers: {
@@ -112,11 +112,11 @@ const authSlice = createSlice({
   },
 });
 
-export const { deleteError } = authSlice.actions;
+export const { deleteError } = collectionsSlice.actions;
 
 export const collectionErrorSelector = (state) => state.collections.error;
 export const collectionsSelector = (state) => state.collections.collections;
 export const collectionSelector = (id) => (state) => state.collections
   .collections.find((x) => x.id === id);
 
-export default authSlice.reducer;
+export default collectionsSlice.reducer;

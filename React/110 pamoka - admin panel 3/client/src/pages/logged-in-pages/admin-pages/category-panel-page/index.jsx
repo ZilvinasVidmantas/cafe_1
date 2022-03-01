@@ -8,6 +8,7 @@ import {
   categoriesSelector,
   fetchCategories,
 } from '../../../../store/categories';
+import CategoryPanelPageTable from './category-panel-page-table';
 
 const CategoryPanelPage = () => {
   const dispatch = useDispatch();
@@ -21,12 +22,8 @@ const CategoryPanelPage = () => {
 
   return (
     <Box>
-      <Typography element="h1" variant="h2">Category panel</Typography>
-      <pre>
-        {
-          JSON.stringify(categories, null, 2)
-        }
-      </pre>
+      <Typography element="h1" variant="h2" sx={{ mb: 3 }}>Category panel</Typography>
+      <CategoryPanelPageTable data={categories} />
     </Box>
   );
 };

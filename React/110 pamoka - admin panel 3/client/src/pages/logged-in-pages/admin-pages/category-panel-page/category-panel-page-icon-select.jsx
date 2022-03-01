@@ -14,7 +14,7 @@ const selectOptions = Object.entries(iconMap).reduce((iconOptions, [title, Icon]
 
 const CategoryPanelPageIconSelect = ({ value, onChange }) => (
   <Box sx={{
-    display: 'flex', alignItems: 'center', gap: 2, my: 2,
+    display: 'flex', alignItems: 'center', gap: 2,
   }}
   >
     <TextField
@@ -22,8 +22,9 @@ const CategoryPanelPageIconSelect = ({ value, onChange }) => (
       label="Kategorijos ikona"
       value={value}
       onChange={onChange}
+      fullWidth
       inputProps={{
-        sx: { width: 200, display: 'flex' },
+        sx: { width: '100%', display: 'flex' },
       }}
     >
       {selectOptions.map(({ title, Icon }) => (

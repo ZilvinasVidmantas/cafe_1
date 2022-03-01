@@ -55,19 +55,19 @@ const CategoryPanelPage = () => {
             <Box sx={{ display: 'flex', gap: 4 }}>
               <Paper
                 component="form"
-                sx={{ width: 350, p: 3, mt: 2 }}
+                sx={{ width: 400, p: 3, mt: 2 }}
                 onSubmit={onSubmit}
               >
                 <Typography
                   sx={{ fontSize: 22, mb: 3 }}
                 >
-                  Pagrindinė informacija
+                  Pagrindinė kategorijos informacija
                 </Typography>
                 <Box sx={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'stretch',
-                  gap: 2,
+                  gap: 3,
                 }}
                 >
                   <TextField
@@ -86,6 +86,7 @@ const CategoryPanelPage = () => {
                     variant="contained"
                     color="primary"
                     size="large"
+                    sx={{ width: 250, alignSelf: 'center' }}
                   >
                     Išsaugoti pakitimus
                   </Button>

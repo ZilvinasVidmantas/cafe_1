@@ -19,7 +19,7 @@ const CategoryPanelPageIconSelect = ({ value, onChange }) => (
   >
     <TextField
       select
-      label="Kategorijos ikona"
+      label="Ikona"
       value={value}
       onChange={onChange}
       fullWidth

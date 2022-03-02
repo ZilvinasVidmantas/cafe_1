@@ -17,8 +17,8 @@ const createEmptyProperty = () => {
 
   return {
     id: String(idCounter),
-    propertyName: '',
-    propertyType: 'simple',
+    name: '',
+    type: 'simple',
     collectionRef: 'nauja kolekcija',
     collectionName: '',
   };
@@ -57,24 +57,13 @@ const CategoryPanelPagePropertyForm = () => {
     }
   };
 
-  const changePropertyName = (id, value) => {
-    console.log('changePropertyName');
-    console.log(id, value);
-  };
-
-  const changePropertyType = (id, value) => {
-    console.log('changePropertyType');
-    console.log(id, value);
-  };
-
-  const changeCollectionRef = (id, value) => {
-    console.log('changeCollectionRef');
-    console.log(id, value);
-  };
-
-  const changeCollectionName = (id, value) => {
-    console.log('changeCollectionName');
-    console.log(id, value);
+  const changePropertyKey = (id, key, value) => {
+    setFieldValue(
+      'propertiesData',
+      propertiesData.map((x) => (x.id === id
+        ? { ...x, [key]: value }
+        : x)),
+    );
   };
 
   return (
@@ -88,10 +77,7 @@ const CategoryPanelPagePropertyForm = () => {
             <CategoryPanelPagePropertyFormConfiguration
               key={propertyData.id}
               {...propertyData}
-              onPropertyNameChange={changePropertyName}
-              onPropertyTypeChange={changePropertyType}
-              onCollectionRefChange={changeCollectionRef}
-              onCollectionNameChange={changeCollectionName}
+              onKeyChange={changePropertyKey}
               onDelete={deleteProperty}
             />
           ))

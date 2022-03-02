@@ -10,28 +10,25 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const propertyTypeOptions = ['simple', 'range', 'options', 'autocomplete'];
 const collectionOptions = ['nauja kolekcija', 'monitorBrands', 'monitorScreenTypes', 'monitorScreenSizes'];
 
-const propertyTypeRequiresCollection = (propertyType) => ['options', 'autocomplete'].includes(propertyType);
+const typeRequiresCollection = (type) => ['options', 'autocomplete'].includes(type);
 
 const isNewCollection = (collection) => collection === collectionOptions[0];
 
 const CategoryPanelPagePropertyFormConfiguration = ({
   id,
-  propertyName,
-  propertyType,
+  name,
+  type,
   collectionRef,
   collectionName,
-  onPropertyNameChange,
-  onPropertyTypeChange,
-  onCollectionRefChange,
-  onCollectionNameChange,
+  onKeyChange,
   onDelete,
 
 }) => (
   <Box sx={{ display: 'flex', gap: 2 }}>
     <TextField
       label="Savybės pavadinimas"
-      value={propertyName}
-      onChange={(e) => onPropertyNameChange(id, e.target.value)}
+      value={name}
+      onChange={(e) => onKeyChange(id, 'name', e.target.value)}
     />
     <TextField
       label="Savybės filtro tipas"
@@ -39,15 +36,15 @@ const CategoryPanelPagePropertyFormConfiguration = ({
       inputProps={{
         sx: { width: 150 },
       }}
-      value={propertyType}
-      onChange={(_, { props: { value } }) => onPropertyTypeChange(id, value)}
+      value={type}
+      onChange={(_, { props: { value } }) => onKeyChange(id, 'type', value)}
     >
       {propertyTypeOptions.map((x) => (
         <MenuItem key={x} value={x}>{x}</MenuItem>
       ))}
     </TextField>
     {
-      propertyTypeRequiresCollection(propertyType) && (
+      typeRequiresCollection(type) && (
         <>
           <TextField
             label="Kolekcija"
@@ -56,7 +53,7 @@ const CategoryPanelPagePropertyFormConfiguration = ({
               sx: { width: 150 },
             }}
             value={collectionRef}
-            onChange={(_, { props: { value } }) => onCollectionRefChange(id, value)}
+            onChange={(_, { props: { value } }) => onKeyChange(id, 'collectionRef', value)}
           >
             {collectionOptions.map((x) => (
               <MenuItem key={x} value={x}>{x}</MenuItem>
@@ -67,7 +64,7 @@ const CategoryPanelPagePropertyFormConfiguration = ({
               <TextField
                 label="Kolekcijos pavadinimas"
                 value={collectionName}
-                onChange={(e) => onCollectionNameChange(id, e.target.value)}
+                onChange={(e) => onKeyChange(id, 'collectionName', e.target.value)}
               />
             )
           }

@@ -18,9 +18,9 @@ const createEmptyProperty = () => {
   return {
     id: String(idCounter),
     propertyName: '',
-    propertyType: '',
-    collection: null,
-    collectionName: null,
+    propertyType: 'simple',
+    collectionRef: 'nauja kolekcija',
+    collectionName: '',
   };
 };
 
@@ -38,8 +38,23 @@ const CategoryPanelPagePropertyForm = () => {
   });
 
   const addProperty = () => {
-    console.log(propertiesData);
-    setFieldValue('propertiesData', [...propertiesData, createEmptyProperty()]);
+    setFieldValue(
+      'propertiesData',
+      [
+        ...propertiesData,
+        createEmptyProperty(),
+      ],
+    );
+  };
+
+  const deleteProperty = (id) => {
+    const yes = window.confirm('Do you realy want to delete property?');
+    if (yes) {
+      setFieldValue(
+        'propertiesData',
+        propertiesData.filter((x) => x.id !== id),
+      );
+    }
   };
 
   return (
@@ -53,6 +68,7 @@ const CategoryPanelPagePropertyForm = () => {
             <CategoryPanelPagePropertyFormConfiguration
               key={propertyData.id}
               {...propertyData}
+              onDelete={deleteProperty}
             />
           ))
         }

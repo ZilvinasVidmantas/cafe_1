@@ -14,12 +14,19 @@ const propertyTypeRequiresCollection = (propertyType) => ['options', 'autocomple
 
 const isNewCollection = (collection) => collection === collectionOptions[0];
 
-const CategoryPanelPagePropertyFormConfiguration = () => {
-  const [propertyType, setPropertyType] = useState(propertyTypeOptions[0]);
+const CategoryPanelPagePropertyFormConfiguration = ({
+  id,
+  propertyName,
+  propertyType,
+  collectionRef,
+  collectionName,
+  onDelete,
+}) => {
+  const [selectedPropertyType, setSelectedPropertyType] = useState(propertyType);
   const [selectedCollection, setSelectedCollection] = useState(null);
 
   const handlePropertyTypeChange = (_, { props: { value } }) => {
-    setPropertyType(value);
+    setSelectedPropertyType(value);
     if (propertyTypeRequiresCollection(value)) {
       setSelectedCollection(collectionOptions[0]);
     }
@@ -33,6 +40,7 @@ const CategoryPanelPagePropertyFormConfiguration = () => {
     <Box sx={{ display: 'flex', gap: 2 }}>
       <TextField
         label="Savybės pavadinimas"
+        value={propertyName}
       />
       <TextField
         label="Savybės filtro tipas"
@@ -40,7 +48,7 @@ const CategoryPanelPagePropertyFormConfiguration = () => {
         inputProps={{
           sx: { width: 150 },
         }}
-        value={propertyType}
+        value={selectedPropertyType}
         onChange={handlePropertyTypeChange}
       >
         {propertyTypeOptions.map((x) => (
@@ -48,7 +56,7 @@ const CategoryPanelPagePropertyFormConfiguration = () => {
         ))}
       </TextField>
       {
-        propertyTypeRequiresCollection(propertyType) && (
+        propertyTypeRequiresCollection(selectedPropertyType) && (
           <>
             <TextField
               label="Kolekcija"
@@ -56,7 +64,7 @@ const CategoryPanelPagePropertyFormConfiguration = () => {
               inputProps={{
                 sx: { width: 150 },
               }}
-              value={selectedCollection}
+              value={collectionRef}
               onChange={handleCollectionChange}
             >
               {collectionOptions.map((x) => (
@@ -67,13 +75,19 @@ const CategoryPanelPagePropertyFormConfiguration = () => {
               isNewCollection(selectedCollection) && (
                 <TextField
                   label="Kolekcijos pavadinimas"
+                  value={collectionName}
                 />
               )
             }
           </>
         )
       }
-      <IconButton color="error" sx={{ alignSelf: 'center' }} size="small">
+      <IconButton
+        color="error"
+        sx={{ alignSelf: 'center' }}
+        size="small"
+        onClick={() => onDelete(id)}
+      >
         <DeleteIcon sx={{ fontSize: 25 }} />
       </IconButton>
     </Box>

@@ -162,27 +162,23 @@
       "id": "1",
       "name": "brand",
       "type": "autocomplete",
-      "property": "brand",
       "collection": "monitorBrands"
     },
     {
       "id": "3",
       "name": "price",
-      "type": "range",
-      "property": "price"
+      "type": "range"
     },
     {
       "id": "4",
       "name": "type",
       "type": "options",
-      "property": "type",
       "collection": "monitorScreenTypes"
     },
     {
       "id": "2",
       "name": "size",
       "type": "options",
-      "property": "size",
       "collection": "monitorScreenSizes"
     }
   ],

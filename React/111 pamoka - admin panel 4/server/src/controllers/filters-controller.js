@@ -26,9 +26,9 @@ export const getFilters = (req, res) => {
             filter.min = 0;
             filter.max = 0;
             if (products.length > 0) {
-              products.sort((a, b) => a[filter.property] - b[filter.property]);
-              filter.min = Math.floor(products[0][filter.property]);
-              filter.max = Math.ceil(products[products.length - 1][filter.property]);
+              products.sort((a, b) => a[filter.name] - b[filter.name]);
+              filter.min = Math.floor(products[0][filter.name]);
+              filter.max = Math.ceil(products[products.length - 1][filter.name]);
             }
             break;
         }

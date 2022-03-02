@@ -5,10 +5,10 @@ const filterByRange = (products, filter, queryParams) => {
   const max = Number(queryParams[`${filter.name}_max`]);
 
   if (min) {
-    products = products.filter(x => x[filter.property] >= min);
+    products = products.filter(x => x[filter.name] >= min);
   }
   if (max) {
-    products = products.filter(x => x[filter.property] <= max);
+    products = products.filter(x => x[filter.name] <= max);
   }
 
   return products;
@@ -17,7 +17,7 @@ const filterByRange = (products, filter, queryParams) => {
 const filterByOptionsOrAutocomplete = (products, filter, queryParams) => {
   const options = [].concat(queryParams[filter.name]).filter(x => x !== undefined);
   if (options.length > 0) {
-    products = products.filter(x => options.includes(x[filter.property]));
+    products = products.filter(x => options.includes(x[filter.name]));
   }
   return products;
 };
@@ -32,7 +32,7 @@ const mapWithFilterCollection = (products, filter, collections) => {
   const collection = collections[filter.collection];
   products = products.map(product => ({
     ...product,
-    [filter.property]: collection.find(x => x.id === product[filter.property]).title,
+    [filter.name]: collection.find(x => x.id === product[filter.name]).title,
   }));
   return products
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   TextField,
@@ -20,78 +20,69 @@ const CategoryPanelPagePropertyFormConfiguration = ({
   propertyType,
   collectionRef,
   collectionName,
+  onPropertyNameChange,
+  onPropertyTypeChange,
+  onCollectionRefChange,
+  onCollectionNameChange,
   onDelete,
-}) => {
-  const [selectedPropertyType, setSelectedPropertyType] = useState(propertyType);
-  const [selectedCollection, setSelectedCollection] = useState(null);
 
-  const handlePropertyTypeChange = (_, { props: { value } }) => {
-    setSelectedPropertyType(value);
-    if (propertyTypeRequiresCollection(value)) {
-      setSelectedCollection(collectionOptions[0]);
+}) => (
+  <Box sx={{ display: 'flex', gap: 2 }}>
+    <TextField
+      label="Savybės pavadinimas"
+      value={propertyName}
+      onChange={(e) => onPropertyNameChange(id, e.target.value)}
+    />
+    <TextField
+      label="Savybės filtro tipas"
+      select
+      inputProps={{
+        sx: { width: 150 },
+      }}
+      value={propertyType}
+      onChange={(_, { props: { value } }) => onPropertyTypeChange(id, value)}
+    >
+      {propertyTypeOptions.map((x) => (
+        <MenuItem key={x} value={x}>{x}</MenuItem>
+      ))}
+    </TextField>
+    {
+      propertyTypeRequiresCollection(propertyType) && (
+        <>
+          <TextField
+            label="Kolekcija"
+            select
+            inputProps={{
+              sx: { width: 150 },
+            }}
+            value={collectionRef}
+            onChange={(_, { props: { value } }) => onCollectionRefChange(id, value)}
+          >
+            {collectionOptions.map((x) => (
+              <MenuItem key={x} value={x}>{x}</MenuItem>
+            ))}
+          </TextField>
+          {
+            isNewCollection(collectionRef) && (
+              <TextField
+                label="Kolekcijos pavadinimas"
+                value={collectionName}
+                onChange={(e) => onCollectionNameChange(id, e.target.value)}
+              />
+            )
+          }
+        </>
+      )
     }
-  };
-
-  const handleCollectionChange = (_, { props: { value } }) => {
-    setSelectedCollection(value);
-  };
-
-  return (
-    <Box sx={{ display: 'flex', gap: 2 }}>
-      <TextField
-        label="Savybės pavadinimas"
-        value={propertyName}
-      />
-      <TextField
-        label="Savybės filtro tipas"
-        select
-        inputProps={{
-          sx: { width: 150 },
-        }}
-        value={selectedPropertyType}
-        onChange={handlePropertyTypeChange}
-      >
-        {propertyTypeOptions.map((x) => (
-          <MenuItem key={x} value={x}>{x}</MenuItem>
-        ))}
-      </TextField>
-      {
-        propertyTypeRequiresCollection(selectedPropertyType) && (
-          <>
-            <TextField
-              label="Kolekcija"
-              select
-              inputProps={{
-                sx: { width: 150 },
-              }}
-              value={collectionRef}
-              onChange={handleCollectionChange}
-            >
-              {collectionOptions.map((x) => (
-                <MenuItem key={x} value={x}>{x}</MenuItem>
-              ))}
-            </TextField>
-            {
-              isNewCollection(selectedCollection) && (
-                <TextField
-                  label="Kolekcijos pavadinimas"
-                  value={collectionName}
-                />
-              )
-            }
-          </>
-        )
-      }
-      <IconButton
-        color="error"
-        sx={{ alignSelf: 'center' }}
-        size="small"
-        onClick={() => onDelete(id)}
-      >
-        <DeleteIcon sx={{ fontSize: 25 }} />
-      </IconButton>
-    </Box>
-  );
-};
+    <IconButton
+      color="error"
+      sx={{ alignSelf: 'center' }}
+      size="small"
+      onClick={() => onDelete(id)}
+    >
+      <DeleteIcon sx={{ fontSize: 25 }} />
+    </IconButton>
+  </Box>
+);
 
 export default CategoryPanelPagePropertyFormConfiguration;

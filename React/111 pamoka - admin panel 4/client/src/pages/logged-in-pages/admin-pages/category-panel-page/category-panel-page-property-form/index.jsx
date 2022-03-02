@@ -57,6 +57,26 @@ const CategoryPanelPagePropertyForm = () => {
     }
   };
 
+  const changePropertyName = (id, value) => {
+    console.log('changePropertyName');
+    console.log(id, value);
+  };
+
+  const changePropertyType = (id, value) => {
+    console.log('changePropertyType');
+    console.log(id, value);
+  };
+
+  const changeCollectionRef = (id, value) => {
+    console.log('changeCollectionRef');
+    console.log(id, value);
+  };
+
+  const changeCollectionName = (id, value) => {
+    console.log('changeCollectionName');
+    console.log(id, value);
+  };
+
   return (
     <Paper sx={{ p: 3, mt: 2 }}>
       <Typography sx={{ fontSize: 22, mb: 3 }}>
@@ -68,6 +88,10 @@ const CategoryPanelPagePropertyForm = () => {
             <CategoryPanelPagePropertyFormConfiguration
               key={propertyData.id}
               {...propertyData}
+              onPropertyNameChange={changePropertyName}
+              onPropertyTypeChange={changePropertyType}
+              onCollectionRefChange={changeCollectionRef}
+              onCollectionNameChange={changeCollectionName}
               onDelete={deleteProperty}
             />
           ))

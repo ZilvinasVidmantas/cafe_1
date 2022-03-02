@@ -96,91 +96,99 @@
       "id": "1",
       "title": "Monitoriai",
       "icon": "MonitorIcon",
-      "filters": [
-        "1",
-        "2",
-        "3",
-        "4"
+      "properties": [
+        {
+          "name": "brand",
+          "type": "autocomplete",
+          "collection": "monitorBrands"
+        },
+        {
+          "name": "price",
+          "type": "range"
+        },
+        {
+          "name": "type",
+          "type": "options",
+          "collection": "monitorScreenTypes"
+        },
+        {
+          "name": "size",
+          "type": "options",
+          "collection": "monitorScreenSizes"
+        }
       ]
     },
     {
       "id": "2",
       "title": "Vaizdo Plokštės",
       "icon": "DeveloperBoardIcon",
-      "filters": [
-        "3"
+      "properties": [
+        {
+          "name": "price",
+          "type": "range"
+        }
       ]
     },
     {
       "id": "3",
       "title": "Motininės plokštės",
       "icon": "DashboardIcon",
-      "filters": [
-        "3"
+      "properties": [
+        {
+          "name": "price",
+          "type": "range"
+        }
       ]
     },
     {
       "id": "4",
       "title": "Laptopai",
       "icon": "LaptopMacIcon",
-      "filters": [
-        "3"
+      "properties": [
+        {
+          "name": "price",
+          "type": "range"
+        }
       ]
     },
     {
       "id": "5",
       "title": "Išoriniai įrenginiai",
       "icon": "AccountTreeIcon",
-      "filters": [
-        "3"
+      "properties": [
+        {
+          "name": "price",
+          "type": "range"
+        }
       ]
     },
     {
       "id": "6",
       "title": "Operatyvi atmintis (RAM)",
       "icon": "MemoryIcon",
-      "filters": [
-        "3"
+      "properties": [
+        {
+          "name": "price",
+          "type": "range"
+        }
       ]
     },
     {
       "id": "7",
       "title": "Diskai",
       "icon": "StorageIcon",
-      "filters": [
-        "3"
+      "properties": [
+        {
+          "name": "price",
+          "type": "range"
+        }
       ]
     }
   ],
-  "filterTypes": [
+  "propertyTypes": [
     "autocomplete",
     "range",
     "options"
-  ],
-  "filters": [
-    {
-      "id": "1",
-      "name": "brand",
-      "type": "autocomplete",
-      "collection": "monitorBrands"
-    },
-    {
-      "id": "3",
-      "name": "price",
-      "type": "range"
-    },
-    {
-      "id": "4",
-      "name": "type",
-      "type": "options",
-      "collection": "monitorScreenTypes"
-    },
-    {
-      "id": "2",
-      "name": "size",
-      "type": "options",
-      "collection": "monitorScreenSizes"
-    }
   ],
   "monitorBrands": [
     {

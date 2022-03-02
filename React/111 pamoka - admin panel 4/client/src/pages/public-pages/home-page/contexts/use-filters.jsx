@@ -88,9 +88,9 @@ const useFilters = (selectedCategory) => {
     options: changeOptionsFilter,
   };
 
-  const changeFilter = (id, type, props) => {
+  const changeFilter = (name, type, props) => {
     const updatedFilters = filters.map((filter) => (
-      filter.id === id
+      filter.name === name
         ? changeFilterMap[type](filter, props)
         : filter));
     setFilters(updatedFilters);

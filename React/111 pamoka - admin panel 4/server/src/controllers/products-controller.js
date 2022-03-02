@@ -49,13 +49,13 @@ export const getProducts = (req, res) => {
   let selectedProducts = products
     .filter(x => x.category === categoryId)
     .map(({ category, ...product }) => product);
-  const category = categories.find(x => x.id === categoryId);
-  const categoryFilters = category.filters.map(filterId => filters.find(x => x.id === filterId));
 
-  categoryFilters.forEach(filter => {
-    selectedProducts = filterFuctionMap[filter.type](selectedProducts, filter, queryParams);
-    if (filter.collection) {
-      selectedProducts = mapWithFilterCollection(selectedProducts, filter, DB);
+  const category = categories.find(x => x.id === categoryId);
+
+  category.properties.forEach(property => {
+    selectedProducts = filterFuctionMap[property.type](selectedProducts, property, queryParams);
+    if (property.collection) {
+      selectedProducts = mapWithFilterCollection(selectedProducts, property, DB);
     }
   });
 

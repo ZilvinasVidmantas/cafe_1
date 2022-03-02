@@ -18,7 +18,7 @@ const createEmptyProperty = () => {
   return {
     id: String(idCounter),
     name: '',
-    type: 'simple',
+    type: 'range',
     collectionRef: 'nauja kolekcija',
     collectionName: '',
   };

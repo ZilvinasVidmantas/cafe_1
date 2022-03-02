@@ -22,12 +22,15 @@ const HomePageFilters = () => {
     <Paper sx={{ flexBasis: 240, flexShrink: 0, p: 2 }} elevation={3}>
       <Typography variant="h5">Filters</Typography>
       {
-        filters.map(({ type, id, ...props }) => {
+        filters.map(({ type, ...props }) => {
           const Filter = FilterComponentMap[type];
           return (
-            <React.Fragment key={id}>
+            <React.Fragment key={props.name}>
               <Divider sx={{ my: 2 }} />
-              <Filter {...props} changeFilter={(newProps) => changeFilter(id, type, newProps)} />
+              <Filter
+                {...props}
+                changeFilter={(newProps) => changeFilter(props.name, type, newProps)}
+              />
             </React.Fragment>
           );
         })

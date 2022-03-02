@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const propertyTypeOptions = ['simple', 'range', 'options', 'autocomplete'];
+const propertyTypeOptions = ['range', 'options', 'autocomplete'];
 const collectionOptions = ['nauja kolekcija', 'monitorBrands', 'monitorScreenTypes', 'monitorScreenSizes'];
 
 const typeRequiresCollection = (type) => ['options', 'autocomplete'].includes(type);

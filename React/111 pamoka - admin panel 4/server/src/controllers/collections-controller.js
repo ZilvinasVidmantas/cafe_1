@@ -55,7 +55,8 @@ export const deleteCollectionItem = (req, res) => {
   const collection = database.data[collectionRef.title];
 
   const collectionName = collectionRef.title;
-  const propsDependentOnCollection = [... new Set(database.data.filters
+  const propsDependentOnCollection = [... new Set(database.data.categories
+    .map(x => x.properties)
     .filter(x => x.collection === collectionName)
     .map(x => x.name))];
 

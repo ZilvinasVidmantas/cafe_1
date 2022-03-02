@@ -32,6 +32,14 @@ export const fetchCategory = createAsyncThunk(
   },
 );
 
+export const updateCategory = createAsyncThunk(
+  'categories/updateCategory',
+  async ({ id, data }) => {
+    const updatedCategory = await CategoriesService.updateCategory(id, data);
+    return { updatedCategory };
+  },
+);
+
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
@@ -49,6 +57,16 @@ const categoriesSlice = createSlice({
     [fetchCategory.fulfilled]: (state, { payload }) => {
       const { category } = payload;
       state.categories.push(category);
+    },
+
+    [updateCategory.fulfilled]: (state, { payload }) => {
+      const { updatedCategory } = payload;
+      console.log(updatedCategory);
+      state.categories = state.categories.map((x) => (
+        x.id === updatedCategory.id
+          ? updatedCategory
+          : x
+      ));
     },
   },
 });

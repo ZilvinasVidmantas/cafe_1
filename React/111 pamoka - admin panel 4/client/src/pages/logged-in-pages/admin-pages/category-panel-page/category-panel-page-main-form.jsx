@@ -13,11 +13,7 @@ let initialValues = {
   icon: '',
 };
 
-const CategoryPanelPageMainForm = ({ category }) => {
-  const onSubmit = (values) => {
-    console.log(values);
-  };
-
+const CategoryPanelPageMainForm = ({ category, onSubmit }) => {
   const {
     values,
     dirty,

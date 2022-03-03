@@ -186,19 +186,9 @@
           "name": "type",
           "type": "options",
           "collection": "diskTypes"
-        },
-        {
-          "name": "size",
-          "type": "options",
-          "collection": "memorySizes"
         }
       ]
     }
-  ],
-  "propertyTypes": [
-    "autocomplete",
-    "range",
-    "options"
   ],
   "collections": [
     {

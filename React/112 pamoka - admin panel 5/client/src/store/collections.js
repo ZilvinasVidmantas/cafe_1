@@ -118,5 +118,7 @@ export const collectionErrorSelector = (state) => state.collections.error;
 export const collectionsSelector = (state) => state.collections.collections;
 export const collectionSelector = (id) => (state) => state.collections
   .collections.find((x) => x.id === id);
+export const collectionTitlesSelector = (state) => state.collections.collections
+  .map((x) => x.title);
 
 export default collectionsSlice.reducer;

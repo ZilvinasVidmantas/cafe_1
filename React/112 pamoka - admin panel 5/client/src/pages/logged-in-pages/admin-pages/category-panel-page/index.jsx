@@ -14,6 +14,10 @@ import {
   updateCategory,
   updateCategoryProperties,
 } from '../../../../store/categories';
+import {
+  collectionTitlesSelector,
+  fetchCollections,
+} from '../../../../store/collections';
 import CategoryPanelPageMainForm from './category-panel-page-main-form';
 import CategoryPanelPagePropertyForm from './category-panel-page-property-form';
 
@@ -22,6 +26,7 @@ const CategoryPanelPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const category = useSelector(categorySelector(id));
+  const collections = useSelector(collectionTitlesSelector);
 
   const updateMainInfo = (data) => {
     dispatch(updateCategory({ id, data }));
@@ -33,6 +38,7 @@ const CategoryPanelPage = () => {
 
   useEffect(() => {
     dispatch(fetchCategory(id));
+    dispatch(fetchCollections());
   }, []);
 
   return (
@@ -51,6 +57,7 @@ const CategoryPanelPage = () => {
           <CategoryPanelPagePropertyForm
             properties={category.properties}
             onSubmit={updateProperties}
+            collections={collections}
           />
         </Box>
       )}

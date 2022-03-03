@@ -44,7 +44,7 @@ let initialValues = {
   propertiesData: [formatPropertyData()],
 };
 
-const CategoryPanelPagePropertyForm = ({ properties, onSubmit }) => {
+const CategoryPanelPagePropertyForm = ({ collections, properties, onSubmit }) => {
   const onFormSubmit = ({ propertiesData }) => {
     const pendingProperties = propertiesData.map(formatProperty);
     onSubmit(pendingProperties);
@@ -77,13 +77,10 @@ const CategoryPanelPagePropertyForm = ({ properties, onSubmit }) => {
   };
 
   const deleteProperty = (id) => {
-    const yes = window.confirm('Do you realy want to delete property?');
-    if (yes) {
-      setFieldValue(
-        'propertiesData',
-        propertiesData.filter((x) => x.id !== id),
-      );
-    }
+    setFieldValue(
+      'propertiesData',
+      propertiesData.filter((x) => x.id !== id),
+    );
   };
 
   const changePropertyKey = (id, key, value) => {
@@ -125,6 +122,7 @@ const CategoryPanelPagePropertyForm = ({ properties, onSubmit }) => {
           propertiesData.map((propertyData, i) => (
             <CategoryPanelPagePropertyFormConfiguration
               key={propertyData.id}
+              collections={collections}
               {...propertyData}
               errors={errors.propertiesData && errors.propertiesData[i]}
               touched={touched.propertiesData && touched.propertiesData[i]}

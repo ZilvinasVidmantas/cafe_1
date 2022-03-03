@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import {
   Typography,
@@ -12,23 +12,23 @@ import CategoryPanelPagePropertyFormConfiguration from './category-panel-page-pr
 
 let idCounter = 0;
 
-const createEmptyProperty = () => {
+const formatProperty = ({ name, type, collection } = {}) => {
   idCounter += 1;
 
   return {
     id: String(idCounter),
-    name: '',
-    type: 'range',
-    collectionRef: 'nauja kolekcija',
+    name: name ?? '',
+    type: type ?? 'range',
+    collectionRef: collection ?? 'nauja kolekcija',
     collectionName: '',
   };
 };
 
 const initialValues = {
-  propertiesData: [createEmptyProperty()],
+  propertiesData: [formatProperty()],
 };
 
-const CategoryPanelPagePropertyForm = () => {
+const CategoryPanelPagePropertyForm = ({ properties }) => {
   const {
     values: { propertiesData },
     dirty,
@@ -42,7 +42,7 @@ const CategoryPanelPagePropertyForm = () => {
       'propertiesData',
       [
         ...propertiesData,
-        createEmptyProperty(),
+        formatProperty(),
       ],
     );
   };
@@ -65,6 +65,13 @@ const CategoryPanelPagePropertyForm = () => {
         : x)),
     );
   };
+
+  useEffect(() => {
+    setFieldValue(
+      'propertiesData',
+      properties.map(formatProperty),
+    );
+  }, [properties]);
 
   return (
     <Paper sx={{ p: 3, mt: 2 }}>

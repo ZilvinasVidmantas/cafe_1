@@ -43,7 +43,9 @@ const CategoryPanelPage = () => {
             category={category}
             onSubmit={updateMainInfo}
           />
-          <CategoryPanelPagePropertyForm />
+          <CategoryPanelPagePropertyForm
+            properties={category.properties}
+          />
         </Box>
       )}
     </Box>

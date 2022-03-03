@@ -8,11 +8,10 @@ import {
   Button,
 } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import CategoryPanelPagePropertyFormConfiguration from './category-panel-page-property-form-configuration';
+import validationSchema from './validation-schema';
+import CategoryPanelPagePropertyFormConfiguration, { emptyCollectionRef } from './category-panel-page-property-form-configuration';
 
 let idCounter = 0;
-
-export const emptyCollectionRef = 'nauja kolekcija';
 
 const formatPropertyData = ({ name, type, collection } = {}) => {
   idCounter += 1;
@@ -54,10 +53,15 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
   const {
     values: { propertiesData },
     dirty,
+    errors,
+    touched,
+    isValid,
     setFieldValue,
+    setFieldTouched,
     handleSubmit,
   } = useFormik({
     initialValues,
+    validationSchema,
     onSubmit,
     enableReinitialize: true,
   });
@@ -91,6 +95,13 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
     );
   };
 
+  const handleProertyBlur = (index, { target: { name } }) => {
+    const touchedProperties = touched.propertiesData ?? {};
+    touchedProperties[index] = touchedProperties[index] ?? {};
+    touchedProperties[index][name] = true;
+    setFieldTouched('propertiesData', touchedProperties);
+  };
+
   useEffect(() => {
     const formattedProperties = properties.map(formatPropertyData);
     if (formattedProperties.length > 0) {
@@ -111,12 +122,15 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
       </Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {
-          propertiesData.map((propertyData) => (
+          propertiesData.map((propertyData, i) => (
             <CategoryPanelPagePropertyFormConfiguration
               key={propertyData.id}
               {...propertyData}
+              errors={errors.propertiesData && errors.propertiesData[i]}
+              touched={touched.propertiesData && touched.propertiesData[i]}
               onKeyChange={changePropertyKey}
               onDelete={deleteProperty}
+              onBlur={(e) => handleProertyBlur(i, e)}
             />
           ))
         }
@@ -132,13 +146,13 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
         </IconButton>
       </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
         <Button
           type="submit"
           variant="contained"
           color="primary"
           size="large"
-          disabled={!dirty}
+          disabled={!dirty || !isValid}
         >
           Atnaujinti savybes
         </Button>

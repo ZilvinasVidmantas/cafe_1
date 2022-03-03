@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Box,
   TextField,
@@ -29,10 +29,16 @@ const CategoryPanelPagePropertyFormConfiguration = ({
   onDelete,
 }) => {
   const [collectionOptions, setCollectionOptions] = useState([emptyCollectionRef]);
+  const initLoad = useRef(true);
 
   useEffect(() => {
     setCollectionOptions([emptyCollectionRef, ...collections]);
+    initLoad.current = false;
   }, [collections]);
+
+  if (initLoad.current) {
+    return <Box />;
+  }
 
   return (
     <Box sx={{ display: 'flex', gap: 2 }}>

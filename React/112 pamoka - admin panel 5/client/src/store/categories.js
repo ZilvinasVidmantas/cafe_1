@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import CategoriesService from '../services/categories-service';
+import { collectionTitlesSelector, fetchCollections } from './collections';
 
 const initialState = {
   isFetched: false,
@@ -42,8 +43,20 @@ export const updateCategory = createAsyncThunk(
 
 export const updateCategoryProperties = createAsyncThunk(
   'categories/updateCategoryProperties',
-  async ({ id, properties }) => {
+  async ({ id, properties }, { getState, dispatch }) => {
     const updatedCategory = await CategoriesService.updateCategoryProperties(id, properties);
+
+    const collectionsTitles = collectionTitlesSelector(getState());
+    const updatedCategoryCollectionTitles = updatedCategory.properties
+      .filter((x) => x.collection)
+      .map((x) => x.collection);
+
+    const newCollectionsHasBeenCreated = updatedCategoryCollectionTitles
+      .some((categoryCollection) => !collectionsTitles.includes(categoryCollection));
+
+    if (newCollectionsHasBeenCreated) {
+      dispatch(fetchCollections(true));
+    }
 
     return { updatedCategory };
   },

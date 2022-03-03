@@ -37,8 +37,8 @@ const CategoryPanelPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchCategory(id));
     dispatch(fetchCollections());
+    dispatch(fetchCategory(id));
   }, []);
 
   return (

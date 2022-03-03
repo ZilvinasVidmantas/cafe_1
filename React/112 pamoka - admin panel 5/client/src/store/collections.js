@@ -9,9 +9,9 @@ const initialState = {
 
 export const fetchCollections = createAsyncThunk(
   'collections/fetchCollections',
-  async (_, { getState }) => {
+  async (forceFetch, { getState }) => {
     const { collections: { isFetched, collections } } = getState();
-    if (!isFetched) {
+    if (!isFetched || forceFetch) {
       const fetchedCollections = await CollectionService.getCollections();
       return { collections: fetchedCollections };
     }

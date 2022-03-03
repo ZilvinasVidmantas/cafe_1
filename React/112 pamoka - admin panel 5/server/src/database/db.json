@@ -179,8 +179,18 @@
       "icon": "StorageIcon",
       "properties": [
         {
-          "name": "price",
+          "name": "prices",
           "type": "range"
+        },
+        {
+          "name": "type",
+          "type": "options",
+          "collection": "diskTypes"
+        },
+        {
+          "name": "size",
+          "type": "options",
+          "collection": "memorySizes"
         }
       ]
     }
@@ -189,6 +199,28 @@
     "autocomplete",
     "range",
     "options"
+  ],
+  "collections": [
+    {
+      "id": "1",
+      "title": "monitorBrands"
+    },
+    {
+      "id": "2",
+      "title": "monitorScreenTypes"
+    },
+    {
+      "id": "3",
+      "title": "monitorScreenSizes"
+    },
+    {
+      "id": "4bd11422-2359-48a6-adbd-8ba7063034ef",
+      "title": "diskTypes"
+    },
+    {
+      "id": "e7cdc881-fe66-45bf-a3bb-9332bc8c4177",
+      "title": "memorySizes"
+    }
   ],
   "monitorBrands": [
     {
@@ -272,18 +304,56 @@
       "title": "28"
     }
   ],
-  "collections": [
+  "diskTypes": [
     {
-      "id": "1",
-      "title": "monitorBrands"
+      "id": "874f1f8b-7faf-402a-8724-332fb4afb1e6",
+      "title": "SSD"
     },
     {
-      "id": "2",
-      "title": "monitorScreenTypes"
+      "id": "1c51c114-e747-43ac-b6ea-e7f38e26216d",
+      "title": "HDD"
+    }
+  ],
+  "memorySizes": [
+    {
+      "id": "301f7929-3b5e-4a42-bc12-f155941f8acc",
+      "title": "4 GB"
     },
     {
-      "id": "3",
-      "title": "monitorScreenSizes"
+      "id": "6eaac0d5-31b9-4dd3-860e-cb7ff3399ed2",
+      "title": "8 GB"
+    },
+    {
+      "id": "ec35852c-41ee-4ceb-b86f-7c388bb06f99",
+      "title": "16 GB"
+    },
+    {
+      "id": "0aebb47b-114e-4abd-9583-c5155faa0110",
+      "title": "32 GB"
+    },
+    {
+      "id": "aa35850f-52dd-4997-ba26-cf012635a9cf",
+      "title": "64 GB"
+    },
+    {
+      "id": "2184095d-f04e-4c00-927c-c028548c0113",
+      "title": "128 GB"
+    },
+    {
+      "id": "56ba25bd-c739-4dc5-8ea1-cdac3dcc2744",
+      "title": "256 GB"
+    },
+    {
+      "id": "a61534a5-0f4c-4073-8428-9d2c74b1343d",
+      "title": "512 GB"
+    },
+    {
+      "id": "5fea32e1-4249-42d9-9149-02b94135f0f0",
+      "title": "1 TB"
+    },
+    {
+      "id": "f824ed0c-a12a-4a98-9d6a-00c1176131a6",
+      "title": "2 TB "
     }
   ]
 }

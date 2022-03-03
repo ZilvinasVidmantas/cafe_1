@@ -44,10 +44,10 @@ let initialValues = {
   propertiesData: [formatPropertyData()],
 };
 
-const CategoryPanelPagePropertyForm = ({ properties }) => {
-  const onSubmit = ({ propertiesData }) => {
+const CategoryPanelPagePropertyForm = ({ properties, onSubmit }) => {
+  const onFormSubmit = ({ propertiesData }) => {
     const pendingProperties = propertiesData.map(formatProperty);
-    console.log(pendingProperties);
+    onSubmit(pendingProperties);
   };
 
   const {
@@ -62,7 +62,7 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
   } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit,
+    onSubmit: onFormSubmit,
     enableReinitialize: true,
   });
 

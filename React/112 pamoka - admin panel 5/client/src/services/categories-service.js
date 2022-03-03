@@ -41,10 +41,22 @@ const updateCategory = async (id, updateData) => {
   return data;
 };
 
+const updateCategoryProperties = async (id, properties) => {
+  const { token } = store.getState().auth;
+  const { data } = await requester.patch(`/${id}/properties`, properties, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return data;
+};
+
 const CategoriesService = {
   getCategories,
   getCategory,
   updateCategory,
+  updateCategoryProperties,
 };
 
 export default CategoriesService;

@@ -12,6 +12,7 @@ import {
   categorySelector,
   fetchCategory,
   updateCategory,
+  updateCategoryProperties,
 } from '../../../../store/categories';
 import CategoryPanelPageMainForm from './category-panel-page-main-form';
 import CategoryPanelPagePropertyForm from './category-panel-page-property-form';
@@ -24,6 +25,10 @@ const CategoryPanelPage = () => {
 
   const updateMainInfo = (data) => {
     dispatch(updateCategory({ id, data }));
+  };
+
+  const updateProperties = (properties) => {
+    dispatch(updateCategoryProperties({ id, properties }));
   };
 
   useEffect(() => {
@@ -45,6 +50,7 @@ const CategoryPanelPage = () => {
           />
           <CategoryPanelPagePropertyForm
             properties={category.properties}
+            onSubmit={updateProperties}
           />
         </Box>
       )}

@@ -40,6 +40,15 @@ export const updateCategory = createAsyncThunk(
   },
 );
 
+export const updateCategoryProperties = createAsyncThunk(
+  'categories/updateCategoryProperties',
+  async ({ id, properties }) => {
+    const updatedCategory = await CategoriesService.updateCategoryProperties(id, properties);
+
+    return { updatedCategory };
+  },
+);
+
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
@@ -61,7 +70,15 @@ const categoriesSlice = createSlice({
 
     [updateCategory.fulfilled]: (state, { payload }) => {
       const { updatedCategory } = payload;
-      console.log(updatedCategory);
+      state.categories = state.categories.map((x) => (
+        x.id === updatedCategory.id
+          ? updatedCategory
+          : x
+      ));
+    },
+
+    [updateCategoryProperties.fulfilled]: (state, { payload }) => {
+      const { updatedCategory } = payload;
       state.categories = state.categories.map((x) => (
         x.id === updatedCategory.id
           ? updatedCategory

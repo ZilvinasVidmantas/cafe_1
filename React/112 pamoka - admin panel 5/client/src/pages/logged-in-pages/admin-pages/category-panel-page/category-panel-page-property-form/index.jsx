@@ -12,29 +12,54 @@ import CategoryPanelPagePropertyFormConfiguration from './category-panel-page-pr
 
 let idCounter = 0;
 
-const formatProperty = ({ name, type, collection } = {}) => {
+export const emptyCollectionRef = 'nauja kolekcija';
+
+const formatPropertyData = ({ name, type, collection } = {}) => {
   idCounter += 1;
 
   return {
     id: String(idCounter),
     name: name ?? '',
     type: type ?? 'range',
-    collectionRef: collection ?? 'nauja kolekcija',
+    collectionRef: collection ?? emptyCollectionRef,
     collectionName: '',
   };
 };
 
-const initialValues = {
-  propertiesData: [formatProperty()],
+const formatProperty = ({
+  name, type, collectionRef, collectionName,
+}) => {
+  const formattedProperty = { name, type };
+  if (type !== 'range') {
+    if (collectionRef === emptyCollectionRef) {
+      formattedProperty.collection = collectionName;
+    } else {
+      formattedProperty.collection = collectionRef;
+    }
+  }
+
+  return formattedProperty;
+};
+
+let initialValues = {
+  propertiesData: [formatPropertyData()],
 };
 
 const CategoryPanelPagePropertyForm = ({ properties }) => {
+  const onSubmit = ({ propertiesData }) => {
+    const pendingProperties = propertiesData.map(formatProperty);
+    console.log(pendingProperties);
+  };
+
   const {
     values: { propertiesData },
     dirty,
     setFieldValue,
+    handleSubmit,
   } = useFormik({
     initialValues,
+    onSubmit,
+    enableReinitialize: true,
   });
 
   const addProperty = () => {
@@ -42,7 +67,7 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
       'propertiesData',
       [
         ...propertiesData,
-        formatProperty(),
+        formatPropertyData(),
       ],
     );
   };
@@ -67,14 +92,20 @@ const CategoryPanelPagePropertyForm = ({ properties }) => {
   };
 
   useEffect(() => {
-    setFieldValue(
-      'propertiesData',
-      properties.map(formatProperty),
-    );
+    const formattedProperties = properties.map(formatPropertyData);
+    if (formattedProperties.length > 0) {
+      initialValues = {
+        propertiesData: [...formattedProperties],
+      };
+      setFieldValue(
+        'propertiesData',
+        formattedProperties,
+      );
+    }
   }, [properties]);
 
   return (
-    <Paper sx={{ p: 3, mt: 2 }}>
+    <Paper component="form" sx={{ p: 3, mt: 2 }} onSubmit={handleSubmit}>
       <Typography sx={{ fontSize: 22, mb: 3 }}>
         Kategorijos savybių konfigūracija
       </Typography>

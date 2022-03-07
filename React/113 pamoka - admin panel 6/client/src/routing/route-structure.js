@@ -36,6 +36,11 @@ export default [
         pageName: 'ProductsPanelPage',
         auth: ADMIN,
       },
+      {
+        path: 'products/new',
+        pageName: 'ProductFormPage',
+        auth: ADMIN,
+      },
     ],
   },
   {

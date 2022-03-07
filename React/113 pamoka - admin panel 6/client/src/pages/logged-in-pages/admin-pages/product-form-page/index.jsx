@@ -16,6 +16,10 @@ import {
   fetchCategories,
   categoriesSelector,
 } from '../../../../store/categories';
+import {
+  fetchCollections,
+  collectionsSelector,
+} from '../../../../store/collections';
 import FileUploadField from '../../../../components/file-upload-field';
 
 const initialValues = {
@@ -28,6 +32,7 @@ const ProductFormPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelector);
+  const collections = useSelector(collectionsSelector);
   const {
     values,
     setFieldValue,
@@ -39,10 +44,18 @@ const ProductFormPage = () => {
   const handleCategoryChange = (e) => {
     const categoryId = e.target.value;
     const category = categories.find((x) => x.id === categoryId);
+    const properties = category.properties.map((prop) => {
+      const formattedProp = { ...prop };
+      if (formattedProp.type !== 'range') {
+        formattedProp.data = collections.find((c) => c.title === prop.collection).data;
+      }
+      formattedProp.value = '';
+      return formattedProp;
+    });
     setValues({
       ...values,
       category: categoryId,
-      properties: category.properties.map((x) => ({ ...x, value: '' })),
+      properties,
     });
   };
 
@@ -58,6 +71,7 @@ const ProductFormPage = () => {
 
   useEffect(() => {
     dispatch(fetchCategories());
+    dispatch(fetchCollections());
   }, []);
 
   return (
@@ -94,10 +108,16 @@ const ProductFormPage = () => {
             <TextField
               key={x.name}
               label={x.name}
+              type={x.type === 'range' ? 'number' : 'text'}
+              select={x.type !== 'range'}
               name={`properties[${i}]`}
               onChange={(e) => handlePropertyChange(x.name, e.target.value)}
               value={x.value}
-            />
+            >
+              {x.type === 'range' ? null : x.data.map((d) => (
+                <MenuItem key={d.id} value={d.id}>{d.title}</MenuItem>
+              ))}
+            </TextField>
           ))}
           <Button
             type="submit"

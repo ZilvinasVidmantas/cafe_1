@@ -9,7 +9,7 @@ const RequireAdmin = ({ children }) => {
   const { loggedIn, user } = useSelector(selectAuth);
 
   if (!loggedIn) {
-    return <Navigate to={`${routes.LoginPage}?redirectTo=${pathname}`} />;
+    return <Navigate to={`${routes.ProductsPanelPage}?redirectTo=${pathname}`} />;
   }
 
   if (user && user.role !== 'ADMIN') {

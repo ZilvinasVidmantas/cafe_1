@@ -82,11 +82,11 @@ const DashboardLayoutDrawer = ({
           ? (
             <>
               <Divider />
-              <ListItem button onClick={() => navigate(routes.CollectionsPage)}>
+              <ListItem button onClick={() => navigate(routes.ProductsPanelPage)}>
                 <ListItemIcon>
-                  <StorageIcon />
+                  <MonitorIcon />
                 </ListItemIcon>
-                <ListItemText primary="Collections" />
+                <ListItemText primary="Products" />
               </ListItem>
               <ListItem button onClick={() => navigate(routes.CategoriesPanelPage)}>
                 <ListItemIcon>
@@ -94,11 +94,11 @@ const DashboardLayoutDrawer = ({
                 </ListItemIcon>
                 <ListItemText primary="Categories" />
               </ListItem>
-              <ListItem button onClick={() => navigate(routes.ProductsPanelPage)}>
+              <ListItem button onClick={() => navigate(routes.CollectionsPage)}>
                 <ListItemIcon>
-                  <MonitorIcon />
+                  <StorageIcon />
                 </ListItemIcon>
-                <ListItemText primary="Products" />
+                <ListItemText primary="Collections" />
               </ListItem>
             </>
           ) : null}

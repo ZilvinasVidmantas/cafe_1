@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import ProductService from '../../../../services/product-service';
+import ProductService from '../../../services/product-service';
 
 const searchParamsToObject = (searchParams) => {
   const paramsObject = {};

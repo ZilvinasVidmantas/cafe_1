@@ -46,10 +46,23 @@
       "category": "1",
       "brand": "1",
       "type": "1",
-      "size": "5",
+      "size": "e0340cba-4cf5-46ff-a273-ab514241a2bb",
       "images": [
         "http://localhost:5000/images/MO029AO_241431.jpg",
         "http://localhost:5000/images/asdasdasd.jpg",
+        "http://localhost:5000/images/asad.jpg"
+      ]
+    },
+    {
+      "id": "2s",
+      "price": 179.99,
+      "category": "1",
+      "brand": "2",
+      "type": "1",
+      "size": "e0340cba-4cf5-46ff-a273-ab514241a2bb",
+      "images": [
+        "http://localhost:5000/images/asdasdasd.jpg",
+        "http://localhost:5000/images/MO029AO_241431.jpg",
         "http://localhost:5000/images/asad.jpg"
       ]
     },

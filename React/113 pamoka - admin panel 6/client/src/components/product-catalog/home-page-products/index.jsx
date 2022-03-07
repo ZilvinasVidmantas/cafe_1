@@ -15,7 +15,6 @@ const HomePageProducts = () => (
   >
     <Header />
     <Grid />
-
   </Box>
 );
 

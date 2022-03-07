@@ -5,10 +5,14 @@ import {
   Box,
   styled,
   Button,
+  Divider,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useSelector } from 'react-redux';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { selectAuth } from '../../../store/auth';
 
 const Image = styled('img')({
   height: 200,
@@ -19,6 +23,7 @@ const Image = styled('img')({
 const HomePageProductsCard = ({
   id, images, price, ...props
 }) => {
+  const { user } = useSelector(selectAuth);
   const navigate = () => {
     console.log('Naviguojama i atskirą produkto puslapį:', id);
   };
@@ -80,6 +85,18 @@ const HomePageProductsCard = ({
               ))}
           </Box>
         </Box>
+        {user && user.role === 'ADMIN' && (
+          <Box>
+            <Divider sx={{ my: 2 }}>Turinio valdymas</Divider>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Button variant="contained" color="secondary">
+                Redaguoti
+                {' '}
+                <AdminPanelSettingsIcon sx={{ ml: 1 }} />
+              </Button>
+            </Box>
+          </Box>
+        )}
       </Box>
     </Paper>
   );

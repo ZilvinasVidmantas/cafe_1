@@ -35,16 +35,23 @@ const ProductFormPage = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelector);
   const collections = useSelector(collectionsSelector);
+
+  const onSubmit = (values) => {
+    console.log(values);
+  };
+
   const {
     values,
     errors,
     dirty,
     isValid,
+    handleSubmit,
     setFieldValue,
     setValues,
   } = useFormik({
     initialValues,
     validationSchema,
+    onSubmit,
   });
 
   const handleCategoryChange = (e) => {
@@ -80,8 +87,6 @@ const ProductFormPage = () => {
     dispatch(fetchCollections());
   }, []);
 
-  console.log(errors);
-
   return (
     <Box>
       <Button onClick={() => navigate(-1)}>
@@ -90,7 +95,7 @@ const ProductFormPage = () => {
       </Button>
       <Divider sx={{ mt: 2, mb: 1 }} />
       <Typography variant="h2" sx={{ mb: 3 }}>Kurti naują produktą</Typography>
-      <Grid container columnSpacing={4}>
+      <Grid container columnSpacing={4} component="form" onSubmit={handleSubmit}>
         <Grid item xs={7}>
 
           <Paper sx={{
@@ -107,6 +112,8 @@ const ProductFormPage = () => {
               name="category"
               value={values.category}
               onChange={handleCategoryChange}
+              error={!!errors.category}
+              helperText={errors.category}
             >
               {categories.map((x) => (
                 <MenuItem key={x.id} value={x.id}>{x.title}</MenuItem>
@@ -122,6 +129,10 @@ const ProductFormPage = () => {
                 name={`properties[${i}]`}
                 onChange={(e) => handlePropertyChange(x.name, e.target.value)}
                 value={x.value}
+                error={!!errors.properties && !!errors.properties[i]}
+                helperText={
+                  !!errors.properties && errors.properties[i] && errors.properties[i].value
+                }
               >
                 {x.type === 'range' ? null : x.data.map((d) => (
                   <MenuItem key={d.id} value={d.id}>{d.title}</MenuItem>
@@ -141,11 +152,24 @@ const ProductFormPage = () => {
           </Paper>
         </Grid>
         <Grid item xs={5}>
-          <FileUploadField
-            imgDataArr={values.images}
-            onChange={handleImageChange}
-            sx={{ width: '100%' }}
-          />
+          <Box sx={{
+            p: 2,
+            mb: 0,
+            border: errors.images ? 1 : 'none',
+            borderColor: 'error.main',
+          }}
+          >
+            <FileUploadField
+              imgDataArr={values.images}
+              onChange={handleImageChange}
+              sx={{
+                width: '100%',
+              }}
+            />
+            {errors.images && (
+              <Typography color="error">{errors.images}</Typography>
+            )}
+          </Box>
         </Grid>
       </Grid>
     </Box>

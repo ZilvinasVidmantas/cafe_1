@@ -22,6 +22,7 @@ import {
   collectionsSelector,
 } from '../../../../store/collections';
 import FileUploadField from '../../../../components/file-upload-field';
+import validationSchema from './validation-schema';
 
 const initialValues = {
   category: '',
@@ -36,10 +37,14 @@ const ProductFormPage = () => {
   const collections = useSelector(collectionsSelector);
   const {
     values,
+    errors,
+    dirty,
+    isValid,
     setFieldValue,
     setValues,
   } = useFormik({
     initialValues,
+    validationSchema,
   });
 
   const handleCategoryChange = (e) => {
@@ -74,6 +79,8 @@ const ProductFormPage = () => {
     dispatch(fetchCategories());
     dispatch(fetchCollections());
   }, []);
+
+  console.log(errors);
 
   return (
     <Box>
@@ -127,13 +134,13 @@ const ProductFormPage = () => {
               color="secondary"
               sx={{ alignSelf: 'center' }}
               size="large"
+              disabled={!dirty || !isValid}
             >
               Kurti
             </Button>
           </Paper>
         </Grid>
         <Grid item xs={5}>
-
           <FileUploadField
             imgDataArr={values.images}
             onChange={handleImageChange}

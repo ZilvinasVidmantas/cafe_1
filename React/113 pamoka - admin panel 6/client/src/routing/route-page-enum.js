@@ -14,6 +14,7 @@ import CollectionsPage from '../pages/logged-in-pages/admin-pages/collections-pa
 import CollectionPanelPage from '../pages/logged-in-pages/admin-pages/collection-panel-page';
 import CategoriesPanelPage from '../pages/logged-in-pages/admin-pages/categories-panel-page';
 import CategoryPanelPage from '../pages/logged-in-pages/admin-pages/category-panel-page';
+import ProductsPanelPage from '../pages/logged-in-pages/admin-pages/products-panel-pane';
 
 export default {
   // Layouts
@@ -32,4 +33,5 @@ export default {
   CollectionPanelPage,
   CategoriesPanelPage,
   CategoryPanelPage,
+  ProductsPanelPage,
 };

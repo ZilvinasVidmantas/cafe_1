@@ -31,6 +31,11 @@ export default [
         pageName: 'CategoryPanelPage',
         auth: ADMIN,
       },
+      {
+        path: 'products',
+        pageName: 'ProductsPanelPage',
+        auth: ADMIN,
+      },
     ],
   },
   {

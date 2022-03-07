@@ -186,6 +186,10 @@
           "name": "type",
           "type": "options",
           "collection": "diskTypes"
+        },
+        {
+          "name": "weight",
+          "type": "range"
         }
       ]
     }

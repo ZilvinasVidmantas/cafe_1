@@ -10,7 +10,9 @@ import {
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector } from 'react-redux';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { useNavigate } from 'react-router-dom';
 import { selectAuth } from '../../../store/auth';
+import routes from '../../../routing/routes';
 
 const Image = styled('img')({
   height: 200,
@@ -22,7 +24,15 @@ const HomePageProductsCard = ({
   id, images, price, ...props
 }) => {
   const { user } = useSelector(selectAuth);
-  const navigate = () => {
+  const navigate = useNavigate();
+
+  const navigateToProductEdit = (event) => {
+    event.stopPropagation();
+    navigate(routes.ProductFormPage, { state: { id } });
+  };
+
+  const navigateToSingleProductPage = (event) => {
+    event.stopPropagation();
     console.log('Naviguojama i atskirą produkto puslapį:', id);
   };
 
@@ -42,7 +52,7 @@ const HomePageProductsCard = ({
           boxShadow: `0 0 0 2px ${theme.palette.secondary.main}`,
         },
       })}
-      onClick={navigate}
+      onClick={navigateToSingleProductPage}
     >
       <Image src={images[0]} />
       <Box sx={{ p: 2 }}>
@@ -79,7 +89,10 @@ const HomePageProductsCard = ({
         {user && user.role === 'ADMIN' && (
           <Box>
             <Divider sx={{ my: 2 }}>Turinio valdymas</Divider>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box
+              sx={{ display: 'flex', justifyContent: 'center' }}
+              onClick={navigateToProductEdit}
+            >
               <Button variant="contained" color="secondary">
                 Redaguoti
                 {' '}

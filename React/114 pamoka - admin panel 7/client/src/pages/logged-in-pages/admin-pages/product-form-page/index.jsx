@@ -12,7 +12,7 @@ import {
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useFormik } from 'formik';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchCategories,
@@ -26,6 +26,7 @@ import {
   createProduct,
   productSelector,
   resetProduct,
+  fetchProduct,
 } from '../../../../store/product';
 import FileUploadField from '../../../../components/file-upload-field';
 import validationSchema from './validation-schema';
@@ -38,6 +39,7 @@ let initialValues = {
 
 const ProductFormPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelector);
   const collections = useSelector(collectionsSelector);
@@ -113,9 +115,10 @@ const ProductFormPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchCategories());
-    dispatch(fetchCollections());
-  }, []);
+    if (categories.length > 0 && collections.length > 0 && location.state) {
+      dispatch(fetchProduct(location.state.id));
+    }
+  }, [categories, collections]);
 
   useEffect(() => {
     if (product) {
@@ -144,6 +147,20 @@ const ProductFormPage = () => {
       setValues(initialValues, true);
     }
   }, [product]);
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchCollections());
+
+    return () => {
+      dispatch(resetProduct());
+      initialValues = {
+        category: '',
+        images: [],
+        properties: [],
+      };
+    };
+  }, []);
 
   return (
     <Box>
@@ -237,7 +254,7 @@ const ProductFormPage = () => {
           variant="contained"
           color="secondary"
           size="large"
-          sx={{ mb: 4, fontSize: 22 }}
+          sx={{ mb: 4, fontSize: 22, mt: 3 }}
           onClick={handleResetProduct}
         >
           Kurti naują produktą

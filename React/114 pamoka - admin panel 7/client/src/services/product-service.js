@@ -55,11 +55,21 @@ const createProduct = async (formData) => {
   }
 };
 
+const fetchProduct = async (id) => {
+  try {
+    const { data } = await requester.get(`/products/${id}`);
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 const ProductService = {
   fetchProducts,
   fetchCategories,
   fetchFilters,
   createProduct,
+  fetchProduct,
 };
 
 export default ProductService;

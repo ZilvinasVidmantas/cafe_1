@@ -15,6 +15,15 @@ export const createProduct = createAsyncThunk(
   },
 );
 
+export const fetchProduct = createAsyncThunk(
+  'product/fetch',
+  async (id) => {
+    const product = await ProductService.fetchProduct(id);
+
+    return { product };
+  },
+);
+
 const productSlice = createSlice({
   name: 'product',
   initialState,
@@ -28,6 +37,11 @@ const productSlice = createSlice({
   },
   extraReducers: {
     [createProduct.fulfilled]: (state, { payload }) => {
+      const { product } = payload;
+      state.product = product;
+    },
+
+    [fetchProduct.fulfilled]: (state, { payload }) => {
       const { product } = payload;
       state.product = product;
     },

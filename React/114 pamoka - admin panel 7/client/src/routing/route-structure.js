@@ -37,7 +37,7 @@ export default [
         auth: ADMIN,
       },
       {
-        path: 'products/new',
+        path: 'product-form',
         pageName: 'ProductFormPage',
         auth: ADMIN,
       },

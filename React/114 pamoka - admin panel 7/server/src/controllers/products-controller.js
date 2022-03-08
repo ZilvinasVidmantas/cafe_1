@@ -81,3 +81,12 @@ export const createProduct = (req, res) => {
   res.status(200).json(product);
 }
 
+export const getProduct = (req, res) => {
+  const { id } = req.params;
+
+  const DB = JSON.parse(JSON.stringify(database.data));
+  const product = DB.products.find(x => x.id === id);
+
+  res.status(200).json(product);
+}
+

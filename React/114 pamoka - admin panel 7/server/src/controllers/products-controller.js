@@ -117,6 +117,3 @@ export const updateProduct = (req, res) => {
 
   res.status(200).json(updatedProduct);
 }
-
-updateProduct
-

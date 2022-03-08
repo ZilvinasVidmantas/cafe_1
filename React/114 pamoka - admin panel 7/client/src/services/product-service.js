@@ -17,6 +17,15 @@ const fetchProducts = async (searchParams) => {
   }
 };
 
+const fetchProduct = async (id) => {
+  try {
+    const { data } = await requester.get(`/products/${id}`);
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 const fetchCategories = async () => {
   try {
     const { data } = await requester.get('/categories');
@@ -55,9 +64,15 @@ const createProduct = async (formData) => {
   }
 };
 
-const fetchProduct = async (id) => {
+const updateProduct = async (id, formData) => {
   try {
-    const { data } = await requester.get(`/products/${id}`);
+    const { token } = store.getState().auth;
+    const { data } = await requester.put(`/products/${id}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    });
     return data;
   } catch (error) {
     throw new Error(error.message);
@@ -70,6 +85,7 @@ const ProductService = {
   fetchFilters,
   createProduct,
   fetchProduct,
+  updateProduct,
 };
 
 export default ProductService;

@@ -3,6 +3,7 @@ import {
   getProducts,
   getProduct,
   createProduct,
+  updateProduct,
 } from '../controllers/products-controller.js';
 import authMiddleware from '../middlewares/auth-middleware.js';
 import adminMiddleware from '../middlewares/admin-middleware.js';
@@ -18,6 +19,13 @@ router.post(
   adminMiddleware,
   imgUploadMiddleware.array('images'),
   createProduct
+);
+router.put(
+  '/:id',
+  authMiddleware,
+  adminMiddleware,
+  imgUploadMiddleware.array('images'),
+  updateProduct
 );
 
 

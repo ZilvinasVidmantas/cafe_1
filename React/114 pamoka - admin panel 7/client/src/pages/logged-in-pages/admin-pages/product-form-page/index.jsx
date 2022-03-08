@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import {
   Typography,
@@ -27,6 +28,7 @@ import {
   productSelector,
   resetProduct,
   fetchProduct,
+  updateProduct,
 } from '../../../../store/product';
 import FileUploadField from '../../../../components/file-upload-field';
 import validationSchema from './validation-schema';
@@ -51,10 +53,26 @@ const ProductFormPage = () => {
     properties.forEach(({ name, value }) => {
       formData.append(name, value);
     });
-    images.forEach(({ file }) => {
-      formData.append('images', file);
-    });
-    dispatch(createProduct(formData));
+    if (product) {
+      // Update
+      images.forEach(({ file, src }) => {
+        if (file) {
+          formData.append('images', file);
+        } else {
+          formData.append('oldImages', src);
+        }
+      });
+      dispatch(updateProduct({
+        id: product.id,
+        formData,
+      }));
+    } else {
+      // Create
+      images.forEach(({ file }) => {
+        formData.append('images', file);
+      });
+      dispatch(createProduct(formData));
+    }
   };
 
   const {

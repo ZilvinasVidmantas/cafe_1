@@ -73,7 +73,6 @@ export const createProduct = (req, res) => {
     images: images.map(x => `${SERVER_DOMAIN}:${SERVER_PORT}/${IMG_PATH}/${x.filename}`),
     ...data
   };
-  console.log(product);
   database.data.products.push(product);
 
   database.write();
@@ -89,4 +88,35 @@ export const getProduct = (req, res) => {
 
   res.status(200).json(product);
 }
+
+export const updateProduct = (req, res) => {
+  const { id } = req.params;
+  const images = req.files;
+  const { oldImages, ...data } = req.body;
+
+  const { IMG_PATH, SERVER_DOMAIN, SERVER_PORT } = process.env;
+
+  let newImages = images.map(x => `${SERVER_DOMAIN}:${SERVER_PORT}/${IMG_PATH}/${x.filename}`);
+  if (oldImages instanceof Array) {
+    newImages = [...oldImages, ...newImages]
+  } else {
+    newImages = [oldImages, ...newImages]
+  }
+
+  console.log(newImages);
+
+  const updatedProduct = {
+    id,
+    images: newImages,
+    ...data
+  };
+
+  const productIndex = database.data.products.findIndex(x => x.id === id);
+  database.data.products.splice(productIndex, 1, updatedProduct);
+  database.write();
+
+  res.status(200).json(updatedProduct);
+}
+
+updateProduct
 

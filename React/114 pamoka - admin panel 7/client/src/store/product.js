@@ -6,6 +6,15 @@ const initialState = {
   product: null,
 };
 
+export const fetchProduct = createAsyncThunk(
+  'product/fetch',
+  async (id) => {
+    const product = await ProductService.fetchProduct(id);
+
+    return { product };
+  },
+);
+
 export const createProduct = createAsyncThunk(
   'product/create',
   async (formData) => {
@@ -14,11 +23,10 @@ export const createProduct = createAsyncThunk(
     return { product };
   },
 );
-
-export const fetchProduct = createAsyncThunk(
-  'product/fetch',
-  async (id) => {
-    const product = await ProductService.fetchProduct(id);
+export const updateProduct = createAsyncThunk(
+  'product/update',
+  async ({ id, formData }) => {
+    const product = await ProductService.updateProduct(id, formData);
 
     return { product };
   },
@@ -36,12 +44,17 @@ const productSlice = createSlice({
     },
   },
   extraReducers: {
+    [fetchProduct.fulfilled]: (state, { payload }) => {
+      const { product } = payload;
+      state.product = product;
+    },
+
     [createProduct.fulfilled]: (state, { payload }) => {
       const { product } = payload;
       state.product = product;
     },
 
-    [fetchProduct.fulfilled]: (state, { payload }) => {
+    [updateProduct.fulfilled]: (state, { payload }) => {
       const { product } = payload;
       state.product = product;
     },

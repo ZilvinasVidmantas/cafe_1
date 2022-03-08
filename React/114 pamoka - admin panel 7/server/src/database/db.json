@@ -283,6 +283,17 @@
       "price": "560",
       "type": "2",
       "size": "9"
+    },
+    {
+      "id": "20b4b9ad-5cde-4fe5-923c-e9aa47572b4c",
+      "images": [
+        "http://localhost:5000/images/images-1646766598303.jpg"
+      ],
+      "category": "1",
+      "brand": "2",
+      "price": "520",
+      "type": "2",
+      "size": "9"
     }
   ],
   "categories": [

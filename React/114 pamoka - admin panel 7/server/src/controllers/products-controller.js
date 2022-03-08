@@ -97,13 +97,13 @@ export const updateProduct = (req, res) => {
   const { IMG_PATH, SERVER_DOMAIN, SERVER_PORT } = process.env;
 
   let newImages = images.map(x => `${SERVER_DOMAIN}:${SERVER_PORT}/${IMG_PATH}/${x.filename}`);
-  if (oldImages instanceof Array) {
-    newImages = [...oldImages, ...newImages]
-  } else {
-    newImages = [oldImages, ...newImages]
+  if (oldImages) {
+    if (oldImages instanceof Array) {
+      newImages = [...oldImages, ...newImages]
+    } else {
+      newImages = [oldImages, ...newImages]
+    }
   }
-
-  console.log(newImages);
 
   const updatedProduct = {
     id,

@@ -102,6 +102,41 @@
         "http://localhost:5000/images/nvd4.jpg",
         "http://localhost:5000/images/nvd5.jpg"
       ]
+    },
+    {
+      "id": "fc6d891e-6c02-4364-80c8-db38ca125aa1",
+      "images": [
+        "http://localhost:5000/images/images-1646757322166.jpg",
+        "http://localhost:5000/images/images-1646757322169.jpg"
+      ],
+      "category": "1",
+      "brand": "2",
+      "price": "55",
+      "type": "2",
+      "size": "5"
+    },
+    {
+      "id": "75ae7ccb-8a4a-4379-83f1-e62effa8619f",
+      "images": [
+        "http://localhost:5000/images/images-1646757410289.jpg",
+        "http://localhost:5000/images/images-1646757410292.jpg"
+      ],
+      "category": "1",
+      "brand": "2",
+      "price": "55",
+      "type": "2",
+      "size": "5"
+    },
+    {
+      "id": "9b4ee9ad-c0f3-4e22-978e-229bb958687c",
+      "images": [
+        "http://localhost:5000/images/images-1646757508966.jpg"
+      ],
+      "category": "1",
+      "brand": "1",
+      "price": "5000",
+      "type": "2",
+      "size": "5"
     }
   ],
   "categories": [

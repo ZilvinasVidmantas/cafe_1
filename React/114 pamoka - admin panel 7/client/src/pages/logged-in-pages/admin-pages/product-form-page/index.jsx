@@ -21,6 +21,9 @@ import {
   fetchCollections,
   collectionsSelector,
 } from '../../../../store/collections';
+import {
+  createProduct,
+} from '../../../../store/products';
 import FileUploadField from '../../../../components/file-upload-field';
 import validationSchema from './validation-schema';
 
@@ -36,8 +39,16 @@ const ProductFormPage = () => {
   const categories = useSelector(categoriesSelector);
   const collections = useSelector(collectionsSelector);
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = ({ category, images, properties }) => {
+    const formData = new FormData();
+    formData.append('category', category);
+    properties.forEach(({ name, value }) => {
+      formData.append(name, value);
+    });
+    images.forEach(({ file }) => {
+      formData.append('images', file);
+    });
+    dispatch(createProduct(formData));
   };
 
   const {

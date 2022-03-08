@@ -1,4 +1,5 @@
 import axios from 'axios';
+import store from '../store/index';
 
 const requester = axios.create({
   baseURL: 'http://localhost:5000/api',
@@ -39,10 +40,26 @@ const fetchFilters = async (categoryId) => {
   }
 };
 
+const createProduct = async (formData) => {
+  try {
+    const { token } = store.getState().auth;
+    const { data } = await requester.post('/products', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 const ProductService = {
   fetchProducts,
   fetchCategories,
   fetchFilters,
+  createProduct,
 };
 
 export default ProductService;

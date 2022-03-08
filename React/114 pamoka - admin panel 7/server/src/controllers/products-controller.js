@@ -1,4 +1,5 @@
 import database from '../database/index.js';
+import { v4 as createId } from 'uuid';
 
 const filterByRange = (products, filter, queryParams) => {
   const min = Number(queryParams[`${filter.name}_min`]);
@@ -60,5 +61,23 @@ export const getProducts = (req, res) => {
   });
 
   res.status(200).json(selectedProducts);
+}
+
+export const createProduct = (req, res) => {
+  const images = req.files;
+  const data = req.body;
+  const { IMG_PATH, SERVER_DOMAIN, SERVER_PORT } = process.env;
+
+  const product = {
+    id: createId(),
+    images: images.map(x => `${SERVER_DOMAIN}:${SERVER_PORT}/${IMG_PATH}/${x.filename}`),
+    ...data
+  };
+  console.log(product);
+  database.data.products.push(product);
+
+  database.write();
+
+  res.status(200).json(product);
 }
 

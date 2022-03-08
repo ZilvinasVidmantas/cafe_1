@@ -3,7 +3,7 @@ import auth from './auth';
 import users from './users';
 import collections from './collections';
 import categories from './categories';
-import products from './products';
+import product from './product';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ const store = configureStore({
     auth,
     collections,
     categories,
-    products,
+    product,
   },
 });
 

@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const createProduct = createAsyncThunk(
-  'products/createProduct',
+  'product/create',
   async (formData) => {
     const product = await ProductService.createProduct(formData);
 
@@ -16,7 +16,7 @@ export const createProduct = createAsyncThunk(
 );
 
 const productSlice = createSlice({
-  name: 'products',
+  name: 'product',
   initialState,
   reducers: {
     deleteError: (state) => {
@@ -26,11 +26,13 @@ const productSlice = createSlice({
   extraReducers: {
     [createProduct.fulfilled]: (state, { payload }) => {
       const { product } = payload;
-      console.log(product);
+      state.product = product;
     },
   },
 });
 
 export const { deleteError } = productSlice.actions;
+
+export const productSelector = (state) => state.product.product;
 
 export default productSlice.reducer;

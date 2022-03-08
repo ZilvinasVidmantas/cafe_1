@@ -23,11 +23,12 @@ import {
 } from '../../../../store/collections';
 import {
   createProduct,
-} from '../../../../store/products';
+  productSelector,
+} from '../../../../store/product';
 import FileUploadField from '../../../../components/file-upload-field';
 import validationSchema from './validation-schema';
 
-const initialValues = {
+let initialValues = {
   category: '',
   images: [],
   properties: [],
@@ -38,6 +39,7 @@ const ProductFormPage = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelector);
   const collections = useSelector(collectionsSelector);
+  const product = useSelector(productSelector);
 
   const onSubmit = ({ category, images, properties }) => {
     const formData = new FormData();
@@ -62,6 +64,7 @@ const ProductFormPage = () => {
   } = useFormik({
     initialValues,
     validationSchema,
+    enableReinitialize: true,
     onSubmit,
   });
 
@@ -98,6 +101,35 @@ const ProductFormPage = () => {
     dispatch(fetchCollections());
   }, []);
 
+  useEffect(() => {
+    console.log('Pasikeite produktas redux product-slice');
+    if (product) {
+      const {
+        category: categoryId,
+        images,
+        ...props
+      } = product;
+      const category = categories.find((x) => x.id === categoryId);
+      const properties = category.properties.map((prop) => {
+        const formattedProp = { ...prop };
+        if (formattedProp.type !== 'range') {
+          formattedProp.data = collections.find((c) => c.title === prop.collection).data;
+        }
+        formattedProp.value = props[prop.name];
+        return formattedProp;
+      });
+      const productFormData = {
+        category: product.category,
+        images: product.images.map((x) => ({
+          src: x,
+        })),
+        properties,
+      };
+      initialValues = productFormData;
+      setValues(initialValues, true);
+    }
+  }, [product]);
+
   return (
     <Box>
       <Button onClick={() => navigate(-1)}>
@@ -105,7 +137,9 @@ const ProductFormPage = () => {
         <Typography sx={{ ml: 2 }}>Back</Typography>
       </Button>
       <Divider sx={{ mt: 2, mb: 1 }} />
-      <Typography variant="h2" sx={{ mb: 3 }}>Kurti naują produktą</Typography>
+      <Typography variant="h2" sx={{ mb: 3 }}>
+        {`${product ? 'Atnaujinti' : 'Kurti naują'} produktą`}
+      </Typography>
       <Grid container columnSpacing={4} component="form" onSubmit={handleSubmit}>
         <Grid item xs={7}>
 
@@ -158,7 +192,7 @@ const ProductFormPage = () => {
               size="large"
               disabled={!dirty || !isValid}
             >
-              Kurti
+              {product ? 'Atnaujinti' : 'Kurti'}
             </Button>
           </Paper>
         </Grid>

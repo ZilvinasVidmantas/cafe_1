@@ -240,6 +240,38 @@
       ],
       "category": "2",
       "price": "520"
+    },
+    {
+      "id": "ca9f1967-67f5-4eda-9cd5-2bd6c409fb84",
+      "images": [
+        "http://localhost:5000/images/images-1646760498254.jpg"
+      ],
+      "category": "2",
+      "price": "320.00"
+    },
+    {
+      "id": "fb2caa52-de02-4178-9c40-3091b8adb86f",
+      "images": [
+        "http://localhost:5000/images/images-1646760661976.jpg"
+      ],
+      "category": "2",
+      "price": "515"
+    },
+    {
+      "id": "6573ea16-52b8-4ec3-b9d2-c6ce209ca2ff",
+      "images": [
+        "http://localhost:5000/images/images-1646760721679.jpg"
+      ],
+      "category": "2",
+      "price": "524"
+    },
+    {
+      "id": "cec6e8f1-2873-44dd-a4ae-67d15c434905",
+      "images": [
+        "http://localhost:5000/images/images-1646760788998.jpg"
+      ],
+      "category": "2",
+      "price": "780"
     }
   ],
   "categories": [

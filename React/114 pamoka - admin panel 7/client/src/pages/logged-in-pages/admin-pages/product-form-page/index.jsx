@@ -9,6 +9,7 @@ import {
   MenuItem,
   Grid,
 } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useFormik } from 'formik';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +25,7 @@ import {
 import {
   createProduct,
   productSelector,
+  resetProduct,
 } from '../../../../store/product';
 import FileUploadField from '../../../../components/file-upload-field';
 import validationSchema from './validation-schema';
@@ -61,6 +63,8 @@ const ProductFormPage = () => {
     handleSubmit,
     setFieldValue,
     setValues,
+    setErrors,
+    setTouched,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -96,13 +100,24 @@ const ProductFormPage = () => {
       : x)));
   };
 
+  const handleResetProduct = () => {
+    dispatch(resetProduct());
+    initialValues = {
+      category: '',
+      images: [],
+      properties: [],
+    };
+    setValues(initialValues);
+    setErrors({});
+    setTouched({});
+  };
+
   useEffect(() => {
     dispatch(fetchCategories());
     dispatch(fetchCollections());
   }, []);
 
   useEffect(() => {
-    console.log('Pasikeite produktas redux product-slice');
     if (product) {
       const {
         category: categoryId,
@@ -217,6 +232,18 @@ const ProductFormPage = () => {
           </Box>
         </Grid>
       </Grid>
+      {product && (
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          sx={{ mb: 4, fontSize: 22 }}
+          onClick={handleResetProduct}
+        >
+          Kurti naują produktą
+          <AddCircleIcon sx={{ fontSize: 32, ml: 2 }} />
+        </Button>
+      )}
     </Box>
   );
 };

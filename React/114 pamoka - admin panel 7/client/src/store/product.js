@@ -22,6 +22,9 @@ const productSlice = createSlice({
     deleteError: (state) => {
       state.error = undefined;
     },
+    resetProduct: (state) => {
+      state.product = null;
+    },
   },
   extraReducers: {
     [createProduct.fulfilled]: (state, { payload }) => {
@@ -31,7 +34,7 @@ const productSlice = createSlice({
   },
 });
 
-export const { deleteError } = productSlice.actions;
+export const { deleteError, resetProduct } = productSlice.actions;
 
 export const productSelector = (state) => state.product.product;
 

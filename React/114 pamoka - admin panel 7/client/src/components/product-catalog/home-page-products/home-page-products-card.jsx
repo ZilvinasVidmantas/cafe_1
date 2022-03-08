@@ -8,8 +8,6 @@ import {
   Divider,
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useSelector } from 'react-redux';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { selectAuth } from '../../../store/auth';
@@ -33,8 +31,6 @@ const HomePageProductsCard = ({
     console.log('Pridedma į Krepšelį productas su id', id);
   };
 
-  const HeartIcon = Math.random() > 0.5 ? FavoriteIcon : FavoriteBorderIcon;
-
   return (
     <Paper
       sx={(theme) => ({
@@ -48,11 +44,6 @@ const HomePageProductsCard = ({
       })}
       onClick={navigate}
     >
-      <HeartIcon
-        className="favorite"
-        color="secondary"
-        sx={{ position: 'absolute', top: 4, right: 4 }}
-      />
       <Image src={images[0]} />
       <Box sx={{ p: 2 }}>
         <Box sx={{

@@ -14,7 +14,7 @@ const ProductProvider = ({ children }) => {
     changeCategory,
   } = useCategories();
   const { filters, changeFilter } = useFilters(selectedCategory);
-  const { limit, page } = usePagination();
+  const { limit, page, changePage } = usePagination(filters);
   const { products, total } = useProducts(selectedCategory);
 
   const contextValue = useMemo(() => ({
@@ -28,6 +28,7 @@ const ProductProvider = ({ children }) => {
     page,
     changeCategory,
     changeFilter,
+    changePage,
   }), [categories, selectedCategory, categoryName, filters, products, total, limit, page]);
 
   return (

@@ -2,16 +2,24 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchParamsToObject } from '../helpers/search-params-helpers';
 
-const usePagination = () => {
+const usePagination = (filters) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [limit, setLimit] = useState(12);
   const [page, setPage] = useState(1);
+  const [filtersChanged, setFiltersInitialized] = useState(false);
 
-  const syncToUrlParams = () => {
+  const syncToUrlParams = ({ limitParam, pageParam }) => {
     const urlParams = searchParamsToObject(searchParams);
-    urlParams.limit = limit;
-    urlParams.page = page;
+    urlParams.limit = limitParam ?? limit;
+    urlParams.page = pageParam ?? page;
     setSearchParams(urlParams);
+  };
+
+  const changePage = (newPage) => {
+    const urlParams = searchParamsToObject(searchParams);
+    urlParams.page = [newPage];
+    setSearchParams(urlParams);
+    setPage(newPage);
   };
 
   useEffect(() => {
@@ -23,13 +31,27 @@ const usePagination = () => {
     if (pageParam) {
       setPage(pageParam);
     }
+
+    syncToUrlParams({
+      limitParam,
+      pageParam,
+    });
   }, []);
 
   useEffect(() => {
-    syncToUrlParams();
-  }, [limit, page]);
+    if (filters.length > 0) {
+      if (filtersChanged) {
+        const urlParams = searchParamsToObject(searchParams);
+        urlParams.page = [1];
+        setSearchParams(urlParams);
+        setPage(1);
+      } else {
+        setFiltersInitialized(true);
+      }
+    }
+  }, [filters]);
 
-  return { limit, page };
+  return { limit, page, changePage };
 };
 
 export default usePagination;

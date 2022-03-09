@@ -36,6 +36,7 @@ const HomePageProductsHeader = () => {
     page,
     limit,
     categoryName,
+    changePage,
   } = useContext(ProductContext);
 
   const openSortMenu = () => setSortMenuOpen(true);
@@ -49,24 +50,34 @@ const HomePageProductsHeader = () => {
   };
 
   const handlePaginationChange = (_, pageClicked) => {
-    console.log(pageClicked);
+    changePage(pageClicked);
   };
 
-  const rangeString = total <= limit ? '' : `${(page - 1) * limit + 1}-${limit * page}`;
-  const searchResultString = `${categoryName} ${rangeString} (${total})`;
+  let rangeString = '';
+  if (total > limit) {
+    const from = (page - 1) * limit + 1;
+    const to = Math.min(limit * page, total);
+    rangeString = `${from}-${to}`;
+  }
+  const searchResultString = `${categoryName} ${rangeString} (total: ${total})`;
 
   return (
     <Paper sx={{ p: 2, display: 'flex', justifyContent: 'space-between' }}>
       <Typography variant="h6">{searchResultString}</Typography>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Pagination
-          count={6}
-          variant="outlined"
-          shape="rounded"
-          onChange={handlePaginationChange}
-          color="secondary"
-        />
-        <Divider orientation="vertical" sx={{ mx: 1 }} />
+        {total > limit && (
+          <>
+            <Pagination
+              count={Math.ceil(total / limit)}
+              page={Number(page)}
+              variant="outlined"
+              shape="rounded"
+              onChange={handlePaginationChange}
+              color="secondary"
+            />
+            <Divider orientation="vertical" sx={{ mx: 1 }} />
+          </>
+        )}
         <Button
           variant="outlined"
           color="secondary"

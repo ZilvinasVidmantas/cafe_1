@@ -301,7 +301,7 @@
         "http://localhost:5000/images/images-1646849838912.jpg"
       ],
       "category": "7",
-      "prices": "5",
+      "price": "5",
       "type": "1c51c114-e747-43ac-b6ea-e7f38e26216d",
       "weight": "300"
     }
@@ -394,7 +394,7 @@
       "icon": "StorageIcon",
       "properties": [
         {
-          "name": "prices",
+          "name": "price",
           "type": "range"
         },
         {

@@ -9,16 +9,17 @@ const useCategories = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categoryName, setCategoryName] = useState('');
 
-  const setCategoryFromUrl = (fetchedCategories) => {
+  const setCategoryFromUrl = () => {
     const categoryParam = searchParams.get('category');
-    const foundCategory = fetchedCategories.find((x) => x.id === categoryParam);
-    const category = foundCategory ?? fetchedCategories[0];
+    const foundCategory = categories.find((x) => x.id === categoryParam);
+    const category = foundCategory ?? categories[0];
     if (!foundCategory) {
-      setSearchParams({ category: category.id });
+      const newSearchParams = searchParams;
+      newSearchParams.set('category', category.id);
+      setSearchParams(newSearchParams);
     }
     setSelectedCategory(category.id);
     setCategoryName(category.title);
-    setCategories(fetchedCategories);
   };
 
   const changeCategory = (id) => {
@@ -39,9 +40,15 @@ const useCategories = () => {
         ...x,
         Icon: iconMap[icon],
       }));
-      setCategoryFromUrl(fetchedCategories);
+      setCategories(fetchedCategories);
     })();
   }, []);
+
+  useEffect(() => {
+    if (categories.length > 0) {
+      setCategoryFromUrl();
+    }
+  }, [categories]);
 
   return {
     categories,

@@ -7,6 +7,7 @@ const useCategories = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [categoryName, setCategoryName] = useState('');
 
   const setCategoryFromUrl = (fetchedCategories) => {
     const categoryParam = searchParams.get('category');
@@ -16,6 +17,7 @@ const useCategories = () => {
       setSearchParams({ category: category.id });
     }
     setSelectedCategory(category.id);
+    setCategoryName(category.title);
     setCategories(fetchedCategories);
   };
 
@@ -27,6 +29,7 @@ const useCategories = () => {
     });
     setSearchParams(newSerachParams);
     setSelectedCategory(id);
+    setCategoryName(categories.find((x) => x.id === id).title);
   };
 
   useEffect(() => {
@@ -43,6 +46,7 @@ const useCategories = () => {
   return {
     categories,
     selectedCategory,
+    categoryName,
     changeCategory,
   };
 };

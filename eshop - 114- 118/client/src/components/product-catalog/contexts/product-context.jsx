@@ -7,19 +7,28 @@ import usePagination from './use-pagination';
 export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-  const { categories, selectedCategory, changeCategory } = useCategories();
-  const { filters, changeFilter } = useFilters(selectedCategory);
-  usePagination();
-  const products = useProducts(selectedCategory);
-
-  const contextValue = useMemo(() => ({
-    products,
-    filters,
+  const {
     categories,
     selectedCategory,
+    categoryName,
+    changeCategory,
+  } = useCategories();
+  const { filters, changeFilter } = useFilters(selectedCategory);
+  const { limit, page } = usePagination();
+  const { products, total } = useProducts(selectedCategory);
+
+  const contextValue = useMemo(() => ({
+    categories,
+    selectedCategory,
+    categoryName,
+    filters,
+    products,
+    total,
+    limit,
+    page,
     changeCategory,
     changeFilter,
-  }), [categories, selectedCategory, filters, products]);
+  }), [categories, selectedCategory, categoryName, filters, products, total, limit, page]);
 
   return (
     <ProductContext.Provider value={contextValue}>

@@ -4,19 +4,21 @@ import ProductService from '../../../services/product-service';
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
+  const [total, setTotal] = useState(0);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
     (async () => {
       if (searchParams.get('category')) {
+        setTotal(0);
         const paginatedResult = await ProductService.fetchProducts(searchParams);
-        console.log(paginatedResult);
         setProducts(paginatedResult.products);
+        setTotal(paginatedResult.total);
       }
     })();
   }, [searchParams]);
 
-  return products;
+  return { products, total };
 };
 
 export default useProducts;

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import {
   Typography,
   Paper,
@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import { ProductContext } from '../contexts/product-context';
 
 const sortOptions = [
   { id: '1', title: 'Title', order: 'asc' },
@@ -30,6 +31,12 @@ const HomePageProductsHeader = () => {
   const sortButtonRef = useRef(null);
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
   const [sortOption, setSortOption] = useState(sortOptions[0]);
+  const {
+    total,
+    page,
+    limit,
+    categoryName,
+  } = useContext(ProductContext);
 
   const openSortMenu = () => setSortMenuOpen(true);
   const closeSortMenu = () => setSortMenuOpen(false);
@@ -45,9 +52,21 @@ const HomePageProductsHeader = () => {
     console.log(pageClicked);
   };
 
+  // page 1; limit 12 -> 1-12
+  // page 2; limit 12 -> 13-24
+  // page 3; limit 12 -> 25-36
+
   return (
     <Paper sx={{ p: 2, display: 'flex', justifyContent: 'space-between' }}>
-      <Typography variant="h6">Pasirinkta kategorija (128)</Typography>
+      <Typography variant="h6">
+        {categoryName}
+        {' '}
+        {`${(page - 1) * limit + 1}-${limit * page}`}
+        {' '}
+        (
+        {total}
+        )
+      </Typography>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Pagination
           count={6}
@@ -81,7 +100,7 @@ const HomePageProductsHeader = () => {
           open={sortMenuOpen}
           onClose={closeSortMenu}
         >
-          { sortOptions.map((x) => (
+          {sortOptions.map((x) => (
             <MenuItem key={x.id} onClick={() => handleSortSelect(x.id)}>
               <SortText title={x.title} order={x.order} />
             </MenuItem>

@@ -20,7 +20,12 @@ const useCategories = () => {
   };
 
   const changeCategory = (id) => {
-    setSearchParams({ category: id });
+    const newSerachParams = new URLSearchParams({
+      category: id,
+      limit: searchParams.get('limit'),
+      page: 1,
+    });
+    setSearchParams(newSerachParams);
     setSelectedCategory(id);
   };
 

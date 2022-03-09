@@ -52,21 +52,12 @@ const HomePageProductsHeader = () => {
     console.log(pageClicked);
   };
 
-  // page 1; limit 12 -> 1-12
-  // page 2; limit 12 -> 13-24
-  // page 3; limit 12 -> 25-36
+  const rangeString = total <= limit ? '' : `${(page - 1) * limit + 1}-${limit * page}`;
+  const searchResultString = `${categoryName} ${rangeString} (${total})`;
 
   return (
     <Paper sx={{ p: 2, display: 'flex', justifyContent: 'space-between' }}>
-      <Typography variant="h6">
-        {categoryName}
-        {' '}
-        {`${(page - 1) * limit + 1}-${limit * page}`}
-        {' '}
-        (
-        {total}
-        )
-      </Typography>
+      <Typography variant="h6">{searchResultString}</Typography>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Pagination
           count={6}

@@ -294,6 +294,16 @@
       "price": "520",
       "type": "2",
       "size": "9"
+    },
+    {
+      "id": "766c75fb-4945-49ec-a89c-dad13c82158a",
+      "images": [
+        "http://localhost:5000/images/images-1646849838912.jpg"
+      ],
+      "category": "7",
+      "prices": "5",
+      "type": "1c51c114-e747-43ac-b6ea-e7f38e26216d",
+      "weight": "300"
     }
   ],
   "categories": [

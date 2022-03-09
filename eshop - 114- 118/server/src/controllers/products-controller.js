@@ -41,9 +41,11 @@ const mapWithFilterCollection = (products, filter, collections) => {
 export const getProducts = (req, res) => {
   const DB = JSON.parse(JSON.stringify(database.data));
 
-  const { products, categories, filters } = DB;
+  const { products, categories } = DB;
   const {
     category: categoryId,
+    limit,
+    page,
     ...queryParams
   } = req.query;
 
@@ -60,7 +62,12 @@ export const getProducts = (req, res) => {
     }
   });
 
-  res.status(200).json(selectedProducts);
+  const paginatedResponse = {
+    total: selectedProducts.length,
+    products: selectedProducts.slice((page - 1) * limit, page * limit),
+  }
+
+  res.status(200).json(paginatedResponse);
 }
 
 export const createProduct = (req, res) => {

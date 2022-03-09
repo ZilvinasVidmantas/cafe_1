@@ -9,8 +9,9 @@ const useProducts = () => {
   useEffect(() => {
     (async () => {
       if (searchParams.get('category')) {
-        const fetchedProducts = await ProductService.fetchProducts(searchParams);
-        setProducts(fetchedProducts);
+        const paginatedResult = await ProductService.fetchProducts(searchParams);
+        console.log(paginatedResult);
+        setProducts(paginatedResult.products);
       }
     })();
   }, [searchParams]);

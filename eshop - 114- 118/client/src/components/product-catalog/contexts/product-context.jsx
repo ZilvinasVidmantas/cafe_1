@@ -2,12 +2,14 @@ import React, { createContext, useMemo } from 'react';
 import useCategories from './use-categories';
 import useFilters from './use-filters';
 import useProducts from './use-products';
+import usePagination from './use-pagination';
 
 export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const { categories, selectedCategory, changeCategory } = useCategories();
   const { filters, changeFilter } = useFilters(selectedCategory);
+  usePagination();
   const products = useProducts(selectedCategory);
 
   const contextValue = useMemo(() => ({
